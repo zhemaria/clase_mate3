@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lección 5.3 · Despeje de fórmulas literales y estrategia general de resolución</title>
+<style>
+  :root {
+    --tema:   #1b5e20;
+    --tema-d: #14441a;
+    --tema-bg:#c8e6c9;
+    --tema-bg2:#b6dbb8;
+    --acento: #1565c0;
+    --txt:    #222;
+    --bg:     #f5f7fa;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0; background: var(--bg); color: var(--txt);
+    line-height: 1.6; font-size: 16px;
+  }
+  .contenedor { max-width: 880px; margin: 0 auto; padding: 24px; }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  header.principal {
+    background: var(--tema);
+    background: linear-gradient(135deg, #14441a 0%, #1b5e20 55%, #2e7d32 100%);
+    color: #fff; padding: 32px 30px; border-radius: 14px;
+    margin-bottom: 22px; box-shadow: 0 4px 14px rgba(20,68,26,.28);
+  }
+  header.principal .ruta { font-size: 13px; opacity: .94; letter-spacing: .4px; text-transform: uppercase; }
+  header.principal h1 { margin: 8px 0 6px; font-size: 24px; font-weight: 700; }
+  header.principal .meta { font-size: 14px; opacity: .96; }
+
+  h2.seccion {
+    color: var(--tema-d); font-size: 21px; margin: 34px 0 12px;
+    padding-bottom: 6px; border-bottom: 3px solid var(--tema-bg);
+  }
+  h3 { color: var(--tema-d); font-size: 17px; margin: 20px 0 8px; }
+
+  .caja-objetivos {
+    background: var(--tema-bg); border-left: 6px solid var(--tema);
+    padding: 18px 22px; border-radius: 0 10px 10px 0; margin-bottom: 22px;
+  }
+  .caja-objetivos h2 { margin: 0 0 10px; color: var(--tema-d); font-size: 19px; }
+  .caja-objetivos ul { margin: 0; padding-left: 22px; }
+  .caja-objetivos li { margin: 5px 0; }
+
+  .bloque {
+    background: #fff; border-radius: 10px; padding: 4px 24px 18px;
+    box-shadow: 0 1px 5px rgba(0,0,0,.06); margin-bottom: 18px;
+  }
+  p { margin: 10px 0; }
+
+  .formula {
+    text-align: center; font-size: 20px; font-weight: 700;
+    color: var(--tema-d); margin: 14px 0;
+  }
+
+  .ejemplo {
+    background: #fafafa; border: 1px solid #e3e3e3;
+    border-radius: 8px; padding: 14px 18px; margin: 14px 0;
+  }
+  .ejemplo .et {
+    display: inline-block; background: var(--tema); color: #fff;
+    font-size: 12px; font-weight: 700; padding: 3px 12px;
+    border-radius: 12px; margin-bottom: 8px; letter-spacing: .4px;
+  }
+  .paso { margin: 7px 0; padding-left: 30px; position: relative; }
+  .paso .n {
+    position: absolute; left: 0; top: 0;
+    background: var(--tema-bg); color: var(--tema-d);
+    width: 22px; height: 22px; border-radius: 50%;
+    font-size: 13px; font-weight: 700; text-align: center; line-height: 22px;
+  }
+  .resalta { background: var(--tema-bg); padding: 1px 6px; border-radius: 5px; font-weight: 700; }
+
+  .caja-tip {
+    background: #e8f5e9; border-left: 5px solid #2e7d32;
+    padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 14px 0;
+    color: #1b5e20; font-size: 15px;
+  }
+  .caja-tip strong { color: #1b5e20; }
+  .caja-tip ol { margin: 8px 0 0; padding-left: 22px; }
+  .caja-tip li { margin: 4px 0; }
+
+  .caja-atencion {
+    background: #fff8e1; border-left: 5px solid #f9a825;
+    padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 14px 0;
+    font-size: 15px; color: #5C3900;
+  }
+  .caja-atencion strong { color: #5C3900; }
+
+  .reglas { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+  .reglas th, .reglas td { border: 1px solid #e0e0e0; padding: 9px 12px; text-align: left; }
+  .reglas th { background: var(--tema); color: #fff; }
+  .reglas td:first-child { background: var(--tema-bg); font-weight: 600; color: var(--tema-d); }
+
+  .practica {
+    background: var(--tema-bg2); border: 1px dashed var(--tema);
+    border-radius: 10px; padding: 16px 20px; margin: 18px 0;
+  }
+  .practica h3 { margin-top: 0; color: var(--tema-d); }
+  .pregunta { margin: 14px 0; }
+  .pregunta .enun { font-weight: 600; margin-bottom: 8px; }
+  .opciones { display: flex; flex-direction: column; gap: 7px; }
+  .opcion {
+    background: #fff; border: 2px solid #e0e0e0; border-radius: 8px;
+    padding: 9px 14px; cursor: pointer; transition: all .15s;
+  }
+  .opcion:hover { border-color: var(--tema); }
+  .opcion.correcta { border-color: #2e7d32; background: #e8f5e9; font-weight: 600; }
+  .opcion.incorrecta { border-color: #c62828; background: #ffebee; }
+  .opcion.elegida { border-color: var(--tema); }
+  .fb { margin-top: 8px; font-size: 14px; font-weight: 600; display: none; }
+  .fb.ok { color: #1b5e20; }
+  .fb.no { color: #c62828; }
+
+  .btn {
+    background: var(--tema); color: #fff; border: none;
+    padding: 9px 20px; border-radius: 8px; font-size: 14px;
+    font-weight: 700; cursor: pointer; font-family: inherit; margin-top: 8px;
+  }
+  .btn:hover { background: var(--tema-d); }
+  .btn.sec { background: #546e7a; }
+  .btn.sec:hover { background: #37474f; }
+
+  .modalidad { display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0; }
+  .modo { flex: 1; min-width: 230px; border-radius: 9px; padding: 14px 16px; font-size: 14px; }
+  .modo-pres { background: #e3f2fd; border-left: 5px solid #1565c0; }
+  .modo-pres strong { color: #0d47a1; }
+  .modo-virt { background: #f3e5f5; border-left: 5px solid #6a1b9a; }
+  .modo-virt strong { color: #4a148c; }
+  .modo h3 { margin: 0 0 6px; font-size: 15px; }
+  .modo-pres h3 { color: #0d47a1; }
+  .modo-virt h3 { color: #4a148c; }
+
+  .actividad { margin-bottom: 18px; }
+  .actividad > .titulo-act {
+    font-weight: 700; color: var(--tema-d); font-size: 15px;
+    background: var(--tema-bg); padding: 7px 14px; border-radius: 7px;
+  }
+
+  .caja-tarea {
+    background: #ede7f6; border-left: 6px solid #5e35b1;
+    padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 20px 0;
+  }
+  .caja-tarea h2 { margin-top: 0; color: #4527a0; }
+
+  .quiz { background: #fff; border: 2px solid var(--tema); border-radius: 12px; padding: 8px 24px 20px; margin: 22px 0; }
+  .quiz h2 { color: var(--tema-d); }
+  #resultado-quiz {
+    font-size: 17px; font-weight: 700; margin: 14px 0;
+    padding: 12px; border-radius: 8px; text-align: center; display: none;
+  }
+  #resultado-quiz.aprob { background: #e8f5e9; color: #1b5e20; }
+  #resultado-quiz.repro { background: #ffebee; color: #b71c1c; }
+
+  .rubrica { margin: 22px 0; overflow-x: auto; }
+  .rubrica h2 { color: var(--tema-d); }
+  table.tabla-rubrica {
+    width: 100%; border-collapse: collapse; font-size: 13px;
+    background: #fff; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,.07);
+  }
+  table.tabla-rubrica th, table.tabla-rubrica td {
+    border: 1px solid #e0e0e0; padding: 8px 10px; vertical-align: top;
+  }
+  table.tabla-rubrica th {
+    background: var(--tema); color: #fff; font-size: 12px;
+    text-transform: uppercase; letter-spacing: .3px;
+  }
+  table.tabla-rubrica td:first-child {
+    background: var(--tema-bg); font-weight: 600; color: var(--tema-d);
+  }
+
+  .cierre {
+    background: #263238; color: #eceff1; border-radius: 12px;
+    padding: 22px 26px; margin: 24px 0 10px;
+  }
+  .cierre h2 { color: #fff; margin-top: 0; }
+  .cierre strong { color: #9BFF8F; }
+
+  footer {
+    text-align: center; padding: 20px; color: #555;
+    font-size: 13px; border-top: 1px solid #ddd; margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="contenedor">
+
+  <header class="principal">
+    <div class="ruta">Spanish ASE Math · Nivel 3 · Tema 5 · Inecuaciones y fórmulas</div>
+    <h1>Lección 5.3 · Despeje de fórmulas literales y estrategia general de resolución</h1>
+    <div class="meta">4 horas (2 sincrónicas + 2 asincrónicas) · NRS 3–4 · Brightspace D2L</div>
+  </header>
+
+  <div class="caja-objetivos">
+    <h2>Objetivos de la lección</h2>
+    <ul>
+      <li>Despejar una variable específica en una fórmula literal usando las propiedades de igualdad.</li>
+      <li>Tratar las demás letras de la fórmula como si fueran constantes.</li>
+      <li>Aplicar una estrategia general de cuatro pasos para despejar.</li>
+      <li>Usar la fórmula despejada para resolver un problema de contexto.</li>
+      <li>Reconocer las fórmulas de uso frecuente en el GED.</li>
+    </ul>
+  </div>
+
+  <div class="bloque">
+    <p><strong>Conexión con la lección anterior.</strong> A lo largo del Tema 4 y la primera parte del Tema 5 se resolvieron ecuaciones e inecuaciones para encontrar el valor de <strong>x</strong>. Despejar una fórmula es exactamente lo mismo, con una diferencia: la variable que se busca está rodeada de <strong>otras letras</strong> en lugar de números. Como dice la idea clave, «despejar es resolver una ecuación donde la variable es un <strong>símbolo</strong>, no un número».</p>
+  </div>
+
+  <h2 class="seccion">1. ¿Qué es despejar una fórmula?</h2>
+  <div class="bloque">
+    <p>Una <strong>fórmula literal</strong> relaciona varias cantidades con letras, como d = rt (distancia = rapidez × tiempo). <strong>Despejar</strong> una de ellas significa reescribir la fórmula para que esa variable quede sola de un lado. Las demás letras se tratan como si fueran números conocidos.</p>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 1</span>
+      <p>En d = rt, despejar t.</p>
+      <div class="paso"><span class="n">1</span> La t está multiplicada por r. Para aislarla, se divide entre r en ambos lados.</div>
+      <div class="paso"><span class="n">2</span> d/r = t.</div>
+      <p><strong>Respuesta:</strong> t = d/r.</p>
+    </div>
+
+    <div class="caja-tip">
+      <strong>Las otras letras son «números»:</strong> al despejar t en d = rt, la r se trata igual que un número. Dividir entre r es como dividir entre 5 o entre cualquier número: una operación inversa para aislar la variable buscada.
+    </div>
+  </div>
+
+  <h2 class="seccion">2. La estrategia de cuatro pasos</h2>
+  <div class="bloque">
+    <p>Para despejar cualquier variable se sigue siempre la misma secuencia.</p>
+
+    <div class="caja-tip">
+      <strong>Cuatro pasos para despejar:</strong>
+      <ol>
+        <li><strong>Identificar</strong> qué variable se quiere despejar.</li>
+        <li><strong>Aislarla</strong> con las propiedades de igualdad (operaciones inversas), tratando las demás letras como números.</li>
+        <li><strong>Simplificar</strong> el resultado, con fracción si es necesario.</li>
+        <li><strong>Verificar</strong> que la variable buscada quedó sola de un lado.</li>
+      </ol>
+    </div>
+  </div>
+
+  <h2 class="seccion">3. Despejar en fórmulas comunes</h2>
+  <div class="bloque">
+    <p>Estas son algunas de las fórmulas que más aparecen en el examen GED. En cada una se puede despejar cualquiera de sus variables.</p>
+
+    <table class="reglas">
+      <caption class="sr-only">Fórmulas de uso frecuente en el GED.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Contexto</th>
+          <th scope="col">Fórmula</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Área de un rectángulo</td><td>A = bh</td></tr>
+        <tr><td>Perímetro de un rectángulo</td><td>P = 2l + 2w</td></tr>
+        <tr><td>Volumen de una caja</td><td>V = lwh</td></tr>
+        <tr><td>Interés simple</td><td>I = Prt</td></tr>
+        <tr><td>Distancia</td><td>d = rt</td></tr>
+        <tr><td>Temperatura (°F a partir de °C)</td><td>F = (9/5)C + 32</td></tr>
+      </tbody>
+    </table>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 2</span>
+      <p>En A = bh, despejar h.</p>
+      <div class="paso"><span class="n">1</span> La h está multiplicada por b: se divide entre b en ambos lados.</div>
+      <p><strong>Respuesta:</strong> h = A/b.</p>
+    </div>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 3</span>
+      <p>En I = Prt, despejar P.</p>
+      <div class="paso"><span class="n">1</span> La P está multiplicada por r y por t: se divide entre el producto rt.</div>
+      <p><strong>Respuesta:</strong> P = I/(rt).</p>
+    </div>
+  </div>
+
+  <div class="practica">
+    <h3>Práctica interactiva 1 · Despejar una variable</h3>
+    <p>Selecciona el despeje correcto.</p>
+
+    <div class="pregunta" data-correcta="a">
+      <div class="enun">1. En d = rt, despeja r.</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">r = d/t</div>
+        <div class="opcion" data-op="b">r = dt</div>
+        <div class="opcion" data-op="c">r = t/d</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+
+    <div class="pregunta" data-correcta="a">
+      <div class="enun">2. En A = lw, despeja l.</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">l = A/w</div>
+        <div class="opcion" data-op="b">l = Aw</div>
+        <div class="opcion" data-op="c">l = w/A</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+
+    <div class="pregunta" data-correcta="a">
+      <div class="enun">3. En P = a + b + c, despeja c.</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">c = P − a − b</div>
+        <div class="opcion" data-op="b">c = P + a + b</div>
+        <div class="opcion" data-op="c">c = P/(ab)</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+  </div>
+
+  <h2 class="seccion">4. Fórmulas de dos pasos</h2>
+  <div class="bloque">
+    <p>Algunas fórmulas requieren más de una operación para despejar, igual que las ecuaciones de varios pasos. Se deshacen las operaciones en orden inverso.</p>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 4 · Temperatura</span>
+      <p>En F = (9/5)C + 32, despejar C.</p>
+      <div class="paso"><span class="n">1</span> Se resta 32 en ambos lados: F − 32 = (9/5)C.</div>
+      <div class="paso"><span class="n">2</span> Se multiplica por 5/9 en ambos lados para deshacer el (9/5): (F − 32) · 5/9 = C.</div>
+      <p><strong>Respuesta:</strong> C = (F − 32) · 5/9.</p>
+    </div>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 5 · Recta</span>
+      <p>En y = mx + b, despejar b.</p>
+      <div class="paso"><span class="n">1</span> Se resta mx en ambos lados.</div>
+      <p><strong>Respuesta:</strong> b = y − mx.</p>
+    </div>
+
+    <div class="caja-atencion">
+      <strong>Orden inverso:</strong> en F = (9/5)C + 32, primero se quita el «+ 32» (resta) y luego el «× 9/5» (multiplicación por el recíproco). Es el mismo orden inverso de las ecuaciones de dos pasos.
+    </div>
+  </div>
+
+  <h2 class="seccion">5. Aplicar la fórmula despejada</h2>
+  <div class="bloque">
+    <p>Una vez despejada, la fórmula sirve para calcular la variable buscada sustituyendo los valores conocidos.</p>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 6</span>
+      <p>Un auto recorrió d = 120 km a una rapidez de r = 40 km/h. ¿Cuánto tiempo tardó?</p>
+      <div class="paso"><span class="n">1</span> Se usa la fórmula despejada: t = d/r.</div>
+      <div class="paso"><span class="n">2</span> Se sustituye: t = 120 / 40 = 3.</div>
+      <p><strong>Respuesta:</strong> el auto tardó 3 horas.</p>
+    </div>
+
+    <div class="caja-tip">
+      <strong>Conexión con la física:</strong> la misma idea aplica a F = ma (fuerza = masa × aceleración). Para hallar la aceleración a, se despeja a = F/m. Despejar es una herramienta general que aparece en geometría, finanzas y ciencias.
+    </div>
+  </div>
+
+  <h2 class="seccion">6. Práctica guiada en clase</h2>
+  <div class="bloque">
+    <p>Las siguientes tres actividades se realizan durante las horas sincrónicas. Cada una se presenta en doble modalidad: una versión para el aula presencial y otra para la sesión en línea.</p>
+
+    <div class="actividad">
+      <div class="titulo-act">Actividad 1 · El kit de fórmulas del GED</div>
+      <div class="modalidad">
+        <div class="modo modo-pres">
+          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
+          Con la tabla de fórmulas frecuentes a la vista, cada estudiante despeja una variable distinta de cada una de las ocho fórmulas, anotando junto a cada paso la propiedad de igualdad usada.
+        </div>
+        <div class="modo modo-virt">
+          <h3><span aria-hidden="true">💻</span> En línea</h3>
+          En un documento compartido, los estudiantes completan una tabla de tres columnas (fórmula, variable a despejar, fórmula despejada) para las ocho fórmulas del kit.
+        </div>
+      </div>
+    </div>
+
+    <div class="actividad">
+      <div class="titulo-act">Actividad 2 · Despejar y aplicar</div>
+      <div class="modalidad">
+        <div class="modo modo-pres">
+          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
+          Los estudiantes despejan la variable pedida en cuatro fórmulas y, a continuación, usan la fórmula despejada para resolver un problema de contexto con valores numéricos. Un voluntario muestra un caso completo en la pizarra.
+        </div>
+        <div class="modo modo-virt">
+          <h3><span aria-hidden="true">💻</span> En línea</h3>
+          En salas pequeñas, las parejas despejan dos fórmulas y aplican cada una en un problema numérico, registrando el despeje y el cálculo en una hoja compartida.
+        </div>
+      </div>
+    </div>
+
+    <div class="actividad">
+      <div class="titulo-act">Actividad 3 · ¿Qué necesito saber?</div>
+      <div class="modalidad">
+        <div class="modo modo-pres">
+          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
+          A partir de fórmulas como F = ma o I = Prt, los estudiantes determinan qué variable hay que despejar y qué datos hacen falta para encontrarla, conectando el despeje con situaciones de física y finanzas.
+        </div>
+        <div class="modo modo-virt">
+          <h3><span aria-hidden="true">💻</span> En línea</h3>
+          Cada estudiante elige dos fórmulas, indica en el chat qué variable despejaría según una pregunta dada y qué datos necesitaría para calcularla.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="caja-tarea">
+    <h2>Tarea asincrónica</h2>
+    <p>Para completar de forma individual en la plataforma <strong>MyOpenMath</strong> antes de la próxima sesión:</p>
+    <ul>
+      <li>Seis ejercicios de despejar una variable en una fórmula dada.</li>
+      <li>Cuatro ejercicios de aplicar una fórmula despejada en un problema de contexto con valores numéricos.</li>
+    </ul>
+    <p>La plataforma ofrece retroalimentación paso a paso en cada intento. Tiempo estimado: 50 minutos.</p>
+  </div>
+
+  <div class="quiz">
+    <h2>Quiz de la lección 5.3</h2>
+    <p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
+    <div id="quiz-cuerpo"></div>
+    <div id="resultado-quiz"></div>
+    <button class="btn" id="btn-corregir">Corregir quiz</button>
+    <button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
+  </div>
+
+  <div class="rubrica">
+    <h2>Rúbrica analítica de la lección</h2>
+    <p>Tres criterios evaluados en cuatro niveles de desempeño.</p>
+    <table class="tabla-rubrica">
+      <caption class="sr-only">Rúbrica analítica con tres criterios y cuatro niveles de desempeño.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Criterio</th>
+          <th scope="col">Inicial (1)</th>
+          <th scope="col">En desarrollo (2)</th>
+          <th scope="col">Competente (3)</th>
+          <th scope="col">Destacado (4)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Aislar la variable buscada</td>
+          <td>No aplica las propiedades de igualdad para despejar.</td>
+          <td>Aísla la variable con errores ocasionales.</td>
+          <td>Aísla la variable buscada correctamente.</td>
+          <td>Despeja con fluidez, tratando las demás letras como constantes.</td>
+        </tr>
+        <tr>
+          <td>Simplificar el resultado</td>
+          <td>Deja el despeje incompleto o mal escrito.</td>
+          <td>Simplifica con algún error en la fracción.</td>
+          <td>Simplifica el resultado correctamente, con fracción si hace falta.</td>
+          <td>Presenta el despeje en su forma más clara y simple.</td>
+        </tr>
+        <tr>
+          <td>Aplicar la fórmula despejada</td>
+          <td>No usa la fórmula despejada para calcular.</td>
+          <td>Sustituye los valores con errores.</td>
+          <td>Aplica la fórmula despejada y obtiene el valor correcto.</td>
+          <td>Aplica con fluidez e interpreta el resultado con unidades.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cierre">
+    <h2>Cierre del Tema 5 y enlace con el Tema 6</h2>
+    <p>Con esta lección se cierra el Tema 5. Ya se resuelven <strong>inecuaciones</strong> de todo tipo y se <strong>despejan fórmulas</strong> literales: identificar la variable buscada, aislarla tratando las demás letras como números, simplificar y aplicar la fórmula despejada en problemas reales. Con ello queda completa el álgebra lineal del Nivel 3.</p>
+    <p>El Tema 6 dará un giro hacia la <strong>geometría</strong>. Abrirá con la <strong>Lección 6.1 · Ángulos: relaciones y líneas paralelas cortadas por una transversal</strong>. El álgebra recién dominada será una herramienta constante: muchos problemas de geometría se resuelven planteando y resolviendo una ecuación, justo lo aprendido en estos dos temas.</p>
+  </div>
+
+  <footer>
+    Spanish ASE Math · Nivel 3 · Lección 5.3 — Preparado para Prof. José M. Fernández (Truman College, CCC) · Brightspace D2L
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  /* ---- Práctica de opciones (selección múltiple) ---- */
+  var preguntasOp = document.querySelectorAll('.practica .pregunta[data-correcta]');
+  preguntasOp.forEach(function (preg) {
+    var correcta = preg.getAttribute('data-correcta');
+    var opciones = preg.querySelectorAll('.opcion');
+    var fb = preg.querySelector('.fb');
+    opciones.forEach(function (op) {
+      op.addEventListener('click', function () {
+        opciones.forEach(function (o) { o.classList.remove('correcta', 'incorrecta', 'elegida'); });
+        var elegida = op.getAttribute('data-op');
+        if (elegida === correcta) {
+          op.classList.add('correcta');
+          fb.textContent = '¡Correcto! Bien razonado.';
+          fb.className = 'fb ok';
+        } else {
+          op.classList.add('incorrecta');
+          opciones.forEach(function (o) {
+            if (o.getAttribute('data-op') === correcta) o.classList.add('correcta');
+          });
+          fb.textContent = 'Revisa: la opción marcada en verde es la correcta.';
+          fb.className = 'fb no';
+        }
+        fb.style.display = 'block';
+      });
+    });
+  });
+
+  /* ---- Quiz ---- */
+  var preguntasQuiz = [
+    { enun: '1. En d = rt, despeja t.', ops: ['t = d/r', 't = dr', 't = r/d', 't = d − r'], correcta: 0 },
+    { enun: '2. En A = bh, despeja h.', ops: ['h = A/b', 'h = Ab', 'h = b/A', 'h = A − b'], correcta: 0 },
+    { enun: '3. En I = Prt, despeja P.', ops: ['P = I/(rt)', 'P = Irt', 'P = rt/I', 'P = I − rt'], correcta: 0 },
+    { enun: '4. En P = 2l + 2w, despeja w.', ops: ['w = (P − 2l)/2', 'w = P − 2l', 'w = 2P − 2l', 'w = (P + 2l)/2'], correcta: 0 },
+    { enun: '5. En y = mx + b, despeja b.', ops: ['b = y − mx', 'b = y + mx', 'b = mx − y', 'b = y/(mx)'], correcta: 0 },
+    { enun: '6. En V = lwh, despeja h.', ops: ['h = V/(lw)', 'h = Vlw', 'h = lw/V', 'h = V − lw'], correcta: 0 },
+    { enun: '7. En d = rt, si d = 120 y r = 40, halla t.', ops: ['t = 3', 't = 80', 't = 160', 't = 4800'], correcta: 0 },
+    { enun: '8. En A = bh, si A = 24 y b = 6, halla h.', ops: ['h = 4', 'h = 18', 'h = 144', 'h = 30'], correcta: 0 },
+    { enun: '9. En I = Prt, si I = 100, r = 0.05 y t = 2, halla P.', ops: ['P = 1000', 'P = 10', 'P = 100', 'P = 500'], correcta: 0 },
+    { enun: '10. En C = (F − 32) · 5/9, si F = 212, halla C.', ops: ['C = 100', 'C = 180', 'C = 32', 'C = 212'], correcta: 0 }
+  ];
+
+  var cuerpo = document.getElementById('quiz-cuerpo');
+  preguntasQuiz.forEach(function (p, i) {
+    var div = document.createElement('div');
+    div.className = 'pregunta';
+    div.setAttribute('data-idx', i);
+    var enun = document.createElement('div');
+    enun.className = 'enun';
+    enun.textContent = p.enun;
+    div.appendChild(enun);
+    var cont = document.createElement('div');
+    cont.className = 'opciones';
+    p.ops.forEach(function (texto, j) {
+      var op = document.createElement('div');
+      op.className = 'opcion';
+      op.setAttribute('data-j', j);
+      op.textContent = texto;
+      op.addEventListener('click', function () {
+        if (div.getAttribute('data-bloqueado') === 'si') return;
+        cont.querySelectorAll('.opcion').forEach(function (o) { o.classList.remove('elegida'); });
+        op.classList.add('elegida');
+        div.setAttribute('data-elegida', j);
+      });
+      cont.appendChild(op);
+    });
+    div.appendChild(cont);
+    var fb = document.createElement('div');
+    fb.className = 'fb';
+    div.appendChild(fb);
+    cuerpo.appendChild(div);
+  });
+
+  var btnCorregir = document.getElementById('btn-corregir');
+  var btnReintentar = document.getElementById('btn-reintentar');
+  var resultado = document.getElementById('resultado-quiz');
+
+  btnCorregir.addEventListener('click', function () {
+    var aciertos = 0;
+    var divs = cuerpo.querySelectorAll('.pregunta');
+    divs.forEach(function (div, i) {
+      var elegida = div.getAttribute('data-elegida');
+      var fb = div.querySelector('.fb');
+      var opciones = div.querySelectorAll('.opcion');
+      div.setAttribute('data-bloqueado', 'si');
+      opciones.forEach(function (o) { o.classList.remove('correcta', 'incorrecta'); });
+      if (elegida === null) {
+        fb.textContent = 'No se respondió esta pregunta.';
+        fb.className = 'fb no';
+        fb.style.display = 'block';
+        opciones[preguntasQuiz[i].correcta].classList.add('correcta');
+        return;
+      }
+      var idxElegida = parseInt(elegida, 10);
+      if (idxElegida === preguntasQuiz[i].correcta) {
+        aciertos++;
+        opciones[idxElegida].classList.add('correcta');
+        fb.textContent = '¡Correcto!';
+        fb.className = 'fb ok';
+      } else {
+        opciones[idxElegida].classList.add('incorrecta');
+        opciones[preguntasQuiz[i].correcta].classList.add('correcta');
+        fb.textContent = 'Incorrecto. La respuesta correcta está marcada en verde.';
+        fb.className = 'fb no';
+      }
+      fb.style.display = 'block';
+    });
+
+    resultado.style.display = 'block';
+    if (aciertos >= 7) {
+      resultado.className = 'aprob';
+      resultado.textContent = 'Resultado: ' + aciertos + ' de 10 correctas. ¡Aprobado! Has completado el Tema 5 y puedes continuar al Tema 6.';
+    } else {
+      resultado.className = 'repro';
+      resultado.textContent = 'Resultado: ' + aciertos + ' de 10 correctas. Repasa la lección e intenta de nuevo (se requieren 7).';
+    }
+    btnCorregir.style.display = 'none';
+    btnReintentar.style.display = 'inline-block';
+  });
+
+  btnReintentar.addEventListener('click', function () {
+    var divs = cuerpo.querySelectorAll('.pregunta');
+    divs.forEach(function (div) {
+      div.removeAttribute('data-elegida');
+      div.removeAttribute('data-bloqueado');
+      div.querySelectorAll('.opcion').forEach(function (o) { o.classList.remove('correcta', 'incorrecta', 'elegida'); });
+      var fb = div.querySelector('.fb');
+      fb.style.display = 'none';
+      fb.textContent = '';
+    });
+    resultado.style.display = 'none';
+    btnReintentar.style.display = 'none';
+    btnCorregir.style.display = 'inline-block';
+    window.scrollTo({ top: document.querySelector('.quiz').offsetTop - 20, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

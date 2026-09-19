@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lección 7.3 · Histogramas: construir, interpretar y comparar distribuciones</title>
+<style>
+  :root {
+    --tema:   #37474f;
+    --tema-d: #263238;
+    --tema-bg:#cfd8dc;
+    --tema-bg2:#b8c4ca;
+    --acento: #00838f;
+    --txt:    #222;
+    --bg:     #f5f7fa;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0; background: var(--bg); color: var(--txt);
+    line-height: 1.6; font-size: 16px;
+  }
+  .contenedor { max-width: 880px; margin: 0 auto; padding: 24px; }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  header.principal {
+    background: var(--tema);
+    background: linear-gradient(135deg, #263238 0%, #37474f 55%, #546e7a 100%);
+    color: #fff; padding: 32px 30px; border-radius: 14px;
+    margin-bottom: 22px; box-shadow: 0 4px 14px rgba(38,50,56,.28);
+  }
+  header.principal .ruta { font-size: 13px; opacity: .94; letter-spacing: .4px; text-transform: uppercase; }
+  header.principal h1 { margin: 8px 0 6px; font-size: 23px; font-weight: 700; }
+  header.principal .meta { font-size: 14px; opacity: .96; }
+
+  h2.seccion {
+    color: var(--tema-d); font-size: 21px; margin: 34px 0 12px;
+    padding-bottom: 6px; border-bottom: 3px solid var(--tema-bg);
+  }
+  h3 { color: var(--tema-d); font-size: 17px; margin: 20px 0 8px; }
+
+  .caja-objetivos {
+    background: var(--tema-bg); border-left: 6px solid var(--tema);
+    padding: 18px 22px; border-radius: 0 10px 10px 0; margin-bottom: 22px;
+  }
+  .caja-objetivos h2 { margin: 0 0 10px; color: var(--tema-d); font-size: 19px; }
+  .caja-objetivos ul { margin: 0; padding-left: 22px; }
+  .caja-objetivos li { margin: 5px 0; }
+
+  .bloque {
+    background: #fff; border-radius: 10px; padding: 4px 24px 18px;
+    box-shadow: 0 1px 5px rgba(0,0,0,.06); margin-bottom: 18px;
+  }
+  p { margin: 10px 0; }
+
+  .formula {
+    text-align: center; font-size: 20px; font-weight: 700;
+    color: var(--tema-d); margin: 14px 0;
+  }
+
+  .diagrama-wrap { text-align: center; margin: 16px 0; overflow-x: auto; }
+
+  .ejemplo {
+    background: #fafafa; border: 1px solid #e3e3e3;
+    border-radius: 8px; padding: 14px 18px; margin: 14px 0;
+  }
+  .ejemplo .et {
+    display: inline-block; background: var(--tema); color: #fff;
+    font-size: 12px; font-weight: 700; padding: 3px 12px;
+    border-radius: 12px; margin-bottom: 8px; letter-spacing: .4px;
+  }
+  .paso { margin: 7px 0; padding-left: 30px; position: relative; }
+  .paso .n {
+    position: absolute; left: 0; top: 0;
+    background: var(--tema-bg); color: var(--tema-d);
+    width: 22px; height: 22px; border-radius: 50%;
+    font-size: 13px; font-weight: 700; text-align: center; line-height: 22px;
+  }
+  .resalta { background: var(--tema-bg); padding: 1px 6px; border-radius: 5px; font-weight: 700; }
+
+  .caja-tip {
+    background: #e8f5e9; border-left: 5px solid #2e7d32;
+    padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 14px 0;
+    color: #1b5e20; font-size: 15px;
+  }
+  .caja-tip strong { color: #1b5e20; }
+
+  .caja-atencion {
+    background: #fff8e1; border-left: 5px solid #f9a825;
+    padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 14px 0;
+    font-size: 15px; color: #5C3900;
+  }
+  .caja-atencion strong { color: #5C3900; }
+
+  .reglas { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+  .reglas th, .reglas td { border: 1px solid #e0e0e0; padding: 9px 12px; text-align: left; }
+  .reglas th { background: var(--tema); color: #fff; }
+  .reglas td:first-child { background: var(--tema-bg); font-weight: 600; color: var(--tema-d); }
+
+  .practica {
+    background: var(--tema-bg2); border: 1px dashed var(--tema);
+    border-radius: 10px; padding: 16px 20px; margin: 18px 0;
+  }
+  .practica h3 { margin-top: 0; color: var(--tema-d); }
+  .pregunta { margin: 14px 0; }
+  .pregunta .enun { font-weight: 600; margin-bottom: 8px; }
+  .opciones { display: flex; flex-direction: column; gap: 7px; }
+  .opcion {
+    background: #fff; border: 2px solid #e0e0e0; border-radius: 8px;
+    padding: 9px 14px; cursor: pointer; transition: all .15s;
+  }
+  .opcion:hover { border-color: var(--tema); }
+  .opcion.correcta { border-color: #2e7d32; background: #e8f5e9; font-weight: 600; }
+  .opcion.incorrecta { border-color: #c62828; background: #ffebee; }
+  .opcion.elegida { border-color: var(--tema); }
+  .fb { margin-top: 8px; font-size: 14px; font-weight: 600; display: none; }
+  .fb.ok { color: #1b5e20; }
+  .fb.no { color: #c62828; }
+
+  .btn {
+    background: var(--tema); color: #fff; border: none;
+    padding: 9px 20px; border-radius: 8px; font-size: 14px;
+    font-weight: 700; cursor: pointer; font-family: inherit; margin-top: 8px;
+  }
+  .btn:hover { background: var(--tema-d); }
+  .btn.sec { background: #00838f; }
+  .btn.sec:hover { background: #006064; }
+
+  .modalidad { display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0; }
+  .modo { flex: 1; min-width: 230px; border-radius: 9px; padding: 14px 16px; font-size: 14px; }
+  .modo-pres { background: #e3f2fd; border-left: 5px solid #1565c0; }
+  .modo-pres strong { color: #0d47a1; }
+  .modo-virt { background: #f3e5f5; border-left: 5px solid #6a1b9a; }
+  .modo-virt strong { color: #4a148c; }
+  .modo h3 { margin: 0 0 6px; font-size: 15px; }
+  .modo-pres h3 { color: #0d47a1; }
+  .modo-virt h3 { color: #4a148c; }
+
+  .actividad { margin-bottom: 18px; }
+  .actividad > .titulo-act {
+    font-weight: 700; color: var(--tema-d); font-size: 15px;
+    background: var(--tema-bg); padding: 7px 14px; border-radius: 7px;
+  }
+
+  .caja-tarea {
+    background: #ede7f6; border-left: 6px solid #5e35b1;
+    padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 20px 0;
+  }
+  .caja-tarea h2 { margin-top: 0; color: #4527a0; }
+
+  .quiz { background: #fff; border: 2px solid var(--tema); border-radius: 12px; padding: 8px 24px 20px; margin: 22px 0; }
+  .quiz h2 { color: var(--tema-d); }
+  #resultado-quiz {
+    font-size: 17px; font-weight: 700; margin: 14px 0;
+    padding: 12px; border-radius: 8px; text-align: center; display: none;
+  }
+  #resultado-quiz.aprob { background: #e8f5e9; color: #1b5e20; }
+  #resultado-quiz.repro { background: #ffebee; color: #b71c1c; }
+
+  .rubrica { margin: 22px 0; overflow-x: auto; }
+  .rubrica h2 { color: var(--tema-d); }
+  table.tabla-rubrica {
+    width: 100%; border-collapse: collapse; font-size: 13px;
+    background: #fff; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,.07);
+  }
+  table.tabla-rubrica th, table.tabla-rubrica td {
+    border: 1px solid #e0e0e0; padding: 8px 10px; vertical-align: top;
+  }
+  table.tabla-rubrica th {
+    background: var(--tema); color: #fff; font-size: 12px;
+    text-transform: uppercase; letter-spacing: .3px;
+  }
+  table.tabla-rubrica td:first-child {
+    background: var(--tema-bg); font-weight: 600; color: var(--tema-d);
+  }
+
+  .cierre {
+    background: #1a2327; color: #eceff1; border-radius: 12px;
+    padding: 22px 26px; margin: 24px 0 10px;
+  }
+  .cierre h2 { color: #fff; margin-top: 0; }
+  .cierre strong { color: #9BFF8F; }
+
+  footer {
+    text-align: center; padding: 20px; color: #555;
+    font-size: 13px; border-top: 1px solid #ddd; margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="contenedor">
+
+  <header class="principal">
+    <div class="ruta">Spanish ASE Math · Nivel 3 · Tema 7 · Volumen y análisis de datos</div>
+    <h1>Lección 7.3 · Histogramas: construir, interpretar y comparar distribuciones</h1>
+    <div class="meta">4 horas (2 sincrónicas + 2 asincrónicas) · NRS 3–4 · Brightspace D2L</div>
+  </header>
+
+  <div class="caja-objetivos">
+    <h2>Objetivos de la lección</h2>
+    <ul>
+      <li>Distinguir un histograma de una gráfica de barras (barras contiguas = datos continuos).</li>
+      <li>Construir un histograma a partir de una tabla de frecuencias.</li>
+      <li>Describir la forma de la distribución (simétrica, sesgada, unimodal, bimodal).</li>
+      <li>Comparar un histograma con un diagrama de caja del mismo conjunto.</li>
+      <li>Elegir la representación gráfica más informativa para cada contexto.</li>
+    </ul>
+  </div>
+
+  <div class="bloque">
+    <p><strong>Conexión con la lección anterior.</strong> El diagrama de caja de la Lección 7.2 resume los datos en cinco números. El <strong>histograma</strong> ofrece otra mirada: muestra <strong>cuántos datos caen en cada intervalo</strong>, revelando la <strong>forma</strong> completa de la distribución. Juntas, ambas gráficas dan una imagen más rica de un mismo conjunto de datos.</p>
+  </div>
+
+  <h2 class="seccion">1. ¿Qué es un histograma?</h2>
+  <div class="bloque">
+    <p>Un <strong>histograma</strong> agrupa los datos en <strong>intervalos</strong> y dibuja una barra por cada uno, cuya altura es la <strong>frecuencia</strong> (cuántos datos caen en ese intervalo). A diferencia de la gráfica de barras, sus barras están <strong>pegadas</strong>, porque representan datos continuos.</p>
+
+    <div class="diagrama-wrap">
+      <svg width="520" height="280" viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Histograma con cinco intervalos contiguos. Las frecuencias, de izquierda a derecha, son 2, 5, 8, 4 y 1. La barra más alta es la del intervalo central, con frecuencia 8, por lo que los datos se concentran en el centro y la distribución tiene un solo pico.">
+        <line x1="60" y1="240" x2="470" y2="240" stroke="#263238" stroke-width="2"/>
+        <line x1="60" y1="40" x2="60" y2="240" stroke="#263238" stroke-width="2"/>
+        <rect x="60"  y="190" width="80" height="50"  fill="#546e7a" stroke="#263238" stroke-width="1.5"/>
+        <rect x="140" y="115" width="80" height="125" fill="#546e7a" stroke="#263238" stroke-width="1.5"/>
+        <rect x="220" y="40"  width="80" height="200" fill="#546e7a" stroke="#263238" stroke-width="1.5"/>
+        <rect x="300" y="140" width="80" height="100" fill="#546e7a" stroke="#263238" stroke-width="1.5"/>
+        <rect x="380" y="215" width="80" height="25"  fill="#546e7a" stroke="#263238" stroke-width="1.5"/>
+        <g font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">
+          <text x="100" y="218">2</text>
+          <text x="180" y="143">5</text>
+          <text x="260" y="68">8</text>
+          <text x="340" y="168">4</text>
+        </g>
+        <text x="420" y="208" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#263238" text-anchor="middle">1</text>
+        <text x="30" y="140" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#263238" transform="rotate(-90 30 140)" text-anchor="middle">Frecuencia</text>
+        <text x="265" y="268" font-family="Segoe UI, sans-serif" font-size="13" fill="#263238" text-anchor="middle">Intervalos de datos</text>
+      </svg>
+    </div>
+
+    <div class="caja-atencion">
+      <strong>Histograma no es gráfica de barras:</strong> en una gráfica de barras las columnas representan categorías separadas (y van con espacios), mientras que en el histograma las barras representan intervalos de un dato continuo y van <em>pegadas</em>. Es la diferencia clave a la hora de identificar cada gráfica.
+    </div>
+  </div>
+
+  <h2 class="seccion">2. Construir un histograma</h2>
+  <div class="bloque">
+    <p>Se parte de una <strong>tabla de frecuencias</strong>: cada fila indica un intervalo y cuántos datos caen en él. La altura de cada barra es esa frecuencia.</p>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 1</span>
+      <p>Una tabla indica que el intervalo 10–15 tiene una frecuencia de 8. ¿Qué altura tiene su barra?</p>
+      <div class="paso"><span class="n">1</span> La altura de la barra es igual a la frecuencia del intervalo.</div>
+      <p><strong>Respuesta:</strong> la barra del intervalo 10–15 llega hasta la altura 8.</p>
+    </div>
+
+    <div class="caja-tip">
+      <strong>Intervalos del mismo ancho:</strong> para que el histograma sea fácil de leer, todos los intervalos deben tener el mismo ancho (por ejemplo, de 5 en 5 años). Así, comparar las alturas equivale directamente a comparar las frecuencias.
+    </div>
+  </div>
+
+  <div class="practica">
+    <h3>Práctica interactiva 1 · Construir e identificar</h3>
+    <p>Selecciona la respuesta correcta de cada caso.</p>
+
+    <div class="pregunta" data-correcta="a">
+      <div class="enun">1. En un histograma, las barras están…</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">Pegadas (contiguas)</div>
+        <div class="opcion" data-op="b">Separadas</div>
+        <div class="opcion" data-op="c">En círculo</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+
+    <div class="pregunta" data-correcta="a">
+      <div class="enun">2. El eje vertical de un histograma muestra…</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">La frecuencia</div>
+        <div class="opcion" data-op="b">El nombre de cada categoría</div>
+        <div class="opcion" data-op="c">El total</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+
+    <div class="pregunta" data-correcta="a">
+      <div class="enun">3. Un intervalo con frecuencia 6 tiene una barra de altura…</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">6</div>
+        <div class="opcion" data-op="b">3</div>
+        <div class="opcion" data-op="c">12</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+  </div>
+
+  <h2 class="seccion">3. La forma de la distribución</h2>
+  <div class="bloque">
+    <p>La gran ventaja del histograma es que muestra la <strong>forma</strong> de los datos de un solo vistazo. Se describe con un vocabulario preciso:</p>
+
+    <table class="reglas">
+      <caption class="sr-only">Formas de una distribución y su descripción.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Forma</th>
+          <th scope="col">Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Simétrica</td><td>La misma forma a ambos lados del centro.</td></tr>
+        <tr><td>Sesgada a la derecha</td><td>Una cola larga hacia los valores altos.</td></tr>
+        <tr><td>Sesgada a la izquierda</td><td>Una cola larga hacia los valores bajos.</td></tr>
+        <tr><td>Unimodal</td><td>Un solo pico (una sola barra más alta).</td></tr>
+        <tr><td>Bimodal</td><td>Dos picos separados.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 2</span>
+      <p>Un histograma sube hasta un pico en el centro y baja a ambos lados de forma parecida. ¿Qué forma tiene?</p>
+      <div class="paso"><span class="n">1</span> Tiene un solo pico, así que es unimodal.</div>
+      <div class="paso"><span class="n">2</span> Los lados son parecidos, así que es aproximadamente simétrica.</div>
+      <p><strong>Respuesta:</strong> es una distribución unimodal y aproximadamente simétrica.</p>
+    </div>
+  </div>
+
+  <h2 class="seccion">4. Comparar histograma y diagrama de caja</h2>
+  <div class="bloque">
+    <p>Las dos gráficas describen el mismo conjunto desde ángulos distintos. Conviene saber cuándo usar cada una.</p>
+
+    <table class="reglas">
+      <caption class="sr-only">Qué muestra mejor cada representación gráfica.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Pregunta</th>
+          <th scope="col">Mejor representación</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>¿Cuál es la forma detallada de los datos?</td><td>Histograma</td></tr>
+        <tr><td>¿Cuáles son los cuartiles y los valores atípicos?</td><td>Diagrama de caja</td></tr>
+        <tr><td>¿Hay uno o dos picos?</td><td>Histograma</td></tr>
+        <tr><td>¿Qué tan dispersa está la mitad central?</td><td>Diagrama de caja</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="practica">
+    <h3>Práctica interactiva 2 · Forma y comparación</h3>
+    <p>Selecciona la respuesta correcta de cada caso.</p>
+
+    <div class="pregunta" data-correcta="a">
+      <div class="enun">1. Un histograma con una cola larga hacia los valores altos está…</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">Sesgado a la derecha</div>
+        <div class="opcion" data-op="b">Sesgado a la izquierda</div>
+        <div class="opcion" data-op="c">Simétrico</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+
+    <div class="pregunta" data-correcta="a">
+      <div class="enun">2. Una distribución con dos picos es…</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">Bimodal</div>
+        <div class="opcion" data-op="b">Unimodal</div>
+        <div class="opcion" data-op="c">Uniforme</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+
+    <div class="pregunta" data-correcta="a">
+      <div class="enun">3. ¿Qué gráfica muestra mejor los cuartiles?</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">El diagrama de caja</div>
+        <div class="opcion" data-op="b">El histograma</div>
+        <div class="opcion" data-op="c">La gráfica de barras</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+  </div>
+
+  <h2 class="seccion">5. Elegir la representación más informativa</h2>
+  <div class="bloque">
+    <p>No hay una gráfica «mejor» en abstracto: depende de la <strong>pregunta</strong>. Para ver la forma y los picos, conviene el histograma; para comparar la dispersión y detectar valores atípicos entre grupos, el diagrama de caja.</p>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 3 · Elegir según la pregunta</span>
+      <p>Se quiere saber si las edades de un salón se reparten en dos grupos de edad bien distintos. ¿Qué gráfica conviene?</p>
+      <div class="paso"><span class="n">1</span> La pregunta es sobre la forma: ¿hay uno o dos picos?</div>
+      <div class="paso"><span class="n">2</span> El histograma muestra los picos directamente; el diagrama de caja no.</div>
+      <p><strong>Respuesta:</strong> conviene el histograma, porque revela si la distribución es bimodal.</p>
+    </div>
+  </div>
+
+  <h2 class="seccion">6. Práctica guiada en clase</h2>
+  <div class="bloque">
+    <p>Las siguientes tres actividades se realizan durante las horas sincrónicas. Cada una se presenta en doble modalidad: una versión para el aula presencial y otra para la sesión en línea.</p>
+
+    <div class="actividad">
+      <div class="titulo-act">Actividad 1 · El perfil del salón</div>
+      <div class="modalidad">
+        <div class="modo modo-pres">
+          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
+          Los estudiantes recopilan un dato propio (edad o altura) y, con intervalos del mismo ancho, construyen el histograma del salón en papel cuadriculado, contando la frecuencia de cada intervalo.
+        </div>
+        <div class="modo modo-virt">
+          <h3><span aria-hidden="true">💻</span> En línea</h3>
+          A partir de una tabla de frecuencias compartida, cada estudiante indica la altura de cada barra y describe la forma resultante de la distribución.
+        </div>
+      </div>
+    </div>
+
+    <div class="actividad">
+      <div class="titulo-act">Actividad 2 · Las dos gráficas</div>
+      <div class="modalidad">
+        <div class="modo modo-pres">
+          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
+          Con el mismo conjunto de datos, los estudiantes construyen el histograma y el diagrama de caja, y discuten qué información aporta cada gráfica y cuál no se ve en la otra.
+        </div>
+        <div class="modo modo-virt">
+          <h3><span aria-hidden="true">💻</span> En línea</h3>
+          En salas pequeñas, las parejas comparan un histograma y un diagrama de caja del mismo conjunto y anotan dos cosas que solo se ven en cada uno.
+        </div>
+      </div>
+    </div>
+
+    <div class="actividad">
+      <div class="titulo-act">Actividad 3 · ¿Cuál elijo?</div>
+      <div class="modalidad">
+        <div class="modo modo-pres">
+          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
+          El docente plantea varias preguntas sobre un conjunto de datos y los estudiantes deciden, para cada una, si conviene el histograma o el diagrama de caja, justificando la elección.
+        </div>
+        <div class="modo modo-virt">
+          <h3><span aria-hidden="true">💻</span> En línea</h3>
+          Cada estudiante empareja cinco preguntas con la gráfica más informativa (histograma o caja) en una hoja compartida y explica una de sus elecciones.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="caja-tarea">
+    <h2>Tarea asincrónica</h2>
+    <p>Para completar de forma individual en la plataforma <strong>MyOpenMath</strong> antes de la próxima sesión:</p>
+    <ul>
+      <li>Cuatro ejercicios de construir o completar un histograma a partir de una tabla de frecuencias.</li>
+      <li>Cuatro ejercicios de describir la forma de la distribución (simétrica, sesgada, unimodal, bimodal).</li>
+      <li>Dos ejercicios de elegir y justificar la representación más informativa para un contexto.</li>
+    </ul>
+    <p>La plataforma ofrece retroalimentación paso a paso en cada intento. Tiempo estimado: 55 minutos.</p>
+  </div>
+
+  <div class="quiz">
+    <h2>Quiz de la lección 7.3</h2>
+    <p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
+    <div id="quiz-cuerpo"></div>
+    <div id="resultado-quiz"></div>
+    <button class="btn" id="btn-corregir">Corregir quiz</button>
+    <button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
+  </div>
+
+  <div class="rubrica">
+    <h2>Rúbrica analítica de la lección</h2>
+    <p>Cuatro criterios evaluados en cuatro niveles de desempeño.</p>
+    <table class="tabla-rubrica">
+      <caption class="sr-only">Rúbrica analítica con cuatro criterios y cuatro niveles de desempeño.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Criterio</th>
+          <th scope="col">Inicial (1)</th>
+          <th scope="col">En desarrollo (2)</th>
+          <th scope="col">Competente (3)</th>
+          <th scope="col">Destacado (4)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Construir el histograma</td>
+          <td>No relaciona la frecuencia con la altura de la barra.</td>
+          <td>Construye el histograma con errores de intervalo o frecuencia.</td>
+          <td>Construye el histograma con los intervalos y frecuencias correctos.</td>
+          <td>Construye con precisión, con intervalos de igual ancho y barras contiguas.</td>
+        </tr>
+        <tr>
+          <td>Describir la forma</td>
+          <td>No describe la forma de la distribución.</td>
+          <td>Describe la forma con terminología imprecisa.</td>
+          <td>Describe la forma con la terminología correcta.</td>
+          <td>Describe la forma con fluidez (simetría, sesgo, número de picos).</td>
+        </tr>
+        <tr>
+          <td>Comparar distribuciones</td>
+          <td>No compara las dos representaciones.</td>
+          <td>Compara usando una sola característica.</td>
+          <td>Compara dos distribuciones usando al menos dos estadísticas.</td>
+          <td>Compara con profundidad usando histograma y caja a la vez.</td>
+        </tr>
+        <tr>
+          <td>Elegir la representación</td>
+          <td>No elige según el contexto.</td>
+          <td>Elige sin justificar.</td>
+          <td>Elige la representación más informativa para el contexto.</td>
+          <td>Elige y justifica con claridad por qué esa gráfica es la mejor.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cierre">
+    <h2>Cierre del Tema 7 y enlace con el Tema 8</h2>
+    <p>Con esta lección se cierra el Tema 7. Ya se calcula el <strong>volumen</strong> de sólidos y se analizan datos con dos herramientas complementarias: el <strong>diagrama de caja</strong> (cinco valores, IQR, atípicos) y el <strong>histograma</strong> (forma de la distribución). También se sabe <strong>elegir</strong> la gráfica más informativa según la pregunta.</p>
+    <p>El Tema 8 cierra el Nivel 3. Abrirá con la <strong>Lección 8.1 · Principio fundamental del conteo, permutaciones y combinaciones</strong>, donde se aprenderá a contar de cuántas formas pueden ocurrir los eventos, base de la probabilidad. El tema culmina con un <strong>proyecto final integrador</strong> y la preparación para el GED Mathematical Reasoning.</p>
+  </div>
+
+  <footer>
+    Spanish ASE Math · Nivel 3 · Lección 7.3 — Preparado para Prof. José M. Fernández (Truman College, CCC) · Brightspace D2L
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  /* ---- Práctica de opciones (selección múltiple) ---- */
+  var preguntasOp = document.querySelectorAll('.practica .pregunta[data-correcta]');
+  preguntasOp.forEach(function (preg) {
+    var correcta = preg.getAttribute('data-correcta');
+    var opciones = preg.querySelectorAll('.opcion');
+    var fb = preg.querySelector('.fb');
+    opciones.forEach(function (op) {
+      op.addEventListener('click', function () {
+        opciones.forEach(function (o) { o.classList.remove('correcta', 'incorrecta', 'elegida'); });
+        var elegida = op.getAttribute('data-op');
+        if (elegida === correcta) {
+          op.classList.add('correcta');
+          fb.textContent = '¡Correcto! Bien razonado.';
+          fb.className = 'fb ok';
+        } else {
+          op.classList.add('incorrecta');
+          opciones.forEach(function (o) {
+            if (o.getAttribute('data-op') === correcta) o.classList.add('correcta');
+          });
+          fb.textContent = 'Revisa: la opción marcada en verde es la correcta.';
+          fb.className = 'fb no';
+        }
+        fb.style.display = 'block';
+      });
+    });
+  });
+
+  /* ---- Quiz ---- */
+  var preguntasQuiz = [
+    { enun: '1. En un histograma, las barras son…', ops: ['Contiguas (se tocan)', 'Separadas', 'Circulares', 'Siempre iguales'], correcta: 0 },
+    { enun: '2. El eje vertical de un histograma muestra…', ops: ['La frecuencia', 'El nombre de cada categoría', 'El promedio', 'El IQR'], correcta: 0 },
+    { enun: '3. Si el intervalo 10–15 tiene frecuencia 8, su barra tiene altura…', ops: ['8', '15', '10', '5'], correcta: 0 },
+    { enun: '4. Una distribución con la misma forma a ambos lados del centro es…', ops: ['Simétrica', 'Sesgada a la derecha', 'Bimodal', 'Uniforme'], correcta: 0 },
+    { enun: '5. Una distribución con una cola larga hacia los valores altos es…', ops: ['Sesgada a la derecha', 'Sesgada a la izquierda', 'Simétrica', 'Sin pico'], correcta: 0 },
+    { enun: '6. Una distribución con dos picos es…', ops: ['Bimodal', 'Unimodal', 'Simétrica', 'Uniforme'], correcta: 0 },
+    { enun: '7. Una distribución con un solo pico es…', ops: ['Unimodal', 'Bimodal', 'Sesgada', 'Sin moda'], correcta: 0 },
+    { enun: '8. La diferencia clave entre histograma y gráfica de barras es que el histograma representa…', ops: ['Datos continuos (intervalos)', 'Categorías separadas', 'Solo porcentajes', 'Solo dos grupos'], correcta: 0 },
+    { enun: '9. ¿Qué gráfica muestra mejor la forma detallada de la distribución?', ops: ['El histograma', 'El diagrama de caja', 'Ninguno', 'Ambos por igual'], correcta: 0 },
+    { enun: '10. ¿Qué gráfica muestra mejor los cuartiles y los valores atípicos?', ops: ['El diagrama de caja', 'El histograma', 'La gráfica circular', 'Ninguno'], correcta: 0 }
+  ];
+
+  var cuerpo = document.getElementById('quiz-cuerpo');
+  preguntasQuiz.forEach(function (p, i) {
+    var div = document.createElement('div');
+    div.className = 'pregunta';
+    div.setAttribute('data-idx', i);
+    var enun = document.createElement('div');
+    enun.className = 'enun';
+    enun.textContent = p.enun;
+    div.appendChild(enun);
+    var cont = document.createElement('div');
+    cont.className = 'opciones';
+    p.ops.forEach(function (texto, j) {
+      var op = document.createElement('div');
+      op.className = 'opcion';
+      op.setAttribute('data-j', j);
+      op.textContent = texto;
+      op.addEventListener('click', function () {
+        if (div.getAttribute('data-bloqueado') === 'si') return;
+        cont.querySelectorAll('.opcion').forEach(function (o) { o.classList.remove('elegida'); });
+        op.classList.add('elegida');
+        div.setAttribute('data-elegida', j);
+      });
+      cont.appendChild(op);
+    });
+    div.appendChild(cont);
+    var fb = document.createElement('div');
+    fb.className = 'fb';
+    div.appendChild(fb);
+    cuerpo.appendChild(div);
+  });
+
+  var btnCorregir = document.getElementById('btn-corregir');
+  var btnReintentar = document.getElementById('btn-reintentar');
+  var resultado = document.getElementById('resultado-quiz');
+
+  btnCorregir.addEventListener('click', function () {
+    var aciertos = 0;
+    var divs = cuerpo.querySelectorAll('.pregunta');
+    divs.forEach(function (div, i) {
+      var elegida = div.getAttribute('data-elegida');
+      var fb = div.querySelector('.fb');
+      var opciones = div.querySelectorAll('.opcion');
+      div.setAttribute('data-bloqueado', 'si');
+      opciones.forEach(function (o) { o.classList.remove('correcta', 'incorrecta'); });
+      if (elegida === null) {
+        fb.textContent = 'No se respondió esta pregunta.';
+        fb.className = 'fb no';
+        fb.style.display = 'block';
+        opciones[preguntasQuiz[i].correcta].classList.add('correcta');
+        return;
+      }
+      var idxElegida = parseInt(elegida, 10);
+      if (idxElegida === preguntasQuiz[i].correcta) {
+        aciertos++;
+        opciones[idxElegida].classList.add('correcta');
+        fb.textContent = '¡Correcto!';
+        fb.className = 'fb ok';
+      } else {
+        opciones[idxElegida].classList.add('incorrecta');
+        opciones[preguntasQuiz[i].correcta].classList.add('correcta');
+        fb.textContent = 'Incorrecto. La respuesta correcta está marcada en verde.';
+        fb.className = 'fb no';
+      }
+      fb.style.display = 'block';
+    });
+
+    resultado.style.display = 'block';
+    if (aciertos >= 7) {
+      resultado.className = 'aprob';
+      resultado.textContent = 'Resultado: ' + aciertos + ' de 10 correctas. ¡Aprobado! Has completado el Tema 7 y puedes continuar al Tema 8.';
+    } else {
+      resultado.className = 'repro';
+      resultado.textContent = 'Resultado: ' + aciertos + ' de 10 correctas. Repasa la lección e intenta de nuevo (se requieren 7).';
+    }
+    btnCorregir.style.display = 'none';
+    btnReintentar.style.display = 'inline-block';
+  });
+
+  btnReintentar.addEventListener('click', function () {
+    var divs = cuerpo.querySelectorAll('.pregunta');
+    divs.forEach(function (div) {
+      div.removeAttribute('data-elegida');
+      div.removeAttribute('data-bloqueado');
+      div.querySelectorAll('.opcion').forEach(function (o) { o.classList.remove('correcta', 'incorrecta', 'elegida'); });
+      var fb = div.querySelector('.fb');
+      fb.style.display = 'none';
+      fb.textContent = '';
+    });
+    resultado.style.display = 'none';
+    btnReintentar.style.display = 'none';
+    btnCorregir.style.display = 'inline-block';
+    window.scrollTo({ top: document.querySelector('.quiz').offsetTop - 20, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

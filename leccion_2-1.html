@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lección 2.1 · Conversión decimal ↔ científica y órdenes de magnitud</title>
+<style>
+  :root {
+    --tema:   #1a237e;
+    --tema-d: #11164f;
+    --tema-bg:#e8eaf6;
+    --tema-bg2:#dde0f2;
+    --acento: #00695c;
+    --txt:    #222;
+    --bg:     #f5f7fa;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0; background: var(--bg); color: var(--txt);
+    line-height: 1.6; font-size: 16px;
+  }
+  .contenedor { max-width: 880px; margin: 0 auto; padding: 24px; }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  header.principal {
+    background: var(--tema);
+    background: linear-gradient(135deg, #0d1452 0%, #1a237e 55%, #283593 100%);
+    color: #fff; padding: 32px 30px; border-radius: 14px;
+    margin-bottom: 22px; box-shadow: 0 4px 14px rgba(13,20,82,.28);
+  }
+  header.principal .ruta { font-size: 13px; opacity: .94; letter-spacing: .4px; text-transform: uppercase; }
+  header.principal h1 { margin: 8px 0 6px; font-size: 25px; font-weight: 700; }
+  header.principal .meta { font-size: 14px; opacity: .96; }
+
+  h2.seccion {
+    color: var(--tema-d); font-size: 21px; margin: 34px 0 12px;
+    padding-bottom: 6px; border-bottom: 3px solid var(--tema-bg);
+  }
+  h3 { color: var(--tema-d); font-size: 17px; margin: 20px 0 8px; }
+
+  .caja-objetivos {
+    background: var(--tema-bg); border-left: 6px solid var(--tema);
+    padding: 18px 22px; border-radius: 0 10px 10px 0; margin-bottom: 22px;
+  }
+  .caja-objetivos h2 { margin: 0 0 10px; color: var(--tema-d); font-size: 19px; }
+  .caja-objetivos ul { margin: 0; padding-left: 22px; }
+  .caja-objetivos li { margin: 5px 0; }
+
+  .bloque {
+    background: #fff; border-radius: 10px; padding: 4px 24px 18px;
+    box-shadow: 0 1px 5px rgba(0,0,0,.06); margin-bottom: 18px;
+  }
+  p { margin: 10px 0; }
+
+  .formula {
+    text-align: center; font-size: 20px; font-weight: 700;
+    color: var(--tema-d); margin: 14px 0;
+  }
+
+  .ejemplo {
+    background: #fafafa; border: 1px solid #e3e3e3;
+    border-radius: 8px; padding: 14px 18px; margin: 14px 0;
+  }
+  .ejemplo .et {
+    display: inline-block; background: var(--tema); color: #fff;
+    font-size: 12px; font-weight: 700; padding: 3px 12px;
+    border-radius: 12px; margin-bottom: 8px; letter-spacing: .4px;
+  }
+  .paso { margin: 7px 0; padding-left: 30px; position: relative; }
+  .paso .n {
+    position: absolute; left: 0; top: 0;
+    background: var(--tema-bg); color: var(--tema-d);
+    width: 22px; height: 22px; border-radius: 50%;
+    font-size: 13px; font-weight: 700; text-align: center; line-height: 22px;
+  }
+  .resalta { background: var(--tema-bg); padding: 1px 6px; border-radius: 5px; font-weight: 700; }
+
+  .caja-tip {
+    background: #e8f5e9; border-left: 5px solid #2e7d32;
+    padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 14px 0;
+    color: #1b5e20; font-size: 15px;
+  }
+  .caja-tip strong { color: #1b5e20; }
+
+  .caja-atencion {
+    background: #fff8e1; border-left: 5px solid #f9a825;
+    padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 14px 0;
+    font-size: 15px; color: #5C3900;
+  }
+  .caja-atencion strong { color: #5C3900; }
+
+  .reglas { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+  .reglas th, .reglas td { border: 1px solid #e0e0e0; padding: 9px 12px; text-align: left; }
+  .reglas th { background: var(--tema); color: #fff; }
+  .reglas td:first-child { background: var(--tema-bg); font-weight: 600; color: var(--tema-d); }
+
+  .practica {
+    background: var(--tema-bg2); border: 1px dashed var(--tema);
+    border-radius: 10px; padding: 16px 20px; margin: 18px 0;
+  }
+  .practica h3 { margin-top: 0; color: var(--tema-d); }
+  .pregunta { margin: 14px 0; }
+  .pregunta .enun { font-weight: 600; margin-bottom: 8px; }
+  .opciones { display: flex; flex-direction: column; gap: 7px; }
+  .opcion {
+    background: #fff; border: 2px solid #e0e0e0; border-radius: 8px;
+    padding: 9px 14px; cursor: pointer; transition: all .15s;
+  }
+  .opcion:hover { border-color: var(--tema); }
+  .opcion.correcta { border-color: #2e7d32; background: #e8f5e9; font-weight: 600; }
+  .opcion.incorrecta { border-color: #c62828; background: #ffebee; }
+  .opcion.elegida { border-color: var(--tema); }
+  .fb { margin-top: 8px; font-size: 14px; font-weight: 600; display: none; }
+  .fb.ok { color: #1b5e20; }
+  .fb.no { color: #c62828; }
+
+  .btn {
+    background: var(--tema); color: #fff; border: none;
+    padding: 9px 20px; border-radius: 8px; font-size: 14px;
+    font-weight: 700; cursor: pointer; font-family: inherit; margin-top: 8px;
+  }
+  .btn:hover { background: var(--tema-d); }
+  .btn.sec { background: #546e7a; }
+  .btn.sec:hover { background: #37474f; }
+
+  .modalidad { display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0; }
+  .modo { flex: 1; min-width: 230px; border-radius: 9px; padding: 14px 16px; font-size: 14px; }
+  .modo-pres { background: #e3f2fd; border-left: 5px solid #1565c0; }
+  .modo-pres strong { color: #0d47a1; }
+  .modo-virt { background: #f3e5f5; border-left: 5px solid #6a1b9a; }
+  .modo-virt strong { color: #4a148c; }
+  .modo h3 { margin: 0 0 6px; font-size: 15px; }
+  .modo-pres h3 { color: #0d47a1; }
+  .modo-virt h3 { color: #4a148c; }
+
+  .actividad { margin-bottom: 18px; }
+  .actividad > .titulo-act {
+    font-weight: 700; color: var(--tema-d); font-size: 15px;
+    background: var(--tema-bg); padding: 7px 14px; border-radius: 7px;
+  }
+
+  .caja-tarea {
+    background: #ede7f6; border-left: 6px solid #5e35b1;
+    padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 20px 0;
+  }
+  .caja-tarea h2 { margin-top: 0; color: #4527a0; }
+
+  .quiz { background: #fff; border: 2px solid var(--tema); border-radius: 12px; padding: 8px 24px 20px; margin: 22px 0; }
+  .quiz h2 { color: var(--tema-d); }
+  #resultado-quiz {
+    font-size: 17px; font-weight: 700; margin: 14px 0;
+    padding: 12px; border-radius: 8px; text-align: center; display: none;
+  }
+  #resultado-quiz.aprob { background: #e8f5e9; color: #1b5e20; }
+  #resultado-quiz.repro { background: #ffebee; color: #b71c1c; }
+
+  .rubrica { margin: 22px 0; overflow-x: auto; }
+  .rubrica h2 { color: var(--tema-d); }
+  table.tabla-rubrica {
+    width: 100%; border-collapse: collapse; font-size: 13px;
+    background: #fff; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,.07);
+  }
+  table.tabla-rubrica th, table.tabla-rubrica td {
+    border: 1px solid #e0e0e0; padding: 8px 10px; vertical-align: top;
+  }
+  table.tabla-rubrica th {
+    background: var(--tema); color: #fff; font-size: 12px;
+    text-transform: uppercase; letter-spacing: .3px;
+  }
+  table.tabla-rubrica td:first-child {
+    background: var(--tema-bg); font-weight: 600; color: var(--tema-d);
+  }
+
+  .cierre {
+    background: #263238; color: #eceff1; border-radius: 12px;
+    padding: 22px 26px; margin: 24px 0 10px;
+  }
+  .cierre h2 { color: #fff; margin-top: 0; }
+  .cierre strong { color: #9BFF8F; }
+
+  footer {
+    text-align: center; padding: 20px; color: #555;
+    font-size: 13px; border-top: 1px solid #ddd; margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="contenedor">
+
+  <header class="principal">
+    <div class="ruta">Spanish ASE Math · Nivel 3 · Tema 2 · Notación científica</div>
+    <h1>Lección 2.1 · Conversión decimal ↔ científica y órdenes de magnitud</h1>
+    <div class="meta">4 horas (2 sincrónicas + 2 asincrónicas) · NRS 3–4 · Brightspace D2L</div>
+  </header>
+
+  <div class="caja-objetivos">
+    <h2>Objetivos de la lección</h2>
+    <ul>
+      <li>Convertir números muy grandes y muy pequeños de notación decimal a notación científica (a × 10ⁿ, con 1 ≤ a &lt; 10).</li>
+      <li>Convertir de notación científica a notación decimal estándar.</li>
+      <li>Conectar el movimiento del punto decimal con el exponente de 10.</li>
+      <li>Determinar el orden de magnitud de una cantidad.</li>
+      <li>Comparar y ordenar cantidades de distintos órdenes de magnitud.</li>
+    </ul>
+  </div>
+
+  <div class="bloque">
+    <p><strong>Conexión con el tema anterior.</strong> El Tema 1 dejó dominadas las reglas de los exponentes, incluidas las potencias de 10 y los exponentes negativos. La notación científica es la aplicación más útil de esas reglas: emplea potencias de 10 —con exponente <strong>positivo</strong> para los números grandes y <strong>negativo</strong> para los pequeños— con el fin de escribir de forma compacta cantidades tan enormes como la masa del Sol o tan diminutas como la de un electrón.</p>
+  </div>
+
+  <h2 class="seccion">1. ¿Qué es la notación científica?</h2>
+  <div class="bloque">
+    <p>La notación científica expresa cualquier número como el producto de dos partes: un <strong>coeficiente</strong> y una <strong>potencia de 10</strong>.</p>
+    <p class="formula">a × 10ⁿ&nbsp;&nbsp;&nbsp;con&nbsp;&nbsp;&nbsp;1 ≤ a &lt; 10</p>
+    <p>El coeficiente <strong>a</strong> es siempre un número mayor o igual a 1 y menor que 10 (un solo dígito antes del punto decimal). El exponente <strong>n</strong> indica cuántos lugares se movió el punto decimal y en qué dirección.</p>
+    <div class="caja-tip">
+      <strong>Para qué sirve:</strong> escribir 5,970,000,000,000,000,000,000,000 es propenso a errores. En notación científica es 5.97 × 10²⁴. La notación científica hace manejables los números que de otro modo serían imposibles de leer o comparar.
+    </div>
+  </div>
+
+  <h2 class="seccion">2. De decimal a científica: números grandes</h2>
+  <div class="bloque">
+    <p>Para un número grande, se mueve el punto decimal hacia la <strong>izquierda</strong> hasta que quede un solo dígito (de 1 a 9) antes del punto. La cantidad de lugares movidos es el exponente <strong>positivo</strong> de 10.</p>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 1</span>
+      <p>Escribir 4,500,000 en notación científica.</p>
+      <div class="paso"><span class="n">1</span> Se coloca el punto después del primer dígito distinto de cero: 4.5.</div>
+      <div class="paso"><span class="n">2</span> Se cuentan los lugares que se movió el punto desde el final: 6 lugares hacia la izquierda.</div>
+      <div class="paso"><span class="n">3</span> El exponente es +6.</div>
+      <p><strong>Respuesta:</strong> 4,500,000 = 4.5 × 10⁶.</p>
+    </div>
+
+    <div class="caja-atencion">
+      <strong>El coeficiente manda:</strong> 45 × 10⁵ usa potencias de 10, pero <em>no</em> es notación científica válida, porque 45 no está entre 1 y 10. La forma correcta es 4.5 × 10⁶.
+    </div>
+  </div>
+
+  <h2 class="seccion">3. De decimal a científica: números pequeños</h2>
+  <div class="bloque">
+    <p>Para un número pequeño (menor que 1), se mueve el punto decimal hacia la <strong>derecha</strong> hasta pasar el primer dígito distinto de cero. La cantidad de lugares movidos es el exponente <strong>negativo</strong> de 10.</p>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 2</span>
+      <p>Escribir 0.00032 en notación científica.</p>
+      <div class="paso"><span class="n">1</span> Se mueve el punto hacia la derecha hasta pasar el 3: 3.2.</div>
+      <div class="paso"><span class="n">2</span> Se cuentan los lugares: 4 hacia la derecha.</div>
+      <div class="paso"><span class="n">3</span> Como el número es pequeño, el exponente es negativo: −4.</div>
+      <p><strong>Respuesta:</strong> 0.00032 = 3.2 × 10⁻⁴.</p>
+    </div>
+
+    <div class="caja-tip">
+      <strong>Regla de la dirección:</strong> número grande (mayor que 10) → exponente positivo; número pequeño (menor que 1) → exponente negativo. El signo del exponente revela de inmediato si la cantidad es enorme o diminuta.
+    </div>
+  </div>
+
+  <div class="practica">
+    <h3>Práctica interactiva 1 · De decimal a científica</h3>
+    <p>Selecciona la notación científica correcta de cada número.</p>
+
+    <div class="pregunta" data-correcta="b">
+      <div class="enun">1. 6,200 =</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">6.2 × 10²</div>
+        <div class="opcion" data-op="b">6.2 × 10³</div>
+        <div class="opcion" data-op="c">62 × 10²</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+
+    <div class="pregunta" data-correcta="c">
+      <div class="enun">2. 410,000 =</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">4.1 × 10⁴</div>
+        <div class="opcion" data-op="b">41 × 10⁴</div>
+        <div class="opcion" data-op="c">4.1 × 10⁵</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+
+    <div class="pregunta" data-correcta="a">
+      <div class="enun">3. 0.0072 =</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">7.2 × 10⁻³</div>
+        <div class="opcion" data-op="b">7.2 × 10⁻²</div>
+        <div class="opcion" data-op="c">7.2 × 10³</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+  </div>
+
+  <h2 class="seccion">4. De científica a decimal</h2>
+  <div class="bloque">
+    <p>El proceso inverso usa el exponente para decidir hacia dónde mover el punto y cuántos lugares: exponente <strong>positivo</strong>, el punto va a la derecha (el número crece); exponente <strong>negativo</strong>, el punto va a la izquierda (el número se achica). Se rellena con ceros según haga falta.</p>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 3 · Exponente positivo</span>
+      <p>Escribir 3.7 × 10⁵ en notación decimal.</p>
+      <div class="paso"><span class="n">1</span> El exponente +5 indica mover el punto 5 lugares a la derecha.</div>
+      <div class="paso"><span class="n">2</span> 3.7 → 370000, agregando los ceros necesarios.</div>
+      <p><strong>Respuesta:</strong> 3.7 × 10⁵ = 370,000.</p>
+    </div>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 4 · Exponente negativo</span>
+      <p>Escribir 5.6 × 10⁻³ en notación decimal.</p>
+      <div class="paso"><span class="n">1</span> El exponente −3 indica mover el punto 3 lugares a la izquierda.</div>
+      <div class="paso"><span class="n">2</span> 5.6 → 0.0056, agregando ceros a la izquierda.</div>
+      <p><strong>Respuesta:</strong> 5.6 × 10⁻³ = 0.0056.</p>
+    </div>
+  </div>
+
+  <div class="practica">
+    <h3>Práctica interactiva 2 · De científica a decimal y comparar</h3>
+    <p>Selecciona la respuesta correcta de cada caso.</p>
+
+    <div class="pregunta" data-correcta="c">
+      <div class="enun">1. 4.8 × 10⁴ =</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">480</div>
+        <div class="opcion" data-op="b">4,800</div>
+        <div class="opcion" data-op="c">48,000</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+
+    <div class="pregunta" data-correcta="a">
+      <div class="enun">2. 3 × 10⁻³ =</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">0.003</div>
+        <div class="opcion" data-op="b">0.03</div>
+        <div class="opcion" data-op="c">300</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+
+    <div class="pregunta" data-correcta="b">
+      <div class="enun">3. ¿Cuál cantidad es mayor?</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">8 × 10⁵</div>
+        <div class="opcion" data-op="b">5 × 10⁶</div>
+        <div class="opcion" data-op="c">Son iguales</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+  </div>
+
+  <h2 class="seccion">5. Orden de magnitud y comparación</h2>
+  <div class="bloque">
+    <p>El exponente de 10 indica el <strong>orden de magnitud</strong>: cuántos «ceros» de tamaño tiene una cantidad. Para comparar dos números en notación científica, se mira primero el <strong>exponente</strong>; solo si los exponentes son iguales se comparan los coeficientes.</p>
+
+    <p>Los siguientes datos científicos reales muestran el poder de esta notación para abarcar lo más grande y lo más pequeño del universo.</p>
+
+    <table class="reglas">
+      <caption class="sr-only">Datos científicos reales expresados en notación científica.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Notación científica</th>
+          <th scope="col">Orden de magnitud</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Masa del Sol</td><td>1.989 × 10³⁰ kg</td><td>10³⁰</td></tr>
+        <tr><td>Distancia Tierra–Sol</td><td>1.496 × 10¹¹ m</td><td>10¹¹</td></tr>
+        <tr><td>Masa del electrón</td><td>9.109 × 10⁻³¹ kg</td><td>10⁻³¹</td></tr>
+      </tbody>
+    </table>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 5 · Comparar órdenes de magnitud</span>
+      <p>¿Cuál es mayor: 3 × 10⁸ o 9 × 10⁷?</p>
+      <div class="paso"><span class="n">1</span> Se comparan primero los exponentes: 8 &gt; 7.</div>
+      <div class="paso"><span class="n">2</span> El número con el exponente mayor es mayor, sin importar el coeficiente.</div>
+      <p><strong>Respuesta:</strong> 3 × 10⁸ es mayor que 9 × 10⁷.</p>
+    </div>
+
+    <div class="caja-atencion">
+      <strong>No engañarse con el coeficiente:</strong> aunque 9 sea mayor que 3, el exponente 8 supera al 7. En notación científica, el orden de magnitud (el exponente) decide primero.
+    </div>
+  </div>
+
+  <h2 class="seccion">6. Práctica guiada en clase</h2>
+  <div class="bloque">
+    <p>Las siguientes tres actividades se realizan durante las horas sincrónicas. Cada una se presenta en doble modalidad: una versión para el aula presencial y otra para la sesión en línea.</p>
+
+    <div class="actividad">
+      <div class="titulo-act">Actividad 1 · El universo en números</div>
+      <div class="modalidad">
+        <div class="modo modo-pres">
+          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
+          El docente reparte tarjetas con diez datos reales del espacio y la biología (distancia entre galaxias, tamaño de una bacteria, masa de un planeta). Cada estudiante convierte su dato a notación científica y la clase los ordena de menor a mayor pegándolos en una recta de magnitudes.
+        </div>
+        <div class="modo modo-virt">
+          <h3><span aria-hidden="true">💻</span> En línea</h3>
+          En un tablero compartido, cada estudiante recibe un dato distinto, escribe su notación científica y lo coloca en una línea de magnitudes virtual. El grupo revisa el orden final y discute los órdenes de magnitud extremos.
+        </div>
+      </div>
+    </div>
+
+    <div class="actividad">
+      <div class="titulo-act">Actividad 2 · ¿Cuántas veces más grande?</div>
+      <div class="modalidad">
+        <div class="modo modo-pres">
+          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
+          A partir del diámetro de la Tierra y el de un glóbulo rojo (ambos en notación científica), los estudiantes estiman cuántas veces más grande es uno que el otro restando los exponentes. Se discute por qué la resta de exponentes responde la pregunta «cuántas veces».
+        </div>
+        <div class="modo modo-virt">
+          <h3><span aria-hidden="true">💻</span> En línea</h3>
+          En salas pequeñas, las parejas comparan tres pares de cantidades de distinto orden de magnitud y reportan en el chat «cuántas veces» más grande es la mayor, usando la resta de los exponentes de 10.
+        </div>
+      </div>
+    </div>
+
+    <div class="actividad">
+      <div class="titulo-act">Actividad 3 · Ida y vuelta</div>
+      <div class="modalidad">
+        <div class="modo modo-pres">
+          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
+          El docente plantea seis números: tres en decimal y tres en científica. Los estudiantes convierten cada uno a la otra forma en su cuaderno y un voluntario muestra en la pizarra el conteo del movimiento del punto decimal.
+        </div>
+        <div class="modo modo-virt">
+          <h3><span aria-hidden="true">💻</span> En línea</h3>
+          En una hoja compartida de dos columnas (decimal y científica), los estudiantes completan la forma que falta en cada renglón y verifican mutuamente la dirección y el conteo del punto decimal.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="caja-tarea">
+    <h2>Tarea asincrónica</h2>
+    <p>Para completar de forma individual en la plataforma <strong>MyOpenMath</strong> antes de la próxima sesión:</p>
+    <ul>
+      <li>Cuatro conversiones de decimal a científica (dos números grandes y dos pequeños).</li>
+      <li>Cuatro conversiones de científica a decimal (dos con exponente positivo y dos con negativo).</li>
+      <li>Dos ejercicios de comparar y ordenar cantidades en notación científica.</li>
+      <li>Dos preguntas de contexto científico que pidan el orden de magnitud de un dato real.</li>
+    </ul>
+    <p>La plataforma ofrece retroalimentación paso a paso en cada intento. Tiempo estimado: 50 minutos.</p>
+  </div>
+
+  <div class="quiz">
+    <h2>Quiz de la lección 2.1</h2>
+    <p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
+    <div id="quiz-cuerpo"></div>
+    <div id="resultado-quiz"></div>
+    <button class="btn" id="btn-corregir">Corregir quiz</button>
+    <button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
+  </div>
+
+  <div class="rubrica">
+    <h2>Rúbrica analítica de la lección</h2>
+    <p>Tres criterios evaluados en cuatro niveles de desempeño.</p>
+    <table class="tabla-rubrica">
+      <caption class="sr-only">Rúbrica analítica con tres criterios y cuatro niveles de desempeño.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Criterio</th>
+          <th scope="col">Inicial (1)</th>
+          <th scope="col">En desarrollo (2)</th>
+          <th scope="col">Competente (3)</th>
+          <th scope="col">Destacado (4)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Coeficiente (1 ≤ a &lt; 10)</td>
+          <td>Deja coeficientes fuera del rango (como 45 × 10⁵).</td>
+          <td>Ubica el coeficiente con errores ocasionales.</td>
+          <td>Determina siempre un coeficiente entre 1 y 10.</td>
+          <td>Ajusta y justifica el coeficiente correcto en todos los casos.</td>
+        </tr>
+        <tr>
+          <td>Exponente de 10</td>
+          <td>Confunde el signo o la cantidad de lugares.</td>
+          <td>Acierta el valor, pero falla el signo a veces.</td>
+          <td>Determina el exponente correcto (positivo o negativo).</td>
+          <td>Relaciona con fluidez el movimiento del punto y el exponente.</td>
+        </tr>
+        <tr>
+          <td>Comparar y ordenar</td>
+          <td>Compara por el coeficiente sin mirar el exponente.</td>
+          <td>Compara con errores cuando los exponentes difieren.</td>
+          <td>Compara y ordena correctamente por orden de magnitud.</td>
+          <td>Ordena con fluidez y explica el papel del exponente.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cierre">
+    <h2>Cierre y enlace con la próxima lección</h2>
+    <p>En esta lección se aprendió a escribir cualquier número como <strong>a × 10ⁿ</strong>, con un coeficiente entre 1 y 10 y un exponente que es <strong>positivo</strong> para los números grandes y <strong>negativo</strong> para los pequeños. También se comparó y ordenó por <strong>orden de magnitud</strong>, mirando primero el exponente.</p>
+    <p>En la <strong>Lección 2.2 · Multiplicación y división en notación científica</strong> se operará con estas cantidades: se multiplicarán y dividirán números en notación científica aplicando las reglas de los exponentes a las potencias de 10, y se aprenderá a <strong>ajustar el coeficiente</strong> cuando el resultado se salga del rango entre 1 y 10.</p>
+  </div>
+
+  <footer>
+    Spanish ASE Math · Nivel 3 · Lección 2.1 — Preparado para Prof. José M. Fernández (Truman College, CCC) · Brightspace D2L
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  /* ---- Práctica de opciones (selección múltiple) ---- */
+  var preguntasOp = document.querySelectorAll('.practica .pregunta[data-correcta]');
+  preguntasOp.forEach(function (preg) {
+    var correcta = preg.getAttribute('data-correcta');
+    var opciones = preg.querySelectorAll('.opcion');
+    var fb = preg.querySelector('.fb');
+    opciones.forEach(function (op) {
+      op.addEventListener('click', function () {
+        opciones.forEach(function (o) { o.classList.remove('correcta', 'incorrecta', 'elegida'); });
+        var elegida = op.getAttribute('data-op');
+        if (elegida === correcta) {
+          op.classList.add('correcta');
+          fb.textContent = '¡Correcto! Bien razonado.';
+          fb.className = 'fb ok';
+        } else {
+          op.classList.add('incorrecta');
+          opciones.forEach(function (o) {
+            if (o.getAttribute('data-op') === correcta) o.classList.add('correcta');
+          });
+          fb.textContent = 'Revisa: la opción marcada en verde es la correcta.';
+          fb.className = 'fb no';
+        }
+        fb.style.display = 'block';
+      });
+    });
+  });
+
+  /* ---- Quiz ---- */
+  var preguntasQuiz = [
+    { enun: '1. Escribe 52,000 en notación científica.', ops: ['5.2 × 10³', '5.2 × 10⁴', '52 × 10³', '5.2 × 10⁻⁴'], correcta: 1 },
+    { enun: '2. Escribe 8,300,000 en notación científica.', ops: ['8.3 × 10⁵', '8.3 × 10⁶', '83 × 10⁵', '8.3 × 10⁷'], correcta: 1 },
+    { enun: '3. Escribe 0.0006 en notación científica.', ops: ['6 × 10⁴', '6 × 10⁻³', '6 × 10⁻⁴', '0.6 × 10⁻³'], correcta: 2 },
+    { enun: '4. Escribe 0.00045 en notación científica.', ops: ['4.5 × 10⁻⁴', '4.5 × 10⁻³', '45 × 10⁻⁵', '4.5 × 10⁴'], correcta: 0 },
+    { enun: '5. Escribe 3.7 × 10⁵ en notación decimal.', ops: ['37,000', '370,000', '3,700,000', '0.000037'], correcta: 1 },
+    { enun: '6. Escribe 2.1 × 10³ en notación decimal.', ops: ['210', '2,100', '21,000', '0.0021'], correcta: 1 },
+    { enun: '7. Escribe 9 × 10⁻³ en notación decimal.', ops: ['0.0009', '0.009', '0.09', '9,000'], correcta: 1 },
+    { enun: '8. Escribe 5.6 × 10⁻² en notación decimal.', ops: ['0.56', '0.056', '0.0056', '560'], correcta: 1 },
+    { enun: '9. ¿Cuál cantidad es mayor?', ops: ['3 × 10⁸', '9 × 10⁷', 'Son iguales', 'No se puede saber'], correcta: 0 },
+    { enun: '10. Ordena de menor a mayor: 4 × 10³, 7 × 10², 2 × 10⁴.', ops: ['7 × 10², 4 × 10³, 2 × 10⁴', '4 × 10³, 7 × 10², 2 × 10⁴', '2 × 10⁴, 4 × 10³, 7 × 10²', '7 × 10², 2 × 10⁴, 4 × 10³'], correcta: 0 }
+  ];
+
+  var cuerpo = document.getElementById('quiz-cuerpo');
+  preguntasQuiz.forEach(function (p, i) {
+    var div = document.createElement('div');
+    div.className = 'pregunta';
+    div.setAttribute('data-idx', i);
+    var enun = document.createElement('div');
+    enun.className = 'enun';
+    enun.textContent = p.enun;
+    div.appendChild(enun);
+    var cont = document.createElement('div');
+    cont.className = 'opciones';
+    p.ops.forEach(function (texto, j) {
+      var op = document.createElement('div');
+      op.className = 'opcion';
+      op.setAttribute('data-j', j);
+      op.textContent = texto;
+      op.addEventListener('click', function () {
+        if (div.getAttribute('data-bloqueado') === 'si') return;
+        cont.querySelectorAll('.opcion').forEach(function (o) { o.classList.remove('elegida'); });
+        op.classList.add('elegida');
+        div.setAttribute('data-elegida', j);
+      });
+      cont.appendChild(op);
+    });
+    div.appendChild(cont);
+    var fb = document.createElement('div');
+    fb.className = 'fb';
+    div.appendChild(fb);
+    cuerpo.appendChild(div);
+  });
+
+  var btnCorregir = document.getElementById('btn-corregir');
+  var btnReintentar = document.getElementById('btn-reintentar');
+  var resultado = document.getElementById('resultado-quiz');
+
+  btnCorregir.addEventListener('click', function () {
+    var aciertos = 0;
+    var divs = cuerpo.querySelectorAll('.pregunta');
+    divs.forEach(function (div, i) {
+      var elegida = div.getAttribute('data-elegida');
+      var fb = div.querySelector('.fb');
+      var opciones = div.querySelectorAll('.opcion');
+      div.setAttribute('data-bloqueado', 'si');
+      opciones.forEach(function (o) { o.classList.remove('correcta', 'incorrecta'); });
+      if (elegida === null) {
+        fb.textContent = 'No se respondió esta pregunta.';
+        fb.className = 'fb no';
+        fb.style.display = 'block';
+        opciones[preguntasQuiz[i].correcta].classList.add('correcta');
+        return;
+      }
+      var idxElegida = parseInt(elegida, 10);
+      if (idxElegida === preguntasQuiz[i].correcta) {
+        aciertos++;
+        opciones[idxElegida].classList.add('correcta');
+        fb.textContent = '¡Correcto!';
+        fb.className = 'fb ok';
+      } else {
+        opciones[idxElegida].classList.add('incorrecta');
+        opciones[preguntasQuiz[i].correcta].classList.add('correcta');
+        fb.textContent = 'Incorrecto. La respuesta correcta está marcada en verde.';
+        fb.className = 'fb no';
+      }
+      fb.style.display = 'block';
+    });
+
+    resultado.style.display = 'block';
+    if (aciertos >= 7) {
+      resultado.className = 'aprob';
+      resultado.textContent = 'Resultado: ' + aciertos + ' de 10 correctas. ¡Aprobado! Puedes continuar a la Lección 2.2.';
+    } else {
+      resultado.className = 'repro';
+      resultado.textContent = 'Resultado: ' + aciertos + ' de 10 correctas. Repasa la lección e intenta de nuevo (se requieren 7).';
+    }
+    btnCorregir.style.display = 'none';
+    btnReintentar.style.display = 'inline-block';
+  });
+
+  btnReintentar.addEventListener('click', function () {
+    var divs = cuerpo.querySelectorAll('.pregunta');
+    divs.forEach(function (div) {
+      div.removeAttribute('data-elegida');
+      div.removeAttribute('data-bloqueado');
+      div.querySelectorAll('.opcion').forEach(function (o) { o.classList.remove('correcta', 'incorrecta', 'elegida'); });
+      var fb = div.querySelector('.fb');
+      fb.style.display = 'none';
+      fb.textContent = '';
+    });
+    resultado.style.display = 'none';
+    btnReintentar.style.display = 'none';
+    btnCorregir.style.display = 'inline-block';
+    window.scrollTo({ top: document.querySelector('.quiz').offsetTop - 20, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

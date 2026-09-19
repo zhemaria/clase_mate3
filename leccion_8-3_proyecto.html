@@ -1,0 +1,1201 @@
+<!doctype html>
+<!--
+  Proyecto final integrador «Mi análisis de datos» — Spanish ASE Math, Nivel 3
+  © José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago.
+  Licencia: CC BY-NC-SA 4.0  (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+  Plantilla rellenable: el estudiante escribe en ella y la exporta como PDF.
+  Corresponde a la lección 8.3 del Nivel 3 (Tema 8 · Combinatoria, probabilidad y proyecto final).
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago" />
+  <meta name="license" content="CC BY-NC-SA 4.0" />
+  <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" />
+  <title>Proyecto final integrador — Matemáticas, Nivel 3</title>
+  <style>
+    :root{
+      --acento:     #4a148c;      /* morado del Tema 8, Nivel 3 */
+      --acento-osc: #311b62;
+      --acento-cl:  #6a1b9a;
+      --acento-bg:  #ede7f6;
+      --secundario: #00838f;
+      --bg:         #f5f7fa;
+      --texto:      #222;
+      --muted:      #555;         /* pasa 4.5:1 (Ally) */
+      --borde:      #cfd8dc;
+      --verde-ok:   #1b5e20;
+      --ambar:      #5C3900;      /* marrón seguro para texto sobre claro */
+    }
+    *{ box-sizing: border-box; }
+    body{
+      font-family:'Segoe UI', system-ui, sans-serif;
+      margin:0; background:var(--bg); color:var(--texto);
+      line-height:1.55; font-size:16px;
+    }
+    .contenedor{ max-width:1000px; margin:0 auto; padding:24px; }
+
+    /* ─── Encabezado ─── */
+    header.principal{
+      background:linear-gradient(135deg,#311b62 0%, #4a148c 55%, #6a1b9a 100%);
+      color:#fff; padding:32px 30px; border-radius:14px;
+      margin-bottom:22px; box-shadow:0 4px 14px rgba(49,27,98,.28);
+    }
+    header.principal h1{ margin:0 0 8px; font-size:26px; font-weight:700; }
+    header.principal .meta{ font-size:14px; color:#ffffff; }
+
+    /* ─── Barra de acciones ─── */
+    .acciones{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+      background:#fff; padding:14px 18px; border-radius:10px;
+      margin-bottom:22px; box-shadow:0 1px 4px rgba(0,0,0,.06);
+    }
+    .acciones .nota{ font-size:13px; color:var(--muted); flex:1 1 240px; }
+    button{
+      font-family:inherit; font-size:14px; font-weight:600;
+      border:none; border-radius:8px; padding:10px 16px; cursor:pointer;
+    }
+    .btn-pdf{ background:var(--acento); color:#fff; }
+    .btn-pdf:hover{ background:var(--acento-osc); }
+    .btn-sec{ background:#eceff1; color:#263238; }
+    .btn-sec:hover{ background:#cfd8dc; }
+    .btn-borrar{ background:#fbe9e7; color:#5C3900; }
+    .btn-borrar:hover{ background:#ffccbc; }
+
+    /* ─── Instrucciones ─── */
+    .intro{
+      background:#fff; padding:18px 22px; border-radius:10px;
+      border-left:5px solid var(--acento); margin-bottom:22px;
+      box-shadow:0 1px 4px rgba(0,0,0,.05);
+    }
+    .intro h2{ margin:0 0 8px; color:var(--acento-osc); font-size:19px; }
+    .intro p{ margin:6px 0; font-size:14px; }
+    .intro ul{ margin:6px 0 0; padding-left:22px; font-size:14px; }
+    .intro li{ margin:3px 0; }
+
+    /* ─── Secciones ─── */
+    section.seccion{
+      background:#fff; border-radius:12px; margin-bottom:20px;
+      box-shadow:0 2px 8px rgba(0,0,0,.07); overflow:hidden;
+      border-top:6px solid var(--acento);
+    }
+    .seccion-cab{ padding:16px 22px 6px; }
+    .seccion-cab h2{
+      margin:0; font-size:20px; color:var(--acento-osc);
+      display:flex; align-items:baseline; gap:10px;
+    }
+    .seccion-cab .num{
+      display:inline-flex; align-items:center; justify-content:center;
+      min-width:30px; height:30px; border-radius:50%;
+      background:var(--acento); color:#fff; font-size:15px; font-weight:700;
+      flex-shrink:0;
+    }
+    .seccion-cab .guia{ font-size:13px; color:var(--muted); margin:6px 0 0; }
+    .seccion-cuerpo{ padding:8px 22px 20px; }
+
+    /* ─── Campos de identificación ─── */
+    .ident{ display:flex; flex-wrap:wrap; gap:18px; }
+    .ident .campo{ flex:1 1 200px; }
+    label.etq, span.etq{ display:block; font-size:13px; font-weight:600; color:#263238; margin-bottom:4px; }
+    input.linea{
+      width:100%; font-family:inherit; font-size:15px; color:var(--texto);
+      border:none; border-bottom:2px solid var(--borde); background:transparent;
+      padding:6px 2px;
+    }
+    input.linea:focus{ outline:none; border-bottom-color:var(--acento); }
+
+    /* ─── Rejilla de datos ─── */
+    .rejilla{ display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; }
+    .celda{ flex:0 0 108px; position:relative; }
+    .celda .idx{ font-size:11.5px; color:var(--muted); display:block; margin-bottom:2px; }
+    .celda input{
+      width:100%; font-family:inherit; font-size:15px; text-align:right;
+      border:1px solid var(--borde); border-radius:6px; padding:6px 8px; background:#fff;
+      color:var(--texto);
+    }
+    .celda input:focus{ outline:none; border-color:var(--acento); }
+    .fila-btns{ margin-top:12px; display:flex; flex-wrap:wrap; gap:8px; }
+    .pegar-caja{ margin-top:14px; }
+    .pegar-caja textarea{
+      width:100%; min-height:60px; font-family:inherit; font-size:14px;
+      border:1px solid var(--borde); border-radius:8px; padding:8px 10px; color:var(--texto);
+    }
+    .pegar-caja textarea:focus{ outline:none; border-color:var(--acento); }
+    .contador{ font-size:13px; color:var(--muted); margin-top:10px; }
+    .contador.ok{ color:var(--verde-ok); font-weight:600; }
+    .ordenados{
+      margin-top:12px; background:#fafafa; border:1px dashed var(--borde);
+      border-radius:8px; padding:10px 12px; font-size:14px;
+    }
+    .ordenados strong{ color:var(--acento-osc); }
+
+    /* Solo para lectores de pantalla (Ally). */
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+
+    /* ─── Áreas de escritura ─── */
+    .escribe{
+      min-height:90px; border:1px solid var(--borde); border-radius:8px;
+      padding:10px 12px; font-size:15px; line-height:1.6; background:#fdfdfd;
+    }
+    .escribe:focus{ outline:none; border-color:var(--acento); background:#fff; }
+    .escribe:empty::before{
+      content:attr(data-placeholder); color:#666; font-style:italic;
+    }
+    .sub-campo{ margin:14px 0; }
+
+    /* ─── Cajas auxiliares ─── */
+    .ayuda{
+      background:var(--acento-bg); border-left:4px solid var(--acento);
+      border-radius:0 8px 8px 0; padding:12px 14px; margin-top:12px; font-size:14px;
+    }
+    .ayuda h3{ margin:0 0 8px; font-size:15px; color:var(--acento-osc); }
+    .ayuda .res{ font-weight:700; color:var(--acento-osc); }
+    .ayuda .aclara{ font-size:13px; color:var(--muted); margin:8px 0 0; }
+    .mini-grid{ display:flex; flex-wrap:wrap; gap:14px; }
+    .mini-grid .mc{ flex:1 1 150px; }
+    .mini-grid input, .mini-grid select{
+      width:100%; font-family:inherit; font-size:14px; padding:6px 8px;
+      border:1px solid var(--borde); border-radius:6px; background:#fff; color:var(--texto);
+    }
+
+    /* ─── Panel de estadísticos ─── */
+    table.stats{ width:100%; border-collapse:collapse; font-size:14px; margin-top:6px; }
+    table.stats caption{ text-align:left; font-size:13px; color:var(--muted); margin-bottom:6px; }
+    table.stats th, table.stats td{ padding:8px 10px; border-bottom:1px solid #e0e0e0; text-align:right; }
+    table.stats th{ background:#37474f; color:#fff; font-size:13px; font-weight:600; }
+    table.stats th:first-child, table.stats td:first-child{ text-align:left; }
+    table.stats td{ font-variant-numeric:tabular-nums; color:#263238; }
+
+    /* ─── Gráfica ─── */
+    .grafica-wrap{ margin-top:10px; }
+    figure.grafica{ margin:0; background:#fff; }
+    figcaption{ font-size:13px; color:var(--muted); margin-top:6px; }
+    .svg-host{ overflow-x:auto; }
+    table.frec{ width:100%; max-width:520px; border-collapse:collapse; font-size:14px; margin-top:14px; }
+    table.frec caption{ text-align:left; font-size:13px; color:var(--muted); margin-bottom:6px; }
+    table.frec th, table.frec td{ padding:7px 10px; border-bottom:1px solid #e0e0e0; text-align:right; }
+    table.frec th:first-child, table.frec td:first-child{ text-align:left; }
+    table.frec th{ background:#eceff1; color:#263238; font-size:13px; }
+
+    /* ─── Opciones de entrega ─── */
+    .entrega{ display:flex; flex-direction:column; gap:10px; }
+    .opcion{
+      display:flex; gap:10px; align-items:flex-start; cursor:pointer;
+      padding:10px 12px; border:1px solid var(--borde); border-radius:8px; background:#fafafa;
+    }
+    .opcion input{ margin-top:3px; width:18px; height:18px; accent-color:var(--acento); }
+    .opcion .txt{ font-size:14px; }
+    .opcion .txt strong{ color:#263238; }
+
+    /* ─── Rúbrica ─── */
+    table.rubrica{ width:100%; border-collapse:collapse; font-size:12.5px; margin-top:6px; }
+    table.rubrica caption{ text-align:left; font-size:13px; color:var(--muted); margin-bottom:6px; }
+    table.rubrica th, table.rubrica td{ border:1px solid #d6dde0; padding:7px 9px; vertical-align:top; text-align:left; }
+    table.rubrica th{ background:#37474f; color:#ffffff; font-size:12px; }
+    table.rubrica td:first-child{ font-weight:600; color:#263238; width:19%; }
+    .tabla-scroll{ overflow-x:auto; }
+
+    footer{
+      text-align:center; padding:22px; color:var(--muted);
+      font-size:12.5px; margin-top:14px; border-top:1px solid #ddd;
+    }
+    footer a{ color:var(--acento-osc); }
+
+    /* ─── Impresión / PDF ─── */
+    @media print{
+      :root{ --bg:#fff; }
+      body{ background:#fff; font-size:12pt; }
+      .contenedor{ max-width:none; padding:0; }
+      .acciones, .fila-btns, .btn-borrar, .pegar-caja, .no-imprimir{ display:none !important; }
+      header.principal{ box-shadow:none; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      section.seccion, .intro{ box-shadow:none; border:1px solid #ccc; page-break-inside:avoid; }
+      table.stats th, table.frec th, table.rubrica th, header.principal,
+      .seccion-cab .num, .ayuda, .svg-host{
+        -webkit-print-color-adjust:exact; print-color-adjust:exact;
+      }
+      input.linea{ border-bottom:1px solid #999; }
+      .escribe{ border:1px solid #bbb; background:#fff; }
+      .celda input{ border:1px solid #999; }
+      a[href]::after{ content:""; }
+    }
+  </style>
+</head>
+<body>
+<div class="contenedor">
+
+  <header class="principal">
+    <h1>Proyecto final integrador «Mi análisis de datos» — Matemáticas, Nivel 3</h1>
+    <div class="meta">
+      Spanish ASE Math: Level 3 · City Colleges of Chicago · Harry S. Truman College<br>
+      Plantilla de trabajo del estudiante · Tema 8, lección 8.3
+    </div>
+  </header>
+
+  <!-- Barra de acciones (no se imprime) -->
+  <div class="acciones no-imprimir">
+    <button type="button" class="btn-pdf" onclick="exportarPDF()">⬇️ Exportar como PDF</button>
+    <button type="button" class="btn-sec" onclick="agregarDato()">＋ Agregar dato</button>
+    <button type="button" class="btn-borrar" onclick="borrarTodo()">🗑️ Borrar todo</button>
+    <span class="nota">Su trabajo se guarda automáticamente en este navegador. Para entregar, pulse
+      «Exportar como PDF» y elija «Guardar como PDF» en el destino de impresión.</span>
+  </div>
+
+  <!-- Instrucciones -->
+  <section class="intro">
+    <h2>Instrucciones del proyecto</h2>
+    <p>Este proyecto reúne lo aprendido en los ocho temas del Nivel 3 y sustituye la tarea asincrónica de la
+      lección 8.3. La nota del proyecto se combina con la de la evaluación final sumativa para formar la
+      calificación final del nivel.</p>
+    <p>Elija un conjunto de datos <strong>real</strong> de su propio entorno —los gastos de un mes, las edades de
+      su familia, las temperaturas de la semana, las calificaciones del semestre— y analícelo por completo. El
+      proyecto debe incluir cinco componentes:</p>
+    <ul>
+      <li><strong>Conjunto de datos:</strong> entre 10 y 20 valores reales, con su fuente y su contexto descritos.</li>
+      <li><strong>Gráfica:</strong> un diagrama de caja y bigotes o un histograma, con todas sus etiquetas.</li>
+      <li><strong>Estadísticos:</strong> al menos tres cálculos (media, mediana, IQR u otro).</li>
+      <li><strong>Interpretación escrita:</strong> qué dicen los datos sobre su centro, su dispersión y su forma.</li>
+      <li><strong>Probabilidad:</strong> al menos un cálculo de probabilidad vinculado al contexto de los datos.</li>
+    </ul>
+    <p>La plantilla calcula automáticamente los estadísticos, construye la gráfica y ofrece comprobaciones, pero
+      usted debe mostrar su procedimiento por escrito: el cálculo automático solo sirve para verificar el suyo.</p>
+  </section>
+
+  <!-- Identificación -->
+  <section class="seccion">
+    <div class="seccion-cab">
+      <h2><span class="num" aria-hidden="true">0</span> Datos del estudiante y del conjunto</h2>
+    </div>
+    <div class="seccion-cuerpo">
+      <div class="ident">
+        <div class="campo">
+          <label class="etq" for="f_nombre">Nombre del estudiante</label>
+          <input class="linea" type="text" id="f_nombre" />
+        </div>
+        <div class="campo">
+          <label class="etq" for="f_fecha">Fecha de entrega</label>
+          <input class="linea" type="text" id="f_fecha" placeholder="dd/mm/aaaa" />
+        </div>
+        <div class="campo">
+          <label class="etq" for="f_titulo">Título del conjunto de datos</label>
+          <input class="linea" type="text" id="f_titulo" placeholder="Ej.: mis gastos semanales de enero" />
+        </div>
+        <div class="campo">
+          <label class="etq" for="f_unidad">Unidad de medida</label>
+          <input class="linea" type="text" id="f_unidad" placeholder="dólares, años, grados °F, horas…" />
+        </div>
+      </div>
+      <div class="sub-campo" style="margin-top:18px;">
+        <span class="etq" id="etq-fuente">Fuente y contexto de los datos</span>
+        <div class="escribe" id="f_fuente" contenteditable="true" role="textbox" aria-multiline="true"
+             aria-labelledby="etq-fuente"
+             data-placeholder="¿De dónde salieron estos datos? ¿A qué se refieren, de qué período y de qué personas o cosas?"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 1 -->
+  <section class="seccion">
+    <div class="seccion-cab">
+      <h2><span class="num" aria-hidden="true">1</span> Conjunto de datos</h2>
+      <p class="guia">Escriba entre <strong>10 y 20 valores numéricos</strong> reales. La plantilla los ordena de
+        menor a mayor y calcula todo lo demás a partir de ellos.</p>
+    </div>
+    <div class="seccion-cuerpo">
+      <div class="rejilla" id="rejilla-datos"><!-- celdas generadas por JS --></div>
+
+      <div class="fila-btns no-imprimir">
+        <button type="button" class="btn-sec" onclick="agregarDato()">＋ Agregar dato</button>
+        <button type="button" class="btn-sec" onclick="quitarDato()">− Quitar el último</button>
+      </div>
+
+      <div class="pegar-caja no-imprimir">
+        <label class="etq" for="f_pegar">Atajo opcional: pegue aquí sus datos separados por comas o espacios</label>
+        <textarea id="f_pegar" placeholder="Ej.: 42, 55, 38, 61, 47, 50, 44, 59, 52, 46"></textarea>
+        <div class="fila-btns">
+          <button type="button" class="btn-sec" onclick="cargarPegados()">Cargar los datos pegados</button>
+        </div>
+      </div>
+
+      <p class="contador" id="contador-datos">Datos válidos: 0</p>
+
+      <div class="ordenados">
+        <strong>Datos ordenados de menor a mayor:</strong>
+        <span id="lista-ordenada">—</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 2 -->
+  <section class="seccion">
+    <div class="seccion-cab">
+      <h2><span class="num" aria-hidden="true">2</span> Cálculo de estadísticos</h2>
+      <p class="guia">Calcule <strong>al menos tres</strong> estadísticos a mano y muestre el procedimiento
+        completo, no solo el resultado. El panel de comprobación sirve únicamente para verificar su trabajo.</p>
+    </div>
+    <div class="seccion-cuerpo">
+      <div class="sub-campo">
+        <span class="etq" id="etq-estad">Procedimiento y resultados (escriba aquí)</span>
+        <div class="escribe" id="f_estadisticos" contenteditable="true" role="textbox" aria-multiline="true"
+             aria-labelledby="etq-estad" style="min-height:130px;"
+             data-placeholder="Ejemplo: Para la media sumo los 12 valores (total = 604) y divido entre 12: 604 ÷ 12 = 50.33. Para la mediana ordeno los datos y…"></div>
+      </div>
+
+      <div class="ayuda no-imprimir">
+        <h3>Comprobación automática (a partir de los datos de la sección 1)</h3>
+        <table class="stats">
+          <caption>Estadísticos calculados automáticamente a partir del conjunto de datos del estudiante.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Estadístico</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Estadístico</th>
+              <th scope="col">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Cantidad de datos (n)</td><td id="s-n">—</td><td>Media (x̄)</td><td id="s-media">—</td></tr>
+            <tr><td>Mínimo</td><td id="s-min">—</td><td>Máximo</td><td id="s-max">—</td></tr>
+            <tr><td>Primer cuartil (Q1)</td><td id="s-q1">—</td><td>Tercer cuartil (Q3)</td><td id="s-q3">—</td></tr>
+            <tr><td>Mediana (Q2)</td><td id="s-mediana">—</td><td>Rango intercuartílico (IQR)</td><td id="s-iqr">—</td></tr>
+            <tr><td>Rango (máx − mín)</td><td id="s-rango">—</td><td>Moda</td><td id="s-moda">—</td></tr>
+          </tbody>
+        </table>
+        <p class="aclara">Los cuartiles se calculan con el método del curso: se ordena el conjunto, la mediana lo
+          divide en dos mitades y Q1 y Q3 son las medianas de la mitad inferior y de la mitad superior
+          (si n es impar, la mediana no se incluye en ninguna mitad).</p>
+        <p class="aclara">Límites para identificar valores atípicos (opcional):
+          Q1 − 1.5 × IQR = <span class="res" id="s-lim-inf">—</span> &nbsp;·&nbsp;
+          Q3 + 1.5 × IQR = <span class="res" id="s-lim-sup">—</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 3 -->
+  <section class="seccion">
+    <div class="seccion-cab">
+      <h2><span class="num" aria-hidden="true">3</span> Representación gráfica</h2>
+      <p class="guia">Elija <strong>un diagrama de caja y bigotes</strong> o <strong>un histograma</strong>. La
+        gráfica se construye con los datos de la sección 1 e incluye todas sus etiquetas.</p>
+    </div>
+    <div class="seccion-cuerpo">
+      <div class="mini-grid">
+        <div class="mc">
+          <label class="etq" for="tipo-grafica">Tipo de gráfica</label>
+          <select id="tipo-grafica" onchange="cambiarTipoGrafica()">
+            <option value="caja">Diagrama de caja y bigotes</option>
+            <option value="histograma">Histograma</option>
+          </select>
+        </div>
+        <div class="mc" id="mc-inicio" style="display:none;">
+          <label class="etq" for="hist-inicio">Inicio del primer intervalo</label>
+          <input type="number" step="any" id="hist-inicio" oninput="dibujarGrafica(); guardar();" />
+        </div>
+        <div class="mc" id="mc-ancho" style="display:none;">
+          <label class="etq" for="hist-ancho">Ancho del intervalo</label>
+          <input type="number" step="any" min="0" id="hist-ancho" oninput="dibujarGrafica(); guardar();" />
+        </div>
+        <div class="mc" id="mc-auto" style="display:none;">
+          <span class="etq" aria-hidden="true">&nbsp;</span>
+          <button type="button" class="btn-sec no-imprimir" onclick="sugerirIntervalos()">Sugerir intervalos</button>
+        </div>
+      </div>
+
+      <div class="grafica-wrap">
+        <figure class="grafica">
+          <div class="svg-host" id="svg-host" role="img" aria-label="Gráfica del conjunto de datos del proyecto"></div>
+          <figcaption id="pie-grafica">Gráfica generada a partir de los datos de la sección 1.</figcaption>
+        </figure>
+      </div>
+
+      <div id="zona-tabla-grafica"></div>
+
+      <div class="sub-campo" style="margin-top:16px;">
+        <span class="etq" id="etq-grafica">Título de la gráfica y explicación de su elección</span>
+        <div class="escribe" id="f_grafica" contenteditable="true" role="textbox" aria-multiline="true"
+             aria-labelledby="etq-grafica"
+             data-placeholder="Ejemplo: elegí el diagrama de caja porque quiero mostrar cómo se reparten mis gastos entre el mínimo y el máximo, y dónde está la mitad central."></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 4 -->
+  <section class="seccion">
+    <div class="seccion-cab">
+      <h2><span class="num" aria-hidden="true">4</span> Interpretación escrita</h2>
+      <p class="guia">Redacte al menos <strong>cinco oraciones completas</strong>. Una gráfica sin interpretación
+        queda incompleta: explique qué dicen sus datos.</p>
+    </div>
+    <div class="seccion-cuerpo">
+      <div class="ayuda">
+        <h3>Guía de redacción: los tres aspectos que debe cubrir</h3>
+        <p><strong>Centro:</strong> ¿alrededor de qué valor se agrupan los datos? (media, mediana)<br>
+           <strong>Dispersión:</strong> ¿qué tan separados están? (rango, IQR, longitud de los bigotes)<br>
+           <strong>Forma:</strong> ¿se reparten de manera simétrica, se cargan hacia un lado, hay valores
+           llamativamente altos o bajos?</p>
+        <p class="aclara">Cierre con una conclusión propia: ¿qué aprendió sobre la situación que midió?</p>
+      </div>
+      <div class="escribe" id="f_interpretacion" contenteditable="true" role="textbox" aria-multiline="true"
+           aria-label="Interpretación escrita del conjunto de datos"
+           data-placeholder="Escriba aquí su interpretación en oraciones completas…"
+           style="min-height:150px; margin-top:14px;"></div>
+      <p class="contador no-imprimir" id="contador-oraciones">Oraciones detectadas: 0</p>
+    </div>
+  </section>
+
+  <!-- Sección 5 -->
+  <section class="seccion">
+    <div class="seccion-cab">
+      <h2><span class="num" aria-hidden="true">5</span> Cálculo de probabilidad</h2>
+      <p class="guia">Plantee al menos <strong>una pregunta de probabilidad</strong> sobre su propio conjunto de
+        datos y resuélvala. Exprese el resultado en fracción, decimal y porcentaje.</p>
+    </div>
+    <div class="seccion-cuerpo">
+      <div class="sub-campo">
+        <span class="etq" id="etq-pregunta">Pregunta de probabilidad que va a resolver</span>
+        <div class="escribe" id="f_pregunta" contenteditable="true" role="textbox" aria-multiline="true"
+             aria-labelledby="etq-pregunta" style="min-height:70px;"
+             data-placeholder="Ejemplo: si elijo un día al azar de mi conjunto, ¿cuál es la probabilidad de que haya gastado más de $50?"></div>
+      </div>
+
+      <div class="ayuda no-imprimir">
+        <h3>Comprobación automática de la probabilidad</h3>
+        <div class="mini-grid">
+          <div class="mc">
+            <label class="etq" for="prob-cond">Condición del evento favorable</label>
+            <select id="prob-cond" onchange="actualizarProbabilidad()">
+              <option value="mayor">Mayor que (&gt;)</option>
+              <option value="mayorig">Mayor o igual que (≥)</option>
+              <option value="menor">Menor que (&lt;)</option>
+              <option value="menorig">Menor o igual que (≤)</option>
+              <option value="igual">Igual a (=)</option>
+              <option value="entre">Entre dos valores (inclusive)</option>
+            </select>
+          </div>
+          <div class="mc">
+            <label class="etq" for="prob-v1">Valor de referencia</label>
+            <input type="number" step="any" id="prob-v1" oninput="actualizarProbabilidad()" />
+          </div>
+          <div class="mc" id="mc-v2" style="display:none;">
+            <label class="etq" for="prob-v2">Segundo valor</label>
+            <input type="number" step="any" id="prob-v2" oninput="actualizarProbabilidad()" />
+          </div>
+        </div>
+        <p style="margin:12px 0 0;">Casos favorables: <span class="res" id="p-k">—</span> de
+          <span class="res" id="p-n">—</span> &nbsp;→&nbsp; P = <span class="res" id="p-resultado">—</span></p>
+        <p class="aclara">Probabilidad compuesta con dos selecciones (Tema 8):
+          con reemplazo = <span class="res" id="p-con">—</span> &nbsp;·&nbsp;
+          sin reemplazo = <span class="res" id="p-sin">—</span></p>
+      </div>
+
+      <div class="sub-campo" style="margin-top:16px;">
+        <span class="etq" id="etq-prob">Planteamiento y resolución (escriba aquí)</span>
+        <div class="escribe" id="f_probabilidad" contenteditable="true" role="textbox" aria-multiline="true"
+             aria-labelledby="etq-prob" style="min-height:120px;"
+             data-placeholder="Ejemplo: de mis 12 días, en 5 gasté más de $50. P = 5/12 = 0.4167 = 41.67 %. Si eligiera dos días distintos (sin reemplazo): (5/12) × (4/11) = 20/132 = 0.1515 = 15.15 %."></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Opciones de entrega -->
+  <section class="seccion">
+    <div class="seccion-cab">
+      <h2><span class="num" aria-hidden="true">✓</span> Entrega y presentación</h2>
+      <p class="guia">Marque lo que ya completó antes de entregar el proyecto.</p>
+    </div>
+    <div class="seccion-cuerpo">
+      <div class="entrega">
+        <label class="opcion">
+          <input type="checkbox" id="e1" />
+          <span class="txt"><strong>Proyecto completo subido a Brightspace</strong> con los cinco componentes
+            (datos, gráfica, estadísticos, interpretación y probabilidad).</span>
+        </label>
+        <label class="opcion">
+          <input type="checkbox" id="e2" />
+          <span class="txt"><strong>Presentación de 3 a 4 minutos</strong> en la sesión sincrónica final, o
+            presentación grabada si el curso es en línea.</span>
+        </label>
+        <label class="opcion">
+          <input type="checkbox" id="e3" />
+          <span class="txt"><strong>Comentario constructivo al proyecto de dos compañeros</strong>, con una
+            observación o una pregunta en cada uno.</span>
+        </label>
+        <label class="opcion">
+          <input type="checkbox" id="e4" />
+          <span class="txt"><strong>Repaso de la hoja de fórmulas del GED</strong> antes de la evaluación final
+            sumativa del nivel.</span>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rúbrica -->
+  <section class="seccion">
+    <div class="seccion-cab">
+      <h2><span class="num" aria-hidden="true">📊</span> Rúbrica analítica del proyecto</h2>
+      <p class="guia">Cinco criterios evaluados en cuatro niveles de desempeño (20 puntos en total). Consérvela
+        como referencia mientras completa el proyecto.</p>
+    </div>
+    <div class="seccion-cuerpo">
+      <div class="tabla-scroll">
+        <table class="rubrica">
+          <caption>Rúbrica analítica del proyecto final integrador del Nivel 3, con cinco criterios y cuatro niveles de desempeño.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Criterio</th>
+              <th scope="col">Inicial (1)</th>
+              <th scope="col">En desarrollo (2)</th>
+              <th scope="col">Competente (3)</th>
+              <th scope="col">Destacado (4)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. Conjunto de datos</td>
+              <td>Datos inventados o sin describir.</td>
+              <td>Datos reales, pero sin fuente clara.</td>
+              <td>Conjunto de datos real y bien descrito.</td>
+              <td>Datos reales, relevantes y con su fuente y contexto explicados.</td>
+            </tr>
+            <tr>
+              <td>2. Representación gráfica</td>
+              <td>No incluye una gráfica válida.</td>
+              <td>Gráfica con errores o sin etiquetas.</td>
+              <td>Caja o histograma correcto con todas las etiquetas.</td>
+              <td>Gráfica clara, correcta y bien rotulada, adecuada a los datos.</td>
+            </tr>
+            <tr>
+              <td>3. Cálculo de estadísticos</td>
+              <td>No calcula estadísticos.</td>
+              <td>Calcula menos de tres o con errores.</td>
+              <td>Calcula correctamente al menos tres estadísticos.</td>
+              <td>Calcula varios estadísticos sin errores y los relaciona entre sí.</td>
+            </tr>
+            <tr>
+              <td>4. Interpretación escrita</td>
+              <td>No interpreta los datos.</td>
+              <td>Interpretación vaga o incoherente con los datos.</td>
+              <td>Interpretación escrita coherente con los datos.</td>
+              <td>Interpretación clara y profunda (centro, dispersión y forma).</td>
+            </tr>
+            <tr>
+              <td>5. Cálculo de probabilidad</td>
+              <td>No incluye probabilidad.</td>
+              <td>Cálculo de probabilidad con errores.</td>
+              <td>Cálculo de probabilidad correcto vinculado al contexto.</td>
+              <td>Probabilidad correcta, bien explicada y ligada al análisis.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="guia" style="margin-top:12px;">La nota del proyecto se combina con la de la evaluación final
+        sumativa del Nivel 3 (25 preguntas, 60 minutos).</p>
+    </div>
+  </section>
+
+  <footer>
+    Proyecto final integrador «Mi análisis de datos» — Spanish ASE Math, Nivel 3 · Harry S. Truman College,
+    City Colleges of Chicago.<br>
+    © José M. Fernández, ABE/ASE Math Master Teacher. Licencia
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a>.
+  </footer>
+
+</div>
+
+<script>
+/* ════════════════════════════════════════════════════════════════
+   PROYECTO FINAL INTEGRADOR «MI ANÁLISIS DE DATOS» — NIVEL 3
+   Lógica de la plantilla rellenable.
+   Estructura: (A) rejilla de datos, (B) estadísticos, (C) gráficas
+   (caja e histograma), (D) interpretación, (E) probabilidad,
+   (F) guardado, (G) exportar.
+   ════════════════════════════════════════════════════════════════ */
+
+var CELDAS_INICIALES = 12;
+var MAX_DATOS = 20;
+var MIN_DATOS = 10;
+
+/* ── (A) Rejilla de datos ─────────────────────────────────────── */
+function crearCelda(indice, valor){
+  valor = (valor === undefined || valor === null) ? '' : valor;
+  var div = document.createElement('div');
+  div.className = 'celda';
+  div.innerHTML =
+    '<span class="idx" aria-hidden="true">Dato ' + indice + '</span>' +
+    '<input type="number" step="any" class="dato" value="' + escaparAttr(valor) + '" ' +
+      'aria-label="Dato ' + indice + '" oninput="actualizarTodo()">';
+  return div;
+}
+
+function renumerarCeldas(){
+  var celdas = document.querySelectorAll('#rejilla-datos .celda');
+  celdas.forEach(function(c, i){
+    c.querySelector('.idx').textContent = 'Dato ' + (i + 1);
+    c.querySelector('input').setAttribute('aria-label', 'Dato ' + (i + 1));
+  });
+}
+
+function agregarDato(){
+  var rejilla = document.getElementById('rejilla-datos');
+  if(rejilla.children.length >= MAX_DATOS){
+    alert('El proyecto admite un máximo de ' + MAX_DATOS + ' datos.');
+    return;
+  }
+  rejilla.appendChild(crearCelda(rejilla.children.length + 1));
+  actualizarTodo();
+}
+
+function quitarDato(){
+  var rejilla = document.getElementById('rejilla-datos');
+  if(rejilla.children.length <= 1){ return; }
+  rejilla.removeChild(rejilla.lastElementChild);
+  renumerarCeldas();
+  actualizarTodo();
+}
+
+function cargarPegados(){
+  var texto = document.getElementById('f_pegar').value || '';
+  var trozos = texto.split(/[^0-9.\-+]+/).filter(function(t){ return t !== ''; });
+  var numeros = [];
+  trozos.forEach(function(t){
+    var v = parseFloat(t);
+    if(!isNaN(v) && numeros.length < MAX_DATOS){ numeros.push(v); }
+  });
+  if(numeros.length === 0){
+    alert('No se reconoció ningún número. Escriba los valores separados por comas o espacios.');
+    return;
+  }
+  var rejilla = document.getElementById('rejilla-datos');
+  rejilla.innerHTML = '';
+  numeros.forEach(function(v, i){ rejilla.appendChild(crearCelda(i + 1, v)); });
+  document.getElementById('f_pegar').value = '';
+  actualizarTodo();
+}
+
+function leerValores(){
+  var vals = [];
+  document.querySelectorAll('#rejilla-datos .dato').forEach(function(inp){
+    var v = parseFloat(inp.value);
+    if(!isNaN(v)){ vals.push(v); }
+  });
+  return vals;
+}
+
+/* ── (B) Estadísticos ─────────────────────────────────────────── */
+function mediana(orden){
+  var n = orden.length;
+  if(n === 0){ return null; }
+  var mid = Math.floor(n / 2);
+  return (n % 2 === 0) ? (orden[mid - 1] + orden[mid]) / 2 : orden[mid];
+}
+
+function estadisticos(vals){
+  var orden = vals.slice().sort(function(a, b){ return a - b; });
+  var n = orden.length;
+  if(n === 0){ return null; }
+  var mid = Math.floor(n / 2);
+  var inferior = orden.slice(0, mid);
+  var superior = (n % 2 === 0) ? orden.slice(mid) : orden.slice(mid + 1);
+  var suma = orden.reduce(function(a, b){ return a + b; }, 0);
+  var q1 = (inferior.length > 0) ? mediana(inferior) : orden[0];
+  var q3 = (superior.length > 0) ? mediana(superior) : orden[n - 1];
+  return {
+    n: n, orden: orden,
+    min: orden[0], max: orden[n - 1],
+    media: suma / n, mediana: mediana(orden),
+    q1: q1, q3: q3, iqr: q3 - q1,
+    rango: orden[n - 1] - orden[0],
+    moda: calcularModa(orden)
+  };
+}
+
+function calcularModa(orden){
+  var conteo = {}, mejor = 0;
+  orden.forEach(function(v){
+    conteo[v] = (conteo[v] || 0) + 1;
+    if(conteo[v] > mejor){ mejor = conteo[v]; }
+  });
+  if(mejor <= 1){ return 'sin moda'; }
+  var modas = Object.keys(conteo).filter(function(k){ return conteo[k] === mejor; })
+                    .map(function(k){ return redondear(parseFloat(k), 2); });
+  return modas.join(', ');
+}
+
+function mostrarEstadisticos(e){
+  var ids = ['s-n','s-media','s-min','s-max','s-q1','s-q3','s-mediana','s-iqr',
+             's-rango','s-moda','s-lim-inf','s-lim-sup'];
+  if(!e){
+    ids.forEach(function(id){ document.getElementById(id).textContent = '—'; });
+    return;
+  }
+  document.getElementById('s-n').textContent       = e.n;
+  document.getElementById('s-media').textContent   = redondear(e.media, 2);
+  document.getElementById('s-min').textContent     = redondear(e.min, 2);
+  document.getElementById('s-max').textContent     = redondear(e.max, 2);
+  document.getElementById('s-q1').textContent      = redondear(e.q1, 2);
+  document.getElementById('s-q3').textContent      = redondear(e.q3, 2);
+  document.getElementById('s-mediana').textContent = redondear(e.mediana, 2);
+  document.getElementById('s-iqr').textContent     = redondear(e.iqr, 2);
+  document.getElementById('s-rango').textContent   = redondear(e.rango, 2);
+  document.getElementById('s-moda').textContent    = e.moda;
+  document.getElementById('s-lim-inf').textContent = redondear(e.q1 - 1.5 * e.iqr, 2);
+  document.getElementById('s-lim-sup').textContent = redondear(e.q3 + 1.5 * e.iqr, 2);
+}
+
+function mostrarConteoYOrden(vals, e){
+  var el = document.getElementById('contador-datos');
+  var n = vals.length;
+  var ok = (n >= MIN_DATOS && n <= MAX_DATOS);
+  el.textContent = 'Datos válidos: ' + n +
+    (ok ? '  ✓ (dentro del rango pedido)' : '  (se piden entre ' + MIN_DATOS + ' y ' + MAX_DATOS + ')');
+  el.className = 'contador' + (ok ? ' ok' : '');
+  document.getElementById('lista-ordenada').textContent =
+    e ? e.orden.map(function(v){ return redondear(v, 2); }).join(' · ') : '—';
+}
+
+/* ── (C) Gráficas ─────────────────────────────────────────────── */
+function cambiarTipoGrafica(){
+  var tipo = document.getElementById('tipo-grafica').value;
+  var esHist = (tipo === 'histograma');
+  document.getElementById('mc-inicio').style.display = esHist ? '' : 'none';
+  document.getElementById('mc-ancho').style.display  = esHist ? '' : 'none';
+  document.getElementById('mc-auto').style.display   = esHist ? '' : 'none';
+  if(esHist && document.getElementById('hist-ancho').value === ''){ sugerirIntervalos(); }
+  dibujarGrafica();
+  guardar();
+}
+
+function sugerirIntervalos(){
+  var e = estadisticos(leerValores());
+  if(!e){ return; }
+  var ancho = Math.ceil((e.rango || 1) / 5);
+  if(ancho <= 0){ ancho = 1; }
+  document.getElementById('hist-ancho').value  = ancho;
+  document.getElementById('hist-inicio').value = Math.floor(e.min / ancho) * ancho;
+  dibujarGrafica();
+  guardar();
+}
+
+function dibujarGrafica(){
+  var vals = leerValores();
+  var e = estadisticos(vals);
+  var host = document.getElementById('svg-host');
+  var zona = document.getElementById('zona-tabla-grafica');
+  var tipo = document.getElementById('tipo-grafica').value;
+
+  if(!e || e.n < 2){
+    host.innerHTML = svgVacio();
+    zona.innerHTML = '';
+    document.getElementById('pie-grafica').textContent =
+      'Escriba al menos dos datos en la sección 1 para generar la gráfica.';
+    return;
+  }
+  if(tipo === 'caja'){
+    host.innerHTML = dibujarCaja(e);
+    zona.innerHTML = tablaResumenCinco(e);
+    document.getElementById('pie-grafica').textContent =
+      'Diagrama de caja y bigotes generado a partir de los datos de la sección 1.';
+  } else {
+    var res = dibujarHistograma(e);
+    host.innerHTML = res.svg;
+    zona.innerHTML = res.tabla;
+    document.getElementById('pie-grafica').textContent =
+      'Histograma generado a partir de los datos de la sección 1.';
+  }
+}
+
+function svgVacio(){
+  return '<svg viewBox="0 0 640 220" width="640" height="220" xmlns="http://www.w3.org/2000/svg">' +
+         '<title>Gráfica sin datos suficientes</title>' +
+         '<text x="320" y="110" text-anchor="middle" fill="#555" font-family="Segoe UI,sans-serif" ' +
+         'font-size="15">Introduzca sus datos para ver la gráfica</text></svg>';
+}
+
+function unidad(){
+  var u = (document.getElementById('f_unidad').value || '').trim();
+  return u;
+}
+
+/* Diagrama de caja y bigotes. */
+function dibujarCaja(e){
+  var W = 640, H = 240, izq = 60, der = 40, base = 168;
+  var anchoUtil = W - izq - der;
+  var min = e.min, max = e.max;
+  var margen = (max - min) === 0 ? 1 : (max - min) * 0.1;
+  var lo = min - margen, hi = max + margen;
+
+  function x(v){ return izq + (v - lo) / (hi - lo) * anchoUtil; }
+
+  var u = unidad();
+  var titulo = 'Diagrama de caja y bigotes del conjunto de datos';
+  var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" ' +
+            'xmlns="http://www.w3.org/2000/svg"><title>' + escaparTexto(titulo) + '</title>';
+
+  /* Eje horizontal con marcas. */
+  svg += '<line x1="' + izq + '" y1="' + base + '" x2="' + (W - der) + '" y2="' + base +
+         '" stroke="#37474f" stroke-width="1.5"></line>';
+  var pasos = 5;
+  for(var i = 0; i <= pasos; i++){
+    var v = lo + (hi - lo) * i / pasos;
+    var px = redondear(x(v), 1);
+    svg += '<line x1="' + px + '" y1="' + base + '" x2="' + px + '" y2="' + (base + 6) +
+           '" stroke="#37474f" stroke-width="1.2"></line>';
+    svg += texto(px, base + 20, 'middle', redondear(v, 1), 11.5);
+  }
+  svg += texto(W / 2, base + 42, 'middle', u ? ('Valores (' + u + ')') : 'Valores', 12.5, '#222', 600);
+
+  /* Caja, mediana y bigotes. */
+  var yCaja = 70, altoCaja = 54;
+  var xMin = x(e.min), xQ1 = x(e.q1), xMed = x(e.mediana), xQ3 = x(e.q3), xMax = x(e.max);
+  var yCentro = yCaja + altoCaja / 2;
+  var anchoCaja = Math.max(xQ3 - xQ1, 2);
+
+  svg += '<line x1="' + redondear(xMin,1) + '" y1="' + yCentro + '" x2="' + redondear(xQ1,1) +
+         '" y2="' + yCentro + '" stroke="#311b62" stroke-width="2"></line>';
+  svg += '<line x1="' + redondear(xQ3,1) + '" y1="' + yCentro + '" x2="' + redondear(xMax,1) +
+         '" y2="' + yCentro + '" stroke="#311b62" stroke-width="2"></line>';
+  svg += '<line x1="' + redondear(xMin,1) + '" y1="' + (yCaja + 10) + '" x2="' + redondear(xMin,1) +
+         '" y2="' + (yCaja + altoCaja - 10) + '" stroke="#311b62" stroke-width="2.5"></line>';
+  svg += '<line x1="' + redondear(xMax,1) + '" y1="' + (yCaja + 10) + '" x2="' + redondear(xMax,1) +
+         '" y2="' + (yCaja + altoCaja - 10) + '" stroke="#311b62" stroke-width="2.5"></line>';
+  svg += '<rect x="' + redondear(xQ1,1) + '" y="' + yCaja + '" width="' + redondear(anchoCaja,1) +
+         '" height="' + altoCaja + '" fill="#ede7f6" stroke="#4a148c" stroke-width="2"></rect>';
+  svg += '<line x1="' + redondear(xMed,1) + '" y1="' + yCaja + '" x2="' + redondear(xMed,1) +
+         '" y2="' + (yCaja + altoCaja) + '" stroke="#b71c1c" stroke-width="3"></line>';
+
+  /* Etiquetas de los cinco números. */
+  svg += texto(xMin, yCaja - 24, 'middle', 'Mín', 11.5);
+  svg += texto(xMin, yCaja - 10, 'middle', redondear(e.min, 2), 12, '#222', 700);
+  svg += texto(xQ1, yCaja + altoCaja + 18, 'middle', 'Q1 = ' + redondear(e.q1, 2), 12);
+  svg += texto(xMed, yCaja - 24, 'middle', 'Mediana', 11.5);
+  svg += texto(xMed, yCaja - 10, 'middle', redondear(e.mediana, 2), 12, '#b71c1c', 700);
+  svg += texto(xQ3, yCaja + altoCaja + 18, 'middle', 'Q3 = ' + redondear(e.q3, 2), 12);
+  svg += texto(xMax, yCaja - 24, 'middle', 'Máx', 11.5);
+  svg += texto(xMax, yCaja - 10, 'middle', redondear(e.max, 2), 12, '#222', 700);
+
+  svg += texto(izq, 28, 'start', tituloGrafica('Diagrama de caja y bigotes'), 13.5, '#311b62', 700);
+  svg += '</svg>';
+  return svg;
+}
+
+/* Histograma con intervalos de igual ancho. */
+function dibujarHistograma(e){
+  var ancho = parseFloat(document.getElementById('hist-ancho').value);
+  var inicio = parseFloat(document.getElementById('hist-inicio').value);
+  if(isNaN(ancho) || ancho <= 0){
+    ancho = Math.ceil((e.rango || 1) / 5) || 1;
+    document.getElementById('hist-ancho').value = ancho;
+  }
+  if(isNaN(inicio)){
+    inicio = Math.floor(e.min / ancho) * ancho;
+    document.getElementById('hist-inicio').value = inicio;
+  }
+  if(inicio > e.min){
+    inicio = Math.floor(e.min / ancho) * ancho;
+    document.getElementById('hist-inicio').value = inicio;
+  }
+
+  var k = Math.ceil((e.max - inicio) / ancho);
+  if(k < 1){ k = 1; }
+  if(k > 12){ k = 12; }
+  var clases = [];
+  for(var i = 0; i < k; i++){
+    clases.push({ a: inicio + i * ancho, b: inicio + (i + 1) * ancho, f: 0 });
+  }
+  e.orden.forEach(function(v){
+    for(var i = 0; i < k; i++){
+      var ultima = (i === k - 1);
+      if(v >= clases[i].a && (v < clases[i].b || (ultima && v <= clases[i].b))){
+        clases[i].f++;
+        return;
+      }
+    }
+  });
+
+  var W = 640, H = 300, izq = 56, der = 24, arriba = 46, base = 224;
+  var anchoUtil = W - izq - der;
+  var fMax = 0;
+  clases.forEach(function(c){ if(c.f > fMax){ fMax = c.f; } });
+  if(fMax === 0){ fMax = 1; }
+  var altoUtil = base - arriba;
+  var anchoBarra = anchoUtil / k;
+
+  var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" ' +
+            'xmlns="http://www.w3.org/2000/svg"><title>Histograma del conjunto de datos</title>';
+
+  /* Eje vertical de frecuencias. */
+  svg += '<line x1="' + izq + '" y1="' + arriba + '" x2="' + izq + '" y2="' + base +
+         '" stroke="#37474f" stroke-width="1.5"></line>';
+  for(var t = 0; t <= fMax; t++){
+    var y = redondear(base - (t / fMax) * altoUtil, 1);
+    svg += '<line x1="' + (izq - 5) + '" y1="' + y + '" x2="' + izq + '" y2="' + y +
+           '" stroke="#37474f" stroke-width="1"></line>';
+    svg += texto(izq - 10, y + 4, 'end', t, 11.5);
+  }
+  svg += '<text x="16" y="' + ((arriba + base) / 2) + '" text-anchor="middle" fill="#222" ' +
+         'font-family="Segoe UI,sans-serif" font-size="12.5" font-weight="600" ' +
+         'transform="rotate(-90 16 ' + ((arriba + base) / 2) + ')">Frecuencia</text>';
+
+  /* Eje horizontal y barras. */
+  svg += '<line x1="' + izq + '" y1="' + base + '" x2="' + (W - der) + '" y2="' + base +
+         '" stroke="#37474f" stroke-width="1.5"></line>';
+
+  clases.forEach(function(c, i){
+    var x0 = izq + i * anchoBarra;
+    var alto = (c.f / fMax) * altoUtil;
+    svg += '<rect x="' + redondear(x0 + 1, 1) + '" y="' + redondear(base - alto, 1) +
+           '" width="' + redondear(anchoBarra - 2, 1) + '" height="' + redondear(alto, 1) +
+           '" fill="#4a148c" stroke="#311b62" stroke-width="1"></rect>';
+    if(c.f > 0){
+      svg += texto(x0 + anchoBarra / 2, base - alto - 6, 'middle', c.f, 11.5, '#222', 700);
+    }
+    svg += texto(x0 + anchoBarra / 2, base + 16, 'middle',
+                 redondear(c.a, 1) + '–' + redondear(c.b, 1), 10.5);
+  });
+
+  var u = unidad();
+  svg += texto(W / 2, base + 38, 'middle', u ? ('Intervalos (' + u + ')') : 'Intervalos', 12.5, '#222', 600);
+  svg += texto(izq, 26, 'start', tituloGrafica('Histograma'), 13.5, '#311b62', 700);
+  svg += '</svg>';
+
+  /* Tabla de frecuencias. */
+  var filas = '';
+  var acumulada = 0;
+  clases.forEach(function(c){
+    acumulada += c.f;
+    filas += '<tr><td>' + redondear(c.a, 2) + ' – ' + redondear(c.b, 2) + '</td>' +
+             '<td>' + c.f + '</td><td>' + acumulada + '</td></tr>';
+  });
+  var tabla =
+    '<table class="frec"><caption>Tabla de frecuencias de los intervalos del histograma. ' +
+    'Cada intervalo incluye su límite inferior; el límite superior se cuenta solo en el último intervalo.</caption>' +
+    '<thead><tr><th scope="col">Intervalo</th><th scope="col">Frecuencia</th>' +
+    '<th scope="col">Frecuencia acumulada</th></tr></thead><tbody>' + filas + '</tbody></table>';
+
+  return { svg: svg, tabla: tabla };
+}
+
+function tablaResumenCinco(e){
+  return '<table class="frec"><caption>Resumen de los cinco números del diagrama de caja y bigotes.</caption>' +
+    '<thead><tr><th scope="col">Medida</th><th scope="col">Valor</th></tr></thead><tbody>' +
+    '<tr><td>Mínimo</td><td>' + redondear(e.min, 2) + '</td></tr>' +
+    '<tr><td>Primer cuartil (Q1)</td><td>' + redondear(e.q1, 2) + '</td></tr>' +
+    '<tr><td>Mediana (Q2)</td><td>' + redondear(e.mediana, 2) + '</td></tr>' +
+    '<tr><td>Tercer cuartil (Q3)</td><td>' + redondear(e.q3, 2) + '</td></tr>' +
+    '<tr><td>Máximo</td><td>' + redondear(e.max, 2) + '</td></tr>' +
+    '<tr><td>Rango intercuartílico (IQR)</td><td>' + redondear(e.iqr, 2) + '</td></tr>' +
+    '</tbody></table>';
+}
+
+function tituloGrafica(base){
+  var t = (document.getElementById('f_titulo').value || '').trim();
+  return t ? (base + ': ' + t) : base;
+}
+
+function texto(x, y, anchor, contenido, tam, color, peso){
+  color = color || '#222';
+  peso = peso || 400;
+  return '<text x="' + redondear(x, 1) + '" y="' + redondear(y, 1) + '" text-anchor="' + anchor +
+         '" fill="' + color + '" font-family="Segoe UI,sans-serif" font-size="' + tam +
+         '" font-weight="' + peso + '">' + escaparTexto(contenido) + '</text>';
+}
+
+/* ── (D) Contador de oraciones de la interpretación ──────────── */
+function contarOraciones(){
+  var txt = document.getElementById('f_interpretacion').innerText || '';
+  var trozos = txt.split(/[.!?]+/).filter(function(s){ return s.trim().length > 3; });
+  var n = trozos.length;
+  var el = document.getElementById('contador-oraciones');
+  el.textContent = 'Oraciones detectadas: ' + n + (n >= 5 ? '  ✓ (mínimo cumplido)' : '  (mínimo: 5)');
+  el.className = 'contador no-imprimir' + (n >= 5 ? ' ok' : '');
+}
+
+/* ── (E) Comprobación de la probabilidad ─────────────────────── */
+function actualizarProbabilidad(){
+  var cond = document.getElementById('prob-cond').value;
+  document.getElementById('mc-v2').style.display = (cond === 'entre') ? '' : 'none';
+
+  var vals = leerValores();
+  var n = vals.length;
+  var v1 = parseFloat(document.getElementById('prob-v1').value);
+  var v2 = parseFloat(document.getElementById('prob-v2').value);
+
+  var elK = document.getElementById('p-k');
+  var elN = document.getElementById('p-n');
+  var elR = document.getElementById('p-resultado');
+  var elC = document.getElementById('p-con');
+  var elS = document.getElementById('p-sin');
+
+  elN.textContent = (n > 0) ? n : '—';
+
+  if(n === 0 || isNaN(v1) || (cond === 'entre' && isNaN(v2))){
+    elK.textContent = '—'; elR.textContent = '—';
+    elC.textContent = '—'; elS.textContent = '—';
+    guardar();
+    return;
+  }
+
+  var k = vals.filter(function(v){
+    if(cond === 'mayor'){   return v >  v1; }
+    if(cond === 'mayorig'){ return v >= v1; }
+    if(cond === 'menor'){   return v <  v1; }
+    if(cond === 'menorig'){ return v <= v1; }
+    if(cond === 'igual'){   return v === v1; }
+    var lo = Math.min(v1, v2), hi = Math.max(v1, v2);
+    return v >= lo && v <= hi;
+  }).length;
+
+  elK.textContent = k;
+  elR.textContent = formatoProbabilidad(k, n);
+
+  /* Dos selecciones: con reemplazo (independientes) y sin reemplazo (dependientes). */
+  var pCon = (k / n) * (k / n);
+  elC.textContent = '(' + k + '/' + n + ')² = ' + redondear(pCon, 4) +
+                    ' = ' + redondear(pCon * 100, 2) + ' %';
+  if(n >= 2){
+    var pSin = (k / n) * ((k - 1) / (n - 1));
+    if(pSin < 0){ pSin = 0; }
+    elS.textContent = '(' + k + '/' + n + ') × (' + (k - 1) + '/' + (n - 1) + ') = ' +
+                      redondear(pSin, 4) + ' = ' + redondear(pSin * 100, 2) + ' %';
+  } else {
+    elS.textContent = '—';
+  }
+  guardar();
+}
+
+function formatoProbabilidad(k, n){
+  var g = mcd(k, n);
+  var frac = (k === 0) ? '0' : (k / g) + '/' + (n / g);
+  var dec = k / n;
+  return k + '/' + n + (g > 1 && k > 0 ? ' = ' + frac : '') +
+         ' = ' + redondear(dec, 4) + ' = ' + redondear(dec * 100, 2) + ' %';
+}
+
+function mcd(a, b){
+  a = Math.abs(Math.round(a)); b = Math.abs(Math.round(b));
+  while(b){ var t = b; b = a % b; a = t; }
+  return a || 1;
+}
+
+/* ── Recalcular todo ─────────────────────────────────────────── */
+function actualizarTodo(){
+  var vals = leerValores();
+  var e = estadisticos(vals);
+  mostrarEstadisticos(e);
+  mostrarConteoYOrden(vals, e);
+  dibujarGrafica();
+  actualizarProbabilidad();
+}
+
+/* ── (F) Guardado automático (localStorage) ──────────────────── */
+var CLAVE = 'proyecto_final_nivel3_v1';
+
+function recolectarEstado(){
+  var estado = { campos:{}, contenteditable:{}, checks:{}, datos:[] };
+  ['f_nombre','f_fecha','f_titulo','f_unidad','tipo-grafica','hist-inicio','hist-ancho',
+   'prob-cond','prob-v1','prob-v2'].forEach(function(id){
+    estado.campos[id] = (document.getElementById(id) || {}).value || '';
+  });
+  ['f_fuente','f_estadisticos','f_grafica','f_interpretacion','f_pregunta','f_probabilidad']
+    .forEach(function(id){
+      estado.contenteditable[id] = (document.getElementById(id) || {}).innerHTML || '';
+    });
+  ['e1','e2','e3','e4'].forEach(function(id){
+    estado.checks[id] = (document.getElementById(id) || {}).checked || false;
+  });
+  document.querySelectorAll('#rejilla-datos .dato').forEach(function(inp){
+    estado.datos.push(inp.value);
+  });
+  return estado;
+}
+
+function guardar(){
+  try{ localStorage.setItem(CLAVE, JSON.stringify(recolectarEstado())); }
+  catch(e){ /* almacenamiento no disponible: se ignora silenciosamente */ }
+}
+
+function restaurar(){
+  var bruto = null;
+  try{ bruto = localStorage.getItem(CLAVE); }catch(e){ bruto = null; }
+  var rejilla = document.getElementById('rejilla-datos');
+
+  if(!bruto){
+    for(var i = 0; i < CELDAS_INICIALES; i++){ rejilla.appendChild(crearCelda(i + 1)); }
+    return;
+  }
+  try{
+    var e = JSON.parse(bruto);
+    Object.keys(e.campos || {}).forEach(function(id){
+      var el = document.getElementById(id); if(el){ el.value = e.campos[id]; }
+    });
+    Object.keys(e.contenteditable || {}).forEach(function(id){
+      var el = document.getElementById(id); if(el){ el.innerHTML = e.contenteditable[id]; }
+    });
+    Object.keys(e.checks || {}).forEach(function(id){
+      var el = document.getElementById(id); if(el){ el.checked = e.checks[id]; }
+    });
+    var datos = (e.datos && e.datos.length) ? e.datos : null;
+    if(datos){
+      datos.forEach(function(v, i){ rejilla.appendChild(crearCelda(i + 1, v)); });
+    } else {
+      for(var j = 0; j < CELDAS_INICIALES; j++){ rejilla.appendChild(crearCelda(j + 1)); }
+    }
+  } catch(err){
+    for(var k = 0; k < CELDAS_INICIALES; k++){ rejilla.appendChild(crearCelda(k + 1)); }
+  }
+}
+
+function borrarTodo(){
+  if(!confirm('¿Borrar todo el contenido de la plantilla? Esta acción no se puede deshacer.')){ return; }
+  try{ localStorage.removeItem(CLAVE); }catch(e){}
+  location.reload();
+}
+
+/* ── (G) Exportar como PDF ───────────────────────────────────── */
+function exportarPDF(){
+  guardar();
+  window.print();
+}
+
+/* ── Utilidades ──────────────────────────────────────────────── */
+function redondear(x, d){
+  var f = Math.pow(10, d);
+  var v = Math.round((x + Number.EPSILON) * f) / f;
+  return (Object.is(v, -0) ? 0 : v);
+}
+function escaparAttr(s){
+  return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function escaparTexto(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+/* ── Arranque ────────────────────────────────────────────────── */
+window.addEventListener('DOMContentLoaded', function(){
+  restaurar();
+  cambiarTipoGrafica();
+  actualizarTodo();
+  contarOraciones();
+
+  ['f_nombre','f_fecha','f_titulo','f_unidad'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', function(){
+      dibujarGrafica(); guardar();
+    });
+  });
+  ['f_fuente','f_estadisticos','f_grafica','f_pregunta','f_probabilidad'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', guardar);
+  });
+  document.getElementById('f_interpretacion').addEventListener('input', function(){
+    contarOraciones(); guardar();
+  });
+  ['e1','e2','e3','e4'].forEach(function(id){
+    document.getElementById(id).addEventListener('change', guardar);
+  });
+  document.getElementById('rejilla-datos').addEventListener('input', guardar);
+});
+</script>
+</body>
+</html>

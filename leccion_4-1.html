@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lección 4.1 · Variables, expresiones algebraicas y traducción</title>
+<style>
+  :root {
+    --tema:   #bf360c;
+    --tema-d: #8c2708;
+    --tema-bg:#fbe9e7;
+    --tema-bg2:#f7d9d3;
+    --acento: #1565c0;
+    --txt:    #222;
+    --bg:     #f5f7fa;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0; background: var(--bg); color: var(--txt);
+    line-height: 1.6; font-size: 16px;
+  }
+  .contenedor { max-width: 880px; margin: 0 auto; padding: 24px; }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  header.principal {
+    background: var(--tema);
+    background: linear-gradient(135deg, #8c2708 0%, #bf360c 55%, #e64a19 100%);
+    color: #fff; padding: 32px 30px; border-radius: 14px;
+    margin-bottom: 22px; box-shadow: 0 4px 14px rgba(140,39,8,.28);
+  }
+  header.principal .ruta { font-size: 13px; opacity: .94; letter-spacing: .4px; text-transform: uppercase; }
+  header.principal h1 { margin: 8px 0 6px; font-size: 25px; font-weight: 700; }
+  header.principal .meta { font-size: 14px; opacity: .96; }
+
+  h2.seccion {
+    color: var(--tema-d); font-size: 21px; margin: 34px 0 12px;
+    padding-bottom: 6px; border-bottom: 3px solid var(--tema-bg);
+  }
+  h3 { color: var(--tema-d); font-size: 17px; margin: 20px 0 8px; }
+
+  .caja-objetivos {
+    background: var(--tema-bg); border-left: 6px solid var(--tema);
+    padding: 18px 22px; border-radius: 0 10px 10px 0; margin-bottom: 22px;
+  }
+  .caja-objetivos h2 { margin: 0 0 10px; color: var(--tema-d); font-size: 19px; }
+  .caja-objetivos ul { margin: 0; padding-left: 22px; }
+  .caja-objetivos li { margin: 5px 0; }
+
+  .bloque {
+    background: #fff; border-radius: 10px; padding: 4px 24px 18px;
+    box-shadow: 0 1px 5px rgba(0,0,0,.06); margin-bottom: 18px;
+  }
+  p { margin: 10px 0; }
+
+  .formula {
+    text-align: center; font-size: 20px; font-weight: 700;
+    color: var(--tema-d); margin: 14px 0;
+  }
+
+  .ejemplo {
+    background: #fafafa; border: 1px solid #e3e3e3;
+    border-radius: 8px; padding: 14px 18px; margin: 14px 0;
+  }
+  .ejemplo .et {
+    display: inline-block; background: var(--tema); color: #fff;
+    font-size: 12px; font-weight: 700; padding: 3px 12px;
+    border-radius: 12px; margin-bottom: 8px; letter-spacing: .4px;
+  }
+  .paso { margin: 7px 0; padding-left: 30px; position: relative; }
+  .paso .n {
+    position: absolute; left: 0; top: 0;
+    background: var(--tema-bg); color: var(--tema-d);
+    width: 22px; height: 22px; border-radius: 50%;
+    font-size: 13px; font-weight: 700; text-align: center; line-height: 22px;
+  }
+  .resalta { background: var(--tema-bg); padding: 1px 6px; border-radius: 5px; font-weight: 700; }
+
+  .caja-tip {
+    background: #e8f5e9; border-left: 5px solid #2e7d32;
+    padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 14px 0;
+    color: #1b5e20; font-size: 15px;
+  }
+  .caja-tip strong { color: #1b5e20; }
+
+  .caja-atencion {
+    background: #fff8e1; border-left: 5px solid #f9a825;
+    padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 14px 0;
+    font-size: 15px; color: #5C3900;
+  }
+  .caja-atencion strong { color: #5C3900; }
+
+  .reglas { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+  .reglas th, .reglas td { border: 1px solid #e0e0e0; padding: 9px 12px; text-align: left; }
+  .reglas th { background: var(--tema); color: #fff; }
+  .reglas td:first-child { background: var(--tema-bg); font-weight: 600; color: var(--tema-d); }
+
+  .practica {
+    background: var(--tema-bg2); border: 1px dashed var(--tema);
+    border-radius: 10px; padding: 16px 20px; margin: 18px 0;
+  }
+  .practica h3 { margin-top: 0; color: var(--tema-d); }
+  .pregunta { margin: 14px 0; }
+  .pregunta .enun { font-weight: 600; margin-bottom: 8px; }
+  .opciones { display: flex; flex-direction: column; gap: 7px; }
+  .opcion {
+    background: #fff; border: 2px solid #e0e0e0; border-radius: 8px;
+    padding: 9px 14px; cursor: pointer; transition: all .15s;
+  }
+  .opcion:hover { border-color: var(--tema); }
+  .opcion.correcta { border-color: #2e7d32; background: #e8f5e9; font-weight: 600; }
+  .opcion.incorrecta { border-color: #c62828; background: #ffebee; }
+  .opcion.elegida { border-color: var(--tema); }
+  .fb { margin-top: 8px; font-size: 14px; font-weight: 600; display: none; }
+  .fb.ok { color: #1b5e20; }
+  .fb.no { color: #c62828; }
+
+  .btn {
+    background: var(--tema); color: #fff; border: none;
+    padding: 9px 20px; border-radius: 8px; font-size: 14px;
+    font-weight: 700; cursor: pointer; font-family: inherit; margin-top: 8px;
+  }
+  .btn:hover { background: var(--tema-d); }
+  .btn.sec { background: #546e7a; }
+  .btn.sec:hover { background: #37474f; }
+
+  .modalidad { display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0; }
+  .modo { flex: 1; min-width: 230px; border-radius: 9px; padding: 14px 16px; font-size: 14px; }
+  .modo-pres { background: #e3f2fd; border-left: 5px solid #1565c0; }
+  .modo-pres strong { color: #0d47a1; }
+  .modo-virt { background: #f3e5f5; border-left: 5px solid #6a1b9a; }
+  .modo-virt strong { color: #4a148c; }
+  .modo h3 { margin: 0 0 6px; font-size: 15px; }
+  .modo-pres h3 { color: #0d47a1; }
+  .modo-virt h3 { color: #4a148c; }
+
+  .actividad { margin-bottom: 18px; }
+  .actividad > .titulo-act {
+    font-weight: 700; color: var(--tema-d); font-size: 15px;
+    background: var(--tema-bg); padding: 7px 14px; border-radius: 7px;
+  }
+
+  .caja-tarea {
+    background: #ede7f6; border-left: 6px solid #5e35b1;
+    padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 20px 0;
+  }
+  .caja-tarea h2 { margin-top: 0; color: #4527a0; }
+
+  .quiz { background: #fff; border: 2px solid var(--tema); border-radius: 12px; padding: 8px 24px 20px; margin: 22px 0; }
+  .quiz h2 { color: var(--tema-d); }
+  #resultado-quiz {
+    font-size: 17px; font-weight: 700; margin: 14px 0;
+    padding: 12px; border-radius: 8px; text-align: center; display: none;
+  }
+  #resultado-quiz.aprob { background: #e8f5e9; color: #1b5e20; }
+  #resultado-quiz.repro { background: #ffebee; color: #b71c1c; }
+
+  .rubrica { margin: 22px 0; overflow-x: auto; }
+  .rubrica h2 { color: var(--tema-d); }
+  table.tabla-rubrica {
+    width: 100%; border-collapse: collapse; font-size: 13px;
+    background: #fff; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,.07);
+  }
+  table.tabla-rubrica th, table.tabla-rubrica td {
+    border: 1px solid #e0e0e0; padding: 8px 10px; vertical-align: top;
+  }
+  table.tabla-rubrica th {
+    background: var(--tema); color: #fff; font-size: 12px;
+    text-transform: uppercase; letter-spacing: .3px;
+  }
+  table.tabla-rubrica td:first-child {
+    background: var(--tema-bg); font-weight: 600; color: var(--tema-d);
+  }
+
+  .cierre {
+    background: #263238; color: #eceff1; border-radius: 12px;
+    padding: 22px 26px; margin: 24px 0 10px;
+  }
+  .cierre h2 { color: #fff; margin-top: 0; }
+  .cierre strong { color: #9BFF8F; }
+
+  footer {
+    text-align: center; padding: 20px; color: #555;
+    font-size: 13px; border-top: 1px solid #ddd; margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="contenedor">
+
+  <header class="principal">
+    <div class="ruta">Spanish ASE Math · Nivel 3 · Tema 4 · Álgebra lineal</div>
+    <h1>Lección 4.1 · Variables, expresiones algebraicas y traducción</h1>
+    <div class="meta">4 horas (2 sincrónicas + 2 asincrónicas) · NRS 3–4 · Brightspace D2L</div>
+  </header>
+
+  <div class="caja-objetivos">
+    <h2>Objetivos de la lección</h2>
+    <ul>
+      <li>Usar variables para representar cantidades desconocidas y escribir expresiones algebraicas.</li>
+      <li>Traducir enunciados verbales al lenguaje algebraico y viceversa.</li>
+      <li>Identificar términos, coeficientes, constantes y términos semejantes.</li>
+      <li>Simplificar expresiones aplicando la propiedad distributiva y combinando términos semejantes.</li>
+      <li>Evaluar expresiones sustituyendo valores enteros o fraccionarios.</li>
+    </ul>
+  </div>
+
+  <div class="bloque">
+    <p><strong>Conexión con el nivel anterior.</strong> El lenguaje algebraico no es del todo nuevo: en el <strong>Nivel 1</strong> ya se trabajó con <strong>incógnitas simples</strong> para resolver problemas de un paso. Lo que cambia aquí es la profundidad. Tras completar el sentido numérico en los Temas 1 al 3 de este nivel (exponentes, notación científica y números reales), el Nivel 3 <strong>retoma y formaliza</strong> ese lenguaje: se trabajará la traducción completa entre palabras y símbolos, y se aprenderá a <strong>simplificar</strong> expresiones distribuyendo y combinando términos semejantes. Esa base permitirá, en las próximas lecciones, resolver ecuaciones.</p>
+  </div>
+
+  <h2 class="seccion">1. Variables, términos y coeficientes</h2>
+  <div class="bloque">
+    <p>Una <strong>variable</strong> es una letra que representa un número desconocido o que puede cambiar. Una <strong>expresión algebraica</strong> combina variables, números y operaciones. Sus partes tienen nombres precisos:</p>
+
+    <table class="reglas">
+      <caption class="sr-only">Partes de la expresión 3x más 5: término, coeficiente, variable y constante.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Parte</th>
+          <th scope="col">En 3x + 5</th>
+          <th scope="col">Significado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Término</td><td>3x y 5</td><td>Cada parte separada por + o −.</td></tr>
+        <tr><td>Coeficiente</td><td>3</td><td>El número que multiplica a la variable.</td></tr>
+        <tr><td>Variable</td><td>x</td><td>La letra que representa el valor desconocido.</td></tr>
+        <tr><td>Constante</td><td>5</td><td>El término que no tiene variable.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="caja-tip">
+      <strong>Coeficiente invisible:</strong> cuando una variable aparece sola, como x, su coeficiente es 1 (x = 1x). De igual modo, −x significa −1x. Recordarlo evita errores al combinar términos.
+    </div>
+  </div>
+
+  <h2 class="seccion">2. Traducir entre palabras y álgebra</h2>
+  <div class="bloque">
+    <p>Gran parte del álgebra consiste en <strong>traducir</strong> un enunciado verbal al lenguaje de los símbolos. Ciertas palabras señalan siempre la misma operación.</p>
+
+    <table class="reglas">
+      <caption class="sr-only">Tabla de traducción del lenguaje verbal al algebraico.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Frase verbal</th>
+          <th scope="col">Expresión algebraica</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>El doble de un número x</td><td>2x</td></tr>
+        <tr><td>Tres más que un número x</td><td>x + 3</td></tr>
+        <tr><td>La mitad de un número x</td><td>x/2</td></tr>
+        <tr><td>Un número x disminuido en 4</td><td>x − 4</td></tr>
+        <tr><td>El cuadrado de un número x</td><td>x²</td></tr>
+        <tr><td>Cinco veces un número, aumentado en 2</td><td>5x + 2</td></tr>
+      </tbody>
+    </table>
+
+    <div class="caja-atencion">
+      <strong>El orden importa en la resta:</strong> «un número disminuido en 4» es x − 4, pero «4 disminuido en un número» es 4 − x. La resta no es conmutativa, así que conviene leer con cuidado quién va primero.
+    </div>
+  </div>
+
+  <div class="practica">
+    <h3>Práctica interactiva 1 · Traducir a álgebra</h3>
+    <p>Selecciona la expresión algebraica correcta.</p>
+
+    <div class="pregunta" data-correcta="a">
+      <div class="enun">1. «Cinco veces un número x»</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">5x</div>
+        <div class="opcion" data-op="b">x + 5</div>
+        <div class="opcion" data-op="c">5/x</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+
+    <div class="pregunta" data-correcta="b">
+      <div class="enun">2. «Un número x aumentado en 7»</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">7x</div>
+        <div class="opcion" data-op="b">x + 7</div>
+        <div class="opcion" data-op="c">x − 7</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+
+    <div class="pregunta" data-correcta="b">
+      <div class="enun">3. «El cuadrado de un número x»</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">2x</div>
+        <div class="opcion" data-op="b">x²</div>
+        <div class="opcion" data-op="c">x/2</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+  </div>
+
+  <h2 class="seccion">3. Combinar términos semejantes</h2>
+  <div class="bloque">
+    <p>Dos términos son <strong>semejantes</strong> si tienen la <strong>misma variable elevada al mismo exponente</strong>. Solo los términos semejantes se pueden combinar, sumando o restando sus coeficientes.</p>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 1</span>
+      <p>Simplificar 3x + 5x.</p>
+      <div class="paso"><span class="n">1</span> Ambos términos tienen la variable x: son semejantes.</div>
+      <div class="paso"><span class="n">2</span> Se suman los coeficientes: 3 + 5 = 8.</div>
+      <p><strong>Respuesta:</strong> 3x + 5x = 8x.</p>
+    </div>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 2 · Con constante</span>
+      <p>Simplificar 7x − 2x + 4.</p>
+      <div class="paso"><span class="n">1</span> Los términos con x son semejantes: 7x − 2x = 5x.</div>
+      <div class="paso"><span class="n">2</span> El 4 es una constante: se deja aparte.</div>
+      <p><strong>Respuesta:</strong> 7x − 2x + 4 = 5x + 4.</p>
+    </div>
+
+    <div class="caja-atencion">
+      <strong>No se combinan términos distintos:</strong> 4x + 2y no se puede simplificar, porque x y y son variables diferentes. Tampoco 3x + 5 se reduce a 8x, porque 5 no tiene la variable x.
+    </div>
+  </div>
+
+  <h2 class="seccion">4. La propiedad distributiva</h2>
+  <div class="bloque">
+    <p>La propiedad distributiva permite multiplicar un número por una suma, repartiéndolo a cada término del paréntesis.</p>
+    <p class="formula">a(b + c) = a · b + a · c</p>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 3</span>
+      <p>Simplificar 3(x + 4).</p>
+      <div class="paso"><span class="n">1</span> Se reparte el 3 a cada término: 3 · x + 3 · 4.</div>
+      <p><strong>Respuesta:</strong> 3(x + 4) = 3x + 12.</p>
+    </div>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 4 · Distribuir y combinar</span>
+      <p>Simplificar 2(x + 3) + 4x.</p>
+      <div class="paso"><span class="n">1</span> Se distribuye: 2x + 6 + 4x.</div>
+      <div class="paso"><span class="n">2</span> Se combinan los términos semejantes: 2x + 4x = 6x.</div>
+      <p><strong>Respuesta:</strong> 2(x + 3) + 4x = 6x + 6.</p>
+    </div>
+  </div>
+
+  <div class="practica">
+    <h3>Práctica interactiva 2 · Simplificar expresiones</h3>
+    <p>Selecciona la forma simplificada de cada expresión.</p>
+
+    <div class="pregunta" data-correcta="a">
+      <div class="enun">1. 4x + 6x =</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">10x</div>
+        <div class="opcion" data-op="b">24x</div>
+        <div class="opcion" data-op="c">10x²</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+
+    <div class="pregunta" data-correcta="b">
+      <div class="enun">2. 5(x + 2) =</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">5x + 2</div>
+        <div class="opcion" data-op="b">5x + 10</div>
+        <div class="opcion" data-op="c">x + 10</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+
+    <div class="pregunta" data-correcta="a">
+      <div class="enun">3. 3x + 2 + x =</div>
+      <div class="opciones">
+        <div class="opcion" data-op="a">4x + 2</div>
+        <div class="opcion" data-op="b">5x</div>
+        <div class="opcion" data-op="c">6x</div>
+      </div>
+      <div class="fb"></div>
+    </div>
+  </div>
+
+  <h2 class="seccion">5. Evaluar expresiones</h2>
+  <div class="bloque">
+    <p>Evaluar una expresión significa <strong>sustituir</strong> la variable por un valor dado y calcular el resultado, respetando el orden de las operaciones (PEMDAS).</p>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 5</span>
+      <p>Evaluar 2x + 5 cuando x = 3.</p>
+      <div class="paso"><span class="n">1</span> Se sustituye x por 3: 2(3) + 5.</div>
+      <div class="paso"><span class="n">2</span> Se multiplica primero: 6 + 5.</div>
+      <p><strong>Respuesta:</strong> 2x + 5 = 11 cuando x = 3.</p>
+    </div>
+
+    <div class="ejemplo">
+      <span class="et">Ejemplo 6 · Con exponente</span>
+      <p>Evaluar x² + 1 cuando x = 4.</p>
+      <div class="paso"><span class="n">1</span> Se sustituye: (4)² + 1.</div>
+      <div class="paso"><span class="n">2</span> Se calcula la potencia primero: 16 + 1.</div>
+      <p><strong>Respuesta:</strong> x² + 1 = 17 cuando x = 4.</p>
+    </div>
+
+    <div class="caja-tip">
+      <strong>Usar paréntesis al sustituir:</strong> escribir 2(3) en lugar de 23 evita confundir la multiplicación con un número de dos dígitos. Es especialmente importante al sustituir valores negativos o fraccionarios.
+    </div>
+  </div>
+
+  <h2 class="seccion">6. Práctica guiada en clase</h2>
+  <div class="bloque">
+    <p>Las siguientes tres actividades se realizan durante las horas sincrónicas. Cada una se presenta en doble modalidad: una versión para el aula presencial y otra para la sesión en línea.</p>
+
+    <div class="actividad">
+      <div class="titulo-act">Actividad 1 · El traductor matemático</div>
+      <div class="modalidad">
+        <div class="modo modo-pres">
+          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
+          El docente presenta diez frases verbales para traducir a expresiones algebraicas y diez expresiones para describir con palabras. En parejas, los estudiantes traducen en ambas direcciones y comparan sus versiones verbales.
+        </div>
+        <div class="modo modo-virt">
+          <h3><span aria-hidden="true">💻</span> En línea</h3>
+          En un documento compartido de dos columnas (frase verbal y expresión algebraica), cada estudiante completa la columna que falta en diez renglones, y el grupo revisa las traducciones en la sesión.
+        </div>
+      </div>
+    </div>
+
+    <div class="actividad">
+      <div class="titulo-act">Actividad 2 · Términos semejantes</div>
+      <div class="modalidad">
+        <div class="modo modo-pres">
+          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
+          Con fichas de colores que representan términos (una x verde, una constante azul), los estudiantes agrupan los términos semejantes de ocho expresiones antes de simplificarlas, aplicando la propiedad distributiva cuando aparece un paréntesis.
+        </div>
+        <div class="modo modo-virt">
+          <h3><span aria-hidden="true">💻</span> En línea</h3>
+          Los estudiantes clasifican los términos de ocho expresiones en grupos de semejantes usando una pizarra compartida, y luego escriben la forma simplificada de cada una.
+        </div>
+      </div>
+    </div>
+
+    <div class="actividad">
+      <div class="titulo-act">Actividad 3 · Sustituir y evaluar</div>
+      <div class="modalidad">
+        <div class="modo modo-pres">
+          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
+          El docente plantea seis expresiones y un valor para la variable. Cada estudiante sustituye usando paréntesis y evalúa respetando el PEMDAS. Un voluntario muestra en la pizarra un caso con exponente y un caso con valor fraccionario.
+        </div>
+        <div class="modo modo-virt">
+          <h3><span aria-hidden="true">💻</span> En línea</h3>
+          En salas pequeñas, las parejas evalúan seis expresiones con los valores dados y registran cada sustitución y resultado en una hoja compartida, verificando el uso correcto del orden de operaciones.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="caja-tarea">
+    <h2>Tarea asincrónica</h2>
+    <p>Para completar de forma individual en la plataforma <strong>MyOpenMath</strong> antes de la próxima sesión:</p>
+    <ul>
+      <li>Cuatro traducciones de frase verbal a expresión algebraica.</li>
+      <li>Cuatro expresiones para simplificar combinando términos semejantes y usando la propiedad distributiva.</li>
+      <li>Cuatro evaluaciones de expresiones con valores enteros o fraccionarios dados.</li>
+    </ul>
+    <p>La plataforma ofrece retroalimentación paso a paso en cada intento. Tiempo estimado: 50 minutos.</p>
+  </div>
+
+  <div class="quiz">
+    <h2>Quiz de la lección 4.1</h2>
+    <p>Doce preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 8 respuestas correctas.</p>
+    <div id="quiz-cuerpo"></div>
+    <div id="resultado-quiz"></div>
+    <button class="btn" id="btn-corregir">Corregir quiz</button>
+    <button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
+  </div>
+
+  <div class="rubrica">
+    <h2>Rúbrica analítica de la lección</h2>
+    <p>Tres criterios evaluados en cuatro niveles de desempeño.</p>
+    <table class="tabla-rubrica">
+      <caption class="sr-only">Rúbrica analítica con tres criterios y cuatro niveles de desempeño.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Criterio</th>
+          <th scope="col">Inicial (1)</th>
+          <th scope="col">En desarrollo (2)</th>
+          <th scope="col">Competente (3)</th>
+          <th scope="col">Destacado (4)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Traducir verbal ↔ algebraico</td>
+          <td>Confunde la operación o el orden de los términos.</td>
+          <td>Traduce con errores ocasionales de orden o de operación.</td>
+          <td>Traduce correctamente en ambas direcciones.</td>
+          <td>Traduce con fluidez, incluyendo frases con resta y cuadrado.</td>
+        </tr>
+        <tr>
+          <td>Simplificar expresiones</td>
+          <td>Combina términos no semejantes.</td>
+          <td>Aplica la distributiva o combina, pero no ambas.</td>
+          <td>Distribuye y combina términos semejantes correctamente.</td>
+          <td>Simplifica con fluidez expresiones con paréntesis y constantes.</td>
+        </tr>
+        <tr>
+          <td>Evaluar expresiones</td>
+          <td>Sustituye mal o ignora el orden de operaciones.</td>
+          <td>Sustituye, pero comete errores de PEMDAS.</td>
+          <td>Evalúa correctamente sustituyendo el valor dado.</td>
+          <td>Evalúa con fluidez, también con exponentes y valores fraccionarios.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cierre">
+    <h2>Cierre y enlace con la próxima lección</h2>
+    <p>En esta lección se retomó y formalizó el <strong>lenguaje algebraico</strong> iniciado en el Nivel 1: una <strong>variable</strong> representa una cantidad desconocida, y con ella se escriben <strong>expresiones</strong> que se traducen del lenguaje verbal, se simplifican combinando <strong>términos semejantes</strong> y aplicando la <strong>propiedad distributiva</strong>, y se <strong>evalúan</strong> sustituyendo valores.</p>
+    <p>En la <strong>Lección 4.2 · Resolver ecuaciones lineales: propiedades de igualdad y variables en ambos lados</strong> se dará el siguiente paso: cuando una expresión se iguala a otra, aparece una <strong>ecuación</strong>, y el objetivo será <strong>encontrar el valor</strong> de la variable que la hace verdadera. Simplificar y combinar términos, como se aprendió aquí, será el primer paso de toda resolución.</p>
+  </div>
+
+  <footer>
+    Spanish ASE Math · Nivel 3 · Lección 4.1 — Preparado para Prof. José M. Fernández (Truman College, CCC) · Brightspace D2L
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  /* ---- Práctica de opciones (selección múltiple) ---- */
+  var preguntasOp = document.querySelectorAll('.practica .pregunta[data-correcta]');
+  preguntasOp.forEach(function (preg) {
+    var correcta = preg.getAttribute('data-correcta');
+    var opciones = preg.querySelectorAll('.opcion');
+    var fb = preg.querySelector('.fb');
+    opciones.forEach(function (op) {
+      op.addEventListener('click', function () {
+        opciones.forEach(function (o) { o.classList.remove('correcta', 'incorrecta', 'elegida'); });
+        var elegida = op.getAttribute('data-op');
+        if (elegida === correcta) {
+          op.classList.add('correcta');
+          fb.textContent = '¡Correcto! Bien razonado.';
+          fb.className = 'fb ok';
+        } else {
+          op.classList.add('incorrecta');
+          opciones.forEach(function (o) {
+            if (o.getAttribute('data-op') === correcta) o.classList.add('correcta');
+          });
+          fb.textContent = 'Revisa: la opción marcada en verde es la correcta.';
+          fb.className = 'fb no';
+        }
+        fb.style.display = 'block';
+      });
+    });
+  });
+
+  /* ---- Quiz ---- */
+  var preguntasQuiz = [
+    { enun: '1. Traduce: «el doble de un número x».', ops: ['2x', 'x + 2', 'x²', 'x/2'], correcta: 0 },
+    { enun: '2. Traduce: «tres más que un número x».', ops: ['3x', 'x + 3', 'x − 3', '3 − x'], correcta: 1 },
+    { enun: '3. Traduce: «la mitad de un número x».', ops: ['2x', 'x − 2', 'x/2', 'x + 2'], correcta: 2 },
+    { enun: '4. Traduce: «un número x disminuido en 5».', ops: ['5 − x', 'x − 5', '5x', 'x + 5'], correcta: 1 },
+    { enun: '5. Simplifica: 3x + 5x.', ops: ['8x', '15x', '8x²', '8'], correcta: 0 },
+    { enun: '6. Simplifica: 7x − 2x + 4.', ops: ['5x + 4', '9x', '5x − 4', '9x + 4'], correcta: 0 },
+    { enun: '7. Simplifica: 3(x + 4).', ops: ['3x + 4', '3x + 12', 'x + 12', '3x + 7'], correcta: 1 },
+    { enun: '8. Simplifica: 2(x + 3) + 4x.', ops: ['6x + 6', '6x + 3', '2x + 6', '6x + 9'], correcta: 0 },
+    { enun: '9. Evalúa 2x + 5 cuando x = 3.', ops: ['11', '13', '25', '8'], correcta: 0 },
+    { enun: '10. Evalúa 4x − 7 cuando x = 5.', ops: ['13', '27', '−13', '20'], correcta: 0 },
+    { enun: '11. Evalúa x² + 1 cuando x = 4.', ops: ['9', '17', '81', '16'], correcta: 1 },
+    { enun: '12. ¿Cuáles son términos semejantes?', ops: ['3x y 7x', '3x y 3y', '3x y 3', 'x y x²'], correcta: 0 }
+  ];
+
+  var cuerpo = document.getElementById('quiz-cuerpo');
+  preguntasQuiz.forEach(function (p, i) {
+    var div = document.createElement('div');
+    div.className = 'pregunta';
+    div.setAttribute('data-idx', i);
+    var enun = document.createElement('div');
+    enun.className = 'enun';
+    enun.textContent = p.enun;
+    div.appendChild(enun);
+    var cont = document.createElement('div');
+    cont.className = 'opciones';
+    p.ops.forEach(function (texto, j) {
+      var op = document.createElement('div');
+      op.className = 'opcion';
+      op.setAttribute('data-j', j);
+      op.textContent = texto;
+      op.addEventListener('click', function () {
+        if (div.getAttribute('data-bloqueado') === 'si') return;
+        cont.querySelectorAll('.opcion').forEach(function (o) { o.classList.remove('elegida'); });
+        op.classList.add('elegida');
+        div.setAttribute('data-elegida', j);
+      });
+      cont.appendChild(op);
+    });
+    div.appendChild(cont);
+    var fb = document.createElement('div');
+    fb.className = 'fb';
+    div.appendChild(fb);
+    cuerpo.appendChild(div);
+  });
+
+  var btnCorregir = document.getElementById('btn-corregir');
+  var btnReintentar = document.getElementById('btn-reintentar');
+  var resultado = document.getElementById('resultado-quiz');
+
+  btnCorregir.addEventListener('click', function () {
+    var aciertos = 0;
+    var divs = cuerpo.querySelectorAll('.pregunta');
+    divs.forEach(function (div, i) {
+      var elegida = div.getAttribute('data-elegida');
+      var fb = div.querySelector('.fb');
+      var opciones = div.querySelectorAll('.opcion');
+      div.setAttribute('data-bloqueado', 'si');
+      opciones.forEach(function (o) { o.classList.remove('correcta', 'incorrecta'); });
+      if (elegida === null) {
+        fb.textContent = 'No se respondió esta pregunta.';
+        fb.className = 'fb no';
+        fb.style.display = 'block';
+        opciones[preguntasQuiz[i].correcta].classList.add('correcta');
+        return;
+      }
+      var idxElegida = parseInt(elegida, 10);
+      if (idxElegida === preguntasQuiz[i].correcta) {
+        aciertos++;
+        opciones[idxElegida].classList.add('correcta');
+        fb.textContent = '¡Correcto!';
+        fb.className = 'fb ok';
+      } else {
+        opciones[idxElegida].classList.add('incorrecta');
+        opciones[preguntasQuiz[i].correcta].classList.add('correcta');
+        fb.textContent = 'Incorrecto. La respuesta correcta está marcada en verde.';
+        fb.className = 'fb no';
+      }
+      fb.style.display = 'block';
+    });
+
+    resultado.style.display = 'block';
+    if (aciertos >= 8) {
+      resultado.className = 'aprob';
+      resultado.textContent = 'Resultado: ' + aciertos + ' de 12 correctas. ¡Aprobado! Puedes continuar a la Lección 4.2.';
+    } else {
+      resultado.className = 'repro';
+      resultado.textContent = 'Resultado: ' + aciertos + ' de 12 correctas. Repasa la lección e intenta de nuevo (se requieren 8).';
+    }
+    btnCorregir.style.display = 'none';
+    btnReintentar.style.display = 'inline-block';
+  });
+
+  btnReintentar.addEventListener('click', function () {
+    var divs = cuerpo.querySelectorAll('.pregunta');
+    divs.forEach(function (div) {
+      div.removeAttribute('data-elegida');
+      div.removeAttribute('data-bloqueado');
+      div.querySelectorAll('.opcion').forEach(function (o) { o.classList.remove('correcta', 'incorrecta', 'elegida'); });
+      var fb = div.querySelector('.fb');
+      fb.style.display = 'none';
+      fb.textContent = '';
+    });
+    resultado.style.display = 'none';
+    btnReintentar.style.display = 'none';
+    btnCorregir.style.display = 'inline-block';
+    window.scrollTo({ top: document.querySelector('.quiz').offsetTop - 20, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>
