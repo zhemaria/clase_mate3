@@ -1,9 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
+<!-- Lección 3.1 · Matemáticas Nivel 3 · GEDparaHispanos
+     José M. Fernández · CC BY-NC-SA 4.0 -->
+
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Lección 3.1 · Simplificar radicales: factorización en cuadrados perfectos</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lección 3.1 · Simplificar radicales: factorización en cuadrados perfectos</title><meta content="CC BY-NC-SA 4.0" name="license"/><link href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license"/>
 <style>
   :root {
     --tema:   #004d40;
@@ -139,25 +142,7 @@
   }
   .btn:hover { background: var(--tema-d); }
   .btn.sec { background: #546e7a; }
-  .btn.sec:hover { background: #37474f; }
-
-  .modalidad { display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0; }
-  .modo { flex: 1; min-width: 230px; border-radius: 9px; padding: 14px 16px; font-size: 14px; }
-  .modo-pres { background: #e3f2fd; border-left: 5px solid #1565c0; }
-  .modo-pres strong { color: #0d47a1; }
-  .modo-virt { background: #f3e5f5; border-left: 5px solid #6a1b9a; }
-  .modo-virt strong { color: #4a148c; }
-  .modo h3 { margin: 0 0 6px; font-size: 15px; }
-  .modo-pres h3 { color: #0d47a1; }
-  .modo-virt h3 { color: #4a148c; }
-
-  .actividad { margin-bottom: 18px; }
-  .actividad > .titulo-act {
-    font-weight: 700; color: var(--tema-d); font-size: 15px;
-    background: var(--tema-bg); padding: 7px 14px; border-radius: 7px;
-  }
-
-  .caja-tarea {
+  .btn.sec:hover { background: #37474f; }.caja-tarea {
     background: #ede7f6; border-left: 6px solid #5e35b1;
     padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 20px 0;
   }
@@ -201,322 +186,264 @@
     text-align: center; padding: 20px; color: #555;
     font-size: 13px; border-top: 1px solid #ddd; margin-top: 20px;
   }
+
+  /* ── ÍNDICE DE LA LECCIÓN ── */
+  .indice{
+    background:#fff; border:1px solid #d8dde3; border-left:6px solid var(--tema);
+    border-radius:10px; padding:16px 20px; margin:24px 0;
+  }
+  .indice h2{ font-size:1.05rem; margin:0 0 10px; color:var(--tema-d); border:0; padding:0; background:none; }
+  .indice ol{ margin:0; padding-left:1.35em; }
+  .indice li{ margin:4px 0; }
+  .indice a{ color:var(--tema-d); text-decoration:underline; }
+  .indice a:hover{ color:var(--tema); }
+  .indice a:focus-visible,.volver-indice:focus-visible{ outline:3px solid #b05e00; outline-offset:2px; }
+  .volver-indice{
+    position:fixed; right:18px; bottom:18px; z-index:60;
+    background:var(--tema-d); color:#fff; border-radius:999px;
+    padding:10px 16px; font-weight:700; font-size:.92rem; text-decoration:none;
+    box-shadow:0 2px 10px rgba(0,0,0,.28);
+  }
+  .volver-indice:hover{ background:var(--tema); color:#fff; }
+  footer a{ color:inherit; }
+  @media print{ .indice,.volver-indice{ display:none; } }
 </style>
 </head>
 <body>
 <div class="contenedor">
-
-  <header class="principal">
-    <div class="ruta">Spanish ASE Math · Nivel 3 · Tema 3 · Radicales y números reales</div>
-    <h1>Lección 3.1 · Simplificar radicales: factorización en cuadrados perfectos</h1>
-    <div class="meta">4 horas (2 sincrónicas + 2 asincrónicas) · NRS 3–4 · Brightspace D2L</div>
-  </header>
-
-  <div class="caja-objetivos">
-    <h2>Objetivos de la lección</h2>
-    <ul>
-      <li>Simplificar radicales cuadrados extrayendo los factores que son cuadrados perfectos.</li>
-      <li>Aplicar la propiedad del producto de radicales: √(a · b) = √a · √b.</li>
-      <li>Simplificar radicales con variables (por ejemplo, √x⁴ = x²).</li>
-      <li>Reconocer cuándo un radical ya está en su forma más simple.</li>
-      <li>Verificar la simplificación comparando aproximaciones con la calculadora.</li>
-    </ul>
-  </div>
-
-  <div class="bloque">
-    <p><strong>Conexión con el tema anterior.</strong> El Tema 2 cerró el trabajo con potencias de 10 y notación científica. La <strong>raíz cuadrada</strong> es la operación inversa de elevar al cuadrado: si 6² = 36, entonces √36 = 6. En el Nivel 2 se trabajaron las raíces de los cuadrados perfectos; ahora se aprenderá a <strong>simplificar</strong> radicales cuyo radicando no es un cuadrado perfecto, extrayendo de él la mayor parte cuadrada posible.</p>
-  </div>
-
-  <h2 class="seccion">1. La propiedad del producto de radicales</h2>
-  <div class="bloque">
-    <p>La idea central para simplificar es que la raíz de un producto se puede separar en el producto de las raíces:</p>
-    <p class="formula">√(a · b) = √a · √b</p>
-    <p>Esta propiedad permite «sacar» del radical cualquier factor que sea un cuadrado perfecto, dejando dentro solo lo que no lo es.</p>
-
-    <table class="cuadrados">
-      <caption class="sr-only">Tabla de cuadrados perfectos del 1 al 15.</caption>
-      <thead>
-        <tr>
-          <th scope="col">n</th>
-          <th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th>
-          <th scope="col">5</th><th scope="col">6</th><th scope="col">7</th><th scope="col">8</th>
-          <th scope="col">9</th><th scope="col">10</th><th scope="col">11</th><th scope="col">12</th>
-          <th scope="col">13</th><th scope="col">14</th><th scope="col">15</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>n²</td>
-          <td>1</td><td>4</td><td>9</td><td>16</td><td>25</td><td>36</td><td>49</td><td>64</td>
-          <td>81</td><td>100</td><td>121</td><td>144</td><td>169</td><td>196</td><td>225</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h2 class="seccion">2. Simplificar radicales numéricos</h2>
-  <div class="bloque">
-    <p>El procedimiento busca el <strong>mayor cuadrado perfecto</strong> que divida al radicando, lo separa con la propiedad del producto y extrae su raíz.</p>
-
-    <div class="expansion" aria-label="Raíz de setenta y dos igual a raíz de treinta y seis por dos, igual a raíz de treinta y seis por raíz de dos, igual a seis raíz de dos">
+<header class="principal">
+<div class="ruta">Spanish ASE Math · Nivel 3 · Tema 3 · Radicales y números reales</div>
+<h1>Lección 3.1 · Simplificar radicales: factorización en cuadrados perfectos</h1>
+<div class="meta">Unas 4 horas, a su ritmo · NRS 3–4</div>
+</header>
+<div class="caja-objetivos">
+<h2>Objetivos de la lección</h2>
+<ul>
+<li>Simplificar radicales cuadrados extrayendo los factores que son cuadrados perfectos.</li>
+<li>Aplicar la propiedad del producto de radicales: √(a · b) = √a · √b.</li>
+<li>Simplificar radicales con variables (por ejemplo, √x⁴ = x²).</li>
+<li>Reconocer cuándo un radical ya está en su forma más simple.</li>
+<li>Verificar la simplificación comparando aproximaciones con la calculadora.</li>
+</ul>
+</div><nav aria-labelledby="indice-titulo" class="indice" id="indice"><h2 id="indice-titulo">Contenido de la lección</h2><ol><li><a href="#s-1-la-propiedad-del-producto-de-radicales">1. La propiedad del producto de radicales</a></li><li><a href="#s-2-simplificar-radicales-numericos">2. Simplificar radicales numéricos</a></li><li><a href="#s-3-simplificar-radicales-con-variables">3. Simplificar radicales con variables</a></li><li><a href="#s-4-verificar-con-la-calculadora">4. Verificar con la calculadora</a></li><li><a href="#s-tarea">Tarea</a></li><li><a href="#s-quiz-de-la-leccion-3-1">Quiz de la lección 3.1</a></li><li><a href="#s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</a></li><li><a href="#s-cierre-y-enlace-con-la-proxima-leccion">Cierre y enlace con la próxima lección</a></li></ol></nav>
+<div class="bloque">
+<p><strong>Conexión con el tema anterior.</strong> El Tema 2 cerró el trabajo con potencias de 10 y notación científica. La <strong>raíz cuadrada</strong> es la operación inversa de elevar al cuadrado: si 6² = 36, entonces √36 = 6. En el Nivel 2 se trabajaron las raíces de los cuadrados perfectos; ahora se aprenderá a <strong>simplificar</strong> radicales cuyo radicando no es un cuadrado perfecto, extrayendo de él la mayor parte cuadrada posible.</p>
+</div>
+<h2 class="seccion" id="s-1-la-propiedad-del-producto-de-radicales">1. La propiedad del producto de radicales</h2>
+<div class="bloque">
+<p>La idea central para simplificar es que la raíz de un producto se puede separar en el producto de las raíces:</p>
+<p class="formula">√(a · b) = √a · √b</p>
+<p>Esta propiedad permite «sacar» del radical cualquier factor que sea un cuadrado perfecto, dejando dentro solo lo que no lo es.</p>
+<table class="cuadrados">
+<caption class="sr-only">Tabla de cuadrados perfectos del 1 al 15.</caption>
+<thead>
+<tr>
+<th scope="col">n</th>
+<th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th>
+<th scope="col">5</th><th scope="col">6</th><th scope="col">7</th><th scope="col">8</th>
+<th scope="col">9</th><th scope="col">10</th><th scope="col">11</th><th scope="col">12</th>
+<th scope="col">13</th><th scope="col">14</th><th scope="col">15</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n²</td>
+<td>1</td><td>4</td><td>9</td><td>16</td><td>25</td><td>36</td><td>49</td><td>64</td>
+<td>81</td><td>100</td><td>121</td><td>144</td><td>169</td><td>196</td><td>225</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 class="seccion" id="s-2-simplificar-radicales-numericos">2. Simplificar radicales numéricos</h2>
+<div class="bloque">
+<p>El procedimiento busca el <strong>mayor cuadrado perfecto</strong> que divida al radicando, lo separa con la propiedad del producto y extrae su raíz.</p>
+<div aria-label="Raíz de setenta y dos igual a raíz de treinta y seis por dos, igual a raíz de treinta y seis por raíz de dos, igual a seis raíz de dos" class="expansion">
       √72 = √(<span class="grupo-a">36</span> · <span class="grupo-b">2</span>)
       = √<span class="grupo-a">36</span> · √<span class="grupo-b">2</span>
       = <span class="resalta">6√2</span>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 1</span>
+<p>Simplificar √50.</p>
+<div class="paso"><span class="n">1</span> El mayor cuadrado perfecto que divide a 50 es 25: 50 = 25 · 2.</div>
+<div class="paso"><span class="n">2</span> Se separa: √50 = √25 · √2.</div>
+<div class="paso"><span class="n">3</span> Se extrae la raíz del cuadrado perfecto: √25 = 5.</div>
+<p><strong>Respuesta:</strong> √50 = 5√2.</p>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 2</span>
+<p>Simplificar √48.</p>
+<div class="paso"><span class="n">1</span> El mayor cuadrado perfecto que divide a 48 es 16: 48 = 16 · 3.</div>
+<div class="paso"><span class="n">2</span> Se separa: √48 = √16 · √3 = 4√3.</div>
+<p><strong>Respuesta:</strong> √48 = 4√3.</p>
+</div>
+<div class="caja-atencion">
+<strong>Buscar el mayor cuadrado:</strong> si se usa un cuadrado perfecto pequeño, todavía quedará algo por simplificar. Por ejemplo, √72 = √(4 · 18) = 2√18, pero √18 aún se puede reducir. Conviene buscar de una vez el mayor: 36.
     </div>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 1</span>
-      <p>Simplificar √50.</p>
-      <div class="paso"><span class="n">1</span> El mayor cuadrado perfecto que divide a 50 es 25: 50 = 25 · 2.</div>
-      <div class="paso"><span class="n">2</span> Se separa: √50 = √25 · √2.</div>
-      <div class="paso"><span class="n">3</span> Se extrae la raíz del cuadrado perfecto: √25 = 5.</div>
-      <p><strong>Respuesta:</strong> √50 = 5√2.</p>
+</div>
+<div class="practica">
+<h3>Práctica interactiva 1 · Simplificar radicales numéricos</h3>
+<p>Selecciona la forma simplificada de cada radical.</p>
+<div class="pregunta" data-correcta="a">
+<div class="enun">1. √8 =</div>
+<div class="opciones">
+<div class="opcion" data-op="a">2√2</div>
+<div class="opcion" data-op="b">4√2</div>
+<div class="opcion" data-op="c">√8 ya es simple</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">2. √75 =</div>
+<div class="opciones">
+<div class="opcion" data-op="a">5√3</div>
+<div class="opcion" data-op="b">3√5</div>
+<div class="opcion" data-op="c">25√3</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">3. √98 =</div>
+<div class="opciones">
+<div class="opcion" data-op="a">7√2</div>
+<div class="opcion" data-op="b">2√7</div>
+<div class="opcion" data-op="c">49√2</div>
+</div>
+<div class="fb"></div>
+</div>
+</div>
+<h2 class="seccion" id="s-3-simplificar-radicales-con-variables">3. Simplificar radicales con variables</h2>
+<div class="bloque">
+<p>Una variable con exponente <strong>par</strong> es un cuadrado perfecto, porque su raíz cuadrada es la misma variable con la mitad del exponente: √x⁴ = x², ya que (x²)² = x⁴.</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 3</span>
+<p>Simplificar √x⁶.</p>
+<div class="paso"><span class="n">1</span> El exponente 6 es par, así que x⁶ es un cuadrado perfecto.</div>
+<div class="paso"><span class="n">2</span> Se toma la mitad del exponente: 6 ÷ 2 = 3.</div>
+<p><strong>Respuesta:</strong> √x⁶ = x³.</p>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 4 · Coeficiente y variable</span>
+<p>Simplificar √(9x²).</p>
+<div class="paso"><span class="n">1</span> Se separa el producto: √9 · √x².</div>
+<div class="paso"><span class="n">2</span> √9 = 3 y √x² = x.</div>
+<p><strong>Respuesta:</strong> √(9x²) = 3x.</p>
+</div>
+<div class="caja-tip">
+<strong>Cuándo ya está simple:</strong> un radical está en su forma más simple cuando el radicando no tiene ningún factor (distinto de 1) que sea un cuadrado perfecto. Por ejemplo, √15 ya es simple, porque 15 = 3 · 5 y ni 3 ni 5 son cuadrados perfectos.
     </div>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 2</span>
-      <p>Simplificar √48.</p>
-      <div class="paso"><span class="n">1</span> El mayor cuadrado perfecto que divide a 48 es 16: 48 = 16 · 3.</div>
-      <div class="paso"><span class="n">2</span> Se separa: √48 = √16 · √3 = 4√3.</div>
-      <p><strong>Respuesta:</strong> √48 = 4√3.</p>
+</div>
+<div class="practica">
+<h3>Práctica interactiva 2 · Variables y forma simple</h3>
+<p>Selecciona la respuesta correcta de cada caso.</p>
+<div class="pregunta" data-correcta="a">
+<div class="enun">1. √x⁸ =</div>
+<div class="opciones">
+<div class="opcion" data-op="a">x⁴</div>
+<div class="opcion" data-op="b">x⁸</div>
+<div class="opcion" data-op="c">x¹⁶</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">2. √(25x²) =</div>
+<div class="opciones">
+<div class="opcion" data-op="a">5x</div>
+<div class="opcion" data-op="b">25x</div>
+<div class="opcion" data-op="c">5x²</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">3. ¿Cuál radical ya está en su forma más simple?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">√7</div>
+<div class="opcion" data-op="b">√18</div>
+<div class="opcion" data-op="c">√50</div>
+</div>
+<div class="fb"></div>
+</div>
+</div>
+<h2 class="seccion" id="s-4-verificar-con-la-calculadora">4. Verificar con la calculadora</h2>
+<div class="bloque">
+<p>Simplificar no cambia el valor del radical, solo su forma. Una comprobación confiable es calcular ambas expresiones en la TI-30XS: deben dar el mismo decimal.</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 5 · Verificación</span>
+<p>Comprobar que √72 = 6√2.</p>
+<div class="paso"><span class="n">1</span> En la calculadora: √72 ≈ 8.485.</div>
+<div class="paso"><span class="n">2</span> Por otro lado: 6 × √2 ≈ 6 × 1.414 = 8.485.</div>
+<p><strong>Respuesta:</strong> ambas formas dan 8.485, así que √72 = 6√2 es correcto.</p>
+</div>
+<div class="caja-tip">
+<strong>Uso pedagógico:</strong> verificar con la calculadora no reemplaza el procedimiento, pero confirma que la simplificación conserva el valor. Es una herramienta excelente para detectar un error de factorización.
     </div>
-
-    <div class="caja-atencion">
-      <strong>Buscar el mayor cuadrado:</strong> si se usa un cuadrado perfecto pequeño, todavía quedará algo por simplificar. Por ejemplo, √72 = √(4 · 18) = 2√18, pero √18 aún se puede reducir. Conviene buscar de una vez el mayor: 36.
-    </div>
-  </div>
-
-  <div class="practica">
-    <h3>Práctica interactiva 1 · Simplificar radicales numéricos</h3>
-    <p>Selecciona la forma simplificada de cada radical.</p>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">1. √8 =</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">2√2</div>
-        <div class="opcion" data-op="b">4√2</div>
-        <div class="opcion" data-op="c">√8 ya es simple</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">2. √75 =</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">5√3</div>
-        <div class="opcion" data-op="b">3√5</div>
-        <div class="opcion" data-op="c">25√3</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">3. √98 =</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">7√2</div>
-        <div class="opcion" data-op="b">2√7</div>
-        <div class="opcion" data-op="c">49√2</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-  </div>
-
-  <h2 class="seccion">3. Simplificar radicales con variables</h2>
-  <div class="bloque">
-    <p>Una variable con exponente <strong>par</strong> es un cuadrado perfecto, porque su raíz cuadrada es la misma variable con la mitad del exponente: √x⁴ = x², ya que (x²)² = x⁴.</p>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 3</span>
-      <p>Simplificar √x⁶.</p>
-      <div class="paso"><span class="n">1</span> El exponente 6 es par, así que x⁶ es un cuadrado perfecto.</div>
-      <div class="paso"><span class="n">2</span> Se toma la mitad del exponente: 6 ÷ 2 = 3.</div>
-      <p><strong>Respuesta:</strong> √x⁶ = x³.</p>
-    </div>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 4 · Coeficiente y variable</span>
-      <p>Simplificar √(9x²).</p>
-      <div class="paso"><span class="n">1</span> Se separa el producto: √9 · √x².</div>
-      <div class="paso"><span class="n">2</span> √9 = 3 y √x² = x.</div>
-      <p><strong>Respuesta:</strong> √(9x²) = 3x.</p>
-    </div>
-
-    <div class="caja-tip">
-      <strong>Cuándo ya está simple:</strong> un radical está en su forma más simple cuando el radicando no tiene ningún factor (distinto de 1) que sea un cuadrado perfecto. Por ejemplo, √15 ya es simple, porque 15 = 3 · 5 y ni 3 ni 5 son cuadrados perfectos.
-    </div>
-  </div>
-
-  <div class="practica">
-    <h3>Práctica interactiva 2 · Variables y forma simple</h3>
-    <p>Selecciona la respuesta correcta de cada caso.</p>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">1. √x⁸ =</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">x⁴</div>
-        <div class="opcion" data-op="b">x⁸</div>
-        <div class="opcion" data-op="c">x¹⁶</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">2. √(25x²) =</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">5x</div>
-        <div class="opcion" data-op="b">25x</div>
-        <div class="opcion" data-op="c">5x²</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">3. ¿Cuál radical ya está en su forma más simple?</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">√7</div>
-        <div class="opcion" data-op="b">√18</div>
-        <div class="opcion" data-op="c">√50</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-  </div>
-
-  <h2 class="seccion">4. Verificar con la calculadora</h2>
-  <div class="bloque">
-    <p>Simplificar no cambia el valor del radical, solo su forma. Una comprobación confiable es calcular ambas expresiones en la TI-30XS: deben dar el mismo decimal.</p>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 5 · Verificación</span>
-      <p>Comprobar que √72 = 6√2.</p>
-      <div class="paso"><span class="n">1</span> En la calculadora: √72 ≈ 8.485.</div>
-      <div class="paso"><span class="n">2</span> Por otro lado: 6 × √2 ≈ 6 × 1.414 = 8.485.</div>
-      <p><strong>Respuesta:</strong> ambas formas dan 8.485, así que √72 = 6√2 es correcto.</p>
-    </div>
-
-    <div class="caja-tip">
-      <strong>Uso pedagógico:</strong> verificar con la calculadora no reemplaza el procedimiento, pero confirma que la simplificación conserva el valor. Es una herramienta excelente para detectar un error de factorización.
-    </div>
-  </div>
-
-  <h2 class="seccion">5. Práctica guiada en clase</h2>
-  <div class="bloque">
-    <p>Las siguientes tres actividades se realizan durante las horas sincrónicas. Cada una se presenta en doble modalidad: una versión para el aula presencial y otra para la sesión en línea.</p>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 1 · Simplifica el arquitecto</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          El docente plantea un escenario: un arquitecto debe simplificar las medidas de sus diseños expresadas en radicales (√50, √98, √200, √48, √75). En parejas, un estudiante factoriza el radicando y el otro extrae el cuadrado perfecto; luego intercambian roles.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          En una pizarra compartida, cada estudiante simplifica dos de las medidas del arquitecto, mostrando la factorización y el cuadrado perfecto extraído. El grupo revisa que se haya usado el mayor cuadrado posible.
-        </div>
-      </div>
-    </div>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 2 · El mayor cuadrado perfecto</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          Con la tabla de cuadrados perfectos a la vista, los estudiantes identifican, para ocho radicandos, cuál es el mayor cuadrado perfecto que los divide, antes de simplificar. Se discute por qué usar el mayor evita pasos adicionales.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          En un documento compartido, los estudiantes completan una tabla de tres columnas (radicando, mayor cuadrado perfecto, forma simplificada) para ocho casos, y comparan resultados en salas pequeñas.
-        </div>
-      </div>
-    </div>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 3 · Verificar con la TI-30XS</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          Cada estudiante simplifica cuatro radicales y verifica dos de ellos con la TI-30XS, comparando el decimal del radical original con el de la forma simplificada. Se discute cualquier diferencia hallada.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          Los estudiantes simplifican cuatro radicales y comprueban dos con una calculadora científica en línea, reportando en el chat si los decimales coinciden.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="caja-tarea">
-    <h2>Tarea asincrónica</h2>
-    <p>Para completar de forma individual en la plataforma <strong>MyOpenMath</strong> antes de la próxima sesión:</p>
-    <ul>
-      <li>Seis radicales numéricos para simplificar extrayendo el mayor cuadrado perfecto.</li>
-      <li>Dos radicales con variables (exponente par) para simplificar.</li>
-      <li>Dos casos para decidir si el radical ya está en su forma más simple y justificarlo.</li>
-    </ul>
-    <p>La plataforma ofrece retroalimentación paso a paso en cada intento. Tiempo estimado: 50 minutos.</p>
-  </div>
-
-  <div class="quiz">
-    <h2>Quiz de la lección 3.1</h2>
-    <p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
-    <div id="quiz-cuerpo"></div>
-    <div id="resultado-quiz"></div>
-    <button class="btn" id="btn-corregir">Corregir quiz</button>
-    <button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
-  </div>
-
-  <div class="rubrica">
-    <h2>Rúbrica analítica de la lección</h2>
-    <p>Tres criterios evaluados en cuatro niveles de desempeño.</p>
-    <table class="tabla-rubrica">
-      <caption class="sr-only">Rúbrica analítica con tres criterios y cuatro niveles de desempeño.</caption>
-      <thead>
-        <tr>
-          <th scope="col">Criterio</th>
-          <th scope="col">Inicial (1)</th>
-          <th scope="col">En desarrollo (2)</th>
-          <th scope="col">Competente (3)</th>
-          <th scope="col">Destacado (4)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Factorizar el radicando</td>
-          <td>No identifica cuadrados perfectos en el radicando.</td>
-          <td>Usa un cuadrado perfecto, pero no el mayor.</td>
-          <td>Identifica el mayor cuadrado perfecto que divide al radicando.</td>
-          <td>Factoriza con fluidez y justifica por qué eligió ese cuadrado.</td>
-        </tr>
-        <tr>
-          <td>Propiedad del producto</td>
-          <td>No separa la raíz del producto.</td>
-          <td>Separa con errores ocasionales.</td>
-          <td>Aplica √(a · b) = √a · √b correctamente.</td>
-          <td>Aplica la propiedad con fluidez, también con variables.</td>
-        </tr>
-        <tr>
-          <td>Forma simplificada</td>
-          <td>Deja el resultado sin simplificar del todo.</td>
-          <td>Extrae la raíz, pero no presenta el coeficiente fuera.</td>
-          <td>Presenta el coeficiente fuera y el radical en forma simple.</td>
-          <td>Presenta la forma más simple y la verifica con la calculadora.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="cierre">
-    <h2>Cierre y enlace con la próxima lección</h2>
-    <p>En esta lección se aprendió a <strong>simplificar radicales</strong> extrayendo el mayor cuadrado perfecto del radicando, aplicando la propiedad √(a · b) = √a · √b, tanto con números como con variables de exponente par. También se aprendió a reconocer cuándo un radical <strong>ya está en su forma más simple</strong>.</p>
-    <p>En la <strong>Lección 3.2 · Operaciones con radicales: suma, resta y multiplicación</strong> se operará con estas expresiones. Se descubrirá que los radicales se suman y se restan como los <strong>términos semejantes</strong> del álgebra (solo si tienen la misma parte irracional), y que se multiplican aplicando de nuevo la propiedad del producto. Simplificar primero, como se aprendió aquí, será el paso clave para poder combinarlos.</p>
-  </div>
-
-  <footer>
-    Spanish ASE Math · Nivel 3 · Lección 3.1 — Preparado para Prof. José M. Fernández (Truman College, CCC) · Brightspace D2L
-  </footer>
-
 </div>
 
+
+<div class="caja-tarea">
+<h2 id="s-tarea">Tarea</h2>
+<p>Para hacer por su cuenta, con el cuaderno abierto:</p>
+<ul>
+<li>Seis radicales numéricos para simplificar extrayendo el mayor cuadrado perfecto.</li>
+<li>Dos radicales con variables (exponente par) para simplificar.</li>
+<li>Dos casos para decidir si el radical ya está en su forma más simple y justificarlo.</li>
+<li><strong>ThatQuiz:</strong> entre en <a href="https://www.thatquiz.org/es/" rel="noopener noreferrer" target="_blank">ThatQuiz</a> y busque los ejercicios de <em>raíces cuadradas</em> y repase la tabla de cuadrados perfectos hasta 400. Sin esa tabla en la cabeza no hay forma de ver el cuadrado perfecto escondido dentro del radicando.</li></ul>
+<p>Tiempo estimado: 50 minutos. Resuelva en papel y evalúe su trabajo con la rúbrica de esta lección.</p>
+</div>
+<div class="quiz">
+<h2 id="s-quiz-de-la-leccion-3-1">Quiz de la lección 3.1</h2>
+<p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
+<div id="quiz-cuerpo"></div>
+<div id="resultado-quiz"></div>
+<button class="btn" id="btn-corregir">Corregir quiz</button>
+<button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
+</div>
+<div class="rubrica">
+<h2 id="s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</h2>
+<p>Tres criterios evaluados en cuatro niveles de desempeño. Léala <strong>antes</strong> de empezar la tarea y úsela <strong>después</strong> para evaluar su propio trabajo con honestidad.</p>
+<table class="tabla-rubrica">
+<caption class="sr-only">Rúbrica analítica con tres criterios y cuatro niveles de desempeño.</caption>
+<thead>
+<tr>
+<th scope="col">Criterio</th>
+<th scope="col">Inicial (1)</th>
+<th scope="col">En desarrollo (2)</th>
+<th scope="col">Competente (3)</th>
+<th scope="col">Destacado (4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Factorizar el radicando</td>
+<td>No identifica cuadrados perfectos en el radicando.</td>
+<td>Usa un cuadrado perfecto, pero no el mayor.</td>
+<td>Identifica el mayor cuadrado perfecto que divide al radicando.</td>
+<td>Factoriza con fluidez y justifica por qué eligió ese cuadrado.</td>
+</tr>
+<tr>
+<td>Propiedad del producto</td>
+<td>No separa la raíz del producto.</td>
+<td>Separa con errores ocasionales.</td>
+<td>Aplica √(a · b) = √a · √b correctamente.</td>
+<td>Aplica la propiedad con fluidez, también con variables.</td>
+</tr>
+<tr>
+<td>Forma simplificada</td>
+<td>Deja el resultado sin simplificar del todo.</td>
+<td>Extrae la raíz, pero no presenta el coeficiente fuera.</td>
+<td>Presenta el coeficiente fuera y el radical en forma simple.</td>
+<td>Presenta la forma más simple y la verifica con la calculadora.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cierre">
+<h2 id="s-cierre-y-enlace-con-la-proxima-leccion">Cierre y enlace con la próxima lección</h2>
+<p>En esta lección se aprendió a <strong>simplificar radicales</strong> extrayendo el mayor cuadrado perfecto del radicando, aplicando la propiedad √(a · b) = √a · √b, tanto con números como con variables de exponente par. También se aprendió a reconocer cuándo un radical <strong>ya está en su forma más simple</strong>.</p>
+<p>En la <strong>Lección 3.2 · Operaciones con radicales: suma, resta y multiplicación</strong> se operará con estas expresiones. Se descubrirá que los radicales se suman y se restan como los <strong>términos semejantes</strong> del álgebra (solo si tienen la misma parte irracional), y que se multiplican aplicando de nuevo la propiedad del producto. Simplificar primero, como se aprendió aquí, será el paso clave para poder combinarlos.</p>
+</div>
+<footer><p>GEDparaHispanos · Matemáticas · Nivel 3 · Tema 3 · Lección 3.1</p><p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p><p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p></footer><a aria-label="Volver al contenido de la lección" class="volver-indice" href="#indice"><span aria-hidden="true">↑</span> Índice</a>
+</div>
 <script>
 (function () {
   /* ---- Práctica de opciones (selección múltiple) ---- */

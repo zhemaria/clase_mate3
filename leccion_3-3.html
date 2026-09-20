@@ -1,9 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
+<!-- Lección 3.3 · Matemáticas Nivel 3 · GEDparaHispanos
+     José M. Fernández · CC BY-NC-SA 4.0 -->
+
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Lección 3.3 · El sistema de números reales: racionales, irracionales y la recta numérica completa</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lección 3.3 · El sistema de números reales: racionales, irracionales y la recta numérica completa</title><meta content="CC BY-NC-SA 4.0" name="license"/><link href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license"/>
 <style>
   :root {
     --tema:   #004d40;
@@ -128,25 +131,7 @@
   }
   .btn:hover { background: var(--tema-d); }
   .btn.sec { background: #546e7a; }
-  .btn.sec:hover { background: #37474f; }
-
-  .modalidad { display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0; }
-  .modo { flex: 1; min-width: 230px; border-radius: 9px; padding: 14px 16px; font-size: 14px; }
-  .modo-pres { background: #e3f2fd; border-left: 5px solid #1565c0; }
-  .modo-pres strong { color: #0d47a1; }
-  .modo-virt { background: #f3e5f5; border-left: 5px solid #6a1b9a; }
-  .modo-virt strong { color: #4a148c; }
-  .modo h3 { margin: 0 0 6px; font-size: 15px; }
-  .modo-pres h3 { color: #0d47a1; }
-  .modo-virt h3 { color: #4a148c; }
-
-  .actividad { margin-bottom: 18px; }
-  .actividad > .titulo-act {
-    font-weight: 700; color: var(--tema-d); font-size: 15px;
-    background: var(--tema-bg); padding: 7px 14px; border-radius: 7px;
-  }
-
-  .caja-tarea {
+  .btn.sec:hover { background: #37474f; }.caja-tarea {
     background: #ede7f6; border-left: 6px solid #5e35b1;
     padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 20px 0;
   }
@@ -190,348 +175,285 @@
     text-align: center; padding: 20px; color: #555;
     font-size: 13px; border-top: 1px solid #ddd; margin-top: 20px;
   }
+
+  /* ── ÍNDICE DE LA LECCIÓN ── */
+  .indice{
+    background:#fff; border:1px solid #d8dde3; border-left:6px solid var(--tema);
+    border-radius:10px; padding:16px 20px; margin:24px 0;
+  }
+  .indice h2{ font-size:1.05rem; margin:0 0 10px; color:var(--tema-d); border:0; padding:0; background:none; }
+  .indice ol{ margin:0; padding-left:1.35em; }
+  .indice li{ margin:4px 0; }
+  .indice a{ color:var(--tema-d); text-decoration:underline; }
+  .indice a:hover{ color:var(--tema); }
+  .indice a:focus-visible,.volver-indice:focus-visible{ outline:3px solid #b05e00; outline-offset:2px; }
+  .volver-indice{
+    position:fixed; right:18px; bottom:18px; z-index:60;
+    background:var(--tema-d); color:#fff; border-radius:999px;
+    padding:10px 16px; font-weight:700; font-size:.92rem; text-decoration:none;
+    box-shadow:0 2px 10px rgba(0,0,0,.28);
+  }
+  .volver-indice:hover{ background:var(--tema); color:#fff; }
+  footer a{ color:inherit; }
+  @media print{ .indice,.volver-indice{ display:none; } }
 </style>
 </head>
 <body>
 <div class="contenedor">
-
-  <header class="principal">
-    <div class="ruta">Spanish ASE Math · Nivel 3 · Tema 3 · Radicales y números reales</div>
-    <h1>Lección 3.3 · El sistema de números reales: racionales, irracionales y la recta numérica completa</h1>
-    <div class="meta">4 horas (2 sincrónicas + 2 asincrónicas) · NRS 3–4 · Brightspace D2L</div>
-  </header>
-
-  <div class="caja-objetivos">
-    <h2>Objetivos de la lección</h2>
-    <ul>
-      <li>Clasificar números en el sistema de los números reales (naturales, enteros, racionales, irracionales).</li>
-      <li>Reconocer la relación de contención entre los conjuntos: naturales ⊂ enteros ⊂ racionales ⊂ reales.</li>
-      <li>Justificar por qué √2 y π son irracionales.</li>
-      <li>Ubicar números irracionales en la recta numérica usando aproximaciones.</li>
-      <li>Convertir un decimal periódico a fracción para mostrar que es racional.</li>
-    </ul>
-  </div>
-
-  <div class="bloque">
-    <p><strong>Conexión con la lección anterior.</strong> Las Lecciones 3.1 y 3.2 trabajaron con radicales como √2 o √3, que no tienen un valor decimal exacto. Esos números pertenecen a una familia especial: los <strong>irracionales</strong>. Esta lección sitúa los radicales dentro del panorama completo de los números, distinguiendo los <strong>racionales</strong> de los <strong>irracionales</strong> y mostrando cómo todos juntos forman el sistema de los <strong>números reales</strong>.</p>
-  </div>
-
-  <h2 class="seccion">1. El sistema de los números reales</h2>
-  <div class="bloque">
-    <p>Los números reales se organizan en conjuntos que se contienen unos a otros. Los <strong>naturales</strong> (1, 2, 3, …) están dentro de los <strong>enteros</strong> (…, −2, −1, 0, 1, 2, …), que están dentro de los <strong>racionales</strong> (los que se pueden escribir como fracción). Aparte están los <strong>irracionales</strong>. Juntos, racionales e irracionales forman los <strong>reales</strong>.</p>
-
-    <div class="diagrama-wrap">
-      <svg width="640" height="360" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama del sistema de los números reales. El conjunto de los números reales contiene, a la izquierda, los racionales; dentro de los racionales están los enteros; y dentro de los enteros, los naturales. A la derecha, dentro de los reales pero fuera de los racionales, están los irracionales como raíz de dos, raíz de tres y pi.">
-        <rect x="8" y="8" width="624" height="344" rx="16" fill="#e0f2f1" stroke="#004d40" stroke-width="3"/>
-        <text x="320" y="34" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="17" font-weight="700" fill="#00352c">Números reales</text>
-
-        <rect x="28" y="52" width="330" height="288" rx="14" fill="#cce8e4" stroke="#00695c" stroke-width="2"/>
-        <text x="193" y="76" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#00352c">Racionales</text>
-        <text x="193" y="98" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#00352c">1/2 · 0.75 · −3/4 · 0.333…</text>
-
-        <rect x="48" y="112" width="290" height="210" rx="12" fill="#b2dfdb" stroke="#00695c" stroke-width="2"/>
-        <text x="193" y="134" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#00352c">Enteros</text>
-        <text x="193" y="156" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#00352c">… −2 · −1 · 0 …</text>
-
-        <rect x="70" y="170" width="246" height="134" rx="10" fill="#80cbc4" stroke="#00695c" stroke-width="2"/>
-        <text x="193" y="214" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#00352c">Naturales</text>
-        <text x="193" y="238" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#00352c">1 · 2 · 3 · 4 …</text>
-
-        <rect x="392" y="120" width="216" height="170" rx="14" fill="#fff3e0" stroke="#5C3900" stroke-width="2"/>
-        <text x="500" y="170" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#5C3900">Irracionales</text>
-        <text x="500" y="196" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" fill="#5C3900">√2 · √3</text>
-        <text x="500" y="218" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" fill="#5C3900">π · √5</text>
-      </svg>
+<header class="principal">
+<div class="ruta">Spanish ASE Math · Nivel 3 · Tema 3 · Radicales y números reales</div>
+<h1>Lección 3.3 · El sistema de números reales: racionales, irracionales y la recta numérica completa</h1>
+<div class="meta">Unas 4 horas, a su ritmo · NRS 3–4</div>
+</header>
+<div class="caja-objetivos">
+<h2>Objetivos de la lección</h2>
+<ul>
+<li>Clasificar números en el sistema de los números reales (naturales, enteros, racionales, irracionales).</li>
+<li>Reconocer la relación de contención entre los conjuntos: naturales ⊂ enteros ⊂ racionales ⊂ reales.</li>
+<li>Justificar por qué √2 y π son irracionales.</li>
+<li>Ubicar números irracionales en la recta numérica usando aproximaciones.</li>
+<li>Convertir un decimal periódico a fracción para mostrar que es racional.</li>
+</ul>
+</div><nav aria-labelledby="indice-titulo" class="indice" id="indice"><h2 id="indice-titulo">Contenido de la lección</h2><ol><li><a href="#s-1-el-sistema-de-los-numeros-reales">1. El sistema de los números reales</a></li><li><a href="#s-2-numeros-racionales">2. Números racionales</a></li><li><a href="#s-3-numeros-irracionales">3. Números irracionales</a></li><li><a href="#s-4-ubicar-irracionales-en-la-recta-numerica">4. Ubicar irracionales en la recta numérica</a></li><li><a href="#s-5-decimales-periodicos-a-fracciones">5. Decimales periódicos a fracciones</a></li><li><a href="#s-tarea">Tarea</a></li><li><a href="#s-quiz-de-la-leccion-3-3">Quiz de la lección 3.3</a></li><li><a href="#s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</a></li><li><a href="#s-cierre-del-tema-3-y-enlace-con-el-tema-4">Cierre del Tema 3 y enlace con el Tema 4</a></li></ol></nav>
+<div class="bloque">
+<p><strong>Conexión con la lección anterior.</strong> Las Lecciones 3.1 y 3.2 trabajaron con radicales como √2 o √3, que no tienen un valor decimal exacto. Esos números pertenecen a una familia especial: los <strong>irracionales</strong>. Esta lección sitúa los radicales dentro del panorama completo de los números, distinguiendo los <strong>racionales</strong> de los <strong>irracionales</strong> y mostrando cómo todos juntos forman el sistema de los <strong>números reales</strong>.</p>
+</div>
+<h2 class="seccion" id="s-1-el-sistema-de-los-numeros-reales">1. El sistema de los números reales</h2>
+<div class="bloque">
+<p>Los números reales se organizan en conjuntos que se contienen unos a otros. Los <strong>naturales</strong> (1, 2, 3, …) están dentro de los <strong>enteros</strong> (…, −2, −1, 0, 1, 2, …), que están dentro de los <strong>racionales</strong> (los que se pueden escribir como fracción). Aparte están los <strong>irracionales</strong>. Juntos, racionales e irracionales forman los <strong>reales</strong>.</p>
+<div class="diagrama-wrap">
+<svg aria-label="Diagrama del sistema de los números reales. El conjunto de los números reales contiene, a la izquierda, los racionales; dentro de los racionales están los enteros; y dentro de los enteros, los naturales. A la derecha, dentro de los reales pero fuera de los racionales, están los irracionales como raíz de dos, raíz de tres y pi." height="360" role="img" viewbox="0 0 640 360" width="640" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#e0f2f1" height="344" rx="16" stroke="#004d40" stroke-width="3" width="624" x="8" y="8"></rect>
+<text fill="#00352c" font-family="Segoe UI, sans-serif" font-size="17" font-weight="700" text-anchor="middle" x="320" y="34">Números reales</text>
+<rect fill="#cce8e4" height="288" rx="14" stroke="#00695c" stroke-width="2" width="330" x="28" y="52"></rect>
+<text fill="#00352c" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700" text-anchor="middle" x="193" y="76">Racionales</text>
+<text fill="#00352c" font-family="Segoe UI, sans-serif" font-size="13" text-anchor="middle" x="193" y="98">1/2 · 0.75 · −3/4 · 0.333…</text>
+<rect fill="#b2dfdb" height="210" rx="12" stroke="#00695c" stroke-width="2" width="290" x="48" y="112"></rect>
+<text fill="#00352c" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700" text-anchor="middle" x="193" y="134">Enteros</text>
+<text fill="#00352c" font-family="Segoe UI, sans-serif" font-size="13" text-anchor="middle" x="193" y="156">… −2 · −1 · 0 …</text>
+<rect fill="#80cbc4" height="134" rx="10" stroke="#00695c" stroke-width="2" width="246" x="70" y="170"></rect>
+<text fill="#00352c" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700" text-anchor="middle" x="193" y="214">Naturales</text>
+<text fill="#00352c" font-family="Segoe UI, sans-serif" font-size="13" text-anchor="middle" x="193" y="238">1 · 2 · 3 · 4 …</text>
+<rect fill="#fff3e0" height="170" rx="14" stroke="#5C3900" stroke-width="2" width="216" x="392" y="120"></rect>
+<text fill="#5C3900" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700" text-anchor="middle" x="500" y="170">Irracionales</text>
+<text fill="#5C3900" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="middle" x="500" y="196">√2 · √3</text>
+<text fill="#5C3900" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="middle" x="500" y="218">π · √5</text>
+</svg>
+</div>
+<div class="caja-tip">
+<strong>Cómo leer el diagrama:</strong> cada número pertenece al conjunto más pequeño que lo contiene y a todos los que lo rodean. El número 3 es natural, pero también es entero, racional y real. En cambio, √2 es irracional y real, pero no es racional ni entero.
     </div>
-
-    <div class="caja-tip">
-      <strong>Cómo leer el diagrama:</strong> cada número pertenece al conjunto más pequeño que lo contiene y a todos los que lo rodean. El número 3 es natural, pero también es entero, racional y real. En cambio, √2 es irracional y real, pero no es racional ni entero.
+</div>
+<h2 class="seccion" id="s-2-numeros-racionales">2. Números racionales</h2>
+<div class="bloque">
+<p>Un número es <strong>racional</strong> si se puede escribir como una <strong>fracción</strong> de dos enteros (con denominador distinto de cero). Su forma decimal siempre <strong>termina</strong> (como 0.75) o <strong>se repite</strong> en un patrón (como 0.333…).</p>
+<table class="reglas">
+<caption class="sr-only">Ejemplos de números racionales y su forma decimal.</caption>
+<thead>
+<tr>
+<th scope="col">Número</th>
+<th scope="col">Como fracción</th>
+<th scope="col">Forma decimal</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>0.75</td><td>3/4</td><td>Termina</td></tr>
+<tr><td>0.333…</td><td>1/3</td><td>Se repite</td></tr>
+<tr><td>5</td><td>5/1</td><td>Termina</td></tr>
+<tr><td>√9</td><td>3 = 3/1</td><td>Termina (√9 = 3)</td></tr>
+</tbody>
+</table>
+<div class="caja-atencion">
+<strong>Cuidado con las raíces:</strong> no toda raíz es irracional. √9 = 3 es racional, porque 9 es un cuadrado perfecto. Solo son irracionales las raíces que no dan un resultado exacto, como √2 o √5.
     </div>
-  </div>
-
-  <h2 class="seccion">2. Números racionales</h2>
-  <div class="bloque">
-    <p>Un número es <strong>racional</strong> si se puede escribir como una <strong>fracción</strong> de dos enteros (con denominador distinto de cero). Su forma decimal siempre <strong>termina</strong> (como 0.75) o <strong>se repite</strong> en un patrón (como 0.333…).</p>
-
-    <table class="reglas">
-      <caption class="sr-only">Ejemplos de números racionales y su forma decimal.</caption>
-      <thead>
-        <tr>
-          <th scope="col">Número</th>
-          <th scope="col">Como fracción</th>
-          <th scope="col">Forma decimal</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>0.75</td><td>3/4</td><td>Termina</td></tr>
-        <tr><td>0.333…</td><td>1/3</td><td>Se repite</td></tr>
-        <tr><td>5</td><td>5/1</td><td>Termina</td></tr>
-        <tr><td>√9</td><td>3 = 3/1</td><td>Termina (√9 = 3)</td></tr>
-      </tbody>
-    </table>
-
-    <div class="caja-atencion">
-      <strong>Cuidado con las raíces:</strong> no toda raíz es irracional. √9 = 3 es racional, porque 9 es un cuadrado perfecto. Solo son irracionales las raíces que no dan un resultado exacto, como √2 o √5.
+</div>
+<h2 class="seccion" id="s-3-numeros-irracionales">3. Números irracionales</h2>
+<div class="bloque">
+<p>Un número es <strong>irracional</strong> si <em>no</em> se puede escribir como fracción de dos enteros. Su forma decimal <strong>no termina</strong> y <strong>no se repite</strong> en ningún patrón. Los ejemplos más conocidos son √2, √3, √5 y el número π.</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 1 · Por qué √2 es irracional</span>
+<p>La calculadora muestra √2 = 1.41421356… y las cifras continúan sin terminar ni repetir un patrón.</p>
+<div class="paso"><span class="n">1</span> Si √2 fuera racional, podría escribirse como una fracción exacta de enteros.</div>
+<div class="paso"><span class="n">2</span> Pero ninguna fracción al cuadrado da exactamente 2, y su decimal nunca cierra un ciclo.</div>
+<p><strong>Conclusión:</strong> √2 no se puede escribir como fracción; es irracional.</p>
+</div>
+<div class="caja-tip">
+<strong>El número π:</strong> π ≈ 3.14159265… representa la razón entre la circunferencia y el diámetro de cualquier círculo. Sus decimales continúan infinitamente sin repetirse, por lo que π es irracional, igual que los radicales no exactos.
     </div>
-  </div>
-
-  <h2 class="seccion">3. Números irracionales</h2>
-  <div class="bloque">
-    <p>Un número es <strong>irracional</strong> si <em>no</em> se puede escribir como fracción de dos enteros. Su forma decimal <strong>no termina</strong> y <strong>no se repite</strong> en ningún patrón. Los ejemplos más conocidos son √2, √3, √5 y el número π.</p>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 1 · Por qué √2 es irracional</span>
-      <p>La calculadora muestra √2 = 1.41421356… y las cifras continúan sin terminar ni repetir un patrón.</p>
-      <div class="paso"><span class="n">1</span> Si √2 fuera racional, podría escribirse como una fracción exacta de enteros.</div>
-      <div class="paso"><span class="n">2</span> Pero ninguna fracción al cuadrado da exactamente 2, y su decimal nunca cierra un ciclo.</div>
-      <p><strong>Conclusión:</strong> √2 no se puede escribir como fracción; es irracional.</p>
+</div>
+<div class="practica">
+<h3>Práctica interactiva 1 · Clasificar números</h3>
+<p>Selecciona la clasificación correcta de cada número.</p>
+<div class="pregunta" data-correcta="a">
+<div class="enun">1. ¿Cómo se clasifica 1/2?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">Racional</div>
+<div class="opcion" data-op="b">Irracional</div>
+<div class="opcion" data-op="c">Entero</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">2. ¿Cómo se clasifica π?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">Racional</div>
+<div class="opcion" data-op="b">Irracional</div>
+<div class="opcion" data-op="c">Entero</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">3. ¿Cómo se clasifica −4 en su conjunto más específico?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">Entero</div>
+<div class="opcion" data-op="b">Natural</div>
+<div class="opcion" data-op="c">Irracional</div>
+</div>
+<div class="fb"></div>
+</div>
+</div>
+<h2 class="seccion" id="s-4-ubicar-irracionales-en-la-recta-numerica">4. Ubicar irracionales en la recta numérica</h2>
+<div class="bloque">
+<p>Aunque un irracional no tenga un valor decimal exacto, sí ocupa un lugar preciso en la recta numérica. Para ubicarlo, se usa su <strong>aproximación</strong> decimal y se busca entre qué enteros cae.</p>
+<div class="diagrama-wrap">
+<svg aria-label="Recta numérica del cero al cuatro. Raíz de dos, aproximadamente uno punto cuatro uno, se ubica entre el uno y el dos. Raíz de tres, aproximadamente uno punto siete tres, también entre el uno y el dos, más a la derecha. Pi, aproximadamente tres punto uno cuatro, se ubica entre el tres y el cuatro." height="120" role="img" viewbox="0 0 640 120" width="640" xmlns="http://www.w3.org/2000/svg">
+<line stroke="#004d40" stroke-width="3" x1="40" x2="610" y1="70" y2="70"></line>
+<polygon fill="#004d40" points="610,70 596,63 596,77"></polygon>
+<g font-family="Segoe UI, sans-serif" font-size="13" text-anchor="middle">
+<line stroke="#004d40" stroke-width="2" x1="40" x2="40" y1="62" y2="78"></line><text fill="#00352c" font-weight="700" x="40" y="96">0</text>
+<line stroke="#004d40" stroke-width="2" x1="180" x2="180" y1="62" y2="78"></line><text fill="#00352c" font-weight="700" x="180" y="96">1</text>
+<line stroke="#004d40" stroke-width="2" x1="320" x2="320" y1="62" y2="78"></line><text fill="#00352c" font-weight="700" x="320" y="96">2</text>
+<line stroke="#004d40" stroke-width="2" x1="460" x2="460" y1="62" y2="78"></line><text fill="#00352c" font-weight="700" x="460" y="96">3</text>
+<line stroke="#004d40" stroke-width="2" x1="600" x2="600" y1="62" y2="78"></line><text fill="#00352c" font-weight="700" x="600" y="96">4</text>
+</g>
+<g font-family="Segoe UI, sans-serif" font-size="12" font-weight="700" text-anchor="middle">
+<circle cx="238" cy="70" fill="#5C3900" r="5"></circle><text fill="#5C3900" x="238" y="52">√2</text>
+<circle cx="282" cy="70" fill="#1565c0" r="5"></circle><text fill="#1565c0" x="288" y="38">√3</text>
+<circle cx="480" cy="70" fill="#6a1b9a" r="5"></circle><text fill="#6a1b9a" x="480" y="52">π</text>
+</g>
+</svg>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 2 · Ubicar √3</span>
+<p>¿Entre qué enteros está √3?</p>
+<div class="paso"><span class="n">1</span> Se aproxima: √3 ≈ 1.73.</div>
+<div class="paso"><span class="n">2</span> 1.73 está entre 1 y 2, más cerca del 2.</div>
+<p><strong>Respuesta:</strong> √3 se ubica entre 1 y 2 en la recta numérica.</p>
+</div>
+</div>
+<h2 class="seccion" id="s-5-decimales-periodicos-a-fracciones">5. Decimales periódicos a fracciones</h2>
+<div class="bloque">
+<p>Un decimal periódico (que repite un patrón) es <strong>racional</strong>, porque siempre se puede escribir como fracción. Existe un procedimiento algebraico para encontrarla.</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 3 · Convertir 0.666…</span>
+<p>Expresar 0.666… como fracción.</p>
+<div class="paso"><span class="n">1</span> Se llama x al número: x = 0.666…</div>
+<div class="paso"><span class="n">2</span> Se multiplica por 10: 10x = 6.666…</div>
+<div class="paso"><span class="n">3</span> Se resta la primera de la segunda: 10x − x = 6.666… − 0.666…, es decir 9x = 6.</div>
+<div class="paso"><span class="n">4</span> Se despeja: x = 6/9 = 2/3.</div>
+<p><strong>Respuesta:</strong> 0.666… = 2/3, que es un número racional.</p>
+</div>
+<div class="caja-tip">
+<strong>La prueba de que es racional:</strong> poder escribir 0.666… como la fracción 2/3 demuestra que es racional. En cambio, con √2 nunca se llega a una fracción exacta, y por eso es irracional.
     </div>
-
-    <div class="caja-tip">
-      <strong>El número π:</strong> π ≈ 3.14159265… representa la razón entre la circunferencia y el diámetro de cualquier círculo. Sus decimales continúan infinitamente sin repetirse, por lo que π es irracional, igual que los radicales no exactos.
-    </div>
-  </div>
-
-  <div class="practica">
-    <h3>Práctica interactiva 1 · Clasificar números</h3>
-    <p>Selecciona la clasificación correcta de cada número.</p>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">1. ¿Cómo se clasifica 1/2?</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">Racional</div>
-        <div class="opcion" data-op="b">Irracional</div>
-        <div class="opcion" data-op="c">Entero</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="b">
-      <div class="enun">2. ¿Cómo se clasifica π?</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">Racional</div>
-        <div class="opcion" data-op="b">Irracional</div>
-        <div class="opcion" data-op="c">Entero</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">3. ¿Cómo se clasifica −4 en su conjunto más específico?</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">Entero</div>
-        <div class="opcion" data-op="b">Natural</div>
-        <div class="opcion" data-op="c">Irracional</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-  </div>
-
-  <h2 class="seccion">4. Ubicar irracionales en la recta numérica</h2>
-  <div class="bloque">
-    <p>Aunque un irracional no tenga un valor decimal exacto, sí ocupa un lugar preciso en la recta numérica. Para ubicarlo, se usa su <strong>aproximación</strong> decimal y se busca entre qué enteros cae.</p>
-
-    <div class="diagrama-wrap">
-      <svg width="640" height="120" viewBox="0 0 640 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Recta numérica del cero al cuatro. Raíz de dos, aproximadamente uno punto cuatro uno, se ubica entre el uno y el dos. Raíz de tres, aproximadamente uno punto siete tres, también entre el uno y el dos, más a la derecha. Pi, aproximadamente tres punto uno cuatro, se ubica entre el tres y el cuatro.">
-        <line x1="40" y1="70" x2="610" y2="70" stroke="#004d40" stroke-width="3"/>
-        <polygon points="610,70 596,63 596,77" fill="#004d40"/>
-        <g font-family="Segoe UI, sans-serif" font-size="13" text-anchor="middle">
-          <line x1="40"  y1="62" x2="40"  y2="78" stroke="#004d40" stroke-width="2"/><text x="40"  y="96" fill="#00352c" font-weight="700">0</text>
-          <line x1="180" y1="62" x2="180" y2="78" stroke="#004d40" stroke-width="2"/><text x="180" y="96" fill="#00352c" font-weight="700">1</text>
-          <line x1="320" y1="62" x2="320" y2="78" stroke="#004d40" stroke-width="2"/><text x="320" y="96" fill="#00352c" font-weight="700">2</text>
-          <line x1="460" y1="62" x2="460" y2="78" stroke="#004d40" stroke-width="2"/><text x="460" y="96" fill="#00352c" font-weight="700">3</text>
-          <line x1="600" y1="62" x2="600" y2="78" stroke="#004d40" stroke-width="2"/><text x="600" y="96" fill="#00352c" font-weight="700">4</text>
-        </g>
-        <g font-family="Segoe UI, sans-serif" font-size="12" text-anchor="middle" font-weight="700">
-          <circle cx="238" cy="70" r="5" fill="#5C3900"/><text x="238" y="52" fill="#5C3900">√2</text>
-          <circle cx="282" cy="70" r="5" fill="#1565c0"/><text x="288" y="38" fill="#1565c0">√3</text>
-          <circle cx="480" cy="70" r="5" fill="#6a1b9a"/><text x="480" y="52" fill="#6a1b9a">π</text>
-        </g>
-      </svg>
-    </div>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 2 · Ubicar √3</span>
-      <p>¿Entre qué enteros está √3?</p>
-      <div class="paso"><span class="n">1</span> Se aproxima: √3 ≈ 1.73.</div>
-      <div class="paso"><span class="n">2</span> 1.73 está entre 1 y 2, más cerca del 2.</div>
-      <p><strong>Respuesta:</strong> √3 se ubica entre 1 y 2 en la recta numérica.</p>
-    </div>
-  </div>
-
-  <h2 class="seccion">5. Decimales periódicos a fracciones</h2>
-  <div class="bloque">
-    <p>Un decimal periódico (que repite un patrón) es <strong>racional</strong>, porque siempre se puede escribir como fracción. Existe un procedimiento algebraico para encontrarla.</p>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 3 · Convertir 0.666…</span>
-      <p>Expresar 0.666… como fracción.</p>
-      <div class="paso"><span class="n">1</span> Se llama x al número: x = 0.666…</div>
-      <div class="paso"><span class="n">2</span> Se multiplica por 10: 10x = 6.666…</div>
-      <div class="paso"><span class="n">3</span> Se resta la primera de la segunda: 10x − x = 6.666… − 0.666…, es decir 9x = 6.</div>
-      <div class="paso"><span class="n">4</span> Se despeja: x = 6/9 = 2/3.</div>
-      <p><strong>Respuesta:</strong> 0.666… = 2/3, que es un número racional.</p>
-    </div>
-
-    <div class="caja-tip">
-      <strong>La prueba de que es racional:</strong> poder escribir 0.666… como la fracción 2/3 demuestra que es racional. En cambio, con √2 nunca se llega a una fracción exacta, y por eso es irracional.
-    </div>
-  </div>
-
-  <div class="practica">
-    <h3>Práctica interactiva 2 · Ubicar y convertir</h3>
-    <p>Selecciona la respuesta correcta de cada caso.</p>
-
-    <div class="pregunta" data-correcta="b">
-      <div class="enun">1. ¿Entre qué enteros está √5 (≈ 2.24)?</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">Entre 1 y 2</div>
-        <div class="opcion" data-op="b">Entre 2 y 3</div>
-        <div class="opcion" data-op="c">Entre 3 y 4</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">2. ¿Qué fracción equivale a 0.222…?</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">2/9</div>
-        <div class="opcion" data-op="b">2/10</div>
-        <div class="opcion" data-op="c">1/5</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">3. ¿√16 es racional o irracional?</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">Racional (es 4)</div>
-        <div class="opcion" data-op="b">Irracional</div>
-        <div class="opcion" data-op="c">No es un número real</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-  </div>
-
-  <h2 class="seccion">6. Práctica guiada en clase</h2>
-  <div class="bloque">
-    <p>Las siguientes tres actividades se realizan durante las horas sincrónicas. Cada una se presenta en doble modalidad: una versión para el aula presencial y otra para la sesión en línea.</p>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 1 · Clasifica y ubica</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          El docente reparte veinte números (enteros, fracciones, radicales, π, decimales). Los estudiantes los clasifican colocándolos en un diagrama de Venn dibujado en la pizarra y luego ubican los irracionales en una recta numérica.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          En un diagrama de Venn compartido, cada estudiante arrastra cinco números al conjunto correcto y, en una recta numérica virtual, marca la posición aproximada de los irracionales que le tocaron.
-        </div>
-      </div>
-    </div>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 2 · Racional o irracional</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          Los estudiantes demuestran que 0.666… = 2/3 con el procedimiento algebraico y discuten por qué √2 no se puede escribir como fracción. Se contrastan los dos casos lado a lado en la pizarra.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          En salas pequeñas, las parejas convierten dos decimales periódicos a fracción y explican en el chat por qué √2 y π no admiten una fracción exacta.
-        </div>
-      </div>
-    </div>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 3 · Entre dos enteros</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          El docente plantea seis irracionales. Cada estudiante los aproxima con la calculadora y determina entre qué dos enteros se ubica cada uno, marcándolos en una recta numérica común.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          Cada estudiante aproxima seis irracionales con una calculadora en línea y registra, en una hoja compartida, los dos enteros entre los que se ubica cada uno.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="caja-tarea">
-    <h2>Tarea asincrónica</h2>
-    <p>Para completar de forma individual en la plataforma <strong>MyOpenMath</strong> antes de la próxima sesión:</p>
-    <ul>
-      <li>Cuatro ejercicios de clasificar números en el sistema de los números reales.</li>
-      <li>Tres ejercicios de ubicar irracionales entre dos enteros en la recta numérica.</li>
-      <li>Tres ejercicios de convertir un decimal periódico a fracción.</li>
-    </ul>
-    <p>La plataforma ofrece retroalimentación paso a paso en cada intento. Tiempo estimado: 50 minutos.</p>
-  </div>
-
-  <div class="quiz">
-    <h2>Quiz de la lección 3.3</h2>
-    <p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
-    <div id="quiz-cuerpo"></div>
-    <div id="resultado-quiz"></div>
-    <button class="btn" id="btn-corregir">Corregir quiz</button>
-    <button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
-  </div>
-
-  <div class="rubrica">
-    <h2>Rúbrica analítica de la lección</h2>
-    <p>Tres criterios evaluados en cuatro niveles de desempeño.</p>
-    <table class="tabla-rubrica">
-      <caption class="sr-only">Rúbrica analítica con tres criterios y cuatro niveles de desempeño.</caption>
-      <thead>
-        <tr>
-          <th scope="col">Criterio</th>
-          <th scope="col">Inicial (1)</th>
-          <th scope="col">En desarrollo (2)</th>
-          <th scope="col">Competente (3)</th>
-          <th scope="col">Destacado (4)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Clasificar en el sistema real</td>
-          <td>Confunde racionales con irracionales.</td>
-          <td>Clasifica con errores en los casos límite (√9, decimales).</td>
-          <td>Clasifica cada número en su subconjunto más específico.</td>
-          <td>Clasifica con fluidez y explica la contención entre conjuntos.</td>
-        </tr>
-        <tr>
-          <td>Ubicar irracionales en la recta</td>
-          <td>No aproxima ni ubica los irracionales.</td>
-          <td>Aproxima, pero ubica entre enteros incorrectos.</td>
-          <td>Ubica el irracional entre los dos enteros correctos.</td>
-          <td>Ubica con precisión y estima la posición relativa entre enteros.</td>
-        </tr>
-        <tr>
-          <td>Convertir decimal periódico</td>
-          <td>No aplica el procedimiento algebraico.</td>
-          <td>Aplica el procedimiento con errores.</td>
-          <td>Convierte el decimal periódico a fracción correctamente.</td>
-          <td>Convierte con fluidez y justifica que el número es racional.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="cierre">
-    <h2>Cierre del Tema 3 y enlace con el Tema 4</h2>
-    <p>Con esta lección se cierra el Tema 3. Ya se comprende el <strong>sistema de los números reales</strong>: los naturales dentro de los enteros, dentro de los racionales; los <strong>irracionales</strong> —como √2 y π— aparte, pero también reales. Se aprendió a clasificar, a ubicar irracionales en la recta numérica y a convertir decimales periódicos en fracciones para probar que son racionales.</p>
-    <p>Con el sentido numérico ya completo (exponentes, notación científica y números reales), el Nivel 3 da un giro hacia el <strong>álgebra</strong>. El Tema 4 abrirá con la <strong>Lección 4.1 · Variables, expresiones algebraicas y traducción</strong>, donde las letras empezarán a representar cantidades desconocidas y se traducirá entre el lenguaje verbal y el algebraico.</p>
-  </div>
-
-  <footer>
-    Spanish ASE Math · Nivel 3 · Lección 3.3 — Preparado para Prof. José M. Fernández (Truman College, CCC) · Brightspace D2L
-  </footer>
-
+</div>
+<div class="practica">
+<h3>Práctica interactiva 2 · Ubicar y convertir</h3>
+<p>Selecciona la respuesta correcta de cada caso.</p>
+<div class="pregunta" data-correcta="b">
+<div class="enun">1. ¿Entre qué enteros está √5 (≈ 2.24)?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">Entre 1 y 2</div>
+<div class="opcion" data-op="b">Entre 2 y 3</div>
+<div class="opcion" data-op="c">Entre 3 y 4</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">2. ¿Qué fracción equivale a 0.222…?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">2/9</div>
+<div class="opcion" data-op="b">2/10</div>
+<div class="opcion" data-op="c">1/5</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">3. ¿√16 es racional o irracional?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">Racional (es 4)</div>
+<div class="opcion" data-op="b">Irracional</div>
+<div class="opcion" data-op="c">No es un número real</div>
+</div>
+<div class="fb"></div>
+</div>
 </div>
 
+
+<div class="caja-tarea">
+<h2 id="s-tarea">Tarea</h2>
+<p>Para hacer por su cuenta, con el cuaderno abierto:</p>
+<ul>
+<li>Cuatro ejercicios de clasificar números en el sistema de los números reales.</li>
+<li>Tres ejercicios de ubicar irracionales entre dos enteros en la recta numérica.</li>
+<li>Tres ejercicios de convertir un decimal periódico a fracción.</li>
+<li><strong>ThatQuiz:</strong> entre en <a href="https://www.thatquiz.org/es/" rel="noopener noreferrer" target="_blank">ThatQuiz</a> y practique <em>fracciones y decimales</em> en los dos sentidos. Es la destreza que decide si un decimal periódico se puede escribir como fracción, que es el criterio para separar racionales de irracionales.</li></ul>
+<p>Tiempo estimado: 50 minutos. Resuelva en papel y evalúe su trabajo con la rúbrica de esta lección.</p>
+</div>
+<div class="quiz">
+<h2 id="s-quiz-de-la-leccion-3-3">Quiz de la lección 3.3</h2>
+<p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
+<div id="quiz-cuerpo"></div>
+<div id="resultado-quiz"></div>
+<button class="btn" id="btn-corregir">Corregir quiz</button>
+<button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
+</div>
+<div class="rubrica">
+<h2 id="s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</h2>
+<p>Tres criterios evaluados en cuatro niveles de desempeño. Léala <strong>antes</strong> de empezar la tarea y úsela <strong>después</strong> para evaluar su propio trabajo con honestidad.</p>
+<table class="tabla-rubrica">
+<caption class="sr-only">Rúbrica analítica con tres criterios y cuatro niveles de desempeño.</caption>
+<thead>
+<tr>
+<th scope="col">Criterio</th>
+<th scope="col">Inicial (1)</th>
+<th scope="col">En desarrollo (2)</th>
+<th scope="col">Competente (3)</th>
+<th scope="col">Destacado (4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clasificar en el sistema real</td>
+<td>Confunde racionales con irracionales.</td>
+<td>Clasifica con errores en los casos límite (√9, decimales).</td>
+<td>Clasifica cada número en su subconjunto más específico.</td>
+<td>Clasifica con fluidez y explica la contención entre conjuntos.</td>
+</tr>
+<tr>
+<td>Ubicar irracionales en la recta</td>
+<td>No aproxima ni ubica los irracionales.</td>
+<td>Aproxima, pero ubica entre enteros incorrectos.</td>
+<td>Ubica el irracional entre los dos enteros correctos.</td>
+<td>Ubica con precisión y estima la posición relativa entre enteros.</td>
+</tr>
+<tr>
+<td>Convertir decimal periódico</td>
+<td>No aplica el procedimiento algebraico.</td>
+<td>Aplica el procedimiento con errores.</td>
+<td>Convierte el decimal periódico a fracción correctamente.</td>
+<td>Convierte con fluidez y justifica que el número es racional.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cierre">
+<h2 id="s-cierre-del-tema-3-y-enlace-con-el-tema-4">Cierre del Tema 3 y enlace con el Tema 4</h2>
+<p>Con esta lección se cierra el Tema 3. Ya se comprende el <strong>sistema de los números reales</strong>: los naturales dentro de los enteros, dentro de los racionales; los <strong>irracionales</strong> —como √2 y π— aparte, pero también reales. Se aprendió a clasificar, a ubicar irracionales en la recta numérica y a convertir decimales periódicos en fracciones para probar que son racionales.</p>
+<p>Con el sentido numérico ya completo (exponentes, notación científica y números reales), el Nivel 3 da un giro hacia el <strong>álgebra</strong>. El Tema 4 abrirá con la <strong>Lección 4.1 · Variables, expresiones algebraicas y traducción</strong>, donde las letras empezarán a representar cantidades desconocidas y se traducirá entre el lenguaje verbal y el algebraico.</p>
+</div>
+<footer><p>GEDparaHispanos · Matemáticas · Nivel 3 · Tema 3 · Lección 3.3</p><p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p><p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p></footer><a aria-label="Volver al contenido de la lección" class="volver-indice" href="#indice"><span aria-hidden="true">↑</span> Índice</a>
+</div>
 <script>
 (function () {
   /* ---- Práctica de opciones (selección múltiple) ---- */

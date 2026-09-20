@@ -1,9 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
+<!-- Lección 5.1 · Matemáticas Nivel 3 · GEDparaHispanos
+     José M. Fernández · CC BY-NC-SA 4.0 -->
+
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Lección 5.1 · Resolver inecuaciones lineales y graficar en la recta numérica</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lección 5.1 · Resolver inecuaciones lineales y graficar en la recta numérica</title><meta content="CC BY-NC-SA 4.0" name="license"/><link href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license"/>
 <style>
   :root {
     --tema:   #1b5e20;
@@ -128,25 +131,7 @@
   }
   .btn:hover { background: var(--tema-d); }
   .btn.sec { background: #546e7a; }
-  .btn.sec:hover { background: #37474f; }
-
-  .modalidad { display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0; }
-  .modo { flex: 1; min-width: 230px; border-radius: 9px; padding: 14px 16px; font-size: 14px; }
-  .modo-pres { background: #e3f2fd; border-left: 5px solid #1565c0; }
-  .modo-pres strong { color: #0d47a1; }
-  .modo-virt { background: #f3e5f5; border-left: 5px solid #6a1b9a; }
-  .modo-virt strong { color: #4a148c; }
-  .modo h3 { margin: 0 0 6px; font-size: 15px; }
-  .modo-pres h3 { color: #0d47a1; }
-  .modo-virt h3 { color: #4a148c; }
-
-  .actividad { margin-bottom: 18px; }
-  .actividad > .titulo-act {
-    font-weight: 700; color: var(--tema-d); font-size: 15px;
-    background: var(--tema-bg); padding: 7px 14px; border-radius: 7px;
-  }
-
-  .caja-tarea {
+  .btn.sec:hover { background: #37474f; }.caja-tarea {
     background: #ede7f6; border-left: 6px solid #5e35b1;
     padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 20px 0;
   }
@@ -190,367 +175,305 @@
     text-align: center; padding: 20px; color: #555;
     font-size: 13px; border-top: 1px solid #ddd; margin-top: 20px;
   }
+
+  /* ── ÍNDICE DE LA LECCIÓN ── */
+  .indice{
+    background:#fff; border:1px solid #d8dde3; border-left:6px solid var(--tema);
+    border-radius:10px; padding:16px 20px; margin:24px 0;
+  }
+  .indice h2{ font-size:1.05rem; margin:0 0 10px; color:var(--tema-d); border:0; padding:0; background:none; }
+  .indice ol{ margin:0; padding-left:1.35em; }
+  .indice li{ margin:4px 0; }
+  .indice a{ color:var(--tema-d); text-decoration:underline; }
+  .indice a:hover{ color:var(--tema); }
+  .indice a:focus-visible,.volver-indice:focus-visible{ outline:3px solid #b05e00; outline-offset:2px; }
+  .volver-indice{
+    position:fixed; right:18px; bottom:18px; z-index:60;
+    background:var(--tema-d); color:#fff; border-radius:999px;
+    padding:10px 16px; font-weight:700; font-size:.92rem; text-decoration:none;
+    box-shadow:0 2px 10px rgba(0,0,0,.28);
+  }
+  .volver-indice:hover{ background:var(--tema); color:#fff; }
+  footer a{ color:inherit; }
+  @media print{ .indice,.volver-indice{ display:none; } }
 </style>
 </head>
 <body>
 <div class="contenedor">
-
-  <header class="principal">
-    <div class="ruta">Spanish ASE Math · Nivel 3 · Tema 5 · Inecuaciones y fórmulas</div>
-    <h1>Lección 5.1 · Resolver inecuaciones lineales y graficar en la recta numérica</h1>
-    <div class="meta">4 horas (2 sincrónicas + 2 asincrónicas) · NRS 3–4 · Brightspace D2L</div>
-  </header>
-
-  <div class="caja-objetivos">
-    <h2>Objetivos de la lección</h2>
-    <ul>
-      <li>Resolver inecuaciones lineales en una variable con los mismos pasos que una ecuación.</li>
-      <li>Aplicar la regla crítica: invertir el signo de la desigualdad al multiplicar o dividir por un número negativo.</li>
-      <li>Graficar la solución en la recta numérica (punto abierto o cerrado; dirección de la flecha).</li>
-      <li>Reconocer cuándo el punto es abierto (&lt;, &gt;) y cuándo es cerrado (≤, ≥).</li>
-      <li>Verificar la solución con un valor de prueba.</li>
-    </ul>
-  </div>
-
-  <div class="bloque">
-    <p><strong>Conexión con el tema anterior.</strong> En el Tema 4 se resolvieron <strong>ecuaciones</strong> lineales, donde la solución es un único valor. Una <strong>inecuación</strong> usa los signos &lt;, &gt;, ≤ o ≥ en lugar del igual, y su solución no es un solo número, sino un <strong>rango</strong> de valores. La buena noticia: se resuelve con los <strong>mismos pasos</strong> que una ecuación. La única diferencia —y es crucial— aparece al multiplicar o dividir por un número negativo.</p>
-  </div>
-
-  <h2 class="seccion">1. ¿Qué es una inecuación?</h2>
-  <div class="bloque">
-    <p>Una inecuación compara dos expresiones que no son necesariamente iguales. Sus signos tienen significados precisos:</p>
-
-    <table class="reglas">
-      <caption class="sr-only">Significado de los signos de desigualdad.</caption>
-      <thead>
-        <tr>
-          <th scope="col">Signo</th>
-          <th scope="col">Significado</th>
-          <th scope="col">Ejemplo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>&lt;</td><td>Menor que</td><td>x &lt; 5</td></tr>
-        <tr><td>&gt;</td><td>Mayor que</td><td>x &gt; 5</td></tr>
-        <tr><td>≤</td><td>Menor o igual que</td><td>x ≤ 5</td></tr>
-        <tr><td>≥</td><td>Mayor o igual que</td><td>x ≥ 5</td></tr>
-      </tbody>
-    </table>
-
-    <div class="caja-tip">
-      <strong>Una solución es un rango:</strong> x &gt; 3 no significa un valor, sino <em>todos</em> los números mayores que 3 (3.1, 4, 100, …). Por eso la solución se representa en la recta numérica, no como un punto único.
+<header class="principal">
+<div class="ruta">Spanish ASE Math · Nivel 3 · Tema 5 · Inecuaciones y fórmulas</div>
+<h1>Lección 5.1 · Resolver inecuaciones lineales y graficar en la recta numérica</h1>
+<div class="meta">Unas 4 horas, a su ritmo · NRS 3–4</div>
+</header>
+<div class="caja-objetivos">
+<h2>Objetivos de la lección</h2>
+<ul>
+<li>Resolver inecuaciones lineales en una variable con los mismos pasos que una ecuación.</li>
+<li>Aplicar la regla crítica: invertir el signo de la desigualdad al multiplicar o dividir por un número negativo.</li>
+<li>Graficar la solución en la recta numérica (punto abierto o cerrado; dirección de la flecha).</li>
+<li>Reconocer cuándo el punto es abierto (&lt;, &gt;) y cuándo es cerrado (≤, ≥).</li>
+<li>Verificar la solución con un valor de prueba.</li>
+</ul>
+</div><nav aria-labelledby="indice-titulo" class="indice" id="indice"><h2 id="indice-titulo">Contenido de la lección</h2><ol><li><a href="#s-1-que-es-una-inecuacion">1. ¿Qué es una inecuación?</a></li><li><a href="#s-2-resolver-con-los-mismos-pasos-que-una-ecuacion">2. Resolver con los mismos pasos que una ecuación</a></li><li><a href="#s-3-la-regla-critica-invertir-el-signo">3. La regla crítica: invertir el signo</a></li><li><a href="#s-4-graficar-en-la-recta-numerica">4. Graficar en la recta numérica</a></li><li><a href="#s-5-verificar-con-un-valor-de-prueba">5. Verificar con un valor de prueba</a></li><li><a href="#s-tarea">Tarea</a></li><li><a href="#s-quiz-de-la-leccion-5-1">Quiz de la lección 5.1</a></li><li><a href="#s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</a></li><li><a href="#s-cierre-y-enlace-con-la-proxima-leccion">Cierre y enlace con la próxima lección</a></li></ol></nav>
+<div class="bloque">
+<p><strong>Conexión con el tema anterior.</strong> En el Tema 4 se resolvieron <strong>ecuaciones</strong> lineales, donde la solución es un único valor. Una <strong>inecuación</strong> usa los signos &lt;, &gt;, ≤ o ≥ en lugar del igual, y su solución no es un solo número, sino un <strong>rango</strong> de valores. La buena noticia: se resuelve con los <strong>mismos pasos</strong> que una ecuación. La única diferencia —y es crucial— aparece al multiplicar o dividir por un número negativo.</p>
+</div>
+<h2 class="seccion" id="s-1-que-es-una-inecuacion">1. ¿Qué es una inecuación?</h2>
+<div class="bloque">
+<p>Una inecuación compara dos expresiones que no son necesariamente iguales. Sus signos tienen significados precisos:</p>
+<table class="reglas">
+<caption class="sr-only">Significado de los signos de desigualdad.</caption>
+<thead>
+<tr>
+<th scope="col">Signo</th>
+<th scope="col">Significado</th>
+<th scope="col">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>&lt;</td><td>Menor que</td><td>x &lt; 5</td></tr>
+<tr><td>&gt;</td><td>Mayor que</td><td>x &gt; 5</td></tr>
+<tr><td>≤</td><td>Menor o igual que</td><td>x ≤ 5</td></tr>
+<tr><td>≥</td><td>Mayor o igual que</td><td>x ≥ 5</td></tr>
+</tbody>
+</table>
+<div class="caja-tip">
+<strong>Una solución es un rango:</strong> x &gt; 3 no significa un valor, sino <em>todos</em> los números mayores que 3 (3.1, 4, 100, …). Por eso la solución se representa en la recta numérica, no como un punto único.
     </div>
-  </div>
-
-  <h2 class="seccion">2. Resolver con los mismos pasos que una ecuación</h2>
-  <div class="bloque">
-    <p>Mientras no se multiplique ni se divida por un número negativo, una inecuación se resuelve <strong>exactamente igual</strong> que una ecuación: sumando, restando, multiplicando o dividiendo ambos lados.</p>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 1</span>
-      <p>Resolver x + 5 &lt; 12.</p>
-      <div class="paso"><span class="n">1</span> Se resta 5 en ambos lados: x &lt; 7.</div>
-      <p><strong>Respuesta:</strong> x &lt; 7 (todos los valores menores que 7).</p>
+</div>
+<h2 class="seccion" id="s-2-resolver-con-los-mismos-pasos-que-una-ecuacion">2. Resolver con los mismos pasos que una ecuación</h2>
+<div class="bloque">
+<p>Mientras no se multiplique ni se divida por un número negativo, una inecuación se resuelve <strong>exactamente igual</strong> que una ecuación: sumando, restando, multiplicando o dividiendo ambos lados.</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 1</span>
+<p>Resolver x + 5 &lt; 12.</p>
+<div class="paso"><span class="n">1</span> Se resta 5 en ambos lados: x &lt; 7.</div>
+<p><strong>Respuesta:</strong> x &lt; 7 (todos los valores menores que 7).</p>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 2</span>
+<p>Resolver 3x ≤ 15.</p>
+<div class="paso"><span class="n">1</span> Se divide entre 3 (positivo, no se invierte): x ≤ 5.</div>
+<p><strong>Respuesta:</strong> x ≤ 5.</p>
+</div>
+</div>
+<h2 class="seccion" id="s-3-la-regla-critica-invertir-el-signo">3. La regla crítica: invertir el signo</h2>
+<div class="bloque">
+<p>Al multiplicar o dividir ambos lados por un número <strong>negativo</strong>, el signo de la desigualdad se <strong>invierte</strong>. Esto no ocurre con las ecuaciones; es la única diferencia real.</p>
+<div class="caja-tip">
+<strong>Por qué se invierte:</strong> se sabe que 6 &gt; 4. Si se multiplican ambos lados por −1, se obtiene −6 y −4. Pero −6 &gt; −4 es <em>falso</em> (−6 está más a la izquierda). Para que siga siendo verdadero, el signo debe invertirse: −6 &lt; −4.
     </div>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 2</span>
-      <p>Resolver 3x ≤ 15.</p>
-      <div class="paso"><span class="n">1</span> Se divide entre 3 (positivo, no se invierte): x ≤ 5.</div>
-      <p><strong>Respuesta:</strong> x ≤ 5.</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 3 · Se invierte el signo</span>
+<p>Resolver −2x &lt; 8.</p>
+<div class="paso"><span class="n">1</span> Se divide entre −2 en ambos lados.</div>
+<div class="paso"><span class="n">2</span> Como se divide por un negativo, el signo se invierte: x &gt; −4.</div>
+<p><strong>Respuesta:</strong> x &gt; −4.</p>
+</div>
+<div class="caja-atencion">
+<strong>Solo con negativos:</strong> el signo se invierte únicamente al multiplicar o dividir por un número negativo. Sumar o restar un negativo <em>no</em> invierte el signo. El error más común es invertirlo sin que corresponda.
     </div>
-  </div>
-
-  <h2 class="seccion">3. La regla crítica: invertir el signo</h2>
-  <div class="bloque">
-    <p>Al multiplicar o dividir ambos lados por un número <strong>negativo</strong>, el signo de la desigualdad se <strong>invierte</strong>. Esto no ocurre con las ecuaciones; es la única diferencia real.</p>
-
-    <div class="caja-tip">
-      <strong>Por qué se invierte:</strong> se sabe que 6 &gt; 4. Si se multiplican ambos lados por −1, se obtiene −6 y −4. Pero −6 &gt; −4 es <em>falso</em> (−6 está más a la izquierda). Para que siga siendo verdadero, el signo debe invertirse: −6 &lt; −4.
-    </div>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 3 · Se invierte el signo</span>
-      <p>Resolver −2x &lt; 8.</p>
-      <div class="paso"><span class="n">1</span> Se divide entre −2 en ambos lados.</div>
-      <div class="paso"><span class="n">2</span> Como se divide por un negativo, el signo se invierte: x &gt; −4.</div>
-      <p><strong>Respuesta:</strong> x &gt; −4.</p>
-    </div>
-
-    <div class="caja-atencion">
-      <strong>Solo con negativos:</strong> el signo se invierte únicamente al multiplicar o dividir por un número negativo. Sumar o restar un negativo <em>no</em> invierte el signo. El error más común es invertirlo sin que corresponda.
-    </div>
-  </div>
-
-  <div class="practica">
-    <h3>Práctica interactiva 1 · ¿Qué pasa con el signo?</h3>
-    <p>Selecciona la solución correcta de cada inecuación.</p>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">1. −3x &lt; 9</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">x &gt; −3</div>
-        <div class="opcion" data-op="b">x &lt; −3</div>
-        <div class="opcion" data-op="c">x &gt; 3</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">2. 2x &gt; 10</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">x &gt; 5</div>
-        <div class="opcion" data-op="b">x &lt; 5</div>
-        <div class="opcion" data-op="c">x &gt; 20</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">3. −x ≤ 4</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">x ≥ −4</div>
-        <div class="opcion" data-op="b">x ≤ −4</div>
-        <div class="opcion" data-op="c">x ≥ 4</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-  </div>
-
-  <h2 class="seccion">4. Graficar en la recta numérica</h2>
-  <div class="bloque">
-    <p>La solución se dibuja en la recta numérica con dos decisiones: el tipo de <strong>punto</strong> y la <strong>dirección</strong> de la flecha.</p>
-
-    <table class="reglas">
-      <caption class="sr-only">Tipo de punto y dirección de la flecha según el signo de la inecuación.</caption>
-      <thead>
-        <tr>
-          <th scope="col">Signo</th>
-          <th scope="col">Punto en el número límite</th>
-          <th scope="col">Dirección de la flecha</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>&lt; o &gt;</td><td>Abierto ○ (el límite no se incluye)</td><td>Según el signo</td></tr>
-        <tr><td>≤ o ≥</td><td>Cerrado ● (el límite sí se incluye)</td><td>Según el signo</td></tr>
-        <tr><td>x &gt; a o x ≥ a</td><td>—</td><td>Hacia la derecha</td></tr>
-        <tr><td>x &lt; a o x ≤ a</td><td>—</td><td>Hacia la izquierda</td></tr>
-      </tbody>
-    </table>
-
-    <p>Por ejemplo, la solución <strong>x ≥ 2</strong> usa un punto cerrado en 2 y una flecha hacia la derecha:</p>
-
-    <div class="recta-wrap">
-      <svg width="620" height="80" viewBox="0 0 620 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Recta numérica que representa x mayor o igual que 2: un punto cerrado sobre el 2 y una flecha que avanza hacia la derecha cubriendo todos los valores mayores que 2.">
-        <line x1="40" y1="40" x2="590" y2="40" stroke="#14441a" stroke-width="3"/>
-        <g font-family="Segoe UI, sans-serif" font-size="13" text-anchor="middle">
-          <line x1="60"  y1="33" x2="60"  y2="47" stroke="#14441a" stroke-width="2"/><text x="60"  y="66" fill="#14441a">0</text>
-          <line x1="150" y1="33" x2="150" y2="47" stroke="#14441a" stroke-width="2"/><text x="150" y="66" fill="#14441a">1</text>
-          <line x1="240" y1="33" x2="240" y2="47" stroke="#14441a" stroke-width="2"/><text x="240" y="66" fill="#14441a" font-weight="700">2</text>
-          <line x1="330" y1="33" x2="330" y2="47" stroke="#14441a" stroke-width="2"/><text x="330" y="66" fill="#14441a">3</text>
-          <line x1="420" y1="33" x2="420" y2="47" stroke="#14441a" stroke-width="2"/><text x="420" y="66" fill="#14441a">4</text>
-          <line x1="510" y1="33" x2="510" y2="47" stroke="#14441a" stroke-width="2"/><text x="510" y="66" fill="#14441a">5</text>
-        </g>
-        <line x1="240" y1="40" x2="585" y2="40" stroke="#1b5e20" stroke-width="6"/>
-        <polygon points="585,40 569,31 569,49" fill="#1b5e20"/>
-        <circle cx="240" cy="40" r="9" fill="#1b5e20"/>
-      </svg>
-    </div>
-
-    <p>En cambio, la solución <strong>x &lt; 4</strong> usa un punto abierto en 4 y una flecha hacia la izquierda:</p>
-
-    <div class="recta-wrap">
-      <svg width="620" height="80" viewBox="0 0 620 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Recta numérica que representa x menor que 4: un punto abierto sobre el 4 y una flecha que avanza hacia la izquierda cubriendo todos los valores menores que 4.">
-        <line x1="40" y1="40" x2="590" y2="40" stroke="#14441a" stroke-width="3"/>
-        <g font-family="Segoe UI, sans-serif" font-size="13" text-anchor="middle">
-          <line x1="60"  y1="33" x2="60"  y2="47" stroke="#14441a" stroke-width="2"/><text x="60"  y="66" fill="#14441a">0</text>
-          <line x1="150" y1="33" x2="150" y2="47" stroke="#14441a" stroke-width="2"/><text x="150" y="66" fill="#14441a">1</text>
-          <line x1="240" y1="33" x2="240" y2="47" stroke="#14441a" stroke-width="2"/><text x="240" y="66" fill="#14441a">2</text>
-          <line x1="330" y1="33" x2="330" y2="47" stroke="#14441a" stroke-width="2"/><text x="330" y="66" fill="#14441a">3</text>
-          <line x1="420" y1="33" x2="420" y2="47" stroke="#14441a" stroke-width="2"/><text x="420" y="66" fill="#14441a" font-weight="700">4</text>
-          <line x1="510" y1="33" x2="510" y2="47" stroke="#14441a" stroke-width="2"/><text x="510" y="66" fill="#14441a">5</text>
-        </g>
-        <line x1="55" y1="40" x2="420" y2="40" stroke="#1b5e20" stroke-width="6"/>
-        <polygon points="55,40 71,31 71,49" fill="#1b5e20"/>
-        <circle cx="420" cy="40" r="9" fill="#fff" stroke="#1b5e20" stroke-width="3"/>
-      </svg>
-    </div>
-  </div>
-
-  <div class="practica">
-    <h3>Práctica interactiva 2 · Graficar la solución</h3>
-    <p>Selecciona la respuesta correcta de cada caso.</p>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">1. Para graficar x ≤ 7, el punto en 7 es…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">Cerrado ●</div>
-        <div class="opcion" data-op="b">Abierto ○</div>
-        <div class="opcion" data-op="c">No se marca</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">2. Para graficar x &gt; 1, el punto en 1 es…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">Abierto ○</div>
-        <div class="opcion" data-op="b">Cerrado ●</div>
-        <div class="opcion" data-op="c">No se marca</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">3. En x ≥ 0, ¿hacia dónde va la flecha?</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">A la derecha</div>
-        <div class="opcion" data-op="b">A la izquierda</div>
-        <div class="opcion" data-op="c">No hay flecha</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-  </div>
-
-  <h2 class="seccion">5. Verificar con un valor de prueba</h2>
-  <div class="bloque">
-    <p>Para comprobar una solución, se eligen <strong>tres valores</strong>: uno claramente dentro del rango, el número límite y uno fuera. Al sustituirlos, solo los del rango deben hacer verdadera la inecuación.</p>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 4 · Verificación</span>
-      <p>Comprobar la solución x &gt; −4 de la inecuación −2x &lt; 8.</p>
-      <div class="paso"><span class="n">1</span> Un valor dentro, x = 0: −2(0) = 0, y 0 &lt; 8 es verdadero. Correcto.</div>
-      <div class="paso"><span class="n">2</span> Un valor fuera, x = −5: −2(−5) = 10, y 10 &lt; 8 es falso. Correcto que quede fuera.</div>
-      <p><strong>Respuesta:</strong> la solución x &gt; −4 se confirma.</p>
-    </div>
-  </div>
-
-  <h2 class="seccion">6. Práctica guiada en clase</h2>
-  <div class="bloque">
-    <p>Las siguientes tres actividades se realizan durante las horas sincrónicas. Cada una se presenta en doble modalidad: una versión para el aula presencial y otra para la sesión en línea.</p>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 1 · ¿Qué pasa con el signo?</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          El docente plantea seis inecuaciones. Cada estudiante las resuelve marcando con un asterisco cada vez que invierte el signo y explicando por qué. Se comparan los casos que requirieron invertir con los que no.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          En un documento compartido, los estudiantes resuelven seis inecuaciones y señalan en color los pasos donde el signo se invirtió, justificando cada inversión en el chat.
-        </div>
-      </div>
-    </div>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 2 · Graficar la solución</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          Los estudiantes grafican en la recta numérica las seis soluciones de la actividad anterior, decidiendo en cada caso el punto (abierto o cerrado) y la dirección de la flecha. Un voluntario explica una gráfica en la pizarra.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          En una recta numérica compartida, cada estudiante grafica dos soluciones marcando el tipo de punto y la dirección de la flecha, y el grupo revisa las decisiones.
-        </div>
-      </div>
-    </div>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 3 · El valor de prueba</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          Para tres inecuaciones ya resueltas, cada estudiante verifica la solución sustituyendo tres valores: uno dentro del rango, el límite y uno fuera, confirmando que solo los del rango la satisfacen.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          En salas pequeñas, las parejas verifican tres soluciones con valores de prueba y registran en una hoja compartida cuáles satisfacen la inecuación y cuáles no.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="caja-tarea">
-    <h2>Tarea asincrónica</h2>
-    <p>Para completar de forma individual en la plataforma <strong>MyOpenMath</strong> antes de la próxima sesión:</p>
-    <ul>
-      <li>Cuatro inecuaciones para resolver, al menos dos que requieran invertir el signo.</li>
-      <li>Tres inecuaciones cuya solución haya que graficar en la recta numérica.</li>
-      <li>Tres casos para decidir si un valor dado satisface la inecuación.</li>
-    </ul>
-    <p>La plataforma ofrece retroalimentación paso a paso en cada intento. Tiempo estimado: 50 minutos.</p>
-  </div>
-
-  <div class="quiz">
-    <h2>Quiz de la lección 5.1</h2>
-    <p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
-    <div id="quiz-cuerpo"></div>
-    <div id="resultado-quiz"></div>
-    <button class="btn" id="btn-corregir">Corregir quiz</button>
-    <button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
-  </div>
-
-  <div class="rubrica">
-    <h2>Rúbrica analítica de la lección</h2>
-    <p>Cuatro criterios evaluados en cuatro niveles de desempeño.</p>
-    <table class="tabla-rubrica">
-      <caption class="sr-only">Rúbrica analítica con cuatro criterios y cuatro niveles de desempeño.</caption>
-      <thead>
-        <tr>
-          <th scope="col">Criterio</th>
-          <th scope="col">Inicial (1)</th>
-          <th scope="col">En desarrollo (2)</th>
-          <th scope="col">Competente (3)</th>
-          <th scope="col">Destacado (4)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Mismos pasos que una ecuación</td>
-          <td>No aplica las propiedades para aislar la variable.</td>
-          <td>Aísla la variable con errores ocasionales.</td>
-          <td>Resuelve la inecuación con los mismos pasos que una ecuación.</td>
-          <td>Resuelve con fluidez y de forma ordenada.</td>
-        </tr>
-        <tr>
-          <td>Invertir el signo</td>
-          <td>Nunca invierte el signo, o lo invierte sin motivo.</td>
-          <td>Invierte el signo de forma inconsistente.</td>
-          <td>Invierte el signo solo al multiplicar o dividir por negativo.</td>
-          <td>Invierte correctamente y justifica por qué con un ejemplo.</td>
-        </tr>
-        <tr>
-          <td>Graficar la solución</td>
-          <td>No grafica o confunde el tipo de punto.</td>
-          <td>Grafica con errores en el punto o la dirección.</td>
-          <td>Grafica con el punto correcto y la dirección adecuada.</td>
-          <td>Grafica con precisión y lee la gráfica de vuelta a la desigualdad.</td>
-        </tr>
-        <tr>
-          <td>Verificación</td>
-          <td>No verifica con un valor de prueba.</td>
-          <td>Verifica solo un valor.</td>
-          <td>Verifica con un valor dentro y uno fuera del rango.</td>
-          <td>Verifica con valores dentro, límite y fuera de forma sistemática.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="cierre">
-    <h2>Cierre y enlace con la próxima lección</h2>
-    <p>En esta lección se aprendió a <strong>resolver inecuaciones</strong> con los mismos pasos que una ecuación, recordando la regla crítica de <strong>invertir el signo</strong> al multiplicar o dividir por un negativo. La solución, que es un <strong>rango</strong>, se grafica en la recta numérica con un punto abierto o cerrado y una flecha, y se verifica con un valor de prueba.</p>
-    <p>En la <strong>Lección 5.2 · Inecuaciones que requieren simplificación y problemas verbales</strong> se resolverán inecuaciones que primero hay que <strong>simplificar</strong> (distribuir, combinar términos, mover variables), y se traducirán <strong>enunciados verbales</strong> a inecuaciones para resolver problemas reales de presupuesto, tiempo y planificación.</p>
-  </div>
-
-  <footer>
-    Spanish ASE Math · Nivel 3 · Lección 5.1 — Preparado para Prof. José M. Fernández (Truman College, CCC) · Brightspace D2L
-  </footer>
-
+</div>
+<div class="practica">
+<h3>Práctica interactiva 1 · ¿Qué pasa con el signo?</h3>
+<p>Selecciona la solución correcta de cada inecuación.</p>
+<div class="pregunta" data-correcta="a">
+<div class="enun">1. −3x &lt; 9</div>
+<div class="opciones">
+<div class="opcion" data-op="a">x &gt; −3</div>
+<div class="opcion" data-op="b">x &lt; −3</div>
+<div class="opcion" data-op="c">x &gt; 3</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">2. 2x &gt; 10</div>
+<div class="opciones">
+<div class="opcion" data-op="a">x &gt; 5</div>
+<div class="opcion" data-op="b">x &lt; 5</div>
+<div class="opcion" data-op="c">x &gt; 20</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">3. −x ≤ 4</div>
+<div class="opciones">
+<div class="opcion" data-op="a">x ≥ −4</div>
+<div class="opcion" data-op="b">x ≤ −4</div>
+<div class="opcion" data-op="c">x ≥ 4</div>
+</div>
+<div class="fb"></div>
+</div>
+</div>
+<h2 class="seccion" id="s-4-graficar-en-la-recta-numerica">4. Graficar en la recta numérica</h2>
+<div class="bloque">
+<p>La solución se dibuja en la recta numérica con dos decisiones: el tipo de <strong>punto</strong> y la <strong>dirección</strong> de la flecha.</p>
+<table class="reglas">
+<caption class="sr-only">Tipo de punto y dirección de la flecha según el signo de la inecuación.</caption>
+<thead>
+<tr>
+<th scope="col">Signo</th>
+<th scope="col">Punto en el número límite</th>
+<th scope="col">Dirección de la flecha</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>&lt; o &gt;</td><td>Abierto ○ (el límite no se incluye)</td><td>Según el signo</td></tr>
+<tr><td>≤ o ≥</td><td>Cerrado ● (el límite sí se incluye)</td><td>Según el signo</td></tr>
+<tr><td>x &gt; a o x ≥ a</td><td>—</td><td>Hacia la derecha</td></tr>
+<tr><td>x &lt; a o x ≤ a</td><td>—</td><td>Hacia la izquierda</td></tr>
+</tbody>
+</table>
+<p>Por ejemplo, la solución <strong>x ≥ 2</strong> usa un punto cerrado en 2 y una flecha hacia la derecha:</p>
+<div class="recta-wrap">
+<svg aria-label="Recta numérica que representa x mayor o igual que 2: un punto cerrado sobre el 2 y una flecha que avanza hacia la derecha cubriendo todos los valores mayores que 2." height="80" role="img" viewbox="0 0 620 80" width="620" xmlns="http://www.w3.org/2000/svg">
+<line stroke="#14441a" stroke-width="3" x1="40" x2="590" y1="40" y2="40"></line>
+<g font-family="Segoe UI, sans-serif" font-size="13" text-anchor="middle">
+<line stroke="#14441a" stroke-width="2" x1="60" x2="60" y1="33" y2="47"></line><text fill="#14441a" x="60" y="66">0</text>
+<line stroke="#14441a" stroke-width="2" x1="150" x2="150" y1="33" y2="47"></line><text fill="#14441a" x="150" y="66">1</text>
+<line stroke="#14441a" stroke-width="2" x1="240" x2="240" y1="33" y2="47"></line><text fill="#14441a" font-weight="700" x="240" y="66">2</text>
+<line stroke="#14441a" stroke-width="2" x1="330" x2="330" y1="33" y2="47"></line><text fill="#14441a" x="330" y="66">3</text>
+<line stroke="#14441a" stroke-width="2" x1="420" x2="420" y1="33" y2="47"></line><text fill="#14441a" x="420" y="66">4</text>
+<line stroke="#14441a" stroke-width="2" x1="510" x2="510" y1="33" y2="47"></line><text fill="#14441a" x="510" y="66">5</text>
+</g>
+<line stroke="#1b5e20" stroke-width="6" x1="240" x2="585" y1="40" y2="40"></line>
+<polygon fill="#1b5e20" points="585,40 569,31 569,49"></polygon>
+<circle cx="240" cy="40" fill="#1b5e20" r="9"></circle>
+</svg>
+</div>
+<p>En cambio, la solución <strong>x &lt; 4</strong> usa un punto abierto en 4 y una flecha hacia la izquierda:</p>
+<div class="recta-wrap">
+<svg aria-label="Recta numérica que representa x menor que 4: un punto abierto sobre el 4 y una flecha que avanza hacia la izquierda cubriendo todos los valores menores que 4." height="80" role="img" viewbox="0 0 620 80" width="620" xmlns="http://www.w3.org/2000/svg">
+<line stroke="#14441a" stroke-width="3" x1="40" x2="590" y1="40" y2="40"></line>
+<g font-family="Segoe UI, sans-serif" font-size="13" text-anchor="middle">
+<line stroke="#14441a" stroke-width="2" x1="60" x2="60" y1="33" y2="47"></line><text fill="#14441a" x="60" y="66">0</text>
+<line stroke="#14441a" stroke-width="2" x1="150" x2="150" y1="33" y2="47"></line><text fill="#14441a" x="150" y="66">1</text>
+<line stroke="#14441a" stroke-width="2" x1="240" x2="240" y1="33" y2="47"></line><text fill="#14441a" x="240" y="66">2</text>
+<line stroke="#14441a" stroke-width="2" x1="330" x2="330" y1="33" y2="47"></line><text fill="#14441a" x="330" y="66">3</text>
+<line stroke="#14441a" stroke-width="2" x1="420" x2="420" y1="33" y2="47"></line><text fill="#14441a" font-weight="700" x="420" y="66">4</text>
+<line stroke="#14441a" stroke-width="2" x1="510" x2="510" y1="33" y2="47"></line><text fill="#14441a" x="510" y="66">5</text>
+</g>
+<line stroke="#1b5e20" stroke-width="6" x1="55" x2="420" y1="40" y2="40"></line>
+<polygon fill="#1b5e20" points="55,40 71,31 71,49"></polygon>
+<circle cx="420" cy="40" fill="#fff" r="9" stroke="#1b5e20" stroke-width="3"></circle>
+</svg>
+</div>
+</div>
+<div class="practica">
+<h3>Práctica interactiva 2 · Graficar la solución</h3>
+<p>Selecciona la respuesta correcta de cada caso.</p>
+<div class="pregunta" data-correcta="a">
+<div class="enun">1. Para graficar x ≤ 7, el punto en 7 es…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">Cerrado ●</div>
+<div class="opcion" data-op="b">Abierto ○</div>
+<div class="opcion" data-op="c">No se marca</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">2. Para graficar x &gt; 1, el punto en 1 es…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">Abierto ○</div>
+<div class="opcion" data-op="b">Cerrado ●</div>
+<div class="opcion" data-op="c">No se marca</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">3. En x ≥ 0, ¿hacia dónde va la flecha?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">A la derecha</div>
+<div class="opcion" data-op="b">A la izquierda</div>
+<div class="opcion" data-op="c">No hay flecha</div>
+</div>
+<div class="fb"></div>
+</div>
+</div>
+<h2 class="seccion" id="s-5-verificar-con-un-valor-de-prueba">5. Verificar con un valor de prueba</h2>
+<div class="bloque">
+<p>Para comprobar una solución, se eligen <strong>tres valores</strong>: uno claramente dentro del rango, el número límite y uno fuera. Al sustituirlos, solo los del rango deben hacer verdadera la inecuación.</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 4 · Verificación</span>
+<p>Comprobar la solución x &gt; −4 de la inecuación −2x &lt; 8.</p>
+<div class="paso"><span class="n">1</span> Un valor dentro, x = 0: −2(0) = 0, y 0 &lt; 8 es verdadero. Correcto.</div>
+<div class="paso"><span class="n">2</span> Un valor fuera, x = −5: −2(−5) = 10, y 10 &lt; 8 es falso. Correcto que quede fuera.</div>
+<p><strong>Respuesta:</strong> la solución x &gt; −4 se confirma.</p>
+</div>
 </div>
 
+
+<div class="caja-tarea">
+<h2 id="s-tarea">Tarea</h2>
+<p>Para hacer por su cuenta, con el cuaderno abierto:</p>
+<ul>
+<li>Cuatro inecuaciones para resolver, al menos dos que requieran invertir el signo.</li>
+<li>Tres inecuaciones cuya solución haya que graficar en la recta numérica.</li>
+<li>Tres casos para decidir si un valor dado satisface la inecuación.</li>
+<li><strong>ThatQuiz:</strong> entre en <a href="https://www.thatquiz.org/es/" rel="noopener noreferrer" target="_blank">ThatQuiz</a> y practique <em>ecuaciones</em> de varios pasos. Las inecuaciones se resuelven igual; lo único nuevo es la regla de invertir el signo, y esa hay que grabarla en papel, no en la pantalla.</li></ul>
+<p>Tiempo estimado: 50 minutos. Resuelva en papel y evalúe su trabajo con la rúbrica de esta lección.</p>
+</div>
+<div class="quiz">
+<h2 id="s-quiz-de-la-leccion-5-1">Quiz de la lección 5.1</h2>
+<p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
+<div id="quiz-cuerpo"></div>
+<div id="resultado-quiz"></div>
+<button class="btn" id="btn-corregir">Corregir quiz</button>
+<button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
+</div>
+<div class="rubrica">
+<h2 id="s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</h2>
+<p>Cuatro criterios evaluados en cuatro niveles de desempeño. Léala <strong>antes</strong> de empezar la tarea y úsela <strong>después</strong> para evaluar su propio trabajo con honestidad.</p>
+<table class="tabla-rubrica">
+<caption class="sr-only">Rúbrica analítica con cuatro criterios y cuatro niveles de desempeño.</caption>
+<thead>
+<tr>
+<th scope="col">Criterio</th>
+<th scope="col">Inicial (1)</th>
+<th scope="col">En desarrollo (2)</th>
+<th scope="col">Competente (3)</th>
+<th scope="col">Destacado (4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mismos pasos que una ecuación</td>
+<td>No aplica las propiedades para aislar la variable.</td>
+<td>Aísla la variable con errores ocasionales.</td>
+<td>Resuelve la inecuación con los mismos pasos que una ecuación.</td>
+<td>Resuelve con fluidez y de forma ordenada.</td>
+</tr>
+<tr>
+<td>Invertir el signo</td>
+<td>Nunca invierte el signo, o lo invierte sin motivo.</td>
+<td>Invierte el signo de forma inconsistente.</td>
+<td>Invierte el signo solo al multiplicar o dividir por negativo.</td>
+<td>Invierte correctamente y justifica por qué con un ejemplo.</td>
+</tr>
+<tr>
+<td>Graficar la solución</td>
+<td>No grafica o confunde el tipo de punto.</td>
+<td>Grafica con errores en el punto o la dirección.</td>
+<td>Grafica con el punto correcto y la dirección adecuada.</td>
+<td>Grafica con precisión y lee la gráfica de vuelta a la desigualdad.</td>
+</tr>
+<tr>
+<td>Verificación</td>
+<td>No verifica con un valor de prueba.</td>
+<td>Verifica solo un valor.</td>
+<td>Verifica con un valor dentro y uno fuera del rango.</td>
+<td>Verifica con valores dentro, límite y fuera de forma sistemática.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cierre">
+<h2 id="s-cierre-y-enlace-con-la-proxima-leccion">Cierre y enlace con la próxima lección</h2>
+<p>En esta lección se aprendió a <strong>resolver inecuaciones</strong> con los mismos pasos que una ecuación, recordando la regla crítica de <strong>invertir el signo</strong> al multiplicar o dividir por un negativo. La solución, que es un <strong>rango</strong>, se grafica en la recta numérica con un punto abierto o cerrado y una flecha, y se verifica con un valor de prueba.</p>
+<p>En la <strong>Lección 5.2 · Inecuaciones que requieren simplificación y problemas verbales</strong> se resolverán inecuaciones que primero hay que <strong>simplificar</strong> (distribuir, combinar términos, mover variables), y se traducirán <strong>enunciados verbales</strong> a inecuaciones para resolver problemas reales de presupuesto, tiempo y planificación.</p>
+</div>
+<footer><p>GEDparaHispanos · Matemáticas · Nivel 3 · Tema 5 · Lección 5.1</p><p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p><p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p></footer><a aria-label="Volver al contenido de la lección" class="volver-indice" href="#indice"><span aria-hidden="true">↑</span> Índice</a>
+</div>
 <script>
 (function () {
   /* ---- Práctica de opciones (selección múltiple) ---- */

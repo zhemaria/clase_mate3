@@ -1,9 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
+<!-- Lección 7.3 · Matemáticas Nivel 3 · GEDparaHispanos
+     José M. Fernández · CC BY-NC-SA 4.0 -->
+
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Lección 7.3 · Histogramas: construir, interpretar y comparar distribuciones</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lección 7.3 · Histogramas: construir, interpretar y comparar distribuciones</title><meta content="CC BY-NC-SA 4.0" name="license"/><link href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license"/>
 <style>
   :root {
     --tema:   #37474f;
@@ -128,25 +131,7 @@
   }
   .btn:hover { background: var(--tema-d); }
   .btn.sec { background: #00838f; }
-  .btn.sec:hover { background: #006064; }
-
-  .modalidad { display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0; }
-  .modo { flex: 1; min-width: 230px; border-radius: 9px; padding: 14px 16px; font-size: 14px; }
-  .modo-pres { background: #e3f2fd; border-left: 5px solid #1565c0; }
-  .modo-pres strong { color: #0d47a1; }
-  .modo-virt { background: #f3e5f5; border-left: 5px solid #6a1b9a; }
-  .modo-virt strong { color: #4a148c; }
-  .modo h3 { margin: 0 0 6px; font-size: 15px; }
-  .modo-pres h3 { color: #0d47a1; }
-  .modo-virt h3 { color: #4a148c; }
-
-  .actividad { margin-bottom: 18px; }
-  .actividad > .titulo-act {
-    font-weight: 700; color: var(--tema-d); font-size: 15px;
-    background: var(--tema-bg); padding: 7px 14px; border-radius: 7px;
-  }
-
-  .caja-tarea {
+  .btn.sec:hover { background: #006064; }.caja-tarea {
     background: #ede7f6; border-left: 6px solid #5e35b1;
     padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 20px 0;
   }
@@ -190,338 +175,281 @@
     text-align: center; padding: 20px; color: #555;
     font-size: 13px; border-top: 1px solid #ddd; margin-top: 20px;
   }
+
+  /* ── ÍNDICE DE LA LECCIÓN ── */
+  .indice{
+    background:#fff; border:1px solid #d8dde3; border-left:6px solid var(--tema);
+    border-radius:10px; padding:16px 20px; margin:24px 0;
+  }
+  .indice h2{ font-size:1.05rem; margin:0 0 10px; color:var(--tema-d); border:0; padding:0; background:none; }
+  .indice ol{ margin:0; padding-left:1.35em; }
+  .indice li{ margin:4px 0; }
+  .indice a{ color:var(--tema-d); text-decoration:underline; }
+  .indice a:hover{ color:var(--tema); }
+  .indice a:focus-visible,.volver-indice:focus-visible{ outline:3px solid #b05e00; outline-offset:2px; }
+  .volver-indice{
+    position:fixed; right:18px; bottom:18px; z-index:60;
+    background:var(--tema-d); color:#fff; border-radius:999px;
+    padding:10px 16px; font-weight:700; font-size:.92rem; text-decoration:none;
+    box-shadow:0 2px 10px rgba(0,0,0,.28);
+  }
+  .volver-indice:hover{ background:var(--tema); color:#fff; }
+  footer a{ color:inherit; }
+  @media print{ .indice,.volver-indice{ display:none; } }
 </style>
 </head>
 <body>
 <div class="contenedor">
-
-  <header class="principal">
-    <div class="ruta">Spanish ASE Math · Nivel 3 · Tema 7 · Volumen y análisis de datos</div>
-    <h1>Lección 7.3 · Histogramas: construir, interpretar y comparar distribuciones</h1>
-    <div class="meta">4 horas (2 sincrónicas + 2 asincrónicas) · NRS 3–4 · Brightspace D2L</div>
-  </header>
-
-  <div class="caja-objetivos">
-    <h2>Objetivos de la lección</h2>
-    <ul>
-      <li>Distinguir un histograma de una gráfica de barras (barras contiguas = datos continuos).</li>
-      <li>Construir un histograma a partir de una tabla de frecuencias.</li>
-      <li>Describir la forma de la distribución (simétrica, sesgada, unimodal, bimodal).</li>
-      <li>Comparar un histograma con un diagrama de caja del mismo conjunto.</li>
-      <li>Elegir la representación gráfica más informativa para cada contexto.</li>
-    </ul>
-  </div>
-
-  <div class="bloque">
-    <p><strong>Conexión con la lección anterior.</strong> El diagrama de caja de la Lección 7.2 resume los datos en cinco números. El <strong>histograma</strong> ofrece otra mirada: muestra <strong>cuántos datos caen en cada intervalo</strong>, revelando la <strong>forma</strong> completa de la distribución. Juntas, ambas gráficas dan una imagen más rica de un mismo conjunto de datos.</p>
-  </div>
-
-  <h2 class="seccion">1. ¿Qué es un histograma?</h2>
-  <div class="bloque">
-    <p>Un <strong>histograma</strong> agrupa los datos en <strong>intervalos</strong> y dibuja una barra por cada uno, cuya altura es la <strong>frecuencia</strong> (cuántos datos caen en ese intervalo). A diferencia de la gráfica de barras, sus barras están <strong>pegadas</strong>, porque representan datos continuos.</p>
-
-    <div class="diagrama-wrap">
-      <svg width="520" height="280" viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Histograma con cinco intervalos contiguos. Las frecuencias, de izquierda a derecha, son 2, 5, 8, 4 y 1. La barra más alta es la del intervalo central, con frecuencia 8, por lo que los datos se concentran en el centro y la distribución tiene un solo pico.">
-        <line x1="60" y1="240" x2="470" y2="240" stroke="#263238" stroke-width="2"/>
-        <line x1="60" y1="40" x2="60" y2="240" stroke="#263238" stroke-width="2"/>
-        <rect x="60"  y="190" width="80" height="50"  fill="#546e7a" stroke="#263238" stroke-width="1.5"/>
-        <rect x="140" y="115" width="80" height="125" fill="#546e7a" stroke="#263238" stroke-width="1.5"/>
-        <rect x="220" y="40"  width="80" height="200" fill="#546e7a" stroke="#263238" stroke-width="1.5"/>
-        <rect x="300" y="140" width="80" height="100" fill="#546e7a" stroke="#263238" stroke-width="1.5"/>
-        <rect x="380" y="215" width="80" height="25"  fill="#546e7a" stroke="#263238" stroke-width="1.5"/>
-        <g font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">
-          <text x="100" y="218">2</text>
-          <text x="180" y="143">5</text>
-          <text x="260" y="68">8</text>
-          <text x="340" y="168">4</text>
-        </g>
-        <text x="420" y="208" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#263238" text-anchor="middle">1</text>
-        <text x="30" y="140" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#263238" transform="rotate(-90 30 140)" text-anchor="middle">Frecuencia</text>
-        <text x="265" y="268" font-family="Segoe UI, sans-serif" font-size="13" fill="#263238" text-anchor="middle">Intervalos de datos</text>
-      </svg>
+<header class="principal">
+<div class="ruta">Spanish ASE Math · Nivel 3 · Tema 7 · Volumen y análisis de datos</div>
+<h1>Lección 7.3 · Histogramas: construir, interpretar y comparar distribuciones</h1>
+<div class="meta">Unas 4 horas, a su ritmo · NRS 3–4</div>
+</header>
+<div class="caja-objetivos">
+<h2>Objetivos de la lección</h2>
+<ul>
+<li>Distinguir un histograma de una gráfica de barras (barras contiguas = datos continuos).</li>
+<li>Construir un histograma a partir de una tabla de frecuencias.</li>
+<li>Describir la forma de la distribución (simétrica, sesgada, unimodal, bimodal).</li>
+<li>Comparar un histograma con un diagrama de caja del mismo conjunto.</li>
+<li>Elegir la representación gráfica más informativa para cada contexto.</li>
+</ul>
+</div><nav aria-labelledby="indice-titulo" class="indice" id="indice"><h2 id="indice-titulo">Contenido de la lección</h2><ol><li><a href="#s-1-que-es-un-histograma">1. ¿Qué es un histograma?</a></li><li><a href="#s-2-construir-un-histograma">2. Construir un histograma</a></li><li><a href="#s-3-la-forma-de-la-distribucion">3. La forma de la distribución</a></li><li><a href="#s-4-comparar-histograma-y-diagrama-de-caja">4. Comparar histograma y diagrama de caja</a></li><li><a href="#s-5-elegir-la-representacion-mas-informativa">5. Elegir la representación más informativa</a></li><li><a href="#s-tarea">Tarea</a></li><li><a href="#s-quiz-de-la-leccion-7-3">Quiz de la lección 7.3</a></li><li><a href="#s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</a></li><li><a href="#s-cierre-del-tema-7-y-enlace-con-el-tema-8">Cierre del Tema 7 y enlace con el Tema 8</a></li></ol></nav>
+<div class="bloque">
+<p><strong>Conexión con la lección anterior.</strong> El diagrama de caja de la Lección 7.2 resume los datos en cinco números. El <strong>histograma</strong> ofrece otra mirada: muestra <strong>cuántos datos caen en cada intervalo</strong>, revelando la <strong>forma</strong> completa de la distribución. Juntas, ambas gráficas dan una imagen más rica de un mismo conjunto de datos.</p>
+</div>
+<h2 class="seccion" id="s-1-que-es-un-histograma">1. ¿Qué es un histograma?</h2>
+<div class="bloque">
+<p>Un <strong>histograma</strong> agrupa los datos en <strong>intervalos</strong> y dibuja una barra por cada uno, cuya altura es la <strong>frecuencia</strong> (cuántos datos caen en ese intervalo). A diferencia de la gráfica de barras, sus barras están <strong>pegadas</strong>, porque representan datos continuos.</p>
+<div class="diagrama-wrap">
+<svg aria-label="Histograma con cinco intervalos contiguos. Las frecuencias, de izquierda a derecha, son 2, 5, 8, 4 y 1. La barra más alta es la del intervalo central, con frecuencia 8, por lo que los datos se concentran en el centro y la distribución tiene un solo pico." height="280" role="img" viewbox="0 0 520 280" width="520" xmlns="http://www.w3.org/2000/svg">
+<line stroke="#263238" stroke-width="2" x1="60" x2="470" y1="240" y2="240"></line>
+<line stroke="#263238" stroke-width="2" x1="60" x2="60" y1="40" y2="240"></line>
+<rect fill="#546e7a" height="50" stroke="#263238" stroke-width="1.5" width="80" x="60" y="190"></rect>
+<rect fill="#546e7a" height="125" stroke="#263238" stroke-width="1.5" width="80" x="140" y="115"></rect>
+<rect fill="#546e7a" height="200" stroke="#263238" stroke-width="1.5" width="80" x="220" y="40"></rect>
+<rect fill="#546e7a" height="100" stroke="#263238" stroke-width="1.5" width="80" x="300" y="140"></rect>
+<rect fill="#546e7a" height="25" stroke="#263238" stroke-width="1.5" width="80" x="380" y="215"></rect>
+<g fill="#fff" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" text-anchor="middle">
+<text x="100" y="218">2</text>
+<text x="180" y="143">5</text>
+<text x="260" y="68">8</text>
+<text x="340" y="168">4</text>
+</g>
+<text fill="#263238" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" text-anchor="middle" x="420" y="208">1</text>
+<text fill="#263238" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" text-anchor="middle" transform="rotate(-90 30 140)" x="30" y="140">Frecuencia</text>
+<text fill="#263238" font-family="Segoe UI, sans-serif" font-size="13" text-anchor="middle" x="265" y="268">Intervalos de datos</text>
+</svg>
+</div>
+<div class="caja-atencion">
+<strong>Histograma no es gráfica de barras:</strong> en una gráfica de barras las columnas representan categorías separadas (y van con espacios), mientras que en el histograma las barras representan intervalos de un dato continuo y van <em>pegadas</em>. Es la diferencia clave a la hora de identificar cada gráfica.
     </div>
-
-    <div class="caja-atencion">
-      <strong>Histograma no es gráfica de barras:</strong> en una gráfica de barras las columnas representan categorías separadas (y van con espacios), mientras que en el histograma las barras representan intervalos de un dato continuo y van <em>pegadas</em>. Es la diferencia clave a la hora de identificar cada gráfica.
+</div>
+<h2 class="seccion" id="s-2-construir-un-histograma">2. Construir un histograma</h2>
+<div class="bloque">
+<p>Se parte de una <strong>tabla de frecuencias</strong>: cada fila indica un intervalo y cuántos datos caen en él. La altura de cada barra es esa frecuencia.</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 1</span>
+<p>Una tabla indica que el intervalo 10–15 tiene una frecuencia de 8. ¿Qué altura tiene su barra?</p>
+<div class="paso"><span class="n">1</span> La altura de la barra es igual a la frecuencia del intervalo.</div>
+<p><strong>Respuesta:</strong> la barra del intervalo 10–15 llega hasta la altura 8.</p>
+</div>
+<div class="caja-tip">
+<strong>Intervalos del mismo ancho:</strong> para que el histograma sea fácil de leer, todos los intervalos deben tener el mismo ancho (por ejemplo, de 5 en 5 años). Así, comparar las alturas equivale directamente a comparar las frecuencias.
     </div>
-  </div>
-
-  <h2 class="seccion">2. Construir un histograma</h2>
-  <div class="bloque">
-    <p>Se parte de una <strong>tabla de frecuencias</strong>: cada fila indica un intervalo y cuántos datos caen en él. La altura de cada barra es esa frecuencia.</p>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 1</span>
-      <p>Una tabla indica que el intervalo 10–15 tiene una frecuencia de 8. ¿Qué altura tiene su barra?</p>
-      <div class="paso"><span class="n">1</span> La altura de la barra es igual a la frecuencia del intervalo.</div>
-      <p><strong>Respuesta:</strong> la barra del intervalo 10–15 llega hasta la altura 8.</p>
-    </div>
-
-    <div class="caja-tip">
-      <strong>Intervalos del mismo ancho:</strong> para que el histograma sea fácil de leer, todos los intervalos deben tener el mismo ancho (por ejemplo, de 5 en 5 años). Así, comparar las alturas equivale directamente a comparar las frecuencias.
-    </div>
-  </div>
-
-  <div class="practica">
-    <h3>Práctica interactiva 1 · Construir e identificar</h3>
-    <p>Selecciona la respuesta correcta de cada caso.</p>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">1. En un histograma, las barras están…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">Pegadas (contiguas)</div>
-        <div class="opcion" data-op="b">Separadas</div>
-        <div class="opcion" data-op="c">En círculo</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">2. El eje vertical de un histograma muestra…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">La frecuencia</div>
-        <div class="opcion" data-op="b">El nombre de cada categoría</div>
-        <div class="opcion" data-op="c">El total</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">3. Un intervalo con frecuencia 6 tiene una barra de altura…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">6</div>
-        <div class="opcion" data-op="b">3</div>
-        <div class="opcion" data-op="c">12</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-  </div>
-
-  <h2 class="seccion">3. La forma de la distribución</h2>
-  <div class="bloque">
-    <p>La gran ventaja del histograma es que muestra la <strong>forma</strong> de los datos de un solo vistazo. Se describe con un vocabulario preciso:</p>
-
-    <table class="reglas">
-      <caption class="sr-only">Formas de una distribución y su descripción.</caption>
-      <thead>
-        <tr>
-          <th scope="col">Forma</th>
-          <th scope="col">Descripción</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Simétrica</td><td>La misma forma a ambos lados del centro.</td></tr>
-        <tr><td>Sesgada a la derecha</td><td>Una cola larga hacia los valores altos.</td></tr>
-        <tr><td>Sesgada a la izquierda</td><td>Una cola larga hacia los valores bajos.</td></tr>
-        <tr><td>Unimodal</td><td>Un solo pico (una sola barra más alta).</td></tr>
-        <tr><td>Bimodal</td><td>Dos picos separados.</td></tr>
-      </tbody>
-    </table>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 2</span>
-      <p>Un histograma sube hasta un pico en el centro y baja a ambos lados de forma parecida. ¿Qué forma tiene?</p>
-      <div class="paso"><span class="n">1</span> Tiene un solo pico, así que es unimodal.</div>
-      <div class="paso"><span class="n">2</span> Los lados son parecidos, así que es aproximadamente simétrica.</div>
-      <p><strong>Respuesta:</strong> es una distribución unimodal y aproximadamente simétrica.</p>
-    </div>
-  </div>
-
-  <h2 class="seccion">4. Comparar histograma y diagrama de caja</h2>
-  <div class="bloque">
-    <p>Las dos gráficas describen el mismo conjunto desde ángulos distintos. Conviene saber cuándo usar cada una.</p>
-
-    <table class="reglas">
-      <caption class="sr-only">Qué muestra mejor cada representación gráfica.</caption>
-      <thead>
-        <tr>
-          <th scope="col">Pregunta</th>
-          <th scope="col">Mejor representación</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>¿Cuál es la forma detallada de los datos?</td><td>Histograma</td></tr>
-        <tr><td>¿Cuáles son los cuartiles y los valores atípicos?</td><td>Diagrama de caja</td></tr>
-        <tr><td>¿Hay uno o dos picos?</td><td>Histograma</td></tr>
-        <tr><td>¿Qué tan dispersa está la mitad central?</td><td>Diagrama de caja</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="practica">
-    <h3>Práctica interactiva 2 · Forma y comparación</h3>
-    <p>Selecciona la respuesta correcta de cada caso.</p>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">1. Un histograma con una cola larga hacia los valores altos está…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">Sesgado a la derecha</div>
-        <div class="opcion" data-op="b">Sesgado a la izquierda</div>
-        <div class="opcion" data-op="c">Simétrico</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">2. Una distribución con dos picos es…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">Bimodal</div>
-        <div class="opcion" data-op="b">Unimodal</div>
-        <div class="opcion" data-op="c">Uniforme</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">3. ¿Qué gráfica muestra mejor los cuartiles?</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">El diagrama de caja</div>
-        <div class="opcion" data-op="b">El histograma</div>
-        <div class="opcion" data-op="c">La gráfica de barras</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-  </div>
-
-  <h2 class="seccion">5. Elegir la representación más informativa</h2>
-  <div class="bloque">
-    <p>No hay una gráfica «mejor» en abstracto: depende de la <strong>pregunta</strong>. Para ver la forma y los picos, conviene el histograma; para comparar la dispersión y detectar valores atípicos entre grupos, el diagrama de caja.</p>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 3 · Elegir según la pregunta</span>
-      <p>Se quiere saber si las edades de un salón se reparten en dos grupos de edad bien distintos. ¿Qué gráfica conviene?</p>
-      <div class="paso"><span class="n">1</span> La pregunta es sobre la forma: ¿hay uno o dos picos?</div>
-      <div class="paso"><span class="n">2</span> El histograma muestra los picos directamente; el diagrama de caja no.</div>
-      <p><strong>Respuesta:</strong> conviene el histograma, porque revela si la distribución es bimodal.</p>
-    </div>
-  </div>
-
-  <h2 class="seccion">6. Práctica guiada en clase</h2>
-  <div class="bloque">
-    <p>Las siguientes tres actividades se realizan durante las horas sincrónicas. Cada una se presenta en doble modalidad: una versión para el aula presencial y otra para la sesión en línea.</p>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 1 · El perfil del salón</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          Los estudiantes recopilan un dato propio (edad o altura) y, con intervalos del mismo ancho, construyen el histograma del salón en papel cuadriculado, contando la frecuencia de cada intervalo.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          A partir de una tabla de frecuencias compartida, cada estudiante indica la altura de cada barra y describe la forma resultante de la distribución.
-        </div>
-      </div>
-    </div>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 2 · Las dos gráficas</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          Con el mismo conjunto de datos, los estudiantes construyen el histograma y el diagrama de caja, y discuten qué información aporta cada gráfica y cuál no se ve en la otra.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          En salas pequeñas, las parejas comparan un histograma y un diagrama de caja del mismo conjunto y anotan dos cosas que solo se ven en cada uno.
-        </div>
-      </div>
-    </div>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 3 · ¿Cuál elijo?</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          El docente plantea varias preguntas sobre un conjunto de datos y los estudiantes deciden, para cada una, si conviene el histograma o el diagrama de caja, justificando la elección.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          Cada estudiante empareja cinco preguntas con la gráfica más informativa (histograma o caja) en una hoja compartida y explica una de sus elecciones.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="caja-tarea">
-    <h2>Tarea asincrónica</h2>
-    <p>Para completar de forma individual en la plataforma <strong>MyOpenMath</strong> antes de la próxima sesión:</p>
-    <ul>
-      <li>Cuatro ejercicios de construir o completar un histograma a partir de una tabla de frecuencias.</li>
-      <li>Cuatro ejercicios de describir la forma de la distribución (simétrica, sesgada, unimodal, bimodal).</li>
-      <li>Dos ejercicios de elegir y justificar la representación más informativa para un contexto.</li>
-    </ul>
-    <p>La plataforma ofrece retroalimentación paso a paso en cada intento. Tiempo estimado: 55 minutos.</p>
-  </div>
-
-  <div class="quiz">
-    <h2>Quiz de la lección 7.3</h2>
-    <p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
-    <div id="quiz-cuerpo"></div>
-    <div id="resultado-quiz"></div>
-    <button class="btn" id="btn-corregir">Corregir quiz</button>
-    <button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
-  </div>
-
-  <div class="rubrica">
-    <h2>Rúbrica analítica de la lección</h2>
-    <p>Cuatro criterios evaluados en cuatro niveles de desempeño.</p>
-    <table class="tabla-rubrica">
-      <caption class="sr-only">Rúbrica analítica con cuatro criterios y cuatro niveles de desempeño.</caption>
-      <thead>
-        <tr>
-          <th scope="col">Criterio</th>
-          <th scope="col">Inicial (1)</th>
-          <th scope="col">En desarrollo (2)</th>
-          <th scope="col">Competente (3)</th>
-          <th scope="col">Destacado (4)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Construir el histograma</td>
-          <td>No relaciona la frecuencia con la altura de la barra.</td>
-          <td>Construye el histograma con errores de intervalo o frecuencia.</td>
-          <td>Construye el histograma con los intervalos y frecuencias correctos.</td>
-          <td>Construye con precisión, con intervalos de igual ancho y barras contiguas.</td>
-        </tr>
-        <tr>
-          <td>Describir la forma</td>
-          <td>No describe la forma de la distribución.</td>
-          <td>Describe la forma con terminología imprecisa.</td>
-          <td>Describe la forma con la terminología correcta.</td>
-          <td>Describe la forma con fluidez (simetría, sesgo, número de picos).</td>
-        </tr>
-        <tr>
-          <td>Comparar distribuciones</td>
-          <td>No compara las dos representaciones.</td>
-          <td>Compara usando una sola característica.</td>
-          <td>Compara dos distribuciones usando al menos dos estadísticas.</td>
-          <td>Compara con profundidad usando histograma y caja a la vez.</td>
-        </tr>
-        <tr>
-          <td>Elegir la representación</td>
-          <td>No elige según el contexto.</td>
-          <td>Elige sin justificar.</td>
-          <td>Elige la representación más informativa para el contexto.</td>
-          <td>Elige y justifica con claridad por qué esa gráfica es la mejor.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="cierre">
-    <h2>Cierre del Tema 7 y enlace con el Tema 8</h2>
-    <p>Con esta lección se cierra el Tema 7. Ya se calcula el <strong>volumen</strong> de sólidos y se analizan datos con dos herramientas complementarias: el <strong>diagrama de caja</strong> (cinco valores, IQR, atípicos) y el <strong>histograma</strong> (forma de la distribución). También se sabe <strong>elegir</strong> la gráfica más informativa según la pregunta.</p>
-    <p>El Tema 8 cierra el Nivel 3. Abrirá con la <strong>Lección 8.1 · Principio fundamental del conteo, permutaciones y combinaciones</strong>, donde se aprenderá a contar de cuántas formas pueden ocurrir los eventos, base de la probabilidad. El tema culmina con un <strong>proyecto final integrador</strong> y la preparación para el GED Mathematical Reasoning.</p>
-  </div>
-
-  <footer>
-    Spanish ASE Math · Nivel 3 · Lección 7.3 — Preparado para Prof. José M. Fernández (Truman College, CCC) · Brightspace D2L
-  </footer>
-
+</div>
+<div class="practica">
+<h3>Práctica interactiva 1 · Construir e identificar</h3>
+<p>Selecciona la respuesta correcta de cada caso.</p>
+<div class="pregunta" data-correcta="a">
+<div class="enun">1. En un histograma, las barras están…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">Pegadas (contiguas)</div>
+<div class="opcion" data-op="b">Separadas</div>
+<div class="opcion" data-op="c">En círculo</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">2. El eje vertical de un histograma muestra…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">La frecuencia</div>
+<div class="opcion" data-op="b">El nombre de cada categoría</div>
+<div class="opcion" data-op="c">El total</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">3. Un intervalo con frecuencia 6 tiene una barra de altura…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">6</div>
+<div class="opcion" data-op="b">3</div>
+<div class="opcion" data-op="c">12</div>
+</div>
+<div class="fb"></div>
+</div>
+</div>
+<h2 class="seccion" id="s-3-la-forma-de-la-distribucion">3. La forma de la distribución</h2>
+<div class="bloque">
+<p>La gran ventaja del histograma es que muestra la <strong>forma</strong> de los datos de un solo vistazo. Se describe con un vocabulario preciso:</p>
+<table class="reglas">
+<caption class="sr-only">Formas de una distribución y su descripción.</caption>
+<thead>
+<tr>
+<th scope="col">Forma</th>
+<th scope="col">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Simétrica</td><td>La misma forma a ambos lados del centro.</td></tr>
+<tr><td>Sesgada a la derecha</td><td>Una cola larga hacia los valores altos.</td></tr>
+<tr><td>Sesgada a la izquierda</td><td>Una cola larga hacia los valores bajos.</td></tr>
+<tr><td>Unimodal</td><td>Un solo pico (una sola barra más alta).</td></tr>
+<tr><td>Bimodal</td><td>Dos picos separados.</td></tr>
+</tbody>
+</table>
+<div class="ejemplo">
+<span class="et">Ejemplo 2</span>
+<p>Un histograma sube hasta un pico en el centro y baja a ambos lados de forma parecida. ¿Qué forma tiene?</p>
+<div class="paso"><span class="n">1</span> Tiene un solo pico, así que es unimodal.</div>
+<div class="paso"><span class="n">2</span> Los lados son parecidos, así que es aproximadamente simétrica.</div>
+<p><strong>Respuesta:</strong> es una distribución unimodal y aproximadamente simétrica.</p>
+</div>
+</div>
+<h2 class="seccion" id="s-4-comparar-histograma-y-diagrama-de-caja">4. Comparar histograma y diagrama de caja</h2>
+<div class="bloque">
+<p>Las dos gráficas describen el mismo conjunto desde ángulos distintos. Conviene saber cuándo usar cada una.</p>
+<table class="reglas">
+<caption class="sr-only">Qué muestra mejor cada representación gráfica.</caption>
+<thead>
+<tr>
+<th scope="col">Pregunta</th>
+<th scope="col">Mejor representación</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>¿Cuál es la forma detallada de los datos?</td><td>Histograma</td></tr>
+<tr><td>¿Cuáles son los cuartiles y los valores atípicos?</td><td>Diagrama de caja</td></tr>
+<tr><td>¿Hay uno o dos picos?</td><td>Histograma</td></tr>
+<tr><td>¿Qué tan dispersa está la mitad central?</td><td>Diagrama de caja</td></tr>
+</tbody>
+</table>
+</div>
+<div class="practica">
+<h3>Práctica interactiva 2 · Forma y comparación</h3>
+<p>Selecciona la respuesta correcta de cada caso.</p>
+<div class="pregunta" data-correcta="a">
+<div class="enun">1. Un histograma con una cola larga hacia los valores altos está…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">Sesgado a la derecha</div>
+<div class="opcion" data-op="b">Sesgado a la izquierda</div>
+<div class="opcion" data-op="c">Simétrico</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">2. Una distribución con dos picos es…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">Bimodal</div>
+<div class="opcion" data-op="b">Unimodal</div>
+<div class="opcion" data-op="c">Uniforme</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">3. ¿Qué gráfica muestra mejor los cuartiles?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">El diagrama de caja</div>
+<div class="opcion" data-op="b">El histograma</div>
+<div class="opcion" data-op="c">La gráfica de barras</div>
+</div>
+<div class="fb"></div>
+</div>
+</div>
+<h2 class="seccion" id="s-5-elegir-la-representacion-mas-informativa">5. Elegir la representación más informativa</h2>
+<div class="bloque">
+<p>No hay una gráfica «mejor» en abstracto: depende de la <strong>pregunta</strong>. Para ver la forma y los picos, conviene el histograma; para comparar la dispersión y detectar valores atípicos entre grupos, el diagrama de caja.</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 3 · Elegir según la pregunta</span>
+<p>Se quiere saber si las edades de un salón se reparten en dos grupos de edad bien distintos. ¿Qué gráfica conviene?</p>
+<div class="paso"><span class="n">1</span> La pregunta es sobre la forma: ¿hay uno o dos picos?</div>
+<div class="paso"><span class="n">2</span> El histograma muestra los picos directamente; el diagrama de caja no.</div>
+<p><strong>Respuesta:</strong> conviene el histograma, porque revela si la distribución es bimodal.</p>
+</div>
 </div>
 
+
+<div class="caja-tarea">
+<h2 id="s-tarea">Tarea</h2>
+<p>Para hacer por su cuenta, con el cuaderno abierto:</p>
+<ul>
+<li>Cuatro ejercicios de construir o completar un histograma a partir de una tabla de frecuencias.</li>
+<li>Cuatro ejercicios de describir la forma de la distribución (simétrica, sesgada, unimodal, bimodal).</li>
+<li>Dos ejercicios de elegir y justificar la representación más informativa para un contexto.</li>
+<li><strong>ThatQuiz:</strong> entre en <a href="https://www.thatquiz.org/es/" rel="noopener noreferrer" target="_blank">ThatQuiz</a> y practique <em>gráficas</em> y <em>estadística</em>. Para la forma de la distribución —simétrica, sesgada a la derecha o a la izquierda— dibuje a mano: eso no se entrena con opciones múltiples.</li></ul>
+<p>Tiempo estimado: 55 minutos. Resuelva en papel y evalúe su trabajo con la rúbrica de esta lección.</p>
+</div>
+<div class="quiz">
+<h2 id="s-quiz-de-la-leccion-7-3">Quiz de la lección 7.3</h2>
+<p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
+<div id="quiz-cuerpo"></div>
+<div id="resultado-quiz"></div>
+<button class="btn" id="btn-corregir">Corregir quiz</button>
+<button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
+</div>
+<div class="rubrica">
+<h2 id="s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</h2>
+<p>Cuatro criterios evaluados en cuatro niveles de desempeño. Léala <strong>antes</strong> de empezar la tarea y úsela <strong>después</strong> para evaluar su propio trabajo con honestidad.</p>
+<table class="tabla-rubrica">
+<caption class="sr-only">Rúbrica analítica con cuatro criterios y cuatro niveles de desempeño.</caption>
+<thead>
+<tr>
+<th scope="col">Criterio</th>
+<th scope="col">Inicial (1)</th>
+<th scope="col">En desarrollo (2)</th>
+<th scope="col">Competente (3)</th>
+<th scope="col">Destacado (4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Construir el histograma</td>
+<td>No relaciona la frecuencia con la altura de la barra.</td>
+<td>Construye el histograma con errores de intervalo o frecuencia.</td>
+<td>Construye el histograma con los intervalos y frecuencias correctos.</td>
+<td>Construye con precisión, con intervalos de igual ancho y barras contiguas.</td>
+</tr>
+<tr>
+<td>Describir la forma</td>
+<td>No describe la forma de la distribución.</td>
+<td>Describe la forma con terminología imprecisa.</td>
+<td>Describe la forma con la terminología correcta.</td>
+<td>Describe la forma con fluidez (simetría, sesgo, número de picos).</td>
+</tr>
+<tr>
+<td>Comparar distribuciones</td>
+<td>No compara las dos representaciones.</td>
+<td>Compara usando una sola característica.</td>
+<td>Compara dos distribuciones usando al menos dos estadísticas.</td>
+<td>Compara con profundidad usando histograma y caja a la vez.</td>
+</tr>
+<tr>
+<td>Elegir la representación</td>
+<td>No elige según el contexto.</td>
+<td>Elige sin justificar.</td>
+<td>Elige la representación más informativa para el contexto.</td>
+<td>Elige y justifica con claridad por qué esa gráfica es la mejor.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cierre">
+<h2 id="s-cierre-del-tema-7-y-enlace-con-el-tema-8">Cierre del Tema 7 y enlace con el Tema 8</h2>
+<p>Con esta lección se cierra el Tema 7. Ya se calcula el <strong>volumen</strong> de sólidos y se analizan datos con dos herramientas complementarias: el <strong>diagrama de caja</strong> (cinco valores, IQR, atípicos) y el <strong>histograma</strong> (forma de la distribución). También se sabe <strong>elegir</strong> la gráfica más informativa según la pregunta.</p>
+<p>El Tema 8 cierra el Nivel 3. Abrirá con la <strong>Lección 8.1 · Principio fundamental del conteo, permutaciones y combinaciones</strong>, donde se aprenderá a contar de cuántas formas pueden ocurrir los eventos, base de la probabilidad. El tema culmina con un <strong>proyecto final integrador</strong> y la preparación para el GED Mathematical Reasoning.</p>
+</div>
+<footer><p>GEDparaHispanos · Matemáticas · Nivel 3 · Tema 7 · Lección 7.3</p><p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p><p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p></footer><a aria-label="Volver al contenido de la lección" class="volver-indice" href="#indice"><span aria-hidden="true">↑</span> Índice</a>
+</div>
 <script>
 (function () {
   /* ---- Práctica de opciones (selección múltiple) ---- */

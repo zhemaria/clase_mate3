@@ -1,10 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
+<!-- Lección 1.2 · Matemáticas Nivel 3 · GEDparaHispanos
+     José M. Fernández · CC BY-NC-SA 4.0 -->
+
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lección 1.2 · Regla del cociente, exponente cero y exponentes negativos</title>
-    <style>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lección 1.2 · Regla del cociente, exponente cero y exponentes negativos</title><meta content="CC BY-NC-SA 4.0" name="license"/><link href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license"/>
+<style>
       :root {
         --tema: #880e4f;
         --tema-d: #5d0935;
@@ -373,59 +376,7 @@
       }
       .btn.sec:hover {
         background: #37474f;
-      }
-
-      .modalidad {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-        margin: 12px 0;
-      }
-      .modo {
-        flex: 1;
-        min-width: 230px;
-        border-radius: 9px;
-        padding: 14px 16px;
-        font-size: 14px;
-      }
-      .modo-pres {
-        background: #e3f2fd;
-        border-left: 5px solid #1565c0;
-      }
-      .modo-pres strong {
-        color: #0d47a1;
-      }
-      .modo-virt {
-        background: #f3e5f5;
-        border-left: 5px solid #6a1b9a;
-      }
-      .modo-virt strong {
-        color: #4a148c;
-      }
-      .modo h3 {
-        margin: 0 0 6px;
-        font-size: 15px;
-      }
-      .modo-pres h3 {
-        color: #0d47a1;
-      }
-      .modo-virt h3 {
-        color: #4a148c;
-      }
-
-      .actividad {
-        margin-bottom: 18px;
-      }
-      .actividad > .titulo-act {
-        font-weight: 700;
-        color: var(--tema-d);
-        font-size: 15px;
-        background: var(--tema-bg);
-        padding: 7px 14px;
-        border-radius: 7px;
-      }
-
-      .caja-tarea {
+      }.caja-tarea {
         background: #ede7f6;
         border-left: 6px solid #5e35b1;
         padding: 16px 20px;
@@ -612,28 +563,49 @@
         color: var(--tema);
         flex-shrink: 0;
       }
-    </style>
-  </head>
-  <body>
-    <div class="contenedor">
-      <header class="principal">
-        <div class="ruta">Spanish ASE Math · Nivel 3 · Tema 1 · Reglas de los exponentes</div>
-        <h1>Lección 1.2 · Regla del cociente, exponente cero y exponentes negativos</h1>
-        <div class="meta">4 horas (2 sincrónicas + 2 asincrónicas) · NRS 3–4 · Brightspace D2L</div>
-      </header>
-      <div class="caja-objetivos">
-        <h2>Objetivos de la lección</h2>
-        <ul>
-          <li>Aplicar la regla del cociente: aᵐ ÷ aⁿ = aᵐ⁻ⁿ (con a ≠ 0).</li>
-          <li>Justificar por qué a⁰ = 1 (con a ≠ 0) usando la regla del cociente.</li>
-          <li>Definir el exponente negativo como recíproco: a⁻ⁿ = 1 ÷ aⁿ.</li>
-          <li>Reescribir expresiones con exponentes negativos como fracciones de exponentes positivos, y viceversa.</li>
-          <li>Verificar resultados numéricos con la calculadora TI-30XS.</li>
-        </ul>
-      </div>
-      <div class="bloque">
-        <p>
-          <strong>Conexión con la lección anterior.</strong>
+    
+  /* ── ÍNDICE DE LA LECCIÓN ── */
+  .indice{
+    background:#fff; border:1px solid #d8dde3; border-left:6px solid var(--tema);
+    border-radius:10px; padding:16px 20px; margin:24px 0;
+  }
+  .indice h2{ font-size:1.05rem; margin:0 0 10px; color:var(--tema-d); border:0; padding:0; background:none; }
+  .indice ol{ margin:0; padding-left:1.35em; }
+  .indice li{ margin:4px 0; }
+  .indice a{ color:var(--tema-d); text-decoration:underline; }
+  .indice a:hover{ color:var(--tema); }
+  .indice a:focus-visible,.volver-indice:focus-visible{ outline:3px solid #b05e00; outline-offset:2px; }
+  .volver-indice{
+    position:fixed; right:18px; bottom:18px; z-index:60;
+    background:var(--tema-d); color:#fff; border-radius:999px;
+    padding:10px 16px; font-weight:700; font-size:.92rem; text-decoration:none;
+    box-shadow:0 2px 10px rgba(0,0,0,.28);
+  }
+  .volver-indice:hover{ background:var(--tema); color:#fff; }
+  footer a{ color:inherit; }
+  @media print{ .indice,.volver-indice{ display:none; } }
+</style>
+</head>
+<body>
+<div class="contenedor">
+<header class="principal">
+<div class="ruta">Spanish ASE Math · Nivel 3 · Tema 1 · Reglas de los exponentes</div>
+<h1>Lección 1.2 · Regla del cociente, exponente cero y exponentes negativos</h1>
+<div class="meta">Unas 4 horas, a su ritmo · NRS 3–4</div>
+</header>
+<div class="caja-objetivos">
+<h2>Objetivos de la lección</h2>
+<ul>
+<li>Aplicar la regla del cociente: aᵐ ÷ aⁿ = aᵐ⁻ⁿ (con a ≠ 0).</li>
+<li>Justificar por qué a⁰ = 1 (con a ≠ 0) usando la regla del cociente.</li>
+<li>Definir el exponente negativo como recíproco: a⁻ⁿ = 1 ÷ aⁿ.</li>
+<li>Reescribir expresiones con exponentes negativos como fracciones de exponentes positivos, y viceversa.</li>
+<li>Verificar resultados numéricos con la calculadora TI-30XS.</li>
+</ul>
+</div><nav aria-labelledby="indice-titulo" class="indice" id="indice"><h2 id="indice-titulo">Contenido de la lección</h2><ol><li><a href="#s-1-la-regla-del-cociente">1. La regla del cociente</a></li><li><a href="#s-2-el-exponente-cero">2. El exponente cero</a></li><li><a href="#s-3-los-exponentes-negativos">3. Los exponentes negativos</a></li><li><a href="#s-4-las-cinco-reglas-de-los-exponentes">4. Las cinco reglas de los exponentes</a></li><li><a href="#s-5-aplicacion-y-verificacion-con-la-ti-30xs">5. Aplicación y verificación con la TI-30XS</a></li><li><a href="#s-tarea">Tarea</a></li><li><a href="#s-quiz-de-la-leccion-1-2">Quiz de la lección 1.2</a></li><li><a href="#s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</a></li><li><a href="#s-cierre-y-enlace-con-la-proxima-leccion">Cierre y enlace con la próxima lección</a></li></ol></nav>
+<div class="bloque">
+<p>
+<strong>Conexión con la lección anterior.</strong>
           En la Lección 1.1 se establecieron las tres reglas de la multiplicación con exponentes: al multiplicar potencias de la misma base, los exponentes se
           <strong>suman</strong>
           . Esta lección aborda la operación opuesta, la
@@ -646,477 +618,395 @@
           <strong>negativos</strong>
           .
         </p>
-      </div>
-      <h2 class="seccion">1. La regla del cociente</h2>
-      <div class="bloque">
-        <p>Al dividir dos potencias de la misma base, los factores del denominador cancelan factores del numerador. Conviene verlo expandiendo:</p>
-        <div class="expansion" aria-label="a a la cinco dividido entre a al cuadrado: cinco factores a sobre dos factores a; se cancelan dos pares y quedan tres factores, es decir a al cubo">
-          <span class="frac">
-            <span class="num">
+</div>
+<h2 class="seccion" id="s-1-la-regla-del-cociente">1. La regla del cociente</h2>
+<div class="bloque">
+<p>Al dividir dos potencias de la misma base, los factores del denominador cancelan factores del numerador. Conviene verlo expandiendo:</p>
+<div aria-label="a a la cinco dividido entre a al cuadrado: cinco factores a sobre dos factores a; se cancelan dos pares y quedan tres factores, es decir a al cubo" class="expansion">
+<span class="frac">
+<span class="num">
               a · a · a ·
               <s>a · a</s>
-            </span>
-            <span class="den"><span class="tachado">a · a</span></span>
-          </span>
+</span>
+<span class="den"><span class="tachado">a · a</span></span>
+</span>
           → quedan tres factores →
           <span class="resalta">a³</span>
-        </div>
-        <p>
+</div>
+<p>
           Cinco factores arriba menos dos factores abajo dejan tres factores. El exponente del resultado es la
           <strong>resta</strong>
           de los exponentes (numerador menos denominador):
         </p>
-        <p class="formula">aᵐ ÷ aⁿ = aᵐ⁻ⁿ&nbsp;&nbsp;(a ≠ 0)</p>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 1</span>
-          <p>Simplificar x⁹ ÷ x⁴.</p>
-          <div class="paso">
-            <span class="n">1</span>
+<p class="formula">aᵐ ÷ aⁿ = aᵐ⁻ⁿ  (a ≠ 0)</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 1</span>
+<p>Simplificar x⁹ ÷ x⁴.</p>
+<div class="paso">
+<span class="n">1</span>
             Misma base (x): se aplica la regla del cociente.
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             Se restan los exponentes: 9 − 4 = 5.
           </div>
-          <p>
-            <strong>Respuesta:</strong>
+<p>
+<strong>Respuesta:</strong>
             x⁹ ÷ x⁴ = x⁵.
           </p>
-        </div>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 2</span>
-          <p>Simplificar 10⁶ ÷ 10⁴.</p>
-          <div class="paso">
-            <span class="n">1</span>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 2</span>
+<p>Simplificar 10⁶ ÷ 10⁴.</p>
+<div class="paso">
+<span class="n">1</span>
             Misma base (10): se restan los exponentes, 6 − 4 = 2.
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             El resultado es 10², que equivale a 100.
           </div>
-          <p>
-            <strong>Respuesta:</strong>
+<p>
+<strong>Respuesta:</strong>
             10⁶ ÷ 10⁴ = 10² = 100.
           </p>
-        </div>
-        <div class="caja-atencion">
-          <strong>Cuidado con el orden:</strong>
+</div>
+<div class="caja-atencion">
+<strong>Cuidado con el orden:</strong>
           se resta siempre el exponente del numerador menos el del denominador, no al revés. La base debe ser distinta de cero, porque dividir entre cero no está definido.
         </div>
-      </div>
-      <div class="practica">
-        <h3>Práctica interactiva 1 · Regla del cociente</h3>
-        <p>
+</div>
+<div class="practica">
+<h3>Práctica interactiva 1 · Regla del cociente</h3>
+<p>
           Escribe únicamente el
           <strong>exponente</strong>
           del resultado y presiona «Verificar».
         </p>
-        <div class="pregunta">
-          <div class="enun">
+<div class="pregunta">
+<div class="enun">
             1. x⁹ ÷ x⁵ = x
             <sup>?</sup>
-          </div>
-          <input type="text" class="campo-num" id="s1" inputmode="numeric" aria-label="Exponente del resultado de x a la nueve dividido entre x a la cinco" />
-          <div class="fb" id="fb-s1"></div>
-        </div>
-        <div class="pregunta">
-          <div class="enun">
+</div>
+<input aria-label="Exponente del resultado de x a la nueve dividido entre x a la cinco" class="campo-num" id="s1" inputmode="numeric" type="text"/>
+<div class="fb" id="fb-s1"></div>
+</div>
+<div class="pregunta">
+<div class="enun">
             2. a⁷ ÷ a² = a
             <sup>?</sup>
-          </div>
-          <input type="text" class="campo-num" id="s2" inputmode="numeric" aria-label="Exponente del resultado de a a la siete dividido entre a al cuadrado" />
-          <div class="fb" id="fb-s2"></div>
-        </div>
-        <div class="pregunta">
-          <div class="enun">
+</div>
+<input aria-label="Exponente del resultado de a a la siete dividido entre a al cuadrado" class="campo-num" id="s2" inputmode="numeric" type="text"/>
+<div class="fb" id="fb-s2"></div>
+</div>
+<div class="pregunta">
+<div class="enun">
             3. m¹⁰ ÷ m⁴ = m
             <sup>?</sup>
-          </div>
-          <input type="text" class="campo-num" id="s3" inputmode="numeric" aria-label="Exponente del resultado de m a la diez dividido entre m a la cuatro" />
-          <div class="fb" id="fb-s3"></div>
-        </div>
-        <div class="pregunta">
-          <div class="enun">
+</div>
+<input aria-label="Exponente del resultado de m a la diez dividido entre m a la cuatro" class="campo-num" id="s3" inputmode="numeric" type="text"/>
+<div class="fb" id="fb-s3"></div>
+</div>
+<div class="pregunta">
+<div class="enun">
             4. 2⁸ ÷ 2⁵ = 2
             <sup>?</sup>
-          </div>
-          <input type="text" class="campo-num" id="s4" inputmode="numeric" aria-label="Exponente del resultado de dos a la ocho dividido entre dos a la cinco" />
-          <div class="fb" id="fb-s4"></div>
-        </div>
-        <button class="btn" id="btn-coc">Verificar</button>
-      </div>
-      <h2 class="seccion">2. El exponente cero</h2>
-      <div class="bloque">
-        <p>
+</div>
+<input aria-label="Exponente del resultado de dos a la ocho dividido entre dos a la cinco" class="campo-num" id="s4" inputmode="numeric" type="text"/>
+<div class="fb" id="fb-s4"></div>
+</div>
+<button class="btn" id="btn-coc">Verificar</button>
+</div>
+<h2 class="seccion" id="s-2-el-exponente-cero">2. El exponente cero</h2>
+<div class="bloque">
+<p>
           ¿Qué ocurre al dividir una potencia entre sí misma? Por un lado, cualquier número distinto de cero dividido entre sí mismo da
           <strong>1</strong>
           . Por otro lado, la regla del cociente da un exponente cero:
         </p>
-        <div class="expansion" aria-label="a al cubo dividido entre a al cubo es igual a uno, y también igual a a a la cero; por lo tanto a a la cero es igual a uno">
-          a³ ÷ a³ = 1&nbsp;&nbsp;&nbsp;y también&nbsp;&nbsp;&nbsp;a³ ÷ a³ = a³⁻³ =
+<div aria-label="a al cubo dividido entre a al cubo es igual a uno, y también igual a a a la cero; por lo tanto a a la cero es igual a uno" class="expansion">
+          a³ ÷ a³ = 1   y también   a³ ÷ a³ = a³⁻³ =
           <span class="resalta">a⁰</span>
-        </div>
-        <p>Como las dos expresiones describen el mismo cociente, ambas deben ser iguales. Por lo tanto:</p>
-        <p class="formula">a⁰ = 1&nbsp;&nbsp;(a ≠ 0)</p>
-        <p>El mismo resultado aparece en un patrón de potencias decrecientes: cada vez que el exponente baja una unidad, el valor se divide entre la base.</p>
-        <table class="patrones">
-          <caption class="sr-only">Patrón de potencias decrecientes de 2 que muestra que dos a la cero es igual a uno.</caption>
-          <thead>
-            <tr>
-              <th scope="col">2³</th>
-              <th scope="col">2²</th>
-              <th scope="col">2¹</th>
-              <th scope="col">2⁰</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>8</td>
-              <td>4</td>
-              <td>2</td>
-              <td class="destaca">1</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="caja-tip">
-          <strong>Lectura del patrón:</strong>
+</div>
+<p>Como las dos expresiones describen el mismo cociente, ambas deben ser iguales. Por lo tanto:</p>
+<p class="formula">a⁰ = 1  (a ≠ 0)</p>
+<p>El mismo resultado aparece en un patrón de potencias decrecientes: cada vez que el exponente baja una unidad, el valor se divide entre la base.</p>
+<table class="patrones">
+<caption class="sr-only">Patrón de potencias decrecientes de 2 que muestra que dos a la cero es igual a uno.</caption>
+<thead>
+<tr>
+<th scope="col">2³</th>
+<th scope="col">2²</th>
+<th scope="col">2¹</th>
+<th scope="col">2⁰</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>4</td>
+<td>2</td>
+<td class="destaca">1</td>
+</tr>
+</tbody>
+</table>
+<div class="caja-tip">
+<strong>Lectura del patrón:</strong>
           8 ÷ 2 = 4, 4 ÷ 2 = 2, y 2 ÷ 2 = 1. Continuar dividiendo entre la base lleva de forma natural a que 2⁰ = 1. Esto vale para cualquier base distinta de cero: 5⁰ = 1, 100⁰ = 1, (3x)⁰ = 1.
         </div>
-      </div>
-      <h2 class="seccion">3. Los exponentes negativos</h2>
-      <div class="bloque">
-        <p>Si el patrón continúa más allá del exponente cero, cada paso sigue dividiendo entre la base, y aparecen las fracciones:</p>
-        <table class="patrones">
-          <caption class="sr-only">Patrón de potencias de 2 que continúa hacia los exponentes negativos: dos a la menos uno es un medio y dos a la menos dos es un cuarto.</caption>
-          <thead>
-            <tr>
-              <th scope="col">2¹</th>
-              <th scope="col">2⁰</th>
-              <th scope="col">2⁻¹</th>
-              <th scope="col">2⁻²</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>2</td>
-              <td>1</td>
-              <td class="destaca">1/2</td>
-              <td class="destaca">1/4</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>
+</div>
+<h2 class="seccion" id="s-3-los-exponentes-negativos">3. Los exponentes negativos</h2>
+<div class="bloque">
+<p>Si el patrón continúa más allá del exponente cero, cada paso sigue dividiendo entre la base, y aparecen las fracciones:</p>
+<table class="patrones">
+<caption class="sr-only">Patrón de potencias de 2 que continúa hacia los exponentes negativos: dos a la menos uno es un medio y dos a la menos dos es un cuarto.</caption>
+<thead>
+<tr>
+<th scope="col">2¹</th>
+<th scope="col">2⁰</th>
+<th scope="col">2⁻¹</th>
+<th scope="col">2⁻²</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>1</td>
+<td class="destaca">1/2</td>
+<td class="destaca">1/4</td>
+</tr>
+</tbody>
+</table>
+<p>
           Un exponente negativo indica el
           <strong>recíproco</strong>
           de la potencia con exponente positivo:
         </p>
-        <p class="formula">
+<p class="formula">
           a⁻ⁿ =
           <span class="frac">
-            <span class="num">1</span>
-            <span class="den">aⁿ</span>
-          </span>
-          &nbsp;&nbsp;(a ≠ 0)
+<span class="num">1</span>
+<span class="den">aⁿ</span>
+</span>
+            (a ≠ 0)
         </p>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 3</span>
-          <p>Expresar 2⁻³ como fracción.</p>
-          <div class="paso">
-            <span class="n">1</span>
+<div class="ejemplo">
+<span class="et">Ejemplo 3</span>
+<p>Expresar 2⁻³ como fracción.</p>
+<div class="paso">
+<span class="n">1</span>
             El exponente negativo indica el recíproco: 2⁻³ = 1 ÷ 2³.
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             2³ = 8.
           </div>
-          <p>
-            <strong>Respuesta:</strong>
+<p>
+<strong>Respuesta:</strong>
             2⁻³ = 1/8 = 0.125.
           </p>
-        </div>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 4 · Reescribir con exponente positivo</span>
-          <p>Reescribir x⁻⁴ sin exponente negativo.</p>
-          <div class="paso">
-            <span class="n">1</span>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 4 · Reescribir con exponente positivo</span>
+<p>Reescribir x⁻⁴ sin exponente negativo.</p>
+<div class="paso">
+<span class="n">1</span>
             Se aplica la definición del exponente negativo.
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             x⁻⁴ = 1 ÷ x⁴.
           </div>
-          <p>
-            <strong>Respuesta:</strong>
+<p>
+<strong>Respuesta:</strong>
             x⁻⁴ = 1/x⁴.
           </p>
-        </div>
-        <div class="caja-tip">
-          <strong>Cruzar la barra de fracción:</strong>
+</div>
+<div class="caja-tip">
+<strong>Cruzar la barra de fracción:</strong>
           mover un factor de arriba abajo (o de abajo arriba) en una fracción cambia el signo de su exponente. Así, 1 ÷ a⁻² = a², porque al subir el factor el exponente pasa de negativo a positivo.
         </div>
-        <div class="caja-atencion">
-          <strong>Error frecuente:</strong>
+<div class="caja-atencion">
+<strong>Error frecuente:</strong>
           un exponente negativo
           <em>no</em>
           hace negativo al número. 2⁻³ no es −8 ni −6; es la fracción positiva 1/8. El signo del exponente solo indica «recíproco», nunca el signo del resultado.
         </div>
-      </div>
-      <div class="practica">
-        <h3>Práctica interactiva 2 · Exponente cero y negativos</h3>
-        <p>Selecciona la respuesta correcta de cada expresión.</p>
-        <div class="pregunta" data-correcta="b">
-          <div class="enun">1. ¿Cuánto vale 9⁰?</div>
-          <div class="opciones">
-            <div class="opcion" data-op="a">0</div>
-            <div class="opcion" data-op="b">1</div>
-            <div class="opcion" data-op="c">9</div>
-          </div>
-          <div class="fb"></div>
-        </div>
-        <div class="pregunta" data-correcta="b">
-          <div class="enun">2. ¿A qué equivale x⁻³?</div>
-          <div class="opciones">
-            <div class="opcion" data-op="a">−x³</div>
-            <div class="opcion" data-op="b">1/x³</div>
-            <div class="opcion" data-op="c">3/x</div>
-          </div>
-          <div class="fb"></div>
-        </div>
-        <div class="pregunta" data-correcta="b">
-          <div class="enun">3. ¿A qué equivale 1 ÷ a⁻²?</div>
-          <div class="opciones">
-            <div class="opcion" data-op="a">1/a²</div>
-            <div class="opcion" data-op="b">a²</div>
-            <div class="opcion" data-op="c">−a²</div>
-          </div>
-          <div class="fb"></div>
-        </div>
-      </div>
-      <h2 class="seccion">4. Las cinco reglas de los exponentes</h2>
-      <div class="bloque">
-        <p>Con la lección anterior y esta, el conjunto de reglas de los exponentes queda completo. La tabla las reúne para tenerlas siempre a la vista.</p>
-        <table class="reglas">
-          <caption class="sr-only">Resumen de las cinco reglas de los exponentes: nombre, patrón y ejemplo.</caption>
-          <thead>
-            <tr>
-              <th scope="col">Regla</th>
-              <th scope="col">Patrón</th>
-              <th scope="col">Ejemplo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Producto</td>
-              <td>aᵐ · aⁿ = aᵐ⁺ⁿ</td>
-              <td>x⁴ · x³ = x⁷</td>
-            </tr>
-            <tr>
-              <td>Potencia de potencia</td>
-              <td>(aᵐ)ⁿ = aᵐⁿ</td>
-              <td>(x⁴)³ = x¹²</td>
-            </tr>
-            <tr>
-              <td>Potencia de un producto</td>
-              <td>(a · b)ⁿ = aⁿ · bⁿ</td>
-              <td>(2x)³ = 8x³</td>
-            </tr>
-            <tr>
-              <td>Cociente</td>
-              <td>aᵐ ÷ aⁿ = aᵐ⁻ⁿ</td>
-              <td>x⁷ ÷ x² = x⁵</td>
-            </tr>
-            <tr>
-              <td>Exponente cero y negativo</td>
-              <td>a⁰ = 1&nbsp;&nbsp;·&nbsp;&nbsp;a⁻ⁿ = 1 ÷ aⁿ</td>
-              <td>5⁰ = 1&nbsp;&nbsp;·&nbsp;&nbsp;3⁻² = 1/9</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <h2 class="seccion">5. Aplicación y verificación con la TI-30XS</h2>
-      <div class="bloque">
-        <p>
+</div>
+<div class="practica">
+<h3>Práctica interactiva 2 · Exponente cero y negativos</h3>
+<p>Selecciona la respuesta correcta de cada expresión.</p>
+<div class="pregunta" data-correcta="b">
+<div class="enun">1. ¿Cuánto vale 9⁰?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">0</div>
+<div class="opcion" data-op="b">1</div>
+<div class="opcion" data-op="c">9</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">2. ¿A qué equivale x⁻³?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">−x³</div>
+<div class="opcion" data-op="b">1/x³</div>
+<div class="opcion" data-op="c">3/x</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">3. ¿A qué equivale 1 ÷ a⁻²?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">1/a²</div>
+<div class="opcion" data-op="b">a²</div>
+<div class="opcion" data-op="c">−a²</div>
+</div>
+<div class="fb"></div>
+</div>
+</div>
+<h2 class="seccion" id="s-4-las-cinco-reglas-de-los-exponentes">4. Las cinco reglas de los exponentes</h2>
+<div class="bloque">
+<p>Con la lección anterior y esta, el conjunto de reglas de los exponentes queda completo. La tabla las reúne para tenerlas siempre a la vista.</p>
+<table class="reglas">
+<caption class="sr-only">Resumen de las cinco reglas de los exponentes: nombre, patrón y ejemplo.</caption>
+<thead>
+<tr>
+<th scope="col">Regla</th>
+<th scope="col">Patrón</th>
+<th scope="col">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Producto</td>
+<td>aᵐ · aⁿ = aᵐ⁺ⁿ</td>
+<td>x⁴ · x³ = x⁷</td>
+</tr>
+<tr>
+<td>Potencia de potencia</td>
+<td>(aᵐ)ⁿ = aᵐⁿ</td>
+<td>(x⁴)³ = x¹²</td>
+</tr>
+<tr>
+<td>Potencia de un producto</td>
+<td>(a · b)ⁿ = aⁿ · bⁿ</td>
+<td>(2x)³ = 8x³</td>
+</tr>
+<tr>
+<td>Cociente</td>
+<td>aᵐ ÷ aⁿ = aᵐ⁻ⁿ</td>
+<td>x⁷ ÷ x² = x⁵</td>
+</tr>
+<tr>
+<td>Exponente cero y negativo</td>
+<td>a⁰ = 1  ·  a⁻ⁿ = 1 ÷ aⁿ</td>
+<td>5⁰ = 1  ·  3⁻² = 1/9</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 class="seccion" id="s-5-aplicacion-y-verificacion-con-la-ti-30xs">5. Aplicación y verificación con la TI-30XS</h2>
+<div class="bloque">
+<p>
           Los exponentes negativos aparecen de forma natural al medir cantidades muy pequeñas, una idea que se retomará en la notación científica del Tema 2. La calculadora TI-30XS permite comprobar
           cualquier resultado.
         </p>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 5 · Verificación</span>
-          <p>Comprobar que 5⁻² = 1/25.</p>
-          <div class="paso">
-            <span class="n">1</span>
+<div class="ejemplo">
+<span class="et">Ejemplo 5 · Verificación</span>
+<p>Comprobar que 5⁻² = 1/25.</p>
+<div class="paso">
+<span class="n">1</span>
             A mano: 5⁻² = 1 ÷ 5² = 1 ÷ 25 = 0.04.
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             En la TI-30XS: se escribe 5, la tecla del exponente, el signo negativo con la tecla (−) y 2; luego «enter».
           </div>
-          <div class="paso">
-            <span class="n">3</span>
+<div class="paso">
+<span class="n">3</span>
             La calculadora muestra 0.04, que coincide con 1/25.
           </div>
-          <p>
-            <strong>Respuesta:</strong>
+<p>
+<strong>Respuesta:</strong>
             5⁻² = 1/25 = 0.04.
           </p>
-        </div>
-        <div class="caja-tip">
-          <strong>Antes de calcular:</strong>
+</div>
+<div class="caja-tip">
+<strong>Antes de calcular:</strong>
           conviene limpiar la memoria de la TI-30XS para evitar arrastrar valores anteriores. El signo del exponente negativo se ingresa con la tecla (−), distinta de la tecla de resta.
         </div>
-      </div>
-      <h2 class="seccion">6. Práctica guiada en clase</h2>
-      <div class="bloque">
-        <p>Las siguientes tres actividades se realizan durante las horas sincrónicas. Cada una se presenta en doble modalidad: una versión para el aula presencial y otra para la sesión en línea.</p>
-        <div class="actividad">
-          <div class="titulo-act">Actividad 1 · La tabla mágica</div>
-          <div class="modalidad">
-            <div class="modo modo-pres">
-              <h3>
-                <span aria-hidden="true">🏫</span>
-                Presencial
-              </h3>
-              En la pizarra se inicia una tabla con las potencias de 3 desde 3³ hacia abajo (27, 9, 3, …). Los estudiantes la completan dividiendo entre 3 en cada paso, hasta llegar a 3⁰ = 1 y
-              continuar a 3⁻¹, 3⁻², 3⁻³ y 3⁻⁴, descubriendo las fracciones por sí mismos.
-            </div>
-            <div class="modo modo-virt">
-              <h3>
-                <span aria-hidden="true">💻</span>
-                En línea
-              </h3>
-              En una hoja compartida, cada estudiante completa una columna de la tabla de potencias de 3, dividiendo entre la base en cada renglón. Al final, el grupo compara los valores negativos
-              obtenidos y los expresa como fracción y como decimal.
-            </div>
-          </div>
-        </div>
-        <div class="actividad">
-          <div class="titulo-act">Actividad 2 · Restar exponentes al dividir</div>
-          <div class="modalidad">
-            <div class="modo modo-pres">
-              <h3>
-                <span aria-hidden="true">🏫</span>
-                Presencial
-              </h3>
-              El docente plantea ocho cocientes de potencias de la misma base. Cada estudiante resuelve restando los exponentes y, en dos de los casos donde el resultado da exponente cero o negativo,
-              lo reescribe como 1 o como fracción.
-            </div>
-            <div class="modo modo-virt">
-              <h3>
-                <span aria-hidden="true">💻</span>
-                En línea
-              </h3>
-              En salas pequeñas, las parejas resuelven los ocho cocientes y registran, en una tabla compartida, el exponente del resultado y su valor cuando este es cero o negativo.
-            </div>
-          </div>
-        </div>
-        <div class="actividad">
-          <div class="titulo-act">Actividad 3 · De negativo a positivo</div>
-          <div class="modalidad">
-            <div class="modo modo-pres">
-              <h3>
-                <span aria-hidden="true">🏫</span>
-                Presencial
-              </h3>
-              Los estudiantes completan una hoja de dos columnas: «exponente negativo» y «fracción equivalente». Reescriben diez expresiones en ambas direcciones y verifican dos de ellas con la
-              calculadora TI-30XS.
-            </div>
-            <div class="modo modo-virt">
-              <h3>
-                <span aria-hidden="true">💻</span>
-                En línea
-              </h3>
-              Cada estudiante recibe cinco expresiones con exponente negativo y cinco fracciones; las convierte a su forma equivalente y comprueba dos resultados numéricos con una calculadora
-              científica en línea.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="caja-tarea">
-        <h2>Tarea asincrónica</h2>
-        <p>
-          Estas actividades se realizan
-          <strong>por su cuenta</strong>
-          , dentro de las 2 horas asincrónicas de la lección.
-        </p>
-        <ul>
-          <li>
-            <strong>
-              <a href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=164528&amp;type=content&amp;rcode=ccc-8796952" target="_blank" rel="noopener">myOpenMath</a>
-              &nbsp;
-            </strong>
-          </li>
-          <li style="font-weight: bold">
-            <strong><a href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=164528&amp;type=content&amp;rcode=ccc-8796952" target="_blank" rel="noopener">Brightspace-Quiz</a></strong>
-          </li>
-          <li>
-            <a href="https://www.thatquiz.org/es-2/?-jbg1-l5-mpnv600-n18-p0-f0" target="_blank" rel="noopener"><strong>ThatQuiz</strong></a>
-            <strong><span href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=164528&amp;type=content&amp;rcode=ccc-8796952" target="_blank" rel="noopener"></span></strong>
-          </li>
-        </ul>
-      </div>
-      <div class="interactivos">
-        <span class="titulo-grupo">Practica en línea</span>
-        <a class="enlace-int" href="https://zhemaria.github.io/interactivos/exponentes_cociente/" target="_blank" rel="noopener">
-          <span class="ico-int" aria-hidden="true">&#10135;</span>
-          <span class="txt-int">
-            <span class="titulo-int">Cociente, exponente cero y exponentes negativos</span>
-            <span class="desc-int">
+</div>
+
+
+<div class="caja-tarea">
+<h2 id="s-tarea">Tarea</h2><p>Para hacer por su cuenta, con el cuaderno abierto:</p><ul><li>Seis cocientes de potencias de la misma base, dos de ellos con resultado de exponente negativo.</li><li>Cuatro expresiones con exponente cero, una de ellas del tipo (−5)⁰ y otra del tipo −5⁰. Explique por escrito por qué no valen lo mismo.</li><li>Seis expresiones con exponentes negativos, reescritas como fracción de exponente positivo.</li><li>Cuatro verificaciones con la TI-30XS, comparando su resultado de papel con el de la pantalla.</li><li><strong>ThatQuiz:</strong> <a href="https://www.thatquiz.org/es-2/?-jbg1-l5-mpnv600-n18-p0-f0" rel="noopener noreferrer" target="_blank">regla del cociente y exponentes negativos</a>.</li></ul><p>Tiempo estimado: 50 minutos. Evalúe su trabajo con la rúbrica de esta lección.</p>
+
+
+</div>
+<div class="interactivos">
+<span class="titulo-grupo">Practica en línea</span>
+<a class="enlace-int" href="https://zhemaria.github.io/interactivos/exponentes_cociente/" rel="noopener" target="_blank">
+<span aria-hidden="true" class="ico-int">➗</span>
+<span class="txt-int">
+<span class="titulo-int">Cociente, exponente cero y exponentes negativos</span>
+<span class="desc-int">
               Practica la división de potencias y la reescritura con exponentes positivos
               <span class="sr-only">(se abre en una pestaña nueva)</span>
-            </span>
-          </span>
-          <span class="flecha-int" aria-hidden="true">&#8594;</span>
-        </a>
-      </div>
-      <div class="quiz">
-        <h2>Quiz de la lección 1.2</h2>
-        <p>Doce preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 8 respuestas correctas.</p>
-        <div id="quiz-cuerpo"></div>
-        <div id="resultado-quiz"></div>
-        <button class="btn" id="btn-corregir">Corregir quiz</button>
-        <button class="btn sec" id="btn-reintentar" style="display: none">Intentar de nuevo</button>
-      </div>
-      <div class="rubrica">
-        <h2>Rúbrica analítica de la lección</h2>
-        <p>Tres criterios evaluados en cuatro niveles de desempeño.</p>
-        <table class="tabla-rubrica">
-          <caption class="sr-only">Rúbrica analítica con tres criterios y cuatro niveles de desempeño.</caption>
-          <thead>
-            <tr>
-              <th scope="col">Criterio</th>
-              <th scope="col">Inicial (1)</th>
-              <th scope="col">En desarrollo (2)</th>
-              <th scope="col">Competente (3)</th>
-              <th scope="col">Destacado (4)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Regla del cociente</td>
-              <td>Suma los exponentes o invierte el orden de la resta.</td>
-              <td>Resta los exponentes, con errores ocasionales de orden.</td>
-              <td>Resta correctamente numerador menos denominador.</td>
-              <td>Aplica la regla con fluidez y la justifica cancelando factores.</td>
-            </tr>
-            <tr>
-              <td>Exponente cero</td>
-              <td>No reconoce que a⁰ = 1 o lo confunde con 0.</td>
-              <td>Recuerda que a⁰ = 1, pero no lo justifica.</td>
-              <td>Identifica a⁰ = 1 y lo conecta con la regla del cociente.</td>
-              <td>Justifica a⁰ = 1 con la regla del cociente y con el patrón decreciente.</td>
-            </tr>
-            <tr>
-              <td>Exponentes negativos</td>
-              <td>Interpreta el exponente negativo como un signo del número.</td>
-              <td>Reescribe el recíproco con errores ocasionales.</td>
-              <td>Reescribe a⁻ⁿ = 1/aⁿ correctamente en ambas direcciones.</td>
-              <td>Reescribe con fluidez y verifica el resultado numérico con la calculadora.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="cierre">
-        <h2>Cierre y enlace con la próxima lección</h2>
-        <p>
+</span>
+</span>
+<span aria-hidden="true" class="flecha-int">→</span>
+</a>
+</div>
+<div class="quiz">
+<h2 id="s-quiz-de-la-leccion-1-2">Quiz de la lección 1.2</h2>
+<p>Doce preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 8 respuestas correctas.</p>
+<div id="quiz-cuerpo"></div>
+<div id="resultado-quiz"></div>
+<button class="btn" id="btn-corregir">Corregir quiz</button>
+<button class="btn sec" id="btn-reintentar" style="display: none">Intentar de nuevo</button>
+</div>
+<div class="rubrica">
+<h2 id="s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</h2>
+<p>Tres criterios evaluados en cuatro niveles de desempeño. Léala <strong>antes</strong> de empezar la tarea y úsela <strong>después</strong> para evaluar su propio trabajo con honestidad.</p>
+<table class="tabla-rubrica">
+<caption class="sr-only">Rúbrica analítica con tres criterios y cuatro niveles de desempeño.</caption>
+<thead>
+<tr>
+<th scope="col">Criterio</th>
+<th scope="col">Inicial (1)</th>
+<th scope="col">En desarrollo (2)</th>
+<th scope="col">Competente (3)</th>
+<th scope="col">Destacado (4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regla del cociente</td>
+<td>Suma los exponentes o invierte el orden de la resta.</td>
+<td>Resta los exponentes, con errores ocasionales de orden.</td>
+<td>Resta correctamente numerador menos denominador.</td>
+<td>Aplica la regla con fluidez y la justifica cancelando factores.</td>
+</tr>
+<tr>
+<td>Exponente cero</td>
+<td>No reconoce que a⁰ = 1 o lo confunde con 0.</td>
+<td>Recuerda que a⁰ = 1, pero no lo justifica.</td>
+<td>Identifica a⁰ = 1 y lo conecta con la regla del cociente.</td>
+<td>Justifica a⁰ = 1 con la regla del cociente y con el patrón decreciente.</td>
+</tr>
+<tr>
+<td>Exponentes negativos</td>
+<td>Interpreta el exponente negativo como un signo del número.</td>
+<td>Reescribe el recíproco con errores ocasionales.</td>
+<td>Reescribe a⁻ⁿ = 1/aⁿ correctamente en ambas direcciones.</td>
+<td>Reescribe con fluidez y verifica el resultado numérico con la calculadora.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cierre">
+<h2 id="s-cierre-y-enlace-con-la-proxima-leccion">Cierre y enlace con la próxima lección</h2>
+<p>
           En esta lección se completaron las reglas de los exponentes: al dividir, los exponentes se
           <strong>restan</strong>
           ; cualquier base distinta de cero elevada a cero da
@@ -1125,7 +1015,7 @@
           <strong>negativo</strong>
           indica el recíproco, nunca un número negativo. Con las cinco reglas ya dominadas, el sistema de los exponentes queda cerrado.
         </p>
-        <p>
+<p>
           En la
           <strong>Lección 1.3 · Simplificar expresiones exponenciales con múltiples reglas</strong>
           se reunirá todo lo aprendido: expresiones que exigen aplicar dos o más reglas en secuencia, expresar siempre el resultado con
@@ -1134,11 +1024,11 @@
           <strong>notación científica</strong>
           que abre el Tema 2.
         </p>
-      </div>
-      <footer>Spanish ASE Math · Nivel 3 · Lección 1.2 — Preparado por Prof. José M. Fernández (Truman College, CCC) · Brightspace D2L</footer>
-    </div>
-    <p>
-      <script>
+</div>
+<footer><p>GEDparaHispanos · Matemáticas · Nivel 3 · Tema 1 · Lección 1.2</p><p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p><p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p></footer><a aria-label="Volver al contenido de la lección" class="volver-indice" href="#indice"><span aria-hidden="true">↑</span> Índice</a>
+</div>
+<p>
+<script>
         (function () {
           /* ---- Práctica de opciones (selección múltiple) ---- */
           var preguntasOp = document.querySelectorAll('.practica .pregunta[data-correcta]');
@@ -1308,6 +1198,6 @@
           });
         })();
       </script>
-    </p>
-  </body>
+</p>
+</body>
 </html>

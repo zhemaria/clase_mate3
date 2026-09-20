@@ -1,9 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
+<!-- Lección 6.1 · Matemáticas Nivel 3 · GEDparaHispanos
+     José M. Fernández · CC BY-NC-SA 4.0 -->
+
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Lección 6.1 · Ángulos: relaciones y líneas paralelas cortadas por una transversal</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lección 6.1 · Ángulos: relaciones y líneas paralelas cortadas por una transversal</title><meta content="CC BY-NC-SA 4.0" name="license"/><link href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license"/>
 <style>
   :root {
     --tema:   #0d47a1;
@@ -145,25 +148,7 @@
   }
   .btn:hover { background: var(--tema-d); }
   .btn.sec { background: #546e7a; }
-  .btn.sec:hover { background: #37474f; }
-
-  .modalidad { display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0; }
-  .modo { flex: 1; min-width: 230px; border-radius: 9px; padding: 14px 16px; font-size: 14px; }
-  .modo-pres { background: #e3f2fd; border-left: 5px solid #1565c0; }
-  .modo-pres strong { color: #0d47a1; }
-  .modo-virt { background: #f3e5f5; border-left: 5px solid #6a1b9a; }
-  .modo-virt strong { color: #4a148c; }
-  .modo h3 { margin: 0 0 6px; font-size: 15px; }
-  .modo-pres h3 { color: #0d47a1; }
-  .modo-virt h3 { color: #4a148c; }
-
-  .actividad { margin-bottom: 18px; }
-  .actividad > .titulo-act {
-    font-weight: 700; color: var(--tema-d); font-size: 15px;
-    background: var(--tema-bg); padding: 7px 14px; border-radius: 7px;
-  }
-
-  .caja-tarea {
+  .btn.sec:hover { background: #37474f; }.caja-tarea {
     background: #ede7f6; border-left: 6px solid #5e35b1;
     padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 20px 0;
   }
@@ -207,343 +192,284 @@
     text-align: center; padding: 20px; color: #555;
     font-size: 13px; border-top: 1px solid #ddd; margin-top: 20px;
   }
+
+  /* ── ÍNDICE DE LA LECCIÓN ── */
+  .indice{
+    background:#fff; border:1px solid #d8dde3; border-left:6px solid var(--tema);
+    border-radius:10px; padding:16px 20px; margin:24px 0;
+  }
+  .indice h2{ font-size:1.05rem; margin:0 0 10px; color:var(--tema-d); border:0; padding:0; background:none; }
+  .indice ol{ margin:0; padding-left:1.35em; }
+  .indice li{ margin:4px 0; }
+  .indice a{ color:var(--tema-d); text-decoration:underline; }
+  .indice a:hover{ color:var(--tema); }
+  .indice a:focus-visible,.volver-indice:focus-visible{ outline:3px solid #b05e00; outline-offset:2px; }
+  .volver-indice{
+    position:fixed; right:18px; bottom:18px; z-index:60;
+    background:var(--tema-d); color:#fff; border-radius:999px;
+    padding:10px 16px; font-weight:700; font-size:.92rem; text-decoration:none;
+    box-shadow:0 2px 10px rgba(0,0,0,.28);
+  }
+  .volver-indice:hover{ background:var(--tema); color:#fff; }
+  footer a{ color:inherit; }
+  @media print{ .indice,.volver-indice{ display:none; } }
 </style>
 </head>
 <body>
 <div class="contenedor">
-
-  <header class="principal">
-    <div class="ruta">Spanish ASE Math · Nivel 3 · Tema 6 · Geometría avanzada</div>
-    <h1>Lección 6.1 · Ángulos: relaciones y líneas paralelas cortadas por una transversal</h1>
-    <div class="meta">4 horas (2 sincrónicas + 2 asincrónicas) · NRS 3–4 · Brightspace D2L</div>
-  </header>
-
-  <div class="caja-objetivos">
-    <h2>Objetivos de la lección</h2>
-    <ul>
-      <li>Identificar ángulos complementarios (suman 90°), suplementarios (suman 180°) y verticales (iguales).</li>
-      <li>Reconocer los ángulos formados por dos paralelas cortadas por una transversal: correspondientes, alternos internos y co-internos.</li>
-      <li>Aplicar estas relaciones para calcular ángulos desconocidos.</li>
-      <li>Usar la propiedad de que los ángulos de un triángulo suman 180°.</li>
-      <li>Plantear ecuaciones sencillas para hallar un ángulo desconocido.</li>
-    </ul>
-  </div>
-
-  <div class="bloque">
-    <p><strong>Conexión con los temas anteriores.</strong> Con el Tema 5 quedó completa el álgebra lineal del Nivel 3. El Tema 6 da un giro hacia la <strong>geometría</strong>, pero el álgebra no se abandona: muchos problemas de ángulos se resuelven planteando y resolviendo una <strong>ecuación</strong> sencilla, justo lo aprendido en los Temas 4 y 5. Esta lección estudia cómo se relacionan los ángulos, en especial los que se forman cuando una recta <strong>transversal</strong> corta dos rectas paralelas.</p>
-  </div>
-
-  <h2 class="seccion">1. Relaciones básicas entre ángulos</h2>
-  <div class="bloque">
-    <p>Tres relaciones aparecen constantemente en geometría:</p>
-
-    <table class="reglas">
-      <caption class="sr-only">Relaciones básicas entre ángulos.</caption>
-      <thead>
-        <tr>
-          <th scope="col">Relación</th>
-          <th scope="col">Propiedad</th>
-          <th scope="col">Ejemplo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Complementarios</td><td>Suman 90°</td><td>30° y 60°</td></tr>
-        <tr><td>Suplementarios</td><td>Suman 180°</td><td>110° y 70°</td></tr>
-        <tr><td>Verticales (opuestos por el vértice)</td><td>Son iguales</td><td>Si uno mide 50°, el opuesto también</td></tr>
-      </tbody>
-    </table>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 1</span>
-      <p>Un ángulo mide 35°. ¿Cuánto mide su complemento?</p>
-      <div class="paso"><span class="n">1</span> Los complementarios suman 90°: 90° − 35°.</div>
-      <p><strong>Respuesta:</strong> el complemento mide 55°.</p>
+<header class="principal">
+<div class="ruta">Spanish ASE Math · Nivel 3 · Tema 6 · Geometría avanzada</div>
+<h1>Lección 6.1 · Ángulos: relaciones y líneas paralelas cortadas por una transversal</h1>
+<div class="meta">Unas 4 horas, a su ritmo · NRS 3–4</div>
+</header>
+<div class="caja-objetivos">
+<h2>Objetivos de la lección</h2>
+<ul>
+<li>Identificar ángulos complementarios (suman 90°), suplementarios (suman 180°) y verticales (iguales).</li>
+<li>Reconocer los ángulos formados por dos paralelas cortadas por una transversal: correspondientes, alternos internos y co-internos.</li>
+<li>Aplicar estas relaciones para calcular ángulos desconocidos.</li>
+<li>Usar la propiedad de que los ángulos de un triángulo suman 180°.</li>
+<li>Plantear ecuaciones sencillas para hallar un ángulo desconocido.</li>
+</ul>
+</div><nav aria-labelledby="indice-titulo" class="indice" id="indice"><h2 id="indice-titulo">Contenido de la lección</h2><ol><li><a href="#s-1-relaciones-basicas-entre-angulos">1. Relaciones básicas entre ángulos</a></li><li><a href="#s-2-paralelas-cortadas-por-una-transversal">2. Paralelas cortadas por una transversal</a></li><li><a href="#s-3-calcular-angulos-desconocidos">3. Calcular ángulos desconocidos</a></li><li><a href="#s-4-la-suma-de-los-angulos-de-un-triangulo">4. La suma de los ángulos de un triángulo</a></li><li><a href="#s-tarea">Tarea</a></li><li><a href="#s-quiz-de-la-leccion-6-1">Quiz de la lección 6.1</a></li><li><a href="#s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</a></li><li><a href="#s-cierre-y-enlace-con-la-proxima-leccion">Cierre y enlace con la próxima lección</a></li></ol></nav>
+<div class="bloque">
+<p><strong>Conexión con los temas anteriores.</strong> Con el Tema 5 quedó completa el álgebra lineal del Nivel 3. El Tema 6 da un giro hacia la <strong>geometría</strong>, pero el álgebra no se abandona: muchos problemas de ángulos se resuelven planteando y resolviendo una <strong>ecuación</strong> sencilla, justo lo aprendido en los Temas 4 y 5. Esta lección estudia cómo se relacionan los ángulos, en especial los que se forman cuando una recta <strong>transversal</strong> corta dos rectas paralelas.</p>
+</div>
+<h2 class="seccion" id="s-1-relaciones-basicas-entre-angulos">1. Relaciones básicas entre ángulos</h2>
+<div class="bloque">
+<p>Tres relaciones aparecen constantemente en geometría:</p>
+<table class="reglas">
+<caption class="sr-only">Relaciones básicas entre ángulos.</caption>
+<thead>
+<tr>
+<th scope="col">Relación</th>
+<th scope="col">Propiedad</th>
+<th scope="col">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Complementarios</td><td>Suman 90°</td><td>30° y 60°</td></tr>
+<tr><td>Suplementarios</td><td>Suman 180°</td><td>110° y 70°</td></tr>
+<tr><td>Verticales (opuestos por el vértice)</td><td>Son iguales</td><td>Si uno mide 50°, el opuesto también</td></tr>
+</tbody>
+</table>
+<div class="ejemplo">
+<span class="et">Ejemplo 1</span>
+<p>Un ángulo mide 35°. ¿Cuánto mide su complemento?</p>
+<div class="paso"><span class="n">1</span> Los complementarios suman 90°: 90° − 35°.</div>
+<p><strong>Respuesta:</strong> el complemento mide 55°.</p>
+</div>
+</div>
+<h2 class="seccion" id="s-2-paralelas-cortadas-por-una-transversal">2. Paralelas cortadas por una transversal</h2>
+<div class="bloque">
+<p>Cuando una recta <strong>transversal</strong> corta dos rectas paralelas, se forman ocho ángulos con relaciones muy útiles:</p>
+<div class="diagrama-wrap">
+<svg aria-label="Dos rectas paralelas horizontales cortadas por una recta transversal inclinada. En el cruce superior se forman cuatro ángulos numerados del 1 al 4; en el cruce inferior, cuatro ángulos numerados del 5 al 8. Los ángulos correspondientes, como el 1 y el 5, son iguales; los alternos internos, como el 4 y el 5, son iguales; los co-internos, como el 3 y el 5, suman 180 grados." height="360" role="img" viewbox="0 0 600 360" width="600" xmlns="http://www.w3.org/2000/svg">
+<line stroke="#08306b" stroke-width="3" x1="40" x2="560" y1="120" y2="120"></line>
+<line stroke="#08306b" stroke-width="3" x1="40" x2="560" y1="240" y2="240"></line>
+<line stroke="#1565c0" stroke-width="3" x1="186" x2="400" y1="40" y2="340"></line>
+<circle cx="243" cy="120" fill="#08306b" r="4"></circle>
+<circle cx="329" cy="240" fill="#08306b" r="4"></circle>
+<g fill="#0d47a1" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">
+<text x="214" y="108">1</text>
+<text x="266" y="108">2</text>
+<text x="210" y="146">3</text>
+<text x="270" y="146">4</text>
+<text x="300" y="228">5</text>
+<text x="352" y="228">6</text>
+<text x="296" y="266">7</text>
+<text x="356" y="266">8</text>
+</g>
+<text fill="#08306b" font-family="Segoe UI, sans-serif" font-size="13" x="566" y="116">r</text>
+<text fill="#08306b" font-family="Segoe UI, sans-serif" font-size="13" x="566" y="236">s</text>
+</svg>
+</div>
+<table class="reglas">
+<caption class="sr-only">Relaciones de ángulos entre dos paralelas cortadas por una transversal.</caption>
+<thead>
+<tr>
+<th scope="col">Tipo de pareja</th>
+<th scope="col">Ejemplo (según el diagrama)</th>
+<th scope="col">Propiedad</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Correspondientes</td><td>1 y 5</td><td>Son iguales</td></tr>
+<tr><td>Alternos internos</td><td>4 y 5</td><td>Son iguales</td></tr>
+<tr><td>Co-internos (mismo lado)</td><td>3 y 5</td><td>Suman 180°</td></tr>
+<tr><td>Verticales</td><td>1 y 4</td><td>Son iguales</td></tr>
+</tbody>
+</table>
+</div>
+<a aria-label="Abrir el interactivo de ángulos y paralelas cortadas por una transversal en GEDparaHispanos (se abre en una pestaña nueva)" class="enlace-interactivo" href="https://zhemaria.github.io/interactivos/sec_paralela/" rel="noopener noreferrer" target="_blank">
+<span aria-hidden="true" class="ei-icono">🔗</span>
+<span class="ei-cuerpo">
+<span class="ei-titulo">Refuerza con un interactivo</span>
+<span class="ei-sub">Explora las relaciones entre ángulos y los ocho ángulos de una transversal en el portal GEDparaHispanos, con su quiz de práctica.</span>
+<span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+</span>
+</a>
+<div class="practica">
+<h3>Práctica interactiva 1 · Relaciones entre ángulos</h3>
+<p>Selecciona la respuesta correcta de cada caso.</p>
+<div class="pregunta" data-correcta="a">
+<div class="enun">1. Los ángulos verticales (opuestos por el vértice) son…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">Iguales</div>
+<div class="opcion" data-op="b">Suplementarios</div>
+<div class="opcion" data-op="c">Complementarios</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">2. Los ángulos correspondientes entre paralelas son…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">Iguales</div>
+<div class="opcion" data-op="b">Suman 180°</div>
+<div class="opcion" data-op="c">Suman 90°</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">3. Los ángulos co-internos (del mismo lado) suman…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">180°</div>
+<div class="opcion" data-op="b">90°</div>
+<div class="opcion" data-op="c">Son iguales</div>
+</div>
+<div class="fb"></div>
+</div>
+</div>
+<h2 class="seccion" id="s-3-calcular-angulos-desconocidos">3. Calcular ángulos desconocidos</h2>
+<div class="bloque">
+<p>Conociendo una de estas relaciones, se calcula cualquier ángulo desconocido. A veces conviene plantear una ecuación, como las del Tema 4.</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 2 · Con una transversal</span>
+<p>En el diagrama, el ángulo 1 mide 70°. ¿Cuánto miden el ángulo 5 y el ángulo 3?</p>
+<div class="paso"><span class="n">1</span> El ángulo 5 es correspondiente con el 1, así que mide 70°.</div>
+<div class="paso"><span class="n">2</span> El ángulo 3 es suplementario con el 1 (forman una línea): 180° − 70° = 110°.</div>
+<p><strong>Respuesta:</strong> ángulo 5 = 70° y ángulo 3 = 110°.</p>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 3 · Con una ecuación</span>
+<p>Dos ángulos suplementarios miden x y 2x. ¿Cuánto vale x?</p>
+<div class="paso"><span class="n">1</span> Suman 180°: x + 2x = 180.</div>
+<div class="paso"><span class="n">2</span> Se combinan: 3x = 180, y se divide entre 3: x = 60.</div>
+<p><strong>Respuesta:</strong> los ángulos miden 60° y 120°.</p>
+</div>
+</div>
+<h2 class="seccion" id="s-4-la-suma-de-los-angulos-de-un-triangulo">4. La suma de los ángulos de un triángulo</h2>
+<div class="bloque">
+<p>Una propiedad fundamental: los tres ángulos interiores de cualquier triángulo <strong>suman 180°</strong>. Conociendo dos ángulos, siempre se puede hallar el tercero.</p>
+<p class="formula">ángulo A + ángulo B + ángulo C = 180°</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 4</span>
+<p>Un triángulo tiene ángulos de 50° y 60°. ¿Cuánto mide el tercero?</p>
+<div class="paso"><span class="n">1</span> Los tres suman 180°: 50° + 60° + C = 180°.</div>
+<div class="paso"><span class="n">2</span> Se suman los conocidos: 110° + C = 180°, así que C = 70°.</div>
+<p><strong>Respuesta:</strong> el tercer ángulo mide 70°.</p>
+</div>
+<div class="caja-tip">
+<strong>El triángulo rectángulo:</strong> si un triángulo tiene un ángulo de 90°, los otros dos deben sumar 90° (porque el total es 180°). Por eso, en un triángulo rectángulo, los dos ángulos no rectos son siempre complementarios.
     </div>
-  </div>
-
-  <h2 class="seccion">2. Paralelas cortadas por una transversal</h2>
-  <div class="bloque">
-    <p>Cuando una recta <strong>transversal</strong> corta dos rectas paralelas, se forman ocho ángulos con relaciones muy útiles:</p>
-
-    <div class="diagrama-wrap">
-      <svg width="600" height="360" viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dos rectas paralelas horizontales cortadas por una recta transversal inclinada. En el cruce superior se forman cuatro ángulos numerados del 1 al 4; en el cruce inferior, cuatro ángulos numerados del 5 al 8. Los ángulos correspondientes, como el 1 y el 5, son iguales; los alternos internos, como el 4 y el 5, son iguales; los co-internos, como el 3 y el 5, suman 180 grados.">
-        <line x1="40" y1="120" x2="560" y2="120" stroke="#08306b" stroke-width="3"/>
-        <line x1="40" y1="240" x2="560" y2="240" stroke="#08306b" stroke-width="3"/>
-        <line x1="186" y1="40" x2="400" y2="340" stroke="#1565c0" stroke-width="3"/>
-        <circle cx="243" cy="120" r="4" fill="#08306b"/>
-        <circle cx="329" cy="240" r="4" fill="#08306b"/>
-        <g font-family="Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#0d47a1">
-          <text x="214" y="108">1</text>
-          <text x="266" y="108">2</text>
-          <text x="210" y="146">3</text>
-          <text x="270" y="146">4</text>
-          <text x="300" y="228">5</text>
-          <text x="352" y="228">6</text>
-          <text x="296" y="266">7</text>
-          <text x="356" y="266">8</text>
-        </g>
-        <text x="566" y="116" font-family="Segoe UI, sans-serif" font-size="13" fill="#08306b">r</text>
-        <text x="566" y="236" font-family="Segoe UI, sans-serif" font-size="13" fill="#08306b">s</text>
-      </svg>
-    </div>
-
-    <table class="reglas">
-      <caption class="sr-only">Relaciones de ángulos entre dos paralelas cortadas por una transversal.</caption>
-      <thead>
-        <tr>
-          <th scope="col">Tipo de pareja</th>
-          <th scope="col">Ejemplo (según el diagrama)</th>
-          <th scope="col">Propiedad</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Correspondientes</td><td>1 y 5</td><td>Son iguales</td></tr>
-        <tr><td>Alternos internos</td><td>4 y 5</td><td>Son iguales</td></tr>
-        <tr><td>Co-internos (mismo lado)</td><td>3 y 5</td><td>Suman 180°</td></tr>
-        <tr><td>Verticales</td><td>1 y 4</td><td>Son iguales</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- ENLACE AL INTERACTIVO — reemplazar AQUI_VA_URL por la URL de GitHub del interactivo de ángulos -->
-  <a class="enlace-interactivo" href="AQUI_VA_URL" target="_blank" rel="noopener"
-     aria-label="Abrir el interactivo de ángulos y paralelas cortadas por una transversal en GEDparaHispanos (se abre en una pestaña nueva)">
-    <span class="ei-icono" aria-hidden="true">🔗</span>
-    <span class="ei-cuerpo">
-      <span class="ei-titulo">Refuerza con un interactivo</span>
-      <span class="ei-sub">Explora las relaciones entre ángulos y los ocho ángulos de una transversal en el portal GEDparaHispanos, con su quiz de práctica.</span>
-      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
-    </span>
-  </a>
-
-  <div class="practica">
-    <h3>Práctica interactiva 1 · Relaciones entre ángulos</h3>
-    <p>Selecciona la respuesta correcta de cada caso.</p>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">1. Los ángulos verticales (opuestos por el vértice) son…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">Iguales</div>
-        <div class="opcion" data-op="b">Suplementarios</div>
-        <div class="opcion" data-op="c">Complementarios</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">2. Los ángulos correspondientes entre paralelas son…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">Iguales</div>
-        <div class="opcion" data-op="b">Suman 180°</div>
-        <div class="opcion" data-op="c">Suman 90°</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">3. Los ángulos co-internos (del mismo lado) suman…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">180°</div>
-        <div class="opcion" data-op="b">90°</div>
-        <div class="opcion" data-op="c">Son iguales</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-  </div>
-
-  <h2 class="seccion">3. Calcular ángulos desconocidos</h2>
-  <div class="bloque">
-    <p>Conociendo una de estas relaciones, se calcula cualquier ángulo desconocido. A veces conviene plantear una ecuación, como las del Tema 4.</p>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 2 · Con una transversal</span>
-      <p>En el diagrama, el ángulo 1 mide 70°. ¿Cuánto miden el ángulo 5 y el ángulo 3?</p>
-      <div class="paso"><span class="n">1</span> El ángulo 5 es correspondiente con el 1, así que mide 70°.</div>
-      <div class="paso"><span class="n">2</span> El ángulo 3 es suplementario con el 1 (forman una línea): 180° − 70° = 110°.</div>
-      <p><strong>Respuesta:</strong> ángulo 5 = 70° y ángulo 3 = 110°.</p>
-    </div>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 3 · Con una ecuación</span>
-      <p>Dos ángulos suplementarios miden x y 2x. ¿Cuánto vale x?</p>
-      <div class="paso"><span class="n">1</span> Suman 180°: x + 2x = 180.</div>
-      <div class="paso"><span class="n">2</span> Se combinan: 3x = 180, y se divide entre 3: x = 60.</div>
-      <p><strong>Respuesta:</strong> los ángulos miden 60° y 120°.</p>
-    </div>
-  </div>
-
-  <h2 class="seccion">4. La suma de los ángulos de un triángulo</h2>
-  <div class="bloque">
-    <p>Una propiedad fundamental: los tres ángulos interiores de cualquier triángulo <strong>suman 180°</strong>. Conociendo dos ángulos, siempre se puede hallar el tercero.</p>
-    <p class="formula">ángulo A + ángulo B + ángulo C = 180°</p>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 4</span>
-      <p>Un triángulo tiene ángulos de 50° y 60°. ¿Cuánto mide el tercero?</p>
-      <div class="paso"><span class="n">1</span> Los tres suman 180°: 50° + 60° + C = 180°.</div>
-      <div class="paso"><span class="n">2</span> Se suman los conocidos: 110° + C = 180°, así que C = 70°.</div>
-      <p><strong>Respuesta:</strong> el tercer ángulo mide 70°.</p>
-    </div>
-
-    <div class="caja-tip">
-      <strong>El triángulo rectángulo:</strong> si un triángulo tiene un ángulo de 90°, los otros dos deben sumar 90° (porque el total es 180°). Por eso, en un triángulo rectángulo, los dos ángulos no rectos son siempre complementarios.
-    </div>
-  </div>
-
-  <div class="practica">
-    <h3>Práctica interactiva 2 · Calcular ángulos</h3>
-    <p>Selecciona la respuesta correcta de cada caso.</p>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">1. El complemento de un ángulo de 40° mide…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">50°</div>
-        <div class="opcion" data-op="b">140°</div>
-        <div class="opcion" data-op="c">60°</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">2. El suplemento de un ángulo de 125° mide…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">55°</div>
-        <div class="opcion" data-op="b">65°</div>
-        <div class="opcion" data-op="c">235°</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">3. Un triángulo tiene ángulos de 90° y 45°. El tercero mide…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">45°</div>
-        <div class="opcion" data-op="b">90°</div>
-        <div class="opcion" data-op="c">55°</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-  </div>
-
-  <h2 class="seccion">5. Práctica guiada en clase</h2>
-  <div class="bloque">
-    <p>Las siguientes tres actividades se realizan durante las horas sincrónicas. Cada una se presenta en doble modalidad: una versión para el aula presencial y otra para la sesión en línea.</p>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 1 · El topógrafo</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          El docente entrega seis diagramas de calles paralelas cortadas por una calle transversal. A partir de un ángulo dado, cada estudiante calcula todos los ángulos desconocidos identificando el tipo de relación en cada caso.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          Sobre seis diagramas compartidos, los estudiantes anotan el valor de cada ángulo desconocido y, al lado, el nombre de la relación que usaron (correspondiente, alterno interno, co-interno o vertical).
-        </div>
-      </div>
-    </div>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 2 · Construir la transversal</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          Con regla y transportador, cada estudiante dibuja su propio diagrama de dos paralelas cortadas por una transversal, etiqueta los ocho ángulos y clasifica sus relaciones, verificando con el transportador que las medidas coincidan.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          Los estudiantes usan el interactivo del portal para medir y comparar los ocho ángulos de una transversal, registrando en una hoja compartida qué parejas resultan iguales y cuáles suman 180°.
-        </div>
-      </div>
-    </div>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 3 · Ángulos de un triángulo</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          A partir de varios triángulos con dos ángulos dados, los estudiantes calculan el tercero usando la suma 180°, y plantean una ecuación cuando los ángulos se expresan en términos de x.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          En salas pequeñas, las parejas resuelven seis triángulos (algunos con ángulos como x y 2x), planteando y resolviendo la ecuación correspondiente en una hoja compartida.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="caja-tarea">
-    <h2>Tarea asincrónica</h2>
-    <p>Para completar de forma individual en la plataforma <strong>MyOpenMath</strong> antes de la próxima sesión:</p>
-    <ul>
-      <li>Tres ejercicios de ángulos complementarios y suplementarios.</li>
-      <li>Cuatro ejercicios de calcular ángulos en una transversal con paralelas.</li>
-      <li>Tres ejercicios de calcular el tercer ángulo de un triángulo (suma 180°).</li>
-    </ul>
-    <p>La plataforma ofrece retroalimentación paso a paso en cada intento. Tiempo estimado: 50 minutos.</p>
-  </div>
-
-  <div class="quiz">
-    <h2>Quiz de la lección 6.1</h2>
-    <p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
-    <div id="quiz-cuerpo"></div>
-    <div id="resultado-quiz"></div>
-    <button class="btn" id="btn-corregir">Corregir quiz</button>
-    <button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
-  </div>
-
-  <div class="rubrica">
-    <h2>Rúbrica analítica de la lección</h2>
-    <p>Tres criterios evaluados en cuatro niveles de desempeño.</p>
-    <table class="tabla-rubrica">
-      <caption class="sr-only">Rúbrica analítica con tres criterios y cuatro niveles de desempeño.</caption>
-      <thead>
-        <tr>
-          <th scope="col">Criterio</th>
-          <th scope="col">Inicial (1)</th>
-          <th scope="col">En desarrollo (2)</th>
-          <th scope="col">Competente (3)</th>
-          <th scope="col">Destacado (4)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Identificar la relación</td>
-          <td>No distingue los tipos de relación angular.</td>
-          <td>Identifica algunas relaciones con errores.</td>
-          <td>Identifica correctamente el tipo de relación entre los ángulos.</td>
-          <td>Identifica con fluidez todas las relaciones, incluso en la transversal.</td>
-        </tr>
-        <tr>
-          <td>Aplicar la propiedad</td>
-          <td>No aplica la propiedad correcta.</td>
-          <td>Aplica la propiedad con errores ocasionales.</td>
-          <td>Aplica la propiedad correcta (igual, suplementario, suma 180°).</td>
-          <td>Aplica las propiedades con fluidez y plantea ecuaciones cuando hace falta.</td>
-        </tr>
-        <tr>
-          <td>Calcular el ángulo</td>
-          <td>Comete errores aritméticos al calcular.</td>
-          <td>Calcula con algún error.</td>
-          <td>Calcula el ángulo desconocido sin errores.</td>
-          <td>Calcula con fluidez y verifica la coherencia del resultado.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="cierre">
-    <h2>Cierre y enlace con la próxima lección</h2>
-    <p>En esta lección se estudiaron las relaciones entre ángulos: <strong>complementarios</strong>, <strong>suplementarios</strong> y <strong>verticales</strong>, y las que forman dos paralelas cortadas por una <strong>transversal</strong> (correspondientes, alternos internos y co-internos). También se usó que los ángulos de un triángulo <strong>suman 180°</strong>, planteando ecuaciones cuando fue necesario.</p>
-    <p>En la <strong>Lección 6.2 · Teorema de Pitágoras: demostración, aplicaciones y converso</strong> se estudiará la relación entre los lados de un triángulo rectángulo: <strong>a² + b² = c²</strong>. Con ella se calcularán lados desconocidos y se resolverán problemas reales de construcción y distancia.</p>
-  </div>
-
-  <footer>
-    Spanish ASE Math · Nivel 3 · Lección 6.1 — Preparado para Prof. José M. Fernández (Truman College, CCC) · Brightspace D2L
-  </footer>
-
+</div>
+<div class="practica">
+<h3>Práctica interactiva 2 · Calcular ángulos</h3>
+<p>Selecciona la respuesta correcta de cada caso.</p>
+<div class="pregunta" data-correcta="a">
+<div class="enun">1. El complemento de un ángulo de 40° mide…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">50°</div>
+<div class="opcion" data-op="b">140°</div>
+<div class="opcion" data-op="c">60°</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">2. El suplemento de un ángulo de 125° mide…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">55°</div>
+<div class="opcion" data-op="b">65°</div>
+<div class="opcion" data-op="c">235°</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">3. Un triángulo tiene ángulos de 90° y 45°. El tercero mide…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">45°</div>
+<div class="opcion" data-op="b">90°</div>
+<div class="opcion" data-op="c">55°</div>
+</div>
+<div class="fb"></div>
+</div>
 </div>
 
+
+<div class="caja-tarea">
+<h2 id="s-tarea">Tarea</h2>
+<p>Para hacer por su cuenta, con el cuaderno abierto:</p>
+<ul>
+<li>Tres ejercicios de ángulos complementarios y suplementarios.</li>
+<li>Cuatro ejercicios de calcular ángulos en una transversal con paralelas.</li>
+<li>Tres ejercicios de calcular el tercer ángulo de un triángulo (suma 180°).</li>
+<li><strong>ThatQuiz:</strong> entre en <a href="https://www.thatquiz.org/es/" rel="noopener noreferrer" target="_blank">ThatQuiz</a> y busque los ejercicios de <em>ángulos</em> y de <em>triángulos</em>. Practique hasta que reconozca de un vistazo si dos ángulos son correspondientes, alternos internos o conjugados.</li></ul>
+<p>Tiempo estimado: 50 minutos. Resuelva en papel y evalúe su trabajo con la rúbrica de esta lección.</p>
+</div>
+<div class="quiz">
+<h2 id="s-quiz-de-la-leccion-6-1">Quiz de la lección 6.1</h2>
+<p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
+<div id="quiz-cuerpo"></div>
+<div id="resultado-quiz"></div>
+<button class="btn" id="btn-corregir">Corregir quiz</button>
+<button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
+</div>
+<div class="rubrica">
+<h2 id="s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</h2>
+<p>Tres criterios evaluados en cuatro niveles de desempeño. Léala <strong>antes</strong> de empezar la tarea y úsela <strong>después</strong> para evaluar su propio trabajo con honestidad.</p>
+<table class="tabla-rubrica">
+<caption class="sr-only">Rúbrica analítica con tres criterios y cuatro niveles de desempeño.</caption>
+<thead>
+<tr>
+<th scope="col">Criterio</th>
+<th scope="col">Inicial (1)</th>
+<th scope="col">En desarrollo (2)</th>
+<th scope="col">Competente (3)</th>
+<th scope="col">Destacado (4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identificar la relación</td>
+<td>No distingue los tipos de relación angular.</td>
+<td>Identifica algunas relaciones con errores.</td>
+<td>Identifica correctamente el tipo de relación entre los ángulos.</td>
+<td>Identifica con fluidez todas las relaciones, incluso en la transversal.</td>
+</tr>
+<tr>
+<td>Aplicar la propiedad</td>
+<td>No aplica la propiedad correcta.</td>
+<td>Aplica la propiedad con errores ocasionales.</td>
+<td>Aplica la propiedad correcta (igual, suplementario, suma 180°).</td>
+<td>Aplica las propiedades con fluidez y plantea ecuaciones cuando hace falta.</td>
+</tr>
+<tr>
+<td>Calcular el ángulo</td>
+<td>Comete errores aritméticos al calcular.</td>
+<td>Calcula con algún error.</td>
+<td>Calcula el ángulo desconocido sin errores.</td>
+<td>Calcula con fluidez y verifica la coherencia del resultado.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cierre">
+<h2 id="s-cierre-y-enlace-con-la-proxima-leccion">Cierre y enlace con la próxima lección</h2>
+<p>En esta lección se estudiaron las relaciones entre ángulos: <strong>complementarios</strong>, <strong>suplementarios</strong> y <strong>verticales</strong>, y las que forman dos paralelas cortadas por una <strong>transversal</strong> (correspondientes, alternos internos y co-internos). También se usó que los ángulos de un triángulo <strong>suman 180°</strong>, planteando ecuaciones cuando fue necesario.</p>
+<p>En la <strong>Lección 6.2 · Teorema de Pitágoras: demostración, aplicaciones y converso</strong> se estudiará la relación entre los lados de un triángulo rectángulo: <strong>a² + b² = c²</strong>. Con ella se calcularán lados desconocidos y se resolverán problemas reales de construcción y distancia.</p>
+</div>
+<footer><p>GEDparaHispanos · Matemáticas · Nivel 3 · Tema 6 · Lección 6.1</p><p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p><p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p></footer><a aria-label="Volver al contenido de la lección" class="volver-indice" href="#indice"><span aria-hidden="true">↑</span> Índice</a>
+</div>
 <script>
 (function () {
   /* ---- Práctica de opciones (selección múltiple) ---- */

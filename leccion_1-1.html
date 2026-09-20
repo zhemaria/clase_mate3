@@ -1,10 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
+<!-- Lección 1.1 · Matemáticas Nivel 3 · GEDparaHispanos
+     José M. Fernández · CC BY-NC-SA 4.0 -->
+
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lección 1.1 · Regla del producto, potencia de potencia y potencia de un producto</title>
-    <style>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lección 1.1 · Regla del producto, potencia de potencia y potencia de un producto</title><meta content="CC BY-NC-SA 4.0" name="license"/><link href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license"/>
+<style>
       :root {
         --tema: #880e4f;
         --tema-d: #5d0935;
@@ -362,59 +365,7 @@
       }
       .btnTQ.sec:hover {
         background: #37474f;
-      }
-
-      .modalidad {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-        margin: 12px 0;
-      }
-      .modo {
-        flex: 1;
-        min-width: 230px;
-        border-radius: 9px;
-        padding: 14px 16px;
-        font-size: 14px;
-      }
-      .modo-pres {
-        background: #e3f2fd;
-        border-left: 5px solid #1565c0;
-      }
-      .modo-pres strong {
-        color: #0d47a1;
-      }
-      .modo-virt {
-        background: #f3e5f5;
-        border-left: 5px solid #6a1b9a;
-      }
-      .modo-virt strong {
-        color: #4a148c;
-      }
-      .modo h3 {
-        margin: 0 0 6px;
-        font-size: 15px;
-      }
-      .modo-pres h3 {
-        color: #0d47a1;
-      }
-      .modo-virt h3 {
-        color: #4a148c;
-      }
-
-      .actividad {
-        margin-bottom: 18px;
-      }
-      .actividad > .titulo-act {
-        font-weight: 700;
-        color: var(--tema-d);
-        font-size: 15px;
-        background: var(--tema-bg);
-        padding: 7px 14px;
-        border-radius: 7px;
-      }
-
-      .caja-tarea {
+      }.caja-tarea {
         background: #ede7f6;
         border-left: 6px solid #5e35b1;
         padding: 16px 20px;
@@ -580,38 +531,59 @@
         color: var(--tema);
         flex-shrink: 0;
       }
-    </style>
-  </head>
-  <body>
-    <div class="contenedor">
-      <header class="principal">
-        <div class="ruta">Spanish ASE Math · Nivel 3 · Tema 1 · Reglas de los exponentes</div>
-        <h1>Lección 1.1 · Regla del producto, potencia de potencia y potencia de un producto</h1>
-        <div class="meta">4 horas (2 sincrónicas + 2 asincrónicas) · NRS 3–4 · Brightspace D2L</div>
-      </header>
-      <div class="caja-objetivos">
-        <h2>Objetivos de la lección</h2>
-        <ul>
-          <li>Aplicar la regla del producto: aᵐ · aⁿ = aᵐ⁺ⁿ.</li>
-          <li>Aplicar la regla de la potencia de una potencia: (aᵐ)ⁿ = aᵐⁿ.</li>
-          <li>Aplicar la regla de la potencia de un producto: (a · b)ⁿ = aⁿ · bⁿ.</li>
-          <li>Verificar cada resultado expandiendo las potencias como multiplicación repetida.</li>
-          <li>Identificar cuál de las tres reglas corresponde según la estructura de la expresión.</li>
-        </ul>
-      </div>
-      <div class="bloque">
-        <p>
-          <strong>Conexión con el nivel anterior.</strong>
+    
+  /* ── ÍNDICE DE LA LECCIÓN ── */
+  .indice{
+    background:#fff; border:1px solid #d8dde3; border-left:6px solid var(--tema);
+    border-radius:10px; padding:16px 20px; margin:24px 0;
+  }
+  .indice h2{ font-size:1.05rem; margin:0 0 10px; color:var(--tema-d); border:0; padding:0; background:none; }
+  .indice ol{ margin:0; padding-left:1.35em; }
+  .indice li{ margin:4px 0; }
+  .indice a{ color:var(--tema-d); text-decoration:underline; }
+  .indice a:hover{ color:var(--tema); }
+  .indice a:focus-visible,.volver-indice:focus-visible{ outline:3px solid #b05e00; outline-offset:2px; }
+  .volver-indice{
+    position:fixed; right:18px; bottom:18px; z-index:60;
+    background:var(--tema-d); color:#fff; border-radius:999px;
+    padding:10px 16px; font-weight:700; font-size:.92rem; text-decoration:none;
+    box-shadow:0 2px 10px rgba(0,0,0,.28);
+  }
+  .volver-indice:hover{ background:var(--tema); color:#fff; }
+  footer a{ color:inherit; }
+  @media print{ .indice,.volver-indice{ display:none; } }
+</style>
+</head>
+<body>
+<div class="contenedor">
+<header class="principal">
+<div class="ruta">Spanish ASE Math · Nivel 3 · Tema 1 · Reglas de los exponentes</div>
+<h1>Lección 1.1 · Regla del producto, potencia de potencia y potencia de un producto</h1>
+<div class="meta">Unas 4 horas, a su ritmo · NRS 3–4</div>
+</header>
+<div class="caja-objetivos">
+<h2>Objetivos de la lección</h2>
+<ul>
+<li>Aplicar la regla del producto: aᵐ · aⁿ = aᵐ⁺ⁿ.</li>
+<li>Aplicar la regla de la potencia de una potencia: (aᵐ)ⁿ = aᵐⁿ.</li>
+<li>Aplicar la regla de la potencia de un producto: (a · b)ⁿ = aⁿ · bⁿ.</li>
+<li>Verificar cada resultado expandiendo las potencias como multiplicación repetida.</li>
+<li>Identificar cuál de las tres reglas corresponde según la estructura de la expresión.</li>
+</ul>
+</div><nav aria-labelledby="indice-titulo" class="indice" id="indice"><h2 id="indice-titulo">Contenido de la lección</h2><ol><li><a href="#s-1-repaso-la-notacion-exponencial">1. Repaso: la notación exponencial</a></li><li><a href="#s-2-la-regla-del-producto">2. La regla del producto</a></li><li><a href="#s-3-la-potencia-de-una-potencia">3. La potencia de una potencia</a></li><li><a href="#s-4-la-potencia-de-un-producto">4. La potencia de un producto</a></li><li><a href="#s-5-las-tres-reglas-juntas">5. Las tres reglas juntas</a></li><li><a href="#s-tarea">Tarea</a></li><li><a href="#s-quiz-de-la-leccion-1-1">Quiz de la lección 1.1</a></li><li><a href="#s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</a></li><li><a href="#s-cierre-y-enlace-con-la-proxima-leccion">Cierre y enlace con la próxima lección</a></li></ol></nav>
+<div class="bloque">
+<p>
+<strong>Conexión con el nivel anterior.</strong>
           En el Nivel 2 se introdujo el exponente como una abreviatura de la multiplicación repetida: 2⁴ significa 2 · 2 · 2 · 2, y se trabajaron las raíces de los cuadrados perfectos. Esa idea de
           «multiplicación repetida» es ahora el punto de partida del Nivel 3. En este tema, en lugar de expandir cada potencia a mano, se descubrirán
           <strong>reglas formales</strong>
           que permiten operar con exponentes de manera directa. La primera lección establece las tres reglas de la multiplicación; la siguiente añadirá la división, el exponente cero y los exponentes
           negativos.
         </p>
-      </div>
-      <h2 class="seccion">1. Repaso: la notación exponencial</h2>
-      <div class="bloque">
-        <p>
+</div>
+<h2 class="seccion" id="s-1-repaso-la-notacion-exponencial">1. Repaso: la notación exponencial</h2>
+<div class="bloque">
+<p>
           Una potencia tiene dos partes. En la expresión
           <strong>aⁿ</strong>
           , el número
@@ -624,22 +596,22 @@
           <strong>exponente</strong>
           (cuántas veces se repite el factor).
         </p>
-        <p class="formula">aⁿ = a · a · a · … · a&nbsp;&nbsp;(n factores)</p>
-        <p>Así, a⁵ = a · a · a · a · a. Toda regla de esta lección se justifica volviendo a esta definición y contando los factores.</p>
-        <div class="caja-tip">
-          <strong>Idea central:</strong>
+<p class="formula">aⁿ = a · a · a · … · a  (n factores)</p>
+<p>Así, a⁵ = a · a · a · a · a. Toda regla de esta lección se justifica volviendo a esta definición y contando los factores.</p>
+<div class="caja-tip">
+<strong>Idea central:</strong>
           el exponente cuenta factores. Si se logra contar correctamente cuántas veces aparece la base como factor, siempre se obtiene el exponente correcto, aun sin recordar la regla.
         </div>
-      </div>
-      <h2 class="seccion">2. La regla del producto</h2>
-      <div class="bloque">
-        <p>
+</div>
+<h2 class="seccion" id="s-2-la-regla-del-producto">2. La regla del producto</h2>
+<div class="bloque">
+<p>
           Cuando se multiplican dos potencias
           <strong>de la misma base</strong>
           , los factores simplemente se acumulan. Conviene descubrir la regla expandiendo:
         </p>
-        <div class="expansion" aria-label="Expansión de a al cubo por a al cuadrado: tres factores a por dos factores a igual a cinco factores a, es decir a a la cinco">
-          <span class="grupo-a">a³</span>
+<div aria-label="Expansión de a al cubo por a al cuadrado: tres factores a por dos factores a igual a cinco factores a, es decir a a la cinco" class="expansion">
+<span class="grupo-a">a³</span>
           ·
           <span class="grupo-b">a²</span>
           = (
@@ -648,100 +620,100 @@
           <span class="grupo-b">a · a</span>
           ) =
           <span class="resalta">a⁵</span>
-        </div>
-        <p>
+</div>
+<p>
           Tres factores más dos factores dan cinco factores. El exponente del resultado es la
           <strong>suma</strong>
           de los exponentes:
         </p>
-        <p class="formula">aᵐ · aⁿ = aᵐ⁺ⁿ</p>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 1</span>
-          <p>Simplificar x⁴ · x⁶.</p>
-          <div class="paso">
-            <span class="n">1</span>
+<p class="formula">aᵐ · aⁿ = aᵐ⁺ⁿ</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 1</span>
+<p>Simplificar x⁴ · x⁶.</p>
+<div class="paso">
+<span class="n">1</span>
             Misma base (x), así que se aplica la regla del producto.
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             Se suman los exponentes: 4 + 6 = 10.
           </div>
-          <p>
-            <strong>Respuesta:</strong>
+<p>
+<strong>Respuesta:</strong>
             x⁴ · x⁶ = x¹⁰.
           </p>
-        </div>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 2</span>
-          <p>Simplificar 2³ · 2⁵.</p>
-          <div class="paso">
-            <span class="n">1</span>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 2</span>
+<p>Simplificar 2³ · 2⁵.</p>
+<div class="paso">
+<span class="n">1</span>
             Misma base (2): se suman los exponentes, 3 + 5 = 8.
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             El resultado es 2⁸. Al expandirlo: 2⁸ = 256.
           </div>
-          <p>
-            <strong>Respuesta:</strong>
+<p>
+<strong>Respuesta:</strong>
             2³ · 2⁵ = 2⁸ = 256.
           </p>
-        </div>
-        <div class="caja-atencion">
-          <strong>Errores frecuentes:</strong>
+</div>
+<div class="caja-atencion">
+<strong>Errores frecuentes:</strong>
           los exponentes se
           <em>suman</em>
           , no se multiplican (a³ · a² = a⁵, no a⁶). Además, la regla solo aplica a bases
           <em>iguales</em>
           : la expresión x² · y³ no se puede combinar, porque las bases son distintas.
         </div>
-      </div>
-      <div class="practica">
-        <h3>Práctica interactiva 1 · Regla del producto</h3>
-        <p>
+</div>
+<div class="practica">
+<h3>Práctica interactiva 1 · Regla del producto</h3>
+<p>
           Escribe únicamente el
           <strong>exponente</strong>
           del resultado y presiona «Verificar».
         </p>
-        <div class="pregunta">
-          <div class="enun">
+<div class="pregunta">
+<div class="enun">
             1. x⁴ · x⁵ = x
             <sup>?</sup>
-          </div>
-          <input type="text" class="campo-num" id="s1" inputmode="numeric" aria-label="Exponente del resultado de x a la cuatro por x a la cinco" />
-          <div class="fb" id="fb-s1"></div>
-        </div>
-        <div class="pregunta">
-          <div class="enun">
+</div>
+<input aria-label="Exponente del resultado de x a la cuatro por x a la cinco" class="campo-num" id="s1" inputmode="numeric" type="text"/>
+<div class="fb" id="fb-s1"></div>
+</div>
+<div class="pregunta">
+<div class="enun">
             2. a⁷ · a = a
             <sup>?</sup>
-            &nbsp;&nbsp;(recuerda que a = a¹)
+              (recuerda que a = a¹)
           </div>
-          <input type="text" class="campo-num" id="s2" inputmode="numeric" aria-label="Exponente del resultado de a a la siete por a" />
-          <div class="fb" id="fb-s2"></div>
-        </div>
-        <div class="pregunta">
-          <div class="enun">
+<input aria-label="Exponente del resultado de a a la siete por a" class="campo-num" id="s2" inputmode="numeric" type="text"/>
+<div class="fb" id="fb-s2"></div>
+</div>
+<div class="pregunta">
+<div class="enun">
             3. y² · y³ · y⁴ = y
             <sup>?</sup>
-          </div>
-          <input type="text" class="campo-num" id="s3" inputmode="numeric" aria-label="Exponente del resultado de y al cuadrado por y al cubo por y a la cuatro" />
-          <div class="fb" id="fb-s3"></div>
-        </div>
-        <div class="pregunta">
-          <div class="enun">
+</div>
+<input aria-label="Exponente del resultado de y al cuadrado por y al cubo por y a la cuatro" class="campo-num" id="s3" inputmode="numeric" type="text"/>
+<div class="fb" id="fb-s3"></div>
+</div>
+<div class="pregunta">
+<div class="enun">
             4. 3⁵ · 3² = 3
             <sup>?</sup>
-          </div>
-          <input type="text" class="campo-num" id="s4" inputmode="numeric" aria-label="Exponente del resultado de tres a la cinco por tres al cuadrado" />
-          <div class="fb" id="fb-s4"></div>
-        </div>
-        <button class="btn" id="btn-prod">Verificar</button>
-      </div>
-      <h2 class="seccion">3. La potencia de una potencia</h2>
-      <div class="bloque">
-        <p>Cuando una potencia se eleva a su vez a otro exponente, la base entera se repite. Al expandir se ve por qué los exponentes se multiplican:</p>
-        <div class="expansion" aria-label="Expansión de a al cuadrado, todo elevado al cubo: tres copias de a al cuadrado, igual a a a la seis">
+</div>
+<input aria-label="Exponente del resultado de tres a la cinco por tres al cuadrado" class="campo-num" id="s4" inputmode="numeric" type="text"/>
+<div class="fb" id="fb-s4"></div>
+</div>
+<button class="btn" id="btn-prod">Verificar</button>
+</div>
+<h2 class="seccion" id="s-3-la-potencia-de-una-potencia">3. La potencia de una potencia</h2>
+<div class="bloque">
+<p>Cuando una potencia se eleva a su vez a otro exponente, la base entera se repite. Al expandir se ve por qué los exponentes se multiplican:</p>
+<div aria-label="Expansión de a al cuadrado, todo elevado al cubo: tres copias de a al cuadrado, igual a a a la seis" class="expansion">
           (
           <span class="grupo-a">a²</span>
           )³ =
@@ -752,346 +724,257 @@
           <span class="grupo-a">a²</span>
           =
           <span class="resalta">a⁶</span>
-        </div>
-        <p>
+</div>
+<p>
           Se repite a² tres veces; por la regla del producto, 2 + 2 + 2 = 6, que es lo mismo que 2 × 3. El exponente del resultado es el
           <strong>producto</strong>
           de los exponentes:
         </p>
-        <p class="formula">(aᵐ)ⁿ = aᵐⁿ</p>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 3</span>
-          <p>Simplificar (x⁵)⁴.</p>
-          <div class="paso">
-            <span class="n">1</span>
+<p class="formula">(aᵐ)ⁿ = aᵐⁿ</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 3</span>
+<p>Simplificar (x⁵)⁴.</p>
+<div class="paso">
+<span class="n">1</span>
             Es una potencia elevada a otra potencia.
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             Se multiplican los exponentes: 5 × 4 = 20.
           </div>
-          <p>
-            <strong>Respuesta:</strong>
+<p>
+<strong>Respuesta:</strong>
             (x⁵)⁴ = x²⁰.
           </p>
-        </div>
-        <div class="caja-atencion">
-          <strong>No confundir las dos reglas:</strong>
+</div>
+<div class="caja-atencion">
+<strong>No confundir las dos reglas:</strong>
           en a⁵ · a⁴ los exponentes se
           <em>suman</em>
           (resultado a⁹); en (a⁵)⁴ los exponentes se
           <em>multiplican</em>
           (resultado a²⁰). La diferencia está en si las potencias están multiplicadas o si una está elevada a la otra.
         </div>
-      </div>
-      <h2 class="seccion">4. La potencia de un producto</h2>
-      <div class="bloque">
-        <p>
+</div>
+<h2 class="seccion" id="s-4-la-potencia-de-un-producto">4. La potencia de un producto</h2>
+<div class="bloque">
+<p>
           Cuando lo que se eleva es un
           <strong>producto</strong>
           de varios factores, el exponente se reparte a cada factor por separado:
         </p>
-        <div class="expansion" aria-label="Expansión de a por b, todo al cubo, igual a a al cubo por b al cubo">
+<div aria-label="Expansión de a por b, todo al cubo, igual a a al cubo por b al cubo" class="expansion">
           (
           <span class="grupo-a">a</span>
-          <span class="grupo-b">b</span>
+<span class="grupo-b">b</span>
           )³ = (
           <span class="grupo-a">a</span>
-          <span class="grupo-b">b</span>
+<span class="grupo-b">b</span>
           )(
           <span class="grupo-a">a</span>
-          <span class="grupo-b">b</span>
+<span class="grupo-b">b</span>
           )(
           <span class="grupo-a">a</span>
-          <span class="grupo-b">b</span>
+<span class="grupo-b">b</span>
           ) =
           <span class="resalta">a³ b³</span>
-        </div>
-        <p class="formula">(a · b)ⁿ = aⁿ · bⁿ</p>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 4 · Con coeficiente numérico</span>
-          <p>Simplificar (2x)³.</p>
-          <div class="paso">
-            <span class="n">1</span>
+</div>
+<p class="formula">(a · b)ⁿ = aⁿ · bⁿ</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 4 · Con coeficiente numérico</span>
+<p>Simplificar (2x)³.</p>
+<div class="paso">
+<span class="n">1</span>
             El exponente 3 se aplica a
             <em>cada</em>
             factor: al 2 y a la x.
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             2³ = 8 y x³ = x³.
           </div>
-          <p>
-            <strong>Respuesta:</strong>
+<p>
+<strong>Respuesta:</strong>
             (2x)³ = 8x³.
           </p>
-        </div>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 5 · Combinando reglas</span>
-          <p>Simplificar (3y²)².</p>
-          <div class="paso">
-            <span class="n">1</span>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 5 · Combinando reglas</span>
+<p>Simplificar (3y²)².</p>
+<div class="paso">
+<span class="n">1</span>
             Se reparte el exponente a cada factor: (3)² · (y²)².
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             3² = 9; y para (y²)² se multiplican los exponentes: y⁴.
           </div>
-          <p>
-            <strong>Respuesta:</strong>
+<p>
+<strong>Respuesta:</strong>
             (3y²)² = 9y⁴.
           </p>
-        </div>
-        <div class="caja-atencion">
-          <strong>Error frecuente:</strong>
+</div>
+<div class="caja-atencion">
+<strong>Error frecuente:</strong>
           olvidar elevar el coeficiente numérico. (2x)³
           <em>no</em>
           es 2x³; el 2 también se eleva al cubo y da 8x³.
         </div>
-      </div>
-      <div class="practica">
-        <h3>Práctica interactiva 2 · Potencia de potencia y de un producto</h3>
-        <p>Selecciona la simplificación correcta de cada expresión.</p>
-        <div class="pregunta" data-correcta="b">
-          <div class="enun">1. (a³)⁵ =</div>
-          <div class="opciones">
-            <div class="opcion" data-op="a">a⁸</div>
-            <div class="opcion" data-op="b">a¹⁵</div>
-            <div class="opcion" data-op="c">a³⁵</div>
-          </div>
-          <div class="fb"></div>
-        </div>
-        <div class="pregunta" data-correcta="c">
-          <div class="enun">2. (2x)⁴ =</div>
-          <div class="opciones">
-            <div class="opcion" data-op="a">2x⁴</div>
-            <div class="opcion" data-op="b">8x⁴</div>
-            <div class="opcion" data-op="c">16x⁴</div>
-          </div>
-          <div class="fb"></div>
-        </div>
-        <div class="pregunta" data-correcta="b">
-          <div class="enun">3. (x²y)³ =</div>
-          <div class="opciones">
-            <div class="opcion" data-op="a">x⁵y³</div>
-            <div class="opcion" data-op="b">x⁶y³</div>
-            <div class="opcion" data-op="c">x⁶y</div>
-          </div>
-          <div class="fb"></div>
-        </div>
-      </div>
-      <h2 class="seccion">5. Las tres reglas juntas</h2>
-      <div class="bloque">
-        <p>Estas tres reglas describen toda la multiplicación con exponentes. La tabla resume cada una con su patrón y un ejemplo.</p>
-        <table class="reglas">
-          <caption class="sr-only">Resumen de las tres reglas de la multiplicación con exponentes: nombre, patrón y ejemplo.</caption>
-          <thead>
-            <tr>
-              <th scope="col">Regla</th>
-              <th scope="col">Patrón</th>
-              <th scope="col">Ejemplo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Producto de potencias</td>
-              <td>aᵐ · aⁿ = aᵐ⁺ⁿ (se suman)</td>
-              <td>x⁴ · x³ = x⁷</td>
-            </tr>
-            <tr>
-              <td>Potencia de una potencia</td>
-              <td>(aᵐ)ⁿ = aᵐⁿ (se multiplican)</td>
-              <td>(x⁴)³ = x¹²</td>
-            </tr>
-            <tr>
-              <td>Potencia de un producto</td>
-              <td>(a · b)ⁿ = aⁿ · bⁿ (se reparte)</td>
-              <td>(2x)³ = 8x³</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 6 · Expresión combinada</span>
-          <p>Simplificar (x²)³ · x⁴.</p>
-          <div class="paso">
-            <span class="n">1</span>
+</div>
+<div class="practica">
+<h3>Práctica interactiva 2 · Potencia de potencia y de un producto</h3>
+<p>Selecciona la simplificación correcta de cada expresión.</p>
+<div class="pregunta" data-correcta="b">
+<div class="enun">1. (a³)⁵ =</div>
+<div class="opciones">
+<div class="opcion" data-op="a">a⁸</div>
+<div class="opcion" data-op="b">a¹⁵</div>
+<div class="opcion" data-op="c">a³⁵</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">2. (2x)⁴ =</div>
+<div class="opciones">
+<div class="opcion" data-op="a">2x⁴</div>
+<div class="opcion" data-op="b">8x⁴</div>
+<div class="opcion" data-op="c">16x⁴</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">3. (x²y)³ =</div>
+<div class="opciones">
+<div class="opcion" data-op="a">x⁵y³</div>
+<div class="opcion" data-op="b">x⁶y³</div>
+<div class="opcion" data-op="c">x⁶y</div>
+</div>
+<div class="fb"></div>
+</div>
+</div>
+<h2 class="seccion" id="s-5-las-tres-reglas-juntas">5. Las tres reglas juntas</h2>
+<div class="bloque">
+<p>Estas tres reglas describen toda la multiplicación con exponentes. La tabla resume cada una con su patrón y un ejemplo.</p>
+<table class="reglas">
+<caption class="sr-only">Resumen de las tres reglas de la multiplicación con exponentes: nombre, patrón y ejemplo.</caption>
+<thead>
+<tr>
+<th scope="col">Regla</th>
+<th scope="col">Patrón</th>
+<th scope="col">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Producto de potencias</td>
+<td>aᵐ · aⁿ = aᵐ⁺ⁿ (se suman)</td>
+<td>x⁴ · x³ = x⁷</td>
+</tr>
+<tr>
+<td>Potencia de una potencia</td>
+<td>(aᵐ)ⁿ = aᵐⁿ (se multiplican)</td>
+<td>(x⁴)³ = x¹²</td>
+</tr>
+<tr>
+<td>Potencia de un producto</td>
+<td>(a · b)ⁿ = aⁿ · bⁿ (se reparte)</td>
+<td>(2x)³ = 8x³</td>
+</tr>
+</tbody>
+</table>
+<div class="ejemplo">
+<span class="et">Ejemplo 6 · Expresión combinada</span>
+<p>Simplificar (x²)³ · x⁴.</p>
+<div class="paso">
+<span class="n">1</span>
             Primero la potencia de potencia: (x²)³ = x⁶.
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             Ahora el producto: x⁶ · x⁴ = x⁶⁺⁴.
           </div>
-          <p>
-            <strong>Respuesta:</strong>
+<p>
+<strong>Respuesta:</strong>
             (x²)³ · x⁴ = x¹⁰.
           </p>
-        </div>
-        <div class="caja-tip">
-          <strong>Estrategia:</strong>
+</div>
+<div class="caja-tip">
+<strong>Estrategia:</strong>
           cuando hay paréntesis con exponente, resuélvelos primero (potencia de potencia o de un producto); después combina con la regla del producto. Trabajar siempre de adentro hacia afuera evita
           errores.
         </div>
-      </div>
-      <h2 class="seccion">6. Práctica guiada en clase</h2>
-      <div class="bloque">
-        <p>Las siguientes tres actividades se realizan durante las horas sincrónicas. Cada una se presenta en doble modalidad: una versión para el aula presencial y otra para la sesión en línea.</p>
-        <div class="actividad">
-          <div class="titulo-act">Actividad 1 · Descubre la regla por expansión</div>
-          <div class="modalidad">
-            <div class="modo modo-pres">
-              <h3>
-                <span aria-hidden="true">🏫</span>
-                Presencial
-              </h3>
-              En la pizarra, el docente escribe cuatro productos (a²·a³, a⁴·a², a³·a³, a·a⁵). Los estudiantes expanden cada uno escribiendo todos los factores, los cuentan y enuncian con sus palabras
-              la regla del producto antes de que el docente la formalice.
-            </div>
-            <div class="modo modo-virt">
-              <h3>
-                <span aria-hidden="true">💻</span>
-                En línea
-              </h3>
-              En una pizarra compartida, cada estudiante recibe un producto distinto, escribe la expansión completa y publica en el chat el resultado simplificado junto con la suma de exponentes que
-              lo justifica.
-            </div>
-          </div>
-        </div>
-        <div class="actividad">
-          <div class="titulo-act">Actividad 2 · ¿Sumo o multiplico los exponentes?</div>
-          <div class="modalidad">
-            <div class="modo modo-pres">
-              <h3>
-                <span aria-hidden="true">🏫</span>
-                Presencial
-              </h3>
-              El docente muestra diez expresiones mezcladas (unas del tipo aᵐ·aⁿ y otras del tipo (aᵐ)ⁿ). En parejas, los estudiantes clasifican cada una en «sumar» o «multiplicar» antes de calcular,
-              y explican la diferencia estructural.
-            </div>
-            <div class="modo modo-virt">
-              <h3>
-                <span aria-hidden="true">💻</span>
-                En línea
-              </h3>
-              Los estudiantes arrastran cada una de las diez expresiones a una de dos columnas en un documento compartido —«se suman» o «se multiplican»— y luego escriben el resultado simplificado de
-              cada una.
-            </div>
-          </div>
-        </div>
-        <div class="actividad">
-          <div class="titulo-act">Actividad 3 · El reparto del exponente</div>
-          <div class="modalidad">
-            <div class="modo modo-pres">
-              <h3>
-                <span aria-hidden="true">🏫</span>
-                Presencial
-              </h3>
-              El docente plantea seis potencias de un producto con coeficiente numérico ((2x)³, (5a)², (3y²)²…). Un voluntario resuelve cada una en la pizarra mostrando explícitamente cómo se eleva el
-              coeficiente y cómo se reparte el exponente a cada factor.
-            </div>
-            <div class="modo modo-virt">
-              <h3>
-                <span aria-hidden="true">💻</span>
-                En línea
-              </h3>
-              En salas pequeñas, los estudiantes resuelven las seis potencias de un producto y verifican mutuamente que el coeficiente numérico se haya elevado correctamente, señalando cualquier caso
-              donde solo se elevó la variable.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="caja-tarea">
-        <h2>Tarea asincrónica</h2>
-        <p>
-          Estas actividades se realizan
-          <strong>por su cuenta</strong>
-          , dentro de las 2 horas asincrónicas de la lección.
-        </p>
-        <ul>
-          <li>
-            <strong>
-              <a href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=164528&amp;type=content&amp;rcode=53b99fbe2f194af4906d5c1b-28" target="_blank" rel="noopener">
-                myOpenMath Regla del Producto y Potencia de Potencia
-              </a>
-              &nbsp;&nbsp;
-            </strong>
-          </li>
-          <li>
-            <strong>
-              <a href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=164528&amp;type=content&amp;rcode=ccc-8796953" target="_blank" rel="noopener">
-                Brightspace-Quiz Regla del Producto y Potencia de Potencia
-              </a>
-              &nbsp; &nbsp;
-            </strong>
-          </li>
-          <li>
-            <strong><a href="https://www.thatquiz.org/es-2/?-j1l0p-l5-mpnv600-n18-p0-f0" target="_blank" rel="noopener">TahtQuiz Regla del Producto y Potencia de potencia</a></strong>
-          </li>
-        </ul>
-      </div>
-      <div class="interactivos">
-        <span class="titulo-grupo">Practica en línea</span>
-        <a class="enlace-int" href="https://zhemaria.github.io/interactivos/exponentes_producto/" target="_blank" rel="noopener">
-          <span class="ico-int" aria-hidden="true">&#10006;&#65039;</span>
-          <span class="txt-int">
-            <span class="titulo-int">Reglas de la multiplicación con exponentes</span>
-            <span class="desc-int">
+</div>
+
+
+<div class="caja-tarea">
+<h2 id="s-tarea">Tarea</h2><p>Para hacer por su cuenta, con el cuaderno abierto:</p><ul><li>Ocho productos de potencias de la misma base, cuatro solo con números y cuatro con variables. Escriba el paso intermedio —la suma de los exponentes— antes del resultado.</li><li>Seis potencias de potencia, incluyendo dos con coeficiente distinto de 1, para no olvidar que el coeficiente también se eleva.</li><li>Seis potencias de un producto, repartiendo el exponente entre todos los factores.</li><li>Cuatro expresiones que exijan las tres reglas a la vez, resueltas en el orden que prefiera, pero anotando qué regla usó en cada paso.</li><li><strong>ThatQuiz:</strong> <a href="https://www.thatquiz.org/es-2/?-j1l0p-l5-mpnv600-n18-p0-f0" rel="noopener noreferrer" target="_blank">regla del producto y potencia de potencia</a>. Resuelva cada una en papel antes de escribir la respuesta.</li></ul><p>Tiempo estimado: 50 minutos. Evalúe su trabajo con la rúbrica de esta lección.</p>
+
+
+</div>
+<div class="interactivos">
+<span class="titulo-grupo">Practica en línea</span>
+<a class="enlace-int" href="https://zhemaria.github.io/interactivos/exponentes_producto/" rel="noopener" target="_blank">
+<span aria-hidden="true" class="ico-int">✖️</span>
+<span class="txt-int">
+<span class="titulo-int">Reglas de la multiplicación con exponentes</span>
+<span class="desc-int">
               Practica el producto, la potencia de una potencia y la potencia de un producto
               <span class="sr-only">(se abre en una pestaña nueva)</span>
-            </span>
-          </span>
-          <span class="flecha-int" aria-hidden="true">&#8594;</span>
-        </a>
-      </div>
-      <div class="quiz">
-        <h2>Quiz de la lección 1.1</h2>
-        <p>Doce preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 8 respuestas correctas.</p>
-        <div id="quiz-cuerpo"></div>
-        <div id="resultado-quiz"></div>
-        <button class="btn" id="btn-corregir">Corregir quiz</button>
-        <button class="btn sec" id="btn-reintentar" style="display: none">Intentar de nuevo</button>
-      </div>
-      <div class="rubrica">
-        <h2>Rúbrica analítica de la lección</h2>
-        <p>Tres criterios evaluados en cuatro niveles de desempeño.</p>
-        <table class="tabla-rubrica">
-          <caption class="sr-only">Rúbrica analítica con tres criterios y cuatro niveles de desempeño.</caption>
-          <thead>
-            <tr>
-              <th scope="col">Criterio</th>
-              <th scope="col">Inicial (1)</th>
-              <th scope="col">En desarrollo (2)</th>
-              <th scope="col">Competente (3)</th>
-              <th scope="col">Destacado (4)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Regla del producto</td>
-              <td>Multiplica los exponentes o intenta combinar bases distintas.</td>
-              <td>Suma los exponentes, pero con errores ocasionales de conteo.</td>
-              <td>Suma correctamente los exponentes de la misma base.</td>
-              <td>Aplica la regla con fluidez y la justifica expandiendo los factores.</td>
-            </tr>
-            <tr>
-              <td>Potencia de potencia y de un producto</td>
-              <td>Confunde cuándo sumar y cuándo multiplicar los exponentes.</td>
-              <td>Aplica la regla, pero olvida elevar el coeficiente numérico.</td>
-              <td>Multiplica exponentes y reparte el exponente a todos los factores.</td>
-              <td>Domina ambas reglas y reconoce su estructura sin vacilar.</td>
-            </tr>
-            <tr>
-              <td>Expresiones combinadas</td>
-              <td>No identifica qué regla aplicar primero.</td>
-              <td>Aplica las reglas en desorden y obtiene resultados parciales.</td>
-              <td>Resuelve de adentro hacia afuera y simplifica correctamente.</td>
-              <td>Resuelve con claridad, anota cada regla usada y verifica el resultado.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="cierre">
-        <h2>Cierre y enlace con la próxima lección</h2>
-        <p>
+</span>
+</span>
+<span aria-hidden="true" class="flecha-int">→</span>
+</a>
+</div>
+<div class="quiz">
+<h2 id="s-quiz-de-la-leccion-1-1">Quiz de la lección 1.1</h2>
+<p>Doce preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 8 respuestas correctas.</p>
+<div id="quiz-cuerpo"></div>
+<div id="resultado-quiz"></div>
+<button class="btn" id="btn-corregir">Corregir quiz</button>
+<button class="btn sec" id="btn-reintentar" style="display: none">Intentar de nuevo</button>
+</div>
+<div class="rubrica">
+<h2 id="s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</h2>
+<p>Tres criterios evaluados en cuatro niveles de desempeño. Léala <strong>antes</strong> de empezar la tarea y úsela <strong>después</strong> para evaluar su propio trabajo con honestidad.</p>
+<table class="tabla-rubrica">
+<caption class="sr-only">Rúbrica analítica con tres criterios y cuatro niveles de desempeño.</caption>
+<thead>
+<tr>
+<th scope="col">Criterio</th>
+<th scope="col">Inicial (1)</th>
+<th scope="col">En desarrollo (2)</th>
+<th scope="col">Competente (3)</th>
+<th scope="col">Destacado (4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regla del producto</td>
+<td>Multiplica los exponentes o intenta combinar bases distintas.</td>
+<td>Suma los exponentes, pero con errores ocasionales de conteo.</td>
+<td>Suma correctamente los exponentes de la misma base.</td>
+<td>Aplica la regla con fluidez y la justifica expandiendo los factores.</td>
+</tr>
+<tr>
+<td>Potencia de potencia y de un producto</td>
+<td>Confunde cuándo sumar y cuándo multiplicar los exponentes.</td>
+<td>Aplica la regla, pero olvida elevar el coeficiente numérico.</td>
+<td>Multiplica exponentes y reparte el exponente a todos los factores.</td>
+<td>Domina ambas reglas y reconoce su estructura sin vacilar.</td>
+</tr>
+<tr>
+<td>Expresiones combinadas</td>
+<td>No identifica qué regla aplicar primero.</td>
+<td>Aplica las reglas en desorden y obtiene resultados parciales.</td>
+<td>Resuelve de adentro hacia afuera y simplifica correctamente.</td>
+<td>Resuelve con claridad, anota cada regla usada y verifica el resultado.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cierre">
+<h2 id="s-cierre-y-enlace-con-la-proxima-leccion">Cierre y enlace con la próxima lección</h2>
+<p>
           En esta lección se establecieron las tres reglas de la
           <strong>multiplicación con exponentes</strong>
           : el producto (se
@@ -1102,7 +985,7 @@
           <strong>reparte</strong>
           a cada factor). Todas se justifican volviendo a contar factores.
         </p>
-        <p>
+<p>
           En la
           <strong>Lección 1.2 · Regla del cociente, exponente cero y exponentes negativos</strong>
           se completará el panorama con la
@@ -1113,11 +996,11 @@
           <strong>exponente negativo</strong>
           . Con esas reglas, el sistema completo de los exponentes quedará listo para la notación científica del Tema 2.
         </p>
-      </div>
-      <footer>Spanish ASE Math · Nivel 3 · Lección 1.1 — Preparado por Prof. José M. Fernández (Truman College, CCC) · Brightspace D2L</footer>
-    </div>
-    <p>
-      <script>
+</div>
+<footer><p>GEDparaHispanos · Matemáticas · Nivel 3 · Tema 1 · Lección 1.1</p><p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p><p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p></footer><a aria-label="Volver al contenido de la lección" class="volver-indice" href="#indice"><span aria-hidden="true">↑</span> Índice</a>
+</div>
+<p>
+<script>
         (function () {
           /* ---- Práctica de opciones (selección múltiple) ---- */
           var preguntasOp = document.querySelectorAll('.practica .pregunta[data-correcta]');
@@ -1287,6 +1170,6 @@
           });
         })();
       </script>
-    </p>
-  </body>
+</p>
+</body>
 </html>

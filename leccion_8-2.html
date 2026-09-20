@@ -1,9 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
+<!-- Lección 8.2 · Matemáticas Nivel 3 · GEDparaHispanos
+     José M. Fernández · CC BY-NC-SA 4.0 -->
+
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Lección 8.2 · Probabilidad compuesta: con y sin reemplazo</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lección 8.2 · Probabilidad compuesta: con y sin reemplazo</title><meta content="CC BY-NC-SA 4.0" name="license"/><link href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license"/>
 <style>
   :root {
     --tema:   #4a148c;
@@ -128,25 +131,7 @@
   }
   .btn:hover { background: var(--tema-d); }
   .btn.sec { background: #546e7a; }
-  .btn.sec:hover { background: #37474f; }
-
-  .modalidad { display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0; }
-  .modo { flex: 1; min-width: 230px; border-radius: 9px; padding: 14px 16px; font-size: 14px; }
-  .modo-pres { background: #e3f2fd; border-left: 5px solid #1565c0; }
-  .modo-pres strong { color: #0d47a1; }
-  .modo-virt { background: #e0f2f1; border-left: 5px solid #00796b; }
-  .modo-virt strong { color: #004d40; }
-  .modo h3 { margin: 0 0 6px; font-size: 15px; }
-  .modo-pres h3 { color: #0d47a1; }
-  .modo-virt h3 { color: #004d40; }
-
-  .actividad { margin-bottom: 18px; }
-  .actividad > .titulo-act {
-    font-weight: 700; color: var(--tema-d); font-size: 15px;
-    background: var(--tema-bg); padding: 7px 14px; border-radius: 7px;
-  }
-
-  .caja-tarea {
+  .btn.sec:hover { background: #37474f; }.caja-tarea {
     background: #e0f7fa; border-left: 6px solid #00838f;
     padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 20px 0;
   }
@@ -190,320 +175,264 @@
     text-align: center; padding: 20px; color: #555;
     font-size: 13px; border-top: 1px solid #ddd; margin-top: 20px;
   }
+
+  /* ── ÍNDICE DE LA LECCIÓN ── */
+  .indice{
+    background:#fff; border:1px solid #d8dde3; border-left:6px solid var(--tema);
+    border-radius:10px; padding:16px 20px; margin:24px 0;
+  }
+  .indice h2{ font-size:1.05rem; margin:0 0 10px; color:var(--tema-d); border:0; padding:0; background:none; }
+  .indice ol{ margin:0; padding-left:1.35em; }
+  .indice li{ margin:4px 0; }
+  .indice a{ color:var(--tema-d); text-decoration:underline; }
+  .indice a:hover{ color:var(--tema); }
+  .indice a:focus-visible,.volver-indice:focus-visible{ outline:3px solid #b05e00; outline-offset:2px; }
+  .volver-indice{
+    position:fixed; right:18px; bottom:18px; z-index:60;
+    background:var(--tema-d); color:#fff; border-radius:999px;
+    padding:10px 16px; font-weight:700; font-size:.92rem; text-decoration:none;
+    box-shadow:0 2px 10px rgba(0,0,0,.28);
+  }
+  .volver-indice:hover{ background:var(--tema); color:#fff; }
+  footer a{ color:inherit; }
+  @media print{ .indice,.volver-indice{ display:none; } }
 </style>
 </head>
 <body>
 <div class="contenedor">
-
-  <header class="principal">
-    <div class="ruta">Spanish ASE Math · Nivel 3 · Tema 8 · Combinatoria y probabilidad</div>
-    <h1>Lección 8.2 · Probabilidad compuesta: con y sin reemplazo</h1>
-    <div class="meta">4 horas (2 sincrónicas + 2 asincrónicas) · NRS 3–4 · Brightspace D2L</div>
-  </header>
-
-  <div class="caja-objetivos">
-    <h2>Objetivos de la lección</h2>
-    <ul>
-      <li>Calcular la probabilidad de un evento simple como casos favorables sobre casos posibles.</li>
-      <li>Calcular la probabilidad de dos eventos con reemplazo (independientes): P(A y B) = P(A) × P(B).</li>
-      <li>Calcular la probabilidad sin reemplazo (dependientes): P(A y B) = P(A) × P(B después de A).</li>
-      <li>Distinguir el efecto del reemplazo en las probabilidades.</li>
-      <li>Expresar el resultado en fracción, decimal y porcentaje.</li>
-    </ul>
-  </div>
-
-  <div class="bloque">
-    <p><strong>Conexión con la lección anterior.</strong> En la Lección 8.1 se aprendió a <strong>contar</strong> los resultados posibles. La <strong>probabilidad</strong> usa ese conteo: compara los casos <em>favorables</em> con los casos <em>posibles</em>. Esta lección estudia la probabilidad de <strong>dos o más eventos juntos</strong>, y la diferencia clave entre hacerlo <strong>con reemplazo</strong> y <strong>sin reemplazo</strong>.</p>
-  </div>
-
-  <h2 class="seccion">1. Repaso: probabilidad de un evento</h2>
-  <div class="bloque">
-    <p>La probabilidad de un evento mide qué tan probable es que ocurra. Se calcula como la razón entre los casos favorables y los casos posibles.</p>
-    <p class="formula">P(evento) = casos favorables / casos posibles</p>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 1</span>
-      <p>Una bolsa tiene 4 caramelos rojos, 3 azules y 2 verdes (9 en total). ¿Cuál es la probabilidad de sacar uno rojo?</p>
-      <div class="paso"><span class="n">1</span> Casos favorables (rojos): 4. Casos posibles (total): 9.</div>
-      <p><strong>Respuesta:</strong> P(rojo) = 4/9.</p>
+<header class="principal">
+<div class="ruta">Spanish ASE Math · Nivel 3 · Tema 8 · Combinatoria y probabilidad</div>
+<h1>Lección 8.2 · Probabilidad compuesta: con y sin reemplazo</h1>
+<div class="meta">Unas 4 horas, a su ritmo · NRS 3–4</div>
+</header>
+<div class="caja-objetivos">
+<h2>Objetivos de la lección</h2>
+<ul>
+<li>Calcular la probabilidad de un evento simple como casos favorables sobre casos posibles.</li>
+<li>Calcular la probabilidad de dos eventos con reemplazo (independientes): P(A y B) = P(A) × P(B).</li>
+<li>Calcular la probabilidad sin reemplazo (dependientes): P(A y B) = P(A) × P(B después de A).</li>
+<li>Distinguir el efecto del reemplazo en las probabilidades.</li>
+<li>Expresar el resultado en fracción, decimal y porcentaje.</li>
+</ul>
+</div><nav aria-labelledby="indice-titulo" class="indice" id="indice"><h2 id="indice-titulo">Contenido de la lección</h2><ol><li><a href="#s-1-repaso-probabilidad-de-un-evento">1. Repaso: probabilidad de un evento</a></li><li><a href="#s-2-dos-eventos-con-reemplazo">2. Dos eventos con reemplazo</a></li><li><a href="#s-3-dos-eventos-sin-reemplazo">3. Dos eventos sin reemplazo</a></li><li><a href="#s-4-expresar-el-resultado-de-tres-formas">4. Expresar el resultado de tres formas</a></li><li><a href="#s-tarea">Tarea</a></li><li><a href="#s-quiz-de-la-leccion-8-2">Quiz de la lección 8.2</a></li><li><a href="#s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</a></li><li><a href="#s-cierre-y-enlace-con-la-proxima-leccion">Cierre y enlace con la próxima lección</a></li></ol></nav>
+<div class="bloque">
+<p><strong>Conexión con la lección anterior.</strong> En la Lección 8.1 se aprendió a <strong>contar</strong> los resultados posibles. La <strong>probabilidad</strong> usa ese conteo: compara los casos <em>favorables</em> con los casos <em>posibles</em>. Esta lección estudia la probabilidad de <strong>dos o más eventos juntos</strong>, y la diferencia clave entre hacerlo <strong>con reemplazo</strong> y <strong>sin reemplazo</strong>.</p>
+</div>
+<h2 class="seccion" id="s-1-repaso-probabilidad-de-un-evento">1. Repaso: probabilidad de un evento</h2>
+<div class="bloque">
+<p>La probabilidad de un evento mide qué tan probable es que ocurra. Se calcula como la razón entre los casos favorables y los casos posibles.</p>
+<p class="formula">P(evento) = casos favorables / casos posibles</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 1</span>
+<p>Una bolsa tiene 4 caramelos rojos, 3 azules y 2 verdes (9 en total). ¿Cuál es la probabilidad de sacar uno rojo?</p>
+<div class="paso"><span class="n">1</span> Casos favorables (rojos): 4. Casos posibles (total): 9.</div>
+<p><strong>Respuesta:</strong> P(rojo) = 4/9.</p>
+</div>
+</div>
+<h2 class="seccion" id="s-2-dos-eventos-con-reemplazo">2. Dos eventos con reemplazo</h2>
+<div class="bloque">
+<p>Cuando después del primer evento se <strong>devuelve</strong> el objeto (reemplazo), el segundo evento no se ve afectado: los eventos son <strong>independientes</strong>. La probabilidad de que ocurran ambos es el producto de sus probabilidades.</p>
+<p class="formula">P(A y B) = P(A) × P(B)</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 2 · Con reemplazo</span>
+<p>De la bolsa (4 rojos, 3 azules, 2 verdes; 9 en total) se saca un caramelo, se devuelve, y se saca otro. ¿Cuál es la probabilidad de sacar rojo y luego azul?</p>
+<div class="paso"><span class="n">1</span> P(rojo) = 4/9. Como se devuelve, el total sigue siendo 9.</div>
+<div class="paso"><span class="n">2</span> P(azul) = 3/9. Se multiplican: 4/9 × 3/9 = 12/81.</div>
+<p><strong>Respuesta:</strong> P(rojo y luego azul) = 12/81, que se simplifica a 4/27.</p>
+</div>
+</div>
+<div class="practica">
+<h3>Práctica interactiva 1 · Con reemplazo</h3>
+<p>Selecciona la respuesta correcta de cada caso (bolsa de 4 rojos, 3 azules, 2 verdes; 9 en total).</p>
+<div class="pregunta" data-correcta="a">
+<div class="enun">1. P(sacar un caramelo verde) en una sola extracción es…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">2/9</div>
+<div class="opcion" data-op="b">2/7</div>
+<div class="opcion" data-op="c">9/2</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">2. Con reemplazo, P(rojo y luego rojo) es…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">4/9 × 4/9 = 16/81</div>
+<div class="opcion" data-op="b">4/9 × 3/8</div>
+<div class="opcion" data-op="c">8/9</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">3. Con reemplazo, ¿cambia el total de caramelos entre la primera y la segunda extracción?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">No, sigue siendo 9</div>
+<div class="opcion" data-op="b">Sí, baja a 8</div>
+<div class="opcion" data-op="c">Sí, sube a 10</div>
+</div>
+<div class="fb"></div>
+</div>
+</div>
+<h2 class="seccion" id="s-3-dos-eventos-sin-reemplazo">3. Dos eventos sin reemplazo</h2>
+<div class="bloque">
+<p>Cuando el objeto <strong>no se devuelve</strong>, el segundo evento <em>sí</em> cambia: hay un objeto menos en total (y uno menos del tipo que salió). Los eventos son <strong>dependientes</strong>.</p>
+<p class="formula">P(A y B) = P(A) × P(B después de A)</p>
+<div class="diagrama-wrap">
+<svg aria-label="Diagrama de árbol de dos extracciones sin reemplazo, de una bolsa con 4 rojos y 3 azules, 7 en total. En la primera extracción, la probabilidad de rojo es 4 séptimos. En la segunda extracción, ya sin reemplazo, quedan 6 caramelos: la probabilidad de azul es 3 sextos. La probabilidad de rojo y luego azul es 4 séptimos por 3 sextos." height="230" role="img" viewbox="0 0 540 230" width="540" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50" cy="115" fill="#4a148c" r="6"></circle>
+<text fill="#311b62" font-family="Segoe UI, sans-serif" font-size="11" text-anchor="middle" x="50" y="95">Bolsa</text>
+<line stroke="#6a1b9a" stroke-width="2" x1="56" x2="180" y1="115" y2="60"></line>
+<line stroke="#6a1b9a" stroke-width="2" x1="56" x2="180" y1="115" y2="170"></line>
+<text fill="#6a1b9a" font-family="Segoe UI, sans-serif" font-size="11" text-anchor="middle" x="120" y="78">4/7</text>
+<text fill="#6a1b9a" font-family="Segoe UI, sans-serif" font-size="11" text-anchor="middle" x="120" y="150">3/7</text>
+<text fill="#311b62" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" x="190" y="64">Rojo</text>
+<text fill="#311b62" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" x="190" y="174">Azul</text>
+<line stroke="#00838f" stroke-width="1.8" x1="240" x2="360" y1="60" y2="35"></line>
+<line stroke="#00838f" stroke-width="1.8" x1="240" x2="360" y1="60" y2="90"></line>
+<text fill="#00606b" font-family="Segoe UI, sans-serif" font-size="11" text-anchor="middle" x="300" y="40">3/6</text>
+<text fill="#00606b" font-family="Segoe UI, sans-serif" font-size="11" text-anchor="middle" x="300" y="92">3/6</text>
+<text fill="#00606b" font-family="Segoe UI, sans-serif" font-size="12" x="368" y="39">Rojo</text>
+<text fill="#00606b" font-family="Segoe UI, sans-serif" font-size="12" x="368" y="94">Azul</text>
+<text fill="#4a148c" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="470" y="68">4/7 × 3/6</text>
+</svg>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 3 · Sin reemplazo</span>
+<p>De una bolsa con 4 rojos y 3 azules (7 en total) se saca uno y <em>no</em> se devuelve; luego se saca otro. ¿Cuál es la probabilidad de rojo y luego azul?</p>
+<div class="paso"><span class="n">1</span> P(rojo) = 4/7.</div>
+<div class="paso"><span class="n">2</span> Ya sin reemplazo quedan 6 caramelos, 3 de ellos azules: P(azul después) = 3/6.</div>
+<div class="paso"><span class="n">3</span> Se multiplican: 4/7 × 3/6 = 12/42 = 2/7.</div>
+<p><strong>Respuesta:</strong> P(rojo y luego azul) = 2/7.</p>
+</div>
+<table class="reglas">
+<caption class="sr-only">Diferencia entre probabilidad con reemplazo y sin reemplazo.</caption>
+<thead>
+<tr>
+<th scope="col">Situación</th>
+<th scope="col">Tipo de eventos</th>
+<th scope="col">El denominador…</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Con reemplazo (se devuelve)</td><td>Independientes</td><td>No cambia</td></tr>
+<tr><td>Sin reemplazo (no se devuelve)</td><td>Dependientes</td><td>Disminuye en 1</td></tr>
+</tbody>
+</table>
+<div class="caja-atencion">
+<strong>Ajustar los dos números:</strong> sin reemplazo, en la segunda extracción cambian tanto el numerador (si salió un objeto de ese tipo) como el denominador (siempre baja en 1). Olvidar ajustar el denominador es el error más común.
     </div>
-  </div>
-
-  <h2 class="seccion">2. Dos eventos con reemplazo</h2>
-  <div class="bloque">
-    <p>Cuando después del primer evento se <strong>devuelve</strong> el objeto (reemplazo), el segundo evento no se ve afectado: los eventos son <strong>independientes</strong>. La probabilidad de que ocurran ambos es el producto de sus probabilidades.</p>
-    <p class="formula">P(A y B) = P(A) × P(B)</p>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 2 · Con reemplazo</span>
-      <p>De la bolsa (4 rojos, 3 azules, 2 verdes; 9 en total) se saca un caramelo, se devuelve, y se saca otro. ¿Cuál es la probabilidad de sacar rojo y luego azul?</p>
-      <div class="paso"><span class="n">1</span> P(rojo) = 4/9. Como se devuelve, el total sigue siendo 9.</div>
-      <div class="paso"><span class="n">2</span> P(azul) = 3/9. Se multiplican: 4/9 × 3/9 = 12/81.</div>
-      <p><strong>Respuesta:</strong> P(rojo y luego azul) = 12/81, que se simplifica a 4/27.</p>
+</div>
+<div class="practica">
+<h3>Práctica interactiva 2 · Sin reemplazo y comparación</h3>
+<p>Selecciona la respuesta correcta de cada caso.</p>
+<div class="pregunta" data-correcta="a">
+<div class="enun">1. Bolsa con 5 fichas; se saca una sin reemplazo. ¿Cuántas quedan para la segunda extracción?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">4</div>
+<div class="opcion" data-op="b">5</div>
+<div class="opcion" data-op="c">6</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">2. Bolsa con 4 rojos y 2 azules (6 en total). Sin reemplazo, P(rojo y luego rojo) es…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">4/6 × 3/5</div>
+<div class="opcion" data-op="b">4/6 × 4/6</div>
+<div class="opcion" data-op="c">4/6 + 3/5</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">3. ¿Qué eventos son independientes?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">Los de una extracción con reemplazo</div>
+<div class="opcion" data-op="b">Los de una extracción sin reemplazo</div>
+<div class="opcion" data-op="c">Nunca hay eventos independientes</div>
+</div>
+<div class="fb"></div>
+</div>
+</div>
+<h2 class="seccion" id="s-4-expresar-el-resultado-de-tres-formas">4. Expresar el resultado de tres formas</h2>
+<div class="bloque">
+<p>Una probabilidad se puede escribir como <strong>fracción</strong>, <strong>decimal</strong> o <strong>porcentaje</strong>. El examen GED suele pedir una de las tres, así que conviene saber convertir entre ellas.</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 4</span>
+<p>Expresar la probabilidad 1/4 de las tres formas.</p>
+<div class="paso"><span class="n">1</span> Como fracción: 1/4.</div>
+<div class="paso"><span class="n">2</span> Como decimal: 1 ÷ 4 = 0.25.</div>
+<div class="paso"><span class="n">3</span> Como porcentaje: 0.25 × 100 = 25%.</div>
+<p><strong>Respuesta:</strong> 1/4 = 0.25 = 25%.</p>
+</div>
+<div class="caja-tip">
+<strong>Toda probabilidad está entre 0 y 1:</strong> un valor de 0 significa imposible y 1 (o 100%) significa seguro. Si un cálculo da una probabilidad mayor que 1, hay un error: probablemente se sumó cuando se debía multiplicar.
     </div>
-  </div>
-
-  <div class="practica">
-    <h3>Práctica interactiva 1 · Con reemplazo</h3>
-    <p>Selecciona la respuesta correcta de cada caso (bolsa de 4 rojos, 3 azules, 2 verdes; 9 en total).</p>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">1. P(sacar un caramelo verde) en una sola extracción es…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">2/9</div>
-        <div class="opcion" data-op="b">2/7</div>
-        <div class="opcion" data-op="c">9/2</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">2. Con reemplazo, P(rojo y luego rojo) es…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">4/9 × 4/9 = 16/81</div>
-        <div class="opcion" data-op="b">4/9 × 3/8</div>
-        <div class="opcion" data-op="c">8/9</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">3. Con reemplazo, ¿cambia el total de caramelos entre la primera y la segunda extracción?</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">No, sigue siendo 9</div>
-        <div class="opcion" data-op="b">Sí, baja a 8</div>
-        <div class="opcion" data-op="c">Sí, sube a 10</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-  </div>
-
-  <h2 class="seccion">3. Dos eventos sin reemplazo</h2>
-  <div class="bloque">
-    <p>Cuando el objeto <strong>no se devuelve</strong>, el segundo evento <em>sí</em> cambia: hay un objeto menos en total (y uno menos del tipo que salió). Los eventos son <strong>dependientes</strong>.</p>
-    <p class="formula">P(A y B) = P(A) × P(B después de A)</p>
-
-    <div class="diagrama-wrap">
-      <svg width="540" height="230" viewBox="0 0 540 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de árbol de dos extracciones sin reemplazo, de una bolsa con 4 rojos y 3 azules, 7 en total. En la primera extracción, la probabilidad de rojo es 4 séptimos. En la segunda extracción, ya sin reemplazo, quedan 6 caramelos: la probabilidad de azul es 3 sextos. La probabilidad de rojo y luego azul es 4 séptimos por 3 sextos.">
-        <circle cx="50" cy="115" r="6" fill="#4a148c"/>
-        <text x="50" y="95" font-family="Segoe UI, sans-serif" font-size="11" fill="#311b62" text-anchor="middle">Bolsa</text>
-        <line x1="56" y1="115" x2="180" y2="60" stroke="#6a1b9a" stroke-width="2"/>
-        <line x1="56" y1="115" x2="180" y2="170" stroke="#6a1b9a" stroke-width="2"/>
-        <text x="120" y="78" font-family="Segoe UI, sans-serif" font-size="11" fill="#6a1b9a" text-anchor="middle">4/7</text>
-        <text x="120" y="150" font-family="Segoe UI, sans-serif" font-size="11" fill="#6a1b9a" text-anchor="middle">3/7</text>
-        <text x="190" y="64" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#311b62">Rojo</text>
-        <text x="190" y="174" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#311b62">Azul</text>
-        <line x1="240" y1="60" x2="360" y2="35" stroke="#00838f" stroke-width="1.8"/>
-        <line x1="240" y1="60" x2="360" y2="90" stroke="#00838f" stroke-width="1.8"/>
-        <text x="300" y="40" font-family="Segoe UI, sans-serif" font-size="11" fill="#00606b" text-anchor="middle">3/6</text>
-        <text x="300" y="92" font-family="Segoe UI, sans-serif" font-size="11" fill="#00606b" text-anchor="middle">3/6</text>
-        <text x="368" y="39" font-family="Segoe UI, sans-serif" font-size="12" fill="#00606b">Rojo</text>
-        <text x="368" y="94" font-family="Segoe UI, sans-serif" font-size="12" fill="#00606b">Azul</text>
-        <text x="470" y="68" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700" fill="#4a148c" text-anchor="middle">4/7 × 3/6</text>
-      </svg>
-    </div>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 3 · Sin reemplazo</span>
-      <p>De una bolsa con 4 rojos y 3 azules (7 en total) se saca uno y <em>no</em> se devuelve; luego se saca otro. ¿Cuál es la probabilidad de rojo y luego azul?</p>
-      <div class="paso"><span class="n">1</span> P(rojo) = 4/7.</div>
-      <div class="paso"><span class="n">2</span> Ya sin reemplazo quedan 6 caramelos, 3 de ellos azules: P(azul después) = 3/6.</div>
-      <div class="paso"><span class="n">3</span> Se multiplican: 4/7 × 3/6 = 12/42 = 2/7.</div>
-      <p><strong>Respuesta:</strong> P(rojo y luego azul) = 2/7.</p>
-    </div>
-
-    <table class="reglas">
-      <caption class="sr-only">Diferencia entre probabilidad con reemplazo y sin reemplazo.</caption>
-      <thead>
-        <tr>
-          <th scope="col">Situación</th>
-          <th scope="col">Tipo de eventos</th>
-          <th scope="col">El denominador…</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Con reemplazo (se devuelve)</td><td>Independientes</td><td>No cambia</td></tr>
-        <tr><td>Sin reemplazo (no se devuelve)</td><td>Dependientes</td><td>Disminuye en 1</td></tr>
-      </tbody>
-    </table>
-
-    <div class="caja-atencion">
-      <strong>Ajustar los dos números:</strong> sin reemplazo, en la segunda extracción cambian tanto el numerador (si salió un objeto de ese tipo) como el denominador (siempre baja en 1). Olvidar ajustar el denominador es el error más común.
-    </div>
-  </div>
-
-  <div class="practica">
-    <h3>Práctica interactiva 2 · Sin reemplazo y comparación</h3>
-    <p>Selecciona la respuesta correcta de cada caso.</p>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">1. Bolsa con 5 fichas; se saca una sin reemplazo. ¿Cuántas quedan para la segunda extracción?</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">4</div>
-        <div class="opcion" data-op="b">5</div>
-        <div class="opcion" data-op="c">6</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">2. Bolsa con 4 rojos y 2 azules (6 en total). Sin reemplazo, P(rojo y luego rojo) es…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">4/6 × 3/5</div>
-        <div class="opcion" data-op="b">4/6 × 4/6</div>
-        <div class="opcion" data-op="c">4/6 + 3/5</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">3. ¿Qué eventos son independientes?</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">Los de una extracción con reemplazo</div>
-        <div class="opcion" data-op="b">Los de una extracción sin reemplazo</div>
-        <div class="opcion" data-op="c">Nunca hay eventos independientes</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-  </div>
-
-  <h2 class="seccion">4. Expresar el resultado de tres formas</h2>
-  <div class="bloque">
-    <p>Una probabilidad se puede escribir como <strong>fracción</strong>, <strong>decimal</strong> o <strong>porcentaje</strong>. El examen GED suele pedir una de las tres, así que conviene saber convertir entre ellas.</p>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 4</span>
-      <p>Expresar la probabilidad 1/4 de las tres formas.</p>
-      <div class="paso"><span class="n">1</span> Como fracción: 1/4.</div>
-      <div class="paso"><span class="n">2</span> Como decimal: 1 ÷ 4 = 0.25.</div>
-      <div class="paso"><span class="n">3</span> Como porcentaje: 0.25 × 100 = 25%.</div>
-      <p><strong>Respuesta:</strong> 1/4 = 0.25 = 25%.</p>
-    </div>
-
-    <div class="caja-tip">
-      <strong>Toda probabilidad está entre 0 y 1:</strong> un valor de 0 significa imposible y 1 (o 100%) significa seguro. Si un cálculo da una probabilidad mayor que 1, hay un error: probablemente se sumó cuando se debía multiplicar.
-    </div>
-  </div>
-
-  <h2 class="seccion">5. Práctica guiada en clase</h2>
-  <div class="bloque">
-    <p>Las siguientes tres actividades se realizan durante las horas sincrónicas. Cada una se presenta en doble modalidad: una versión para el aula presencial y otra para la sesión en línea.</p>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 1 · La bolsa de caramelos</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          Con una urna real de 4 rojos, 3 azules y 2 verdes, los estudiantes calculan P(rojo, luego azul) con reemplazo y sin reemplazo, y comparan ambos resultados realizando varias extracciones.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          Con una urna simulada compartida, cada estudiante calcula las dos probabilidades (con y sin reemplazo) y registra cuál resultó mayor en una hoja común.
-        </div>
-      </div>
-    </div>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 2 · El diagrama de árbol</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          Los estudiantes construyen el diagrama de árbol de dos extracciones, anotando la probabilidad en cada rama y multiplicando a lo largo de las ramas para hallar la probabilidad de cada resultado.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          En una pizarra compartida, las parejas completan un árbol de dos niveles con las probabilidades ajustadas (sin reemplazo) y calculan la probabilidad de dos resultados.
-        </div>
-      </div>
-    </div>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 3 · ¿Con o sin reemplazo?</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          A partir de varios enunciados, los estudiantes deciden si describen un caso con reemplazo o sin reemplazo, calculan la probabilidad y discuten si el reemplazo aumenta o disminuye el resultado.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          Cada estudiante clasifica seis enunciados como «con reemplazo» o «sin reemplazo», calcula tres de ellos y expresa cada resultado en fracción, decimal y porcentaje.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="caja-tarea">
-    <h2>Tarea asincrónica</h2>
-    <p>Para completar de forma individual en la plataforma <strong>MyOpenMath</strong> antes de la próxima sesión:</p>
-    <ul>
-      <li>Cuatro ejercicios de probabilidad de dos eventos con reemplazo.</li>
-      <li>Cuatro ejercicios de probabilidad de dos eventos sin reemplazo.</li>
-      <li>Dos ejercicios de clasificar y comparar (¿con o sin reemplazo? ¿cuál da mayor probabilidad?).</li>
-    </ul>
-    <p>La plataforma ofrece retroalimentación paso a paso en cada intento. Tiempo estimado: 50 minutos.</p>
-  </div>
-
-  <div class="quiz">
-    <h2>Quiz de la lección 8.2</h2>
-    <p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
-    <div id="quiz-cuerpo"></div>
-    <div id="resultado-quiz"></div>
-    <button class="btn" id="btn-corregir">Corregir quiz</button>
-    <button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
-  </div>
-
-  <div class="rubrica">
-    <h2>Rúbrica analítica de la lección</h2>
-    <p>Tres criterios evaluados en cuatro niveles de desempeño.</p>
-    <table class="tabla-rubrica">
-      <caption class="sr-only">Rúbrica analítica con tres criterios y cuatro niveles de desempeño.</caption>
-      <thead>
-        <tr>
-          <th scope="col">Criterio</th>
-          <th scope="col">Inicial (1)</th>
-          <th scope="col">En desarrollo (2)</th>
-          <th scope="col">Competente (3)</th>
-          <th scope="col">Destacado (4)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Clasificar el tipo de evento</td>
-          <td>No distingue independiente de dependiente.</td>
-          <td>Clasifica con errores ocasionales.</td>
-          <td>Clasifica correctamente el evento (independiente o dependiente).</td>
-          <td>Clasifica con fluidez y explica el efecto del reemplazo.</td>
-        </tr>
-        <tr>
-          <td>Aplicar la fórmula correcta</td>
-          <td>No multiplica las probabilidades.</td>
-          <td>Multiplica, pero no ajusta el caso sin reemplazo.</td>
-          <td>Aplica la fórmula correcta según el tipo de evento.</td>
-          <td>Ajusta numerador y denominador con fluidez y usa el árbol.</td>
-        </tr>
-        <tr>
-          <td>Calcular y expresar el resultado</td>
-          <td>Comete errores de fracción.</td>
-          <td>Calcula con algún error o no simplifica.</td>
-          <td>Calcula sin errores y simplifica la fracción.</td>
-          <td>Expresa el resultado en fracción, decimal y porcentaje.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="cierre">
-    <h2>Cierre y enlace con la próxima lección</h2>
-    <p>En esta lección se calculó la <strong>probabilidad compuesta</strong> de dos eventos: <strong>con reemplazo</strong> (independientes, el denominador no cambia) y <strong>sin reemplazo</strong> (dependientes, el denominador baja en 1), usando el diagrama de árbol y expresando el resultado en fracción, decimal y porcentaje.</p>
-    <p>La <strong>Lección 8.3 · Proyecto final integrador + estrategias para el GED Mathematical Reasoning</strong> cierra el Nivel 3. Se reunirá todo lo aprendido en un <strong>proyecto de análisis de datos</strong> y se practicarán estrategias para el examen GED, incluida una <strong>evaluación final</strong> que abarca los ocho temas del nivel.</p>
-  </div>
-
-  <footer>
-    Spanish ASE Math · Nivel 3 · Lección 8.2 — Preparado para Prof. José M. Fernández (Truman College, CCC) · Brightspace D2L
-  </footer>
-
 </div>
 
+
+<div class="caja-tarea">
+<h2 id="s-tarea">Tarea</h2>
+<p>Para hacer por su cuenta, con el cuaderno abierto:</p>
+<ul>
+<li>Cuatro ejercicios de probabilidad de dos eventos con reemplazo.</li>
+<li>Cuatro ejercicios de probabilidad de dos eventos sin reemplazo.</li>
+<li>Dos ejercicios de clasificar y comparar (¿con o sin reemplazo? ¿cuál da mayor probabilidad?).</li>
+<li><strong>ThatQuiz:</strong> entre en <a href="https://www.thatquiz.org/es/" rel="noopener noreferrer" target="_blank">ThatQuiz</a> y busque los ejercicios de <em>probabilidad</em> y de <em>multiplicación de fracciones</em>. La probabilidad compuesta es multiplicar dos fracciones; sin reemplazo, la segunda cambia de denominador.</li></ul>
+<p>Tiempo estimado: 50 minutos. Resuelva en papel y evalúe su trabajo con la rúbrica de esta lección.</p>
+</div>
+<div class="quiz">
+<h2 id="s-quiz-de-la-leccion-8-2">Quiz de la lección 8.2</h2>
+<p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
+<div id="quiz-cuerpo"></div>
+<div id="resultado-quiz"></div>
+<button class="btn" id="btn-corregir">Corregir quiz</button>
+<button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
+</div>
+<div class="rubrica">
+<h2 id="s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</h2>
+<p>Tres criterios evaluados en cuatro niveles de desempeño. Léala <strong>antes</strong> de empezar la tarea y úsela <strong>después</strong> para evaluar su propio trabajo con honestidad.</p>
+<table class="tabla-rubrica">
+<caption class="sr-only">Rúbrica analítica con tres criterios y cuatro niveles de desempeño.</caption>
+<thead>
+<tr>
+<th scope="col">Criterio</th>
+<th scope="col">Inicial (1)</th>
+<th scope="col">En desarrollo (2)</th>
+<th scope="col">Competente (3)</th>
+<th scope="col">Destacado (4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clasificar el tipo de evento</td>
+<td>No distingue independiente de dependiente.</td>
+<td>Clasifica con errores ocasionales.</td>
+<td>Clasifica correctamente el evento (independiente o dependiente).</td>
+<td>Clasifica con fluidez y explica el efecto del reemplazo.</td>
+</tr>
+<tr>
+<td>Aplicar la fórmula correcta</td>
+<td>No multiplica las probabilidades.</td>
+<td>Multiplica, pero no ajusta el caso sin reemplazo.</td>
+<td>Aplica la fórmula correcta según el tipo de evento.</td>
+<td>Ajusta numerador y denominador con fluidez y usa el árbol.</td>
+</tr>
+<tr>
+<td>Calcular y expresar el resultado</td>
+<td>Comete errores de fracción.</td>
+<td>Calcula con algún error o no simplifica.</td>
+<td>Calcula sin errores y simplifica la fracción.</td>
+<td>Expresa el resultado en fracción, decimal y porcentaje.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cierre">
+<h2 id="s-cierre-y-enlace-con-la-proxima-leccion">Cierre y enlace con la próxima lección</h2>
+<p>En esta lección se calculó la <strong>probabilidad compuesta</strong> de dos eventos: <strong>con reemplazo</strong> (independientes, el denominador no cambia) y <strong>sin reemplazo</strong> (dependientes, el denominador baja en 1), usando el diagrama de árbol y expresando el resultado en fracción, decimal y porcentaje.</p>
+<p>La <strong>Lección 8.3 · Proyecto final integrador + estrategias para el GED Mathematical Reasoning</strong> cierra el Nivel 3. Se reunirá todo lo aprendido en un <strong>proyecto de análisis de datos</strong> y se practicarán estrategias para el examen GED, incluida una <strong>evaluación final</strong> que abarca los ocho temas del nivel.</p>
+</div>
+<footer><p>GEDparaHispanos · Matemáticas · Nivel 3 · Tema 8 · Lección 8.2</p><p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p><p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p></footer><a aria-label="Volver al contenido de la lección" class="volver-indice" href="#indice"><span aria-hidden="true">↑</span> Índice</a>
+</div>
 <script>
 (function () {
   /* ---- Práctica de opciones (selección múltiple) ---- */

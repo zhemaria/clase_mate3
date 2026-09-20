@@ -1,9 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
+<!-- Lección 6.3 · Matemáticas Nivel 3 · GEDparaHispanos
+     José M. Fernández · CC BY-NC-SA 4.0 -->
+
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Lección 6.3 · Semejanza de figuras y dibujos a escala (Teorema de Thales)</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lección 6.3 · Semejanza de figuras y dibujos a escala (Teorema de Thales)</title><meta content="CC BY-NC-SA 4.0" name="license"/><link href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license"/>
 <style>
   :root {
     --tema:   #0d47a1;
@@ -145,25 +148,7 @@
   }
   .btn:hover { background: var(--tema-d); }
   .btn.sec { background: #546e7a; }
-  .btn.sec:hover { background: #37474f; }
-
-  .modalidad { display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0; }
-  .modo { flex: 1; min-width: 230px; border-radius: 9px; padding: 14px 16px; font-size: 14px; }
-  .modo-pres { background: #e3f2fd; border-left: 5px solid #1565c0; }
-  .modo-pres strong { color: #0d47a1; }
-  .modo-virt { background: #f3e5f5; border-left: 5px solid #6a1b9a; }
-  .modo-virt strong { color: #4a148c; }
-  .modo h3 { margin: 0 0 6px; font-size: 15px; }
-  .modo-pres h3 { color: #0d47a1; }
-  .modo-virt h3 { color: #4a148c; }
-
-  .actividad { margin-bottom: 18px; }
-  .actividad > .titulo-act {
-    font-weight: 700; color: var(--tema-d); font-size: 15px;
-    background: var(--tema-bg); padding: 7px 14px; border-radius: 7px;
-  }
-
-  .caja-tarea {
+  .btn.sec:hover { background: #37474f; }.caja-tarea {
     background: #ede7f6; border-left: 6px solid #5e35b1;
     padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 20px 0;
   }
@@ -207,316 +192,257 @@
     text-align: center; padding: 20px; color: #555;
     font-size: 13px; border-top: 1px solid #ddd; margin-top: 20px;
   }
+
+  /* ── ÍNDICE DE LA LECCIÓN ── */
+  .indice{
+    background:#fff; border:1px solid #d8dde3; border-left:6px solid var(--tema);
+    border-radius:10px; padding:16px 20px; margin:24px 0;
+  }
+  .indice h2{ font-size:1.05rem; margin:0 0 10px; color:var(--tema-d); border:0; padding:0; background:none; }
+  .indice ol{ margin:0; padding-left:1.35em; }
+  .indice li{ margin:4px 0; }
+  .indice a{ color:var(--tema-d); text-decoration:underline; }
+  .indice a:hover{ color:var(--tema); }
+  .indice a:focus-visible,.volver-indice:focus-visible{ outline:3px solid #b05e00; outline-offset:2px; }
+  .volver-indice{
+    position:fixed; right:18px; bottom:18px; z-index:60;
+    background:var(--tema-d); color:#fff; border-radius:999px;
+    padding:10px 16px; font-weight:700; font-size:.92rem; text-decoration:none;
+    box-shadow:0 2px 10px rgba(0,0,0,.28);
+  }
+  .volver-indice:hover{ background:var(--tema); color:#fff; }
+  footer a{ color:inherit; }
+  @media print{ .indice,.volver-indice{ display:none; } }
 </style>
 </head>
 <body>
 <div class="contenedor">
-
-  <header class="principal">
-    <div class="ruta">Spanish ASE Math · Nivel 3 · Tema 6 · Geometría avanzada</div>
-    <h1>Lección 6.3 · Semejanza de figuras y dibujos a escala (Teorema de Thales)</h1>
-    <div class="meta">4 horas (2 sincrónicas + 2 asincrónicas) · NRS 3–4 · Brightspace D2L</div>
-  </header>
-
-  <div class="caja-objetivos">
-    <h2>Objetivos de la lección</h2>
-    <ul>
-      <li>Identificar figuras semejantes por sus ángulos iguales y sus lados proporcionales.</li>
-      <li>Plantear y resolver proporciones para encontrar lados desconocidos.</li>
-      <li>Interpretar y usar la escala de mapas y planos de construcción.</li>
-      <li>Aplicar el Teorema de Thales para hallar alturas y distancias inaccesibles.</li>
-      <li>Reconocer el factor de escala entre dos figuras semejantes.</li>
-    </ul>
-  </div>
-
-  <div class="bloque">
-    <p><strong>Conexión con la lección anterior.</strong> La Lección 6.2 trabajó con un tipo especial de triángulo. Esta lección estudia figuras que tienen la <strong>misma forma pero distinto tamaño</strong>: las figuras semejantes. Para resolverlas se usan <strong>proporciones</strong>, una herramienta del Nivel 2 que aquí se aplica a la geometría, y el álgebra de los Temas 4 y 5 para despejar el lado desconocido.</p>
-  </div>
-
-  <h2 class="seccion">1. Figuras semejantes</h2>
-  <div class="bloque">
-    <p>Dos figuras son <strong>semejantes</strong> cuando tienen la misma forma: sus <strong>ángulos correspondientes son iguales</strong> y sus <strong>lados correspondientes son proporcionales</strong>. El número que relaciona los lados se llama <strong>factor de escala</strong>.</p>
-
-    <div class="diagrama-wrap">
-      <svg width="500" height="280" viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dos triángulos rectángulos semejantes. El pequeño tiene catetos de 4 y 3 y una hipotenusa de 5. El grande tiene la misma forma, con catetos de 8 y 6 y una hipotenusa de 10: cada lado del triángulo grande es el doble del lado correspondiente del pequeño, con un factor de escala de dos.">
-        <polygon points="40,200 160,200 40,120" fill="#c5d8f0" stroke="#08306b" stroke-width="3"/>
-        <rect x="40" y="180" width="20" height="20" fill="none" stroke="#08306b" stroke-width="2"/>
-        <g font-family="Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#08306b">
-          <text x="100" y="222" text-anchor="middle">4</text>
-          <text x="26" y="165" text-anchor="middle">3</text>
-          <text x="108" y="150">5</text>
-        </g>
-        <polygon points="260,240 460,240 260,80" fill="#b3cdec" stroke="#08306b" stroke-width="3"/>
-        <rect x="260" y="216" width="24" height="24" fill="none" stroke="#08306b" stroke-width="2"/>
-        <g font-family="Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#08306b">
-          <text x="360" y="264" text-anchor="middle">8</text>
-          <text x="244" y="165" text-anchor="middle">6</text>
-          <text x="372" y="155">10</text>
-        </g>
-      </svg>
+<header class="principal">
+<div class="ruta">Spanish ASE Math · Nivel 3 · Tema 6 · Geometría avanzada</div>
+<h1>Lección 6.3 · Semejanza de figuras y dibujos a escala (Teorema de Thales)</h1>
+<div class="meta">Unas 4 horas, a su ritmo · NRS 3–4</div>
+</header>
+<div class="caja-objetivos">
+<h2>Objetivos de la lección</h2>
+<ul>
+<li>Identificar figuras semejantes por sus ángulos iguales y sus lados proporcionales.</li>
+<li>Plantear y resolver proporciones para encontrar lados desconocidos.</li>
+<li>Interpretar y usar la escala de mapas y planos de construcción.</li>
+<li>Aplicar el Teorema de Thales para hallar alturas y distancias inaccesibles.</li>
+<li>Reconocer el factor de escala entre dos figuras semejantes.</li>
+</ul>
+</div><nav aria-labelledby="indice-titulo" class="indice" id="indice"><h2 id="indice-titulo">Contenido de la lección</h2><ol><li><a href="#s-1-figuras-semejantes">1. Figuras semejantes</a></li><li><a href="#s-2-resolver-proporciones-para-hallar-un-lado">2. Resolver proporciones para hallar un lado</a></li><li><a href="#s-3-dibujos-a-escala">3. Dibujos a escala</a></li><li><a href="#s-4-el-teorema-de-thales-medidas-indirectas">4. El Teorema de Thales: medidas indirectas</a></li><li><a href="#s-tarea">Tarea</a></li><li><a href="#s-quiz-de-la-leccion-6-3">Quiz de la lección 6.3</a></li><li><a href="#s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</a></li><li><a href="#s-cierre-del-tema-6-y-enlace-con-el-tema-7">Cierre del Tema 6 y enlace con el Tema 7</a></li></ol></nav>
+<div class="bloque">
+<p><strong>Conexión con la lección anterior.</strong> La Lección 6.2 trabajó con un tipo especial de triángulo. Esta lección estudia figuras que tienen la <strong>misma forma pero distinto tamaño</strong>: las figuras semejantes. Para resolverlas se usan <strong>proporciones</strong>, una herramienta del Nivel 2 que aquí se aplica a la geometría, y el álgebra de los Temas 4 y 5 para despejar el lado desconocido.</p>
+</div>
+<h2 class="seccion" id="s-1-figuras-semejantes">1. Figuras semejantes</h2>
+<div class="bloque">
+<p>Dos figuras son <strong>semejantes</strong> cuando tienen la misma forma: sus <strong>ángulos correspondientes son iguales</strong> y sus <strong>lados correspondientes son proporcionales</strong>. El número que relaciona los lados se llama <strong>factor de escala</strong>.</p>
+<div class="diagrama-wrap">
+<svg aria-label="Dos triángulos rectángulos semejantes. El pequeño tiene catetos de 4 y 3 y una hipotenusa de 5. El grande tiene la misma forma, con catetos de 8 y 6 y una hipotenusa de 10: cada lado del triángulo grande es el doble del lado correspondiente del pequeño, con un factor de escala de dos." height="280" role="img" viewbox="0 0 500 280" width="500" xmlns="http://www.w3.org/2000/svg">
+<polygon fill="#c5d8f0" points="40,200 160,200 40,120" stroke="#08306b" stroke-width="3"></polygon>
+<rect fill="none" height="20" stroke="#08306b" stroke-width="2" width="20" x="40" y="180"></rect>
+<g fill="#08306b" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">
+<text text-anchor="middle" x="100" y="222">4</text>
+<text text-anchor="middle" x="26" y="165">3</text>
+<text x="108" y="150">5</text>
+</g>
+<polygon fill="#b3cdec" points="260,240 460,240 260,80" stroke="#08306b" stroke-width="3"></polygon>
+<rect fill="none" height="24" stroke="#08306b" stroke-width="2" width="24" x="260" y="216"></rect>
+<g fill="#08306b" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">
+<text text-anchor="middle" x="360" y="264">8</text>
+<text text-anchor="middle" x="244" y="165">6</text>
+<text x="372" y="155">10</text>
+</g>
+</svg>
+</div>
+<div class="caja-tip">
+<strong>El factor de escala:</strong> para encontrarlo, se divide un lado del grande entre su correspondiente del pequeño. En el diagrama, 8 ÷ 4 = 2: el triángulo grande es el doble del pequeño. Todos los lados cumplen la misma razón (6 ÷ 3 = 2, 10 ÷ 5 = 2).
     </div>
-
-    <div class="caja-tip">
-      <strong>El factor de escala:</strong> para encontrarlo, se divide un lado del grande entre su correspondiente del pequeño. En el diagrama, 8 ÷ 4 = 2: el triángulo grande es el doble del pequeño. Todos los lados cumplen la misma razón (6 ÷ 3 = 2, 10 ÷ 5 = 2).
+</div>
+<a aria-label="Abrir el interactivo de igualdad y semejanza de triángulos en GEDparaHispanos (se abre en una pestaña nueva)" class="enlace-interactivo" href="https://zhemaria.github.io/interactivos/semejanza/" rel="noopener noreferrer" target="_blank">
+<span aria-hidden="true" class="ei-icono">🔗</span>
+<span class="ei-cuerpo">
+<span class="ei-titulo">Refuerza con un interactivo</span>
+<span class="ei-sub">Manipula triángulos semejantes y observa cómo se conservan los ángulos y la proporción de los lados en el portal GEDparaHispanos.</span>
+<span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+</span>
+</a>
+<h2 class="seccion" id="s-2-resolver-proporciones-para-hallar-un-lado">2. Resolver proporciones para hallar un lado</h2>
+<div class="bloque">
+<p>Si dos figuras son semejantes, sus lados correspondientes forman una <strong>proporción</strong>. Para hallar un lado desconocido, se plantea la proporción y se resuelve con la multiplicación cruzada.</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 1</span>
+<p>Dos triángulos son semejantes. Los lados del pequeño son 3, 4 y 5; en el grande, el lado correspondiente al 3 mide 6 y se busca el lado x correspondiente al 5.</p>
+<div class="paso"><span class="n">1</span> Se plantea la proporción: 3/6 = 5/x.</div>
+<div class="paso"><span class="n">2</span> Multiplicación cruzada: 3 · x = 6 · 5, es decir 3x = 30.</div>
+<div class="paso"><span class="n">3</span> Se despeja: x = 10.</div>
+<p><strong>Respuesta:</strong> el lado desconocido mide 10.</p>
+</div>
+<div class="caja-atencion">
+<strong>Emparejar bien los lados:</strong> en la proporción, cada lado del pequeño debe ir con su correspondiente del grande, siempre en el mismo orden (pequeño sobre grande de los dos lados, o grande sobre pequeño de los dos). Mezclar el orden da un resultado incorrecto.
     </div>
-  </div>
-
-  <!-- ENLACE AL INTERACTIVO — reemplazar AQUI_VA_URL por la URL de GitHub del interactivo de semejanza -->
-  <a class="enlace-interactivo" href="AQUI_VA_URL" target="_blank" rel="noopener"
-     aria-label="Abrir el interactivo de igualdad y semejanza de triángulos en GEDparaHispanos (se abre en una pestaña nueva)">
-    <span class="ei-icono" aria-hidden="true">🔗</span>
-    <span class="ei-cuerpo">
-      <span class="ei-titulo">Refuerza con un interactivo</span>
-      <span class="ei-sub">Manipula triángulos semejantes y observa cómo se conservan los ángulos y la proporción de los lados en el portal GEDparaHispanos.</span>
-      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
-    </span>
-  </a>
-
-  <h2 class="seccion">2. Resolver proporciones para hallar un lado</h2>
-  <div class="bloque">
-    <p>Si dos figuras son semejantes, sus lados correspondientes forman una <strong>proporción</strong>. Para hallar un lado desconocido, se plantea la proporción y se resuelve con la multiplicación cruzada.</p>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 1</span>
-      <p>Dos triángulos son semejantes. Los lados del pequeño son 3, 4 y 5; en el grande, el lado correspondiente al 3 mide 6 y se busca el lado x correspondiente al 5.</p>
-      <div class="paso"><span class="n">1</span> Se plantea la proporción: 3/6 = 5/x.</div>
-      <div class="paso"><span class="n">2</span> Multiplicación cruzada: 3 · x = 6 · 5, es decir 3x = 30.</div>
-      <div class="paso"><span class="n">3</span> Se despeja: x = 10.</div>
-      <p><strong>Respuesta:</strong> el lado desconocido mide 10.</p>
+</div>
+<div class="practica">
+<h3>Práctica interactiva 1 · Semejanza y proporción</h3>
+<p>Selecciona la respuesta correcta de cada caso.</p>
+<div class="pregunta" data-correcta="a">
+<div class="enun">1. ¿Cuál es el factor de escala si un lado de 5 corresponde a uno de 15?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">×3</div>
+<div class="opcion" data-op="b">×2</div>
+<div class="opcion" data-op="c">×10</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">2. Con un factor de escala ×3, el lado correspondiente al 4 mide…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">12</div>
+<div class="opcion" data-op="b">7</div>
+<div class="opcion" data-op="c">1.33</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">3. Triángulos semejantes 3-4-5 y 6-8-x. ¿Cuánto vale x?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">10</div>
+<div class="opcion" data-op="b">7</div>
+<div class="opcion" data-op="c">9</div>
+</div>
+<div class="fb"></div>
+</div>
+</div>
+<h2 class="seccion" id="s-3-dibujos-a-escala">3. Dibujos a escala</h2>
+<div class="bloque">
+<p>Un mapa o un plano es un <strong>dibujo a escala</strong>: una versión semejante, más pequeña, de algo real. La <strong>escala</strong> indica a cuánto de la realidad equivale cada unidad del dibujo.</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 2 · Mapa de Chicago</span>
+<p>En un mapa, 1 cm representa 5 km. Dos lugares están a 4 cm en el mapa. ¿Cuál es la distancia real?</p>
+<div class="paso"><span class="n">1</span> Cada centímetro vale 5 km, así que se multiplica: 4 × 5.</div>
+<p><strong>Respuesta:</strong> la distancia real es de 20 km.</p>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 3 · Plano con escala 1:100</span>
+<p>En un plano a escala 1:100, una pared real mide 300 cm. ¿Cuánto mide en el plano?</p>
+<div class="paso"><span class="n">1</span> Escala 1:100 significa que el plano es 100 veces más pequeño: se divide entre 100.</div>
+<div class="paso"><span class="n">2</span> 300 ÷ 100 = 3.</div>
+<p><strong>Respuesta:</strong> en el plano la pared mide 3 cm.</p>
+</div>
+</div>
+<h2 class="seccion" id="s-4-el-teorema-de-thales-medidas-indirectas">4. El Teorema de Thales: medidas indirectas</h2>
+<div class="bloque">
+<p>El <strong>Teorema de Thales</strong> permite hallar alturas o distancias que no se pueden medir directamente, usando la proporción entre una figura y su sombra (o entre una referencia conocida y la incógnita).</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 4 · La altura del árbol</span>
+<p>Un poste de 2 m proyecta una sombra de 3 m. A la misma hora, un árbol proyecta una sombra de 12 m. ¿Qué altura tiene el árbol?</p>
+<div class="paso"><span class="n">1</span> Se plantea la proporción entre altura y sombra: 2/3 = x/12.</div>
+<div class="paso"><span class="n">2</span> Multiplicación cruzada: 3 · x = 2 · 12, es decir 3x = 24.</div>
+<div class="paso"><span class="n">3</span> Se despeja: x = 8.</div>
+<p><strong>Respuesta:</strong> el árbol mide 8 m de alto.</p>
+</div>
+<div class="caja-tip">
+<strong>La misma hora, la misma proporción:</strong> el método de la sombra funciona porque, a la misma hora, los rayos del sol forman el mismo ángulo. Así, el objeto y su sombra forman triángulos semejantes con la referencia y su sombra.
     </div>
-
-    <div class="caja-atencion">
-      <strong>Emparejar bien los lados:</strong> en la proporción, cada lado del pequeño debe ir con su correspondiente del grande, siempre en el mismo orden (pequeño sobre grande de los dos lados, o grande sobre pequeño de los dos). Mezclar el orden da un resultado incorrecto.
-    </div>
-  </div>
-
-  <div class="practica">
-    <h3>Práctica interactiva 1 · Semejanza y proporción</h3>
-    <p>Selecciona la respuesta correcta de cada caso.</p>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">1. ¿Cuál es el factor de escala si un lado de 5 corresponde a uno de 15?</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">×3</div>
-        <div class="opcion" data-op="b">×2</div>
-        <div class="opcion" data-op="c">×10</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">2. Con un factor de escala ×3, el lado correspondiente al 4 mide…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">12</div>
-        <div class="opcion" data-op="b">7</div>
-        <div class="opcion" data-op="c">1.33</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">3. Triángulos semejantes 3-4-5 y 6-8-x. ¿Cuánto vale x?</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">10</div>
-        <div class="opcion" data-op="b">7</div>
-        <div class="opcion" data-op="c">9</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-  </div>
-
-  <h2 class="seccion">3. Dibujos a escala</h2>
-  <div class="bloque">
-    <p>Un mapa o un plano es un <strong>dibujo a escala</strong>: una versión semejante, más pequeña, de algo real. La <strong>escala</strong> indica a cuánto de la realidad equivale cada unidad del dibujo.</p>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 2 · Mapa de Chicago</span>
-      <p>En un mapa, 1 cm representa 5 km. Dos lugares están a 4 cm en el mapa. ¿Cuál es la distancia real?</p>
-      <div class="paso"><span class="n">1</span> Cada centímetro vale 5 km, así que se multiplica: 4 × 5.</div>
-      <p><strong>Respuesta:</strong> la distancia real es de 20 km.</p>
-    </div>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 3 · Plano con escala 1:100</span>
-      <p>En un plano a escala 1:100, una pared real mide 300 cm. ¿Cuánto mide en el plano?</p>
-      <div class="paso"><span class="n">1</span> Escala 1:100 significa que el plano es 100 veces más pequeño: se divide entre 100.</div>
-      <div class="paso"><span class="n">2</span> 300 ÷ 100 = 3.</div>
-      <p><strong>Respuesta:</strong> en el plano la pared mide 3 cm.</p>
-    </div>
-  </div>
-
-  <h2 class="seccion">4. El Teorema de Thales: medidas indirectas</h2>
-  <div class="bloque">
-    <p>El <strong>Teorema de Thales</strong> permite hallar alturas o distancias que no se pueden medir directamente, usando la proporción entre una figura y su sombra (o entre una referencia conocida y la incógnita).</p>
-
-    <div class="ejemplo">
-      <span class="et">Ejemplo 4 · La altura del árbol</span>
-      <p>Un poste de 2 m proyecta una sombra de 3 m. A la misma hora, un árbol proyecta una sombra de 12 m. ¿Qué altura tiene el árbol?</p>
-      <div class="paso"><span class="n">1</span> Se plantea la proporción entre altura y sombra: 2/3 = x/12.</div>
-      <div class="paso"><span class="n">2</span> Multiplicación cruzada: 3 · x = 2 · 12, es decir 3x = 24.</div>
-      <div class="paso"><span class="n">3</span> Se despeja: x = 8.</div>
-      <p><strong>Respuesta:</strong> el árbol mide 8 m de alto.</p>
-    </div>
-
-    <div class="caja-tip">
-      <strong>La misma hora, la misma proporción:</strong> el método de la sombra funciona porque, a la misma hora, los rayos del sol forman el mismo ángulo. Así, el objeto y su sombra forman triángulos semejantes con la referencia y su sombra.
-    </div>
-  </div>
-
-  <div class="practica">
-    <h3>Práctica interactiva 2 · Escala y Thales</h3>
-    <p>Selecciona la respuesta correcta de cada caso.</p>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">1. En un mapa, 1 cm = 2 km. ¿A cuántos km equivalen 5 cm?</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">10 km</div>
-        <div class="opcion" data-op="b">7 km</div>
-        <div class="opcion" data-op="c">2.5 km</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">2. Un poste de 3 m da sombra de 2 m; un árbol da sombra de 8 m. Altura del árbol…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">12 m</div>
-        <div class="opcion" data-op="b">5 m</div>
-        <div class="opcion" data-op="c">16 m</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">3. Escala 1:50. Una pared real de 200 cm aparece en el plano como…</div>
-      <div class="opciones">
-        <div class="opcion" data-op="a">4 cm</div>
-        <div class="opcion" data-op="b">40 cm</div>
-        <div class="opcion" data-op="c">100 cm</div>
-      </div>
-      <div class="fb"></div>
-    </div>
-  </div>
-
-  <h2 class="seccion">5. Práctica guiada en clase</h2>
-  <div class="bloque">
-    <p>Las siguientes tres actividades se realizan durante las horas sincrónicas. Cada una se presenta en doble modalidad: una versión para el aula presencial y otra para la sesión en línea.</p>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 1 · El cartógrafo</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          Con un mapa de Chicago y su escala, los estudiantes miden la distancia en el mapa entre varios pares de puntos y calculan la distancia real correspondiente.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          Sobre un mapa compartido con escala, cada estudiante calcula la distancia real de tres recorridos y registra el procedimiento en una hoja común.
-        </div>
-      </div>
-    </div>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 2 · El arquitecto</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          Los estudiantes encuentran los lados desconocidos de tres pares de triángulos semejantes planteando y resolviendo la proporción correspondiente, y emparejando con cuidado los lados.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          En el interactivo del portal, las parejas manipulan triángulos semejantes y verifican que la proporción se conserva, luego resuelven tres lados desconocidos en una hoja compartida.
-        </div>
-      </div>
-    </div>
-
-    <div class="actividad">
-      <div class="titulo-act">Actividad 3 · La sombra (Thales)</div>
-      <div class="modalidad">
-        <div class="modo modo-pres">
-          <h3><span aria-hidden="true">🏫</span> Presencial</h3>
-          A partir de la altura y la sombra de un poste de referencia, los estudiantes calculan la altura de un edificio cuya sombra se conoce, aplicando el Teorema de Thales con una proporción.
-        </div>
-        <div class="modo modo-virt">
-          <h3><span aria-hidden="true">💻</span> En línea</h3>
-          Cada estudiante resuelve dos problemas de medida indirecta (altura por sombra) en una hoja compartida, mostrando la proporción planteada y el resultado con unidades.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="caja-tarea">
-    <h2>Tarea asincrónica</h2>
-    <p>Para completar de forma individual en la plataforma <strong>MyOpenMath</strong> antes de la próxima sesión:</p>
-    <ul>
-      <li>Tres ejercicios de encontrar un lado desconocido en figuras semejantes.</li>
-      <li>Tres ejercicios de interpretar una escala (mapa o plano).</li>
-      <li>Dos problemas de medida indirecta con el Teorema de Thales (sombra o referencia).</li>
-    </ul>
-    <p>La plataforma ofrece retroalimentación paso a paso en cada intento. Tiempo estimado: 55 minutos.</p>
-  </div>
-
-  <div class="quiz">
-    <h2>Quiz de la lección 6.3</h2>
-    <p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
-    <div id="quiz-cuerpo"></div>
-    <div id="resultado-quiz"></div>
-    <button class="btn" id="btn-corregir">Corregir quiz</button>
-    <button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
-  </div>
-
-  <div class="rubrica">
-    <h2>Rúbrica analítica de la lección</h2>
-    <p>Tres criterios evaluados en cuatro niveles de desempeño.</p>
-    <table class="tabla-rubrica">
-      <caption class="sr-only">Rúbrica analítica con tres criterios y cuatro niveles de desempeño.</caption>
-      <thead>
-        <tr>
-          <th scope="col">Criterio</th>
-          <th scope="col">Inicial (1)</th>
-          <th scope="col">En desarrollo (2)</th>
-          <th scope="col">Competente (3)</th>
-          <th scope="col">Destacado (4)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Verificar la semejanza</td>
-          <td>No comprueba la proporcionalidad de los lados.</td>
-          <td>Comprueba la proporción con errores.</td>
-          <td>Verifica la semejanza comprobando la proporcionalidad de los lados.</td>
-          <td>Verifica con fluidez e identifica el factor de escala.</td>
-        </tr>
-        <tr>
-          <td>Plantear y resolver la proporción</td>
-          <td>No plantea la proporción correctamente.</td>
-          <td>Plantea la proporción, pero empareja mal los lados.</td>
-          <td>Plantea y resuelve la proporción para el lado desconocido.</td>
-          <td>Resuelve con fluidez y verifica el resultado.</td>
-        </tr>
-        <tr>
-          <td>Aplicar la escala</td>
-          <td>No usa la escala correctamente.</td>
-          <td>Aplica la escala con errores de conversión.</td>
-          <td>Aplica la escala para convertir entre dibujo y medida real.</td>
-          <td>Aplica la escala con fluidez, también en el Teorema de Thales.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="cierre">
-    <h2>Cierre del Tema 6 y enlace con el Tema 7</h2>
-    <p>Con esta lección se cierra el Tema 6. Ya se reconoce la <strong>semejanza</strong> de figuras (ángulos iguales y lados proporcionales), se resuelven <strong>proporciones</strong> para hallar lados desconocidos, se interpretan <strong>escalas</strong> de mapas y planos, y se aplica el <strong>Teorema de Thales</strong> para medir alturas inaccesibles. Con ello queda completa la geometría de figuras planas del Nivel 3.</p>
-    <p>El Tema 7 dará el salto a las tres dimensiones y a los datos. Abrirá con la <strong>Lección 7.1 · Volumen de prismas y cilindros</strong>, donde se calculará cuánto cabe dentro de un cuerpo sólido (V = Área de la base × altura), usando de nuevo las fórmulas y el despeje aprendidos en estos temas.</p>
-  </div>
-
-  <footer>
-    Spanish ASE Math · Nivel 3 · Lección 6.3 — Preparado para Prof. José M. Fernández (Truman College, CCC) · Brightspace D2L
-  </footer>
-
+</div>
+<div class="practica">
+<h3>Práctica interactiva 2 · Escala y Thales</h3>
+<p>Selecciona la respuesta correcta de cada caso.</p>
+<div class="pregunta" data-correcta="a">
+<div class="enun">1. En un mapa, 1 cm = 2 km. ¿A cuántos km equivalen 5 cm?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">10 km</div>
+<div class="opcion" data-op="b">7 km</div>
+<div class="opcion" data-op="c">2.5 km</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">2. Un poste de 3 m da sombra de 2 m; un árbol da sombra de 8 m. Altura del árbol…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">12 m</div>
+<div class="opcion" data-op="b">5 m</div>
+<div class="opcion" data-op="c">16 m</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">3. Escala 1:50. Una pared real de 200 cm aparece en el plano como…</div>
+<div class="opciones">
+<div class="opcion" data-op="a">4 cm</div>
+<div class="opcion" data-op="b">40 cm</div>
+<div class="opcion" data-op="c">100 cm</div>
+</div>
+<div class="fb"></div>
+</div>
 </div>
 
+
+<div class="caja-tarea">
+<h2 id="s-tarea">Tarea</h2>
+<p>Para hacer por su cuenta, con el cuaderno abierto:</p>
+<ul>
+<li>Tres ejercicios de encontrar un lado desconocido en figuras semejantes.</li>
+<li>Tres ejercicios de interpretar una escala (mapa o plano).</li>
+<li>Dos problemas de medida indirecta con el Teorema de Thales (sombra o referencia).</li>
+<li><strong>ThatQuiz:</strong> entre en <a href="https://www.thatquiz.org/es/" rel="noopener noreferrer" target="_blank">ThatQuiz</a> y practique <em>proporciones</em> y <em>triángulos</em>. La semejanza se resuelve entera con el producto cruzado; lo difícil es emparejar bien los lados correspondientes antes de plantearlo.</li></ul>
+<p>Tiempo estimado: 55 minutos. Resuelva en papel y evalúe su trabajo con la rúbrica de esta lección.</p>
+</div>
+<div class="quiz">
+<h2 id="s-quiz-de-la-leccion-6-3">Quiz de la lección 6.3</h2>
+<p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
+<div id="quiz-cuerpo"></div>
+<div id="resultado-quiz"></div>
+<button class="btn" id="btn-corregir">Corregir quiz</button>
+<button class="btn sec" id="btn-reintentar" style="display:none;">Intentar de nuevo</button>
+</div>
+<div class="rubrica">
+<h2 id="s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</h2>
+<p>Tres criterios evaluados en cuatro niveles de desempeño. Léala <strong>antes</strong> de empezar la tarea y úsela <strong>después</strong> para evaluar su propio trabajo con honestidad.</p>
+<table class="tabla-rubrica">
+<caption class="sr-only">Rúbrica analítica con tres criterios y cuatro niveles de desempeño.</caption>
+<thead>
+<tr>
+<th scope="col">Criterio</th>
+<th scope="col">Inicial (1)</th>
+<th scope="col">En desarrollo (2)</th>
+<th scope="col">Competente (3)</th>
+<th scope="col">Destacado (4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Verificar la semejanza</td>
+<td>No comprueba la proporcionalidad de los lados.</td>
+<td>Comprueba la proporción con errores.</td>
+<td>Verifica la semejanza comprobando la proporcionalidad de los lados.</td>
+<td>Verifica con fluidez e identifica el factor de escala.</td>
+</tr>
+<tr>
+<td>Plantear y resolver la proporción</td>
+<td>No plantea la proporción correctamente.</td>
+<td>Plantea la proporción, pero empareja mal los lados.</td>
+<td>Plantea y resuelve la proporción para el lado desconocido.</td>
+<td>Resuelve con fluidez y verifica el resultado.</td>
+</tr>
+<tr>
+<td>Aplicar la escala</td>
+<td>No usa la escala correctamente.</td>
+<td>Aplica la escala con errores de conversión.</td>
+<td>Aplica la escala para convertir entre dibujo y medida real.</td>
+<td>Aplica la escala con fluidez, también en el Teorema de Thales.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cierre">
+<h2 id="s-cierre-del-tema-6-y-enlace-con-el-tema-7">Cierre del Tema 6 y enlace con el Tema 7</h2>
+<p>Con esta lección se cierra el Tema 6. Ya se reconoce la <strong>semejanza</strong> de figuras (ángulos iguales y lados proporcionales), se resuelven <strong>proporciones</strong> para hallar lados desconocidos, se interpretan <strong>escalas</strong> de mapas y planos, y se aplica el <strong>Teorema de Thales</strong> para medir alturas inaccesibles. Con ello queda completa la geometría de figuras planas del Nivel 3.</p>
+<p>El Tema 7 dará el salto a las tres dimensiones y a los datos. Abrirá con la <strong>Lección 7.1 · Volumen de prismas y cilindros</strong>, donde se calculará cuánto cabe dentro de un cuerpo sólido (V = Área de la base × altura), usando de nuevo las fórmulas y el despeje aprendidos en estos temas.</p>
+</div>
+<footer><p>GEDparaHispanos · Matemáticas · Nivel 3 · Tema 6 · Lección 6.3</p><p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p><p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p></footer><a aria-label="Volver al contenido de la lección" class="volver-indice" href="#indice"><span aria-hidden="true">↑</span> Índice</a>
+</div>
 <script>
 (function () {
   /* ---- Práctica de opciones (selección múltiple) ---- */

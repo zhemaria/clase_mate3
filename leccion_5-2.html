@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<!-- Lección 4.3 · Matemáticas Nivel 3 · GEDparaHispanos
+<!-- Lección 5.2 · Matemáticas Nivel 3 · GEDparaHispanos
      José M. Fernández · CC BY-NC-SA 4.0 -->
 
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lección 4.3 · Ecuaciones con coeficientes fraccionarios, decimales y casos especiales</title><meta content="CC BY-NC-SA 4.0" name="license"/><link href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license"/>
+<title>Lección 5.2 · Inecuaciones que requieren simplificación y problemas verbales</title><meta content="CC BY-NC-SA 4.0" name="license"/><link href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license"/>
 <style>
   :root {
-    --tema:   #bf360c;
-    --tema-d: #8c2708;
-    --tema-bg:#fbe9e7;
-    --tema-bg2:#f7d9d3;
+    --tema:   #1b5e20;
+    --tema-d: #14441a;
+    --tema-bg:#c8e6c9;
+    --tema-bg2:#b6dbb8;
     --acento: #1565c0;
-    --txt:    #222222;
+    --txt:    #222;
     --bg:     #f5f7fa;
   }
   * { box-sizing: border-box; }
@@ -32,9 +32,9 @@
 
   header.principal {
     background: var(--tema);
-    background: linear-gradient(135deg, #8c2708 0%, #bf360c 55%, #e64a19 100%);
+    background: linear-gradient(135deg, #14441a 0%, #1b5e20 55%, #2e7d32 100%);
     color: #fff; padding: 32px 30px; border-radius: 14px;
-    margin-bottom: 22px; box-shadow: 0 4px 14px rgba(140,39,8,.28);
+    margin-bottom: 22px; box-shadow: 0 4px 14px rgba(20,68,26,.28);
   }
   header.principal .ruta { font-size: 13px; opacity: .94; letter-spacing: .4px; text-transform: uppercase; }
   header.principal h1 { margin: 8px 0 6px; font-size: 24px; font-weight: 700; }
@@ -199,159 +199,179 @@
 <body>
 <div class="contenedor">
 <header class="principal">
-<div class="ruta">Spanish ASE Math · Nivel 3 · Tema 4 · Álgebra lineal</div>
-<h1>Lección 4.3 · Ecuaciones con coeficientes fraccionarios, decimales y casos especiales</h1>
+<div class="ruta">Spanish ASE Math · Nivel 3 · Tema 5 · Inecuaciones y fórmulas</div>
+<h1>Lección 5.2 · Inecuaciones que requieren simplificación y problemas verbales</h1>
 <div class="meta">Unas 4 horas, a su ritmo · NRS 3–4</div>
 </header>
 <div class="caja-objetivos">
 <h2>Objetivos de la lección</h2>
 <ul>
-<li>Resolver ecuaciones con coeficientes fraccionarios eliminando las fracciones (multiplicar por el MCM).</li>
-<li>Resolver ecuaciones con coeficientes decimales multiplicando por la potencia de 10 adecuada.</li>
-<li>Identificar la ecuación sin solución (contradicción: 0 = 5).</li>
-<li>Identificar la ecuación con infinitas soluciones (identidad: 0 = 0).</li>
-<li>Clasificar el resultado de una ecuación: una solución, sin solución o infinitas soluciones.</li>
+<li>Resolver inecuaciones que requieren distribuir, combinar términos semejantes y mover variables de lado.</li>
+<li>Reconocer el vocabulario verbal de las inecuaciones (al menos, no más de, mínimo, máximo, no excede).</li>
+<li>Traducir enunciados verbales a inecuaciones y resolverlas.</li>
+<li>Interpretar la solución en el contexto del problema, con unidades.</li>
+<li>Aplicar las inecuaciones a problemas reales de presupuesto y tiempo.</li>
 </ul>
-</div><nav aria-labelledby="indice-titulo" class="indice" id="indice"><h2 id="indice-titulo">Contenido de la lección</h2><ol><li><a href="#s-1-limpiar-fracciones-multiplicar-por-el-mcm">1. Limpiar fracciones: multiplicar por el MCM</a></li><li><a href="#s-2-limpiar-decimales-multiplicar-por-una-potencia-de-10">2. Limpiar decimales: multiplicar por una potencia de 10</a></li><li><a href="#s-3-caso-especial-ecuacion-sin-solucion">3. Caso especial: ecuación sin solución</a></li><li><a href="#s-4-caso-especial-infinitas-soluciones">4. Caso especial: infinitas soluciones</a></li><li><a href="#s-tarea">Tarea</a></li><li><a href="#s-quiz-de-la-leccion-4-3">Quiz de la lección 4.3</a></li><li><a href="#s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</a></li><li><a href="#s-cierre-del-tema-4-y-enlace-con-el-tema-5">Cierre del Tema 4 y enlace con el Tema 5</a></li></ol></nav>
+</div><nav aria-labelledby="indice-titulo" class="indice" id="indice"><h2 id="indice-titulo">Contenido de la lección</h2><ol><li><a href="#s-1-inecuaciones-que-requieren-simplificar">1. Inecuaciones que requieren simplificar</a></li><li><a href="#s-2-el-vocabulario-de-las-inecuaciones">2. El vocabulario de las inecuaciones</a></li><li><a href="#s-3-traducir-y-resolver-enunciados">3. Traducir y resolver enunciados</a></li><li><a href="#s-4-problemas-de-contexto-presupuesto-y-tiempo">4. Problemas de contexto: presupuesto y tiempo</a></li><li><a href="#s-5-interpretar-la-solucion">5. Interpretar la solución</a></li><li><a href="#s-tarea">Tarea</a></li><li><a href="#s-quiz-de-la-leccion-5-2">Quiz de la lección 5.2</a></li><li><a href="#s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</a></li><li><a href="#s-cierre-y-enlace-con-la-proxima-leccion">Cierre y enlace con la próxima lección</a></li></ol></nav>
 <div class="bloque">
-<p><strong>Conexión con la lección anterior.</strong> En la Lección 4.2 se resolvieron ecuaciones lineales con la estrategia de cinco pasos. Esta lección añade dos herramientas para los casos más difíciles: una estrategia proactiva para <strong>«limpiar» fracciones y decimales</strong> antes de resolver, de modo que la ecuación quede con números enteros, y el reconocimiento de dos resultados especiales que no dan un único valor: <strong>sin solución</strong> e <strong>infinitas soluciones</strong>.</p>
+<p><strong>Conexión con la lección anterior.</strong> En la Lección 5.1 se resolvieron inecuaciones sencillas y se graficó su solución. Esta lección añade dos capas. Primero, inecuaciones que —igual que las ecuaciones del Tema 4— requieren <strong>simplificar</strong> antes de resolver: distribuir, combinar términos semejantes y mover variables. Segundo, los <strong>problemas verbales</strong>: traducir un enunciado real a una inecuación e interpretar qué significa la solución.</p>
 </div>
-<h2 class="seccion" id="s-1-limpiar-fracciones-multiplicar-por-el-mcm">1. Limpiar fracciones: multiplicar por el MCM</h2>
+<h2 class="seccion" id="s-1-inecuaciones-que-requieren-simplificar">1. Inecuaciones que requieren simplificar</h2>
 <div class="bloque">
-<p>Una ecuación con fracciones se vuelve mucho más fácil si primero se <strong>eliminan las fracciones</strong>. Para ello, se multiplican <strong>todos</strong> los términos de ambos lados por el <strong>mínimo común múltiplo</strong> (MCM) de los denominadores.</p>
+<p>Cuando una inecuación tiene paréntesis o términos repetidos, primero se <strong>simplifica</strong> con las mismas herramientas del álgebra, y después se resuelve. La regla del cambio de signo sigue vigente si se divide por un negativo.</p>
 <div class="ejemplo">
-<span class="et">Ejemplo 1</span>
-<p>Resolver x/2 + 3 = 7.</p>
-<div class="paso"><span class="n">1</span> El único denominador es 2; se multiplica cada término por 2: 2 · (x/2) + 2 · 3 = 2 · 7.</div>
-<div class="paso"><span class="n">2</span> Se simplifica: x + 6 = 14.</div>
-<div class="paso"><span class="n">3</span> Se resta 6: x = 8.</div>
-<p><strong>Respuesta:</strong> x = 8.</p>
+<span class="et">Ejemplo 1 · Distribuir primero</span>
+<p>Resolver 2(x + 3) &gt; 10.</p>
+<div class="paso"><span class="n">1</span> Se distribuye: 2x + 6 &gt; 10.</div>
+<div class="paso"><span class="n">2</span> Se resta 6: 2x &gt; 4.</div>
+<div class="paso"><span class="n">3</span> Se divide entre 2 (positivo, no se invierte): x &gt; 2.</div>
+<p><strong>Respuesta:</strong> x &gt; 2.</p>
 </div>
 <div class="ejemplo">
-<span class="et">Ejemplo 2 · Dos denominadores</span>
-<p>Resolver x/2 + x/4 = 6.</p>
-<div class="paso"><span class="n">1</span> El MCM de 2 y 4 es 4; se multiplica cada término por 4: 4 · (x/2) + 4 · (x/4) = 4 · 6.</div>
-<div class="paso"><span class="n">2</span> Se simplifica: 2x + x = 24, es decir 3x = 24.</div>
-<div class="paso"><span class="n">3</span> Se divide entre 3: x = 8.</div>
-<p><strong>Respuesta:</strong> x = 8.</p>
+<span class="et">Ejemplo 2 · Variables en ambos lados</span>
+<p>Resolver 5x − 3 &gt; 2x + 9.</p>
+<div class="paso"><span class="n">1</span> Se resta 2x en ambos lados: 3x − 3 &gt; 9.</div>
+<div class="paso"><span class="n">2</span> Se suma 3: 3x &gt; 12.</div>
+<div class="paso"><span class="n">3</span> Se divide entre 3: x &gt; 4.</div>
+<p><strong>Respuesta:</strong> x &gt; 4.</p>
 </div>
 <div class="caja-atencion">
-<strong>Multiplicar todos los términos:</strong> el MCM debe multiplicar cada término, incluidos los que no tienen fracción (como el 3 del Ejemplo 1 o el 6 del Ejemplo 2). Olvidar un término es el error más frecuente al limpiar fracciones.
+<strong>No olvidar la regla del signo:</strong> si tras simplificar hay que dividir por un negativo (por ejemplo, en −2(x − 1) ≥ 8), el signo de la desigualdad se invierte, igual que en la Lección 5.1.
     </div>
 </div>
-<h2 class="seccion" id="s-2-limpiar-decimales-multiplicar-por-una-potencia-de-10">2. Limpiar decimales: multiplicar por una potencia de 10</h2>
+<h2 class="seccion" id="s-2-el-vocabulario-de-las-inecuaciones">2. El vocabulario de las inecuaciones</h2>
 <div class="bloque">
-<p>Con coeficientes decimales se aplica la misma idea: se multiplican todos los términos por <strong>10, 100 o 1000</strong>, según la mayor cantidad de cifras decimales, para convertir los decimales en enteros.</p>
-<div class="ejemplo">
-<span class="et">Ejemplo 3</span>
-<p>Resolver 0.2x + 1 = 3.</p>
-<div class="paso"><span class="n">1</span> La mayor cantidad de decimales es una cifra: se multiplica cada término por 10.</div>
-<div class="paso"><span class="n">2</span> Se obtiene: 2x + 10 = 30.</div>
-<div class="paso"><span class="n">3</span> Se resta 10 y se divide entre 2: 2x = 20, x = 10.</div>
-<p><strong>Respuesta:</strong> x = 10.</p>
-</div>
-<div class="caja-tip">
-<strong>Qué potencia usar:</strong> una cifra decimal → ×10; dos cifras (como 0.25) → ×100; tres cifras → ×1000. Se elige según el término con más decimales y se multiplica toda la ecuación por esa misma potencia.
-    </div>
-</div>
-<div class="practica">
-<h3>Práctica interactiva 1 · Fracciones y decimales</h3>
-<p>Selecciona la solución correcta de cada ecuación.</p>
-<div class="pregunta" data-correcta="a">
-<div class="enun">1. x/2 = 9</div>
-<div class="opciones">
-<div class="opcion" data-op="a">x = 18</div>
-<div class="opcion" data-op="b">x = 11</div>
-<div class="opcion" data-op="c">x = 4.5</div>
-</div>
-<div class="fb"></div>
-</div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">2. x/5 + 2 = 6</div>
-<div class="opciones">
-<div class="opcion" data-op="a">x = 20</div>
-<div class="opcion" data-op="b">x = 4</div>
-<div class="opcion" data-op="c">x = 40</div>
-</div>
-<div class="fb"></div>
-</div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">3. 0.5x = 7</div>
-<div class="opciones">
-<div class="opcion" data-op="a">x = 14</div>
-<div class="opcion" data-op="b">x = 3.5</div>
-<div class="opcion" data-op="c">x = 7</div>
-</div>
-<div class="fb"></div>
-</div>
-</div>
-<h2 class="seccion" id="s-3-caso-especial-ecuacion-sin-solucion">3. Caso especial: ecuación sin solución</h2>
-<div class="bloque">
-<p>A veces, al resolver, las variables desaparecen y queda una afirmación <strong>falsa</strong>, como 5 = 9. Eso significa que <strong>ningún valor</strong> de la variable puede hacer verdadera la ecuación: es una <strong>contradicción</strong> y la ecuación <strong>no tiene solución</strong>.</p>
-<div class="ejemplo">
-<span class="et">Ejemplo 4 · Sin solución</span>
-<p>Resolver 2x + 5 = 2x + 9.</p>
-<div class="paso"><span class="n">1</span> Se resta 2x en ambos lados: 5 = 9.</div>
-<div class="paso"><span class="n">2</span> La variable desapareció y queda 5 = 9, que es falso.</div>
-<p><strong>Respuesta:</strong> la ecuación no tiene solución (contradicción).</p>
-</div>
-</div>
-<h2 class="seccion" id="s-4-caso-especial-infinitas-soluciones">4. Caso especial: infinitas soluciones</h2>
-<div class="bloque">
-<p>En otros casos, al resolver, las variables desaparecen y queda una afirmación <strong>siempre verdadera</strong>, como 0 = 0. Eso significa que <strong>cualquier valor</strong> de la variable funciona: es una <strong>identidad</strong> y la ecuación tiene <strong>infinitas soluciones</strong>.</p>
-<div class="ejemplo">
-<span class="et">Ejemplo 5 · Infinitas soluciones</span>
-<p>Resolver 3(x + 2) = 3x + 6.</p>
-<div class="paso"><span class="n">1</span> Se distribuye a la izquierda: 3x + 6 = 3x + 6.</div>
-<div class="paso"><span class="n">2</span> Se resta 3x en ambos lados: 6 = 6, que es siempre verdadero.</div>
-<p><strong>Respuesta:</strong> la ecuación tiene infinitas soluciones (identidad).</p>
-</div>
+<p>Para traducir un enunciado, ciertas palabras señalan siempre el mismo signo de desigualdad.</p>
 <table class="reglas">
-<caption class="sr-only">Tipos de solución de una ecuación lineal según el resultado al resolver.</caption>
+<caption class="sr-only">Vocabulario verbal y su signo de desigualdad correspondiente.</caption>
 <thead>
 <tr>
-<th scope="col">Al resolver queda…</th>
-<th scope="col">Tipo de solución</th>
-<th scope="col">Significado</th>
+<th scope="col">Frase verbal</th>
+<th scope="col">Signo</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>x = un número</td><td>Una solución</td><td>Un único valor hace verdadera la ecuación.</td></tr>
-<tr><td>Algo falso (5 = 9)</td><td>Sin solución</td><td>Ningún valor funciona (contradicción).</td></tr>
-<tr><td>Algo verdadero (6 = 6)</td><td>Infinitas soluciones</td><td>Todo valor funciona (identidad).</td></tr>
+<tr><td>Al menos · mínimo · no menos de</td><td>≥</td></tr>
+<tr><td>No más de · máximo · no excede</td><td>≤</td></tr>
+<tr><td>Más que · mayor que</td><td>&gt;</td></tr>
+<tr><td>Menos que · menor que</td><td>&lt;</td></tr>
 </tbody>
 </table>
+<div class="caja-tip">
+<strong>«Al menos» y «como máximo» incluyen el límite:</strong> «al menos 10» significa 10 o más (≥ 10), e incluye el 10. «Como máximo 10» significa 10 o menos (≤ 10), e incluye el 10. Por eso usan los signos con la rayita (≤, ≥) y un punto cerrado al graficar.
+    </div>
 </div>
 <div class="practica">
-<h3>Práctica interactiva 2 · ¿Cuántas soluciones?</h3>
-<p>Clasifica el tipo de solución de cada ecuación.</p>
+<h3>Práctica interactiva 1 · Traducir a inecuación</h3>
+<p>Selecciona el signo o la inecuación correcta.</p>
 <div class="pregunta" data-correcta="a">
-<div class="enun">1. 2x + 3 = 2x + 8</div>
+<div class="enun">1. «Un número x es al menos 8»</div>
 <div class="opciones">
-<div class="opcion" data-op="a">Sin solución</div>
-<div class="opcion" data-op="b">Una solución</div>
-<div class="opcion" data-op="c">Infinitas soluciones</div>
+<div class="opcion" data-op="a">x ≥ 8</div>
+<div class="opcion" data-op="b">x ≤ 8</div>
+<div class="opcion" data-op="c">x &gt; 8</div>
 </div>
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="a">
-<div class="enun">2. 5(x + 1) = 5x + 5</div>
+<div class="enun">2. «Un número x no más de 15»</div>
 <div class="opciones">
-<div class="opcion" data-op="a">Infinitas soluciones</div>
-<div class="opcion" data-op="b">Sin solución</div>
-<div class="opcion" data-op="c">Una solución</div>
+<div class="opcion" data-op="a">x ≤ 15</div>
+<div class="opcion" data-op="b">x ≥ 15</div>
+<div class="opcion" data-op="c">x &lt; 15</div>
 </div>
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="a">
-<div class="enun">3. 3x + 1 = 7</div>
+<div class="enun">3. «Un número x es más que 3»</div>
 <div class="opciones">
-<div class="opcion" data-op="a">Una solución</div>
-<div class="opcion" data-op="b">Sin solución</div>
-<div class="opcion" data-op="c">Infinitas soluciones</div>
+<div class="opcion" data-op="a">x &gt; 3</div>
+<div class="opcion" data-op="b">x ≥ 3</div>
+<div class="opcion" data-op="c">x &lt; 3</div>
 </div>
 <div class="fb"></div>
 </div>
+</div>
+<h2 class="seccion" id="s-3-traducir-y-resolver-enunciados">3. Traducir y resolver enunciados</h2>
+<div class="bloque">
+<p>Para resolver un problema verbal: se identifica la variable, se traduce el enunciado a una inecuación usando el vocabulario y se resuelve.</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 3</span>
+<p>«Un número aumentado en 5 es al menos 12.» ¿Qué valores cumplen esto?</p>
+<div class="paso"><span class="n">1</span> Se traduce: «aumentado en 5» es x + 5; «al menos 12» es ≥ 12. Queda x + 5 ≥ 12.</div>
+<div class="paso"><span class="n">2</span> Se resta 5: x ≥ 7.</div>
+<p><strong>Respuesta:</strong> el número debe ser 7 o mayor.</p>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 4</span>
+<p>«El doble de un número no excede 14.» ¿Qué valores cumplen esto?</p>
+<div class="paso"><span class="n">1</span> Se traduce: «el doble» es 2x; «no excede 14» es ≤ 14. Queda 2x ≤ 14.</div>
+<div class="paso"><span class="n">2</span> Se divide entre 2: x ≤ 7.</div>
+<p><strong>Respuesta:</strong> el número debe ser 7 o menor.</p>
+</div>
+</div>
+<h2 class="seccion" id="s-4-problemas-de-contexto-presupuesto-y-tiempo">4. Problemas de contexto: presupuesto y tiempo</h2>
+<div class="bloque">
+<p>Las inecuaciones modelan límites de la vida real: un presupuesto que no se puede superar, un mínimo de horas que hay que cumplir, un máximo de artículos que se pueden comprar.</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 5 · Presupuesto</span>
+<p>Se dispone de $50 como máximo. Ya se gastaron $30. ¿Cuánto más (x) se puede gastar?</p>
+<div class="paso"><span class="n">1</span> El gasto total no puede exceder 50: 30 + x ≤ 50.</div>
+<div class="paso"><span class="n">2</span> Se resta 30: x ≤ 20.</div>
+<p><strong>Respuesta:</strong> se puede gastar como máximo $20 más.</p>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 6 · Tiempo</span>
+<p>Un proyecto necesita al menos 24 horas. Ya se trabajaron 9. ¿Cuántas horas más (x) hacen falta?</p>
+<div class="paso"><span class="n">1</span> El total debe ser al menos 24: 9 + x ≥ 24.</div>
+<div class="paso"><span class="n">2</span> Se resta 9: x ≥ 15.</div>
+<p><strong>Respuesta:</strong> hacen falta al menos 15 horas más.</p>
+</div>
+</div>
+<div class="practica">
+<h3>Práctica interactiva 2 · Simplificar y aplicar</h3>
+<p>Selecciona la respuesta correcta de cada caso.</p>
+<div class="pregunta" data-correcta="a">
+<div class="enun">1. Resuelve 4(x − 1) ≤ 12.</div>
+<div class="opciones">
+<div class="opcion" data-op="a">x ≤ 4</div>
+<div class="opcion" data-op="b">x ≥ 4</div>
+<div class="opcion" data-op="c">x ≤ 3</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">2. Resuelve 2x + 5 &gt; x + 9.</div>
+<div class="opciones">
+<div class="opcion" data-op="a">x &gt; 4</div>
+<div class="opcion" data-op="b">x &lt; 4</div>
+<div class="opcion" data-op="c">x &gt; 14</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">3. Se dispone de $40 como máximo y ya se gastaron $25. ¿Cuánto más (x) se puede gastar?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">x ≤ 15</div>
+<div class="opcion" data-op="b">x ≥ 15</div>
+<div class="opcion" data-op="c">x ≤ 40</div>
+</div>
+<div class="fb"></div>
+</div>
+</div>
+<h2 class="seccion" id="s-5-interpretar-la-solucion">5. Interpretar la solución</h2>
+<div class="bloque">
+<p>La parte final de un problema verbal es <strong>interpretar</strong> la solución en palabras, con unidades. La inecuación da un rango; el contexto indica qué valor de ese rango es el «máximo» o el «mínimo» buscado.</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 7 · Del rango al límite</span>
+<p>Si la solución de un problema de compras es x ≤ 6, donde x es el número de artículos…</p>
+<div class="paso"><span class="n">1</span> El rango x ≤ 6 incluye 0, 1, 2, … hasta 6.</div>
+<div class="paso"><span class="n">2</span> Como no se compran fracciones de artículo, el máximo entero posible es 6.</div>
+<p><strong>Respuesta:</strong> se pueden comprar como máximo 6 artículos.</p>
+</div>
+<div class="caja-tip">
+<strong>Responder en palabras:</strong> un problema verbal no termina con «x ≤ 6». Termina con una oración como «se pueden comprar como máximo 6 artículos». Interpretar el resultado en el contexto es parte de la respuesta.
+    </div>
 </div>
 
 
@@ -359,14 +379,14 @@
 <h2 id="s-tarea">Tarea</h2>
 <p>Para hacer por su cuenta, con el cuaderno abierto:</p>
 <ul>
-<li>Cuatro ecuaciones con coeficientes fraccionarios (limpiar con el MCM).</li>
-<li>Tres ecuaciones con coeficientes decimales (limpiar con una potencia de 10).</li>
-<li>Tres ecuaciones de casos especiales para clasificar el tipo de solución.</li>
-<li><strong>ThatQuiz:</strong> entre en <a href="https://www.thatquiz.org/es/" rel="noopener noreferrer" target="_blank">ThatQuiz</a> y haga una tanda mezclada de <em>ecuaciones</em> del nivel más alto que le permita el ejercicio. Los casos sin solución y de infinitas soluciones no suelen aparecer ahí: esos trabájelos en papel.</li></ul>
-<p>Tiempo estimado: 50 minutos. Resuelva en papel y evalúe su trabajo con la rúbrica de esta lección.</p>
+<li>Cuatro inecuaciones que requieran simplificar (distribuir o combinar) antes de resolver.</li>
+<li>Cuatro enunciados verbales para traducir a una inecuación y resolver.</li>
+<li>Dos problemas de contexto cuya solución haya que interpretar en palabras, con unidades.</li>
+<li><strong>ThatQuiz:</strong> entre en <a href="https://www.thatquiz.org/es/" rel="noopener noreferrer" target="_blank">ThatQuiz</a> y practique <em>ecuaciones</em> con paréntesis y con términos semejantes a ambos lados. Es exactamente la simplificación previa que exige esta lección antes de que aparezca el signo de desigualdad.</li></ul>
+<p>Tiempo estimado: 55 minutos. Resuelva en papel y evalúe su trabajo con la rúbrica de esta lección.</p>
 </div>
 <div class="quiz">
-<h2 id="s-quiz-de-la-leccion-4-3">Quiz de la lección 4.3</h2>
+<h2 id="s-quiz-de-la-leccion-5-2">Quiz de la lección 5.2</h2>
 <p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
 <div id="quiz-cuerpo"></div>
 <div id="resultado-quiz"></div>
@@ -389,42 +409,42 @@
 </thead>
 <tbody>
 <tr>
-<td>Eliminar fracciones</td>
-<td>No identifica el MCM o no multiplica todos los términos.</td>
-<td>Multiplica por el MCM, pero olvida algún término.</td>
-<td>Elimina las fracciones multiplicando todos los términos por el MCM.</td>
-<td>Elimina fracciones con fluidez y elige el MCM más pequeño.</td>
+<td>Simplificar antes de resolver</td>
+<td>Intenta resolver sin simplificar primero.</td>
+<td>Simplifica de forma incompleta.</td>
+<td>Distribuye, combina y mueve variables correctamente.</td>
+<td>Simplifica con fluidez y aplica la regla del signo cuando toca.</td>
 </tr>
 <tr>
-<td>Eliminar decimales</td>
-<td>No usa una potencia de 10 adecuada.</td>
-<td>Multiplica, pero por una potencia incorrecta.</td>
-<td>Elimina los decimales con la potencia de 10 correcta.</td>
-<td>Elimina decimales con fluidez según la cifra con más decimales.</td>
+<td>Traducir el enunciado</td>
+<td>Elige el signo de desigualdad incorrecto.</td>
+<td>Traduce con errores ocasionales de signo.</td>
+<td>Traduce el enunciado a la inecuación correcta.</td>
+<td>Traduce con fluidez identificando la palabra clave.</td>
 </tr>
 <tr>
-<td>Resolver la ecuación</td>
-<td>Comete errores al resolver la ecuación limpia.</td>
+<td>Resolver la inecuación</td>
+<td>Comete errores al resolver.</td>
 <td>Resuelve con algún error de signo u operación.</td>
-<td>Resuelve correctamente la ecuación resultante.</td>
-<td>Resuelve con fluidez y verifica la solución.</td>
+<td>Resuelve la inecuación sin errores.</td>
+<td>Resuelve con fluidez y verifica con un valor de prueba.</td>
 </tr>
 <tr>
-<td>Clasificar casos especiales</td>
-<td>No distingue contradicción de identidad.</td>
-<td>Clasifica con errores los casos especiales.</td>
-<td>Identifica una solución, sin solución o infinitas.</td>
-<td>Clasifica con fluidez y explica el significado de cada caso.</td>
+<td>Interpretar en contexto</td>
+<td>No interpreta la solución.</td>
+<td>Interpreta sin unidades o de forma imprecisa.</td>
+<td>Interpreta la solución en palabras, con unidades.</td>
+<td>Interpreta con claridad e identifica el máximo o mínimo del contexto.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="cierre">
-<h2 id="s-cierre-del-tema-4-y-enlace-con-el-tema-5">Cierre del Tema 4 y enlace con el Tema 5</h2>
-<p>Con esta lección se cierra el Tema 4. Ya se resuelven ecuaciones lineales de cualquier tipo: con la estrategia de cinco pasos, <strong>limpiando</strong> fracciones con el MCM y decimales con una potencia de 10, y reconociendo los casos especiales de <strong>sin solución</strong> (contradicción) e <strong>infinitas soluciones</strong> (identidad).</p>
-<p>El Tema 5 abrirá con la <strong>Lección 5.1 · Resolver inecuaciones lineales y graficar en la recta numérica</strong>. Las inecuaciones se resuelven con los <strong>mismos pasos</strong> que las ecuaciones, con una sola regla nueva y crucial: al multiplicar o dividir por un número negativo, el signo de la desigualdad se invierte. Todo lo aprendido aquí será la base directa de ese nuevo tema.</p>
+<h2 id="s-cierre-y-enlace-con-la-proxima-leccion">Cierre y enlace con la próxima lección</h2>
+<p>En esta lección se resolvieron inecuaciones que primero hay que <strong>simplificar</strong> y se aprendió a <strong>traducir enunciados verbales</strong> a inecuaciones, usando el vocabulario clave (al menos, no más de, máximo…), para resolver problemas reales de presupuesto y tiempo e <strong>interpretar</strong> la solución en palabras.</p>
+<p>En la <strong>Lección 5.3 · Despeje de fórmulas literales y estrategia general de resolución</strong> se cerrará el Tema 5 aplicando todo lo aprendido a las <strong>fórmulas</strong>: se despejará una variable específica en fórmulas de geometría, finanzas y física (como d = rt o A = bh), tratando las demás letras como si fueran números.</p>
 </div>
-<footer><p>GEDparaHispanos · Matemáticas · Nivel 3 · Tema 4 · Lección 4.3</p><p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p><p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p></footer><a aria-label="Volver al contenido de la lección" class="volver-indice" href="#indice"><span aria-hidden="true">↑</span> Índice</a>
+<footer><p>GEDparaHispanos · Matemáticas · Nivel 3 · Tema 5 · Lección 5.2</p><p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p><p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p></footer><a aria-label="Volver al contenido de la lección" class="volver-indice" href="#indice"><span aria-hidden="true">↑</span> Índice</a>
 </div>
 <script>
 (function () {
@@ -457,16 +477,16 @@
 
   /* ---- Quiz ---- */
   var preguntasQuiz = [
-    { enun: '1. Resuelve: x/2 + 3 = 7.', ops: ['x = 8', 'x = 5', 'x = 2', 'x = 20'], correcta: 0 },
-    { enun: '2. Resuelve: x/3 = 6.', ops: ['x = 18', 'x = 2', 'x = 3', 'x = 9'], correcta: 0 },
-    { enun: '3. Resuelve: x/2 + x/4 = 6.', ops: ['x = 8', 'x = 6', 'x = 24', 'x = 2'], correcta: 0 },
-    { enun: '4. Para resolver x/3 + x/6 = 2, ¿por cuánto conviene multiplicar?', ops: ['6', '3', '2', '9'], correcta: 0 },
-    { enun: '5. Resuelve: 0.5x = 10.', ops: ['x = 20', 'x = 5', 'x = 0.5', 'x = 2'], correcta: 0 },
-    { enun: '6. Resuelve: 0.2x + 1 = 3.', ops: ['x = 10', 'x = 2', 'x = 20', 'x = 4'], correcta: 0 },
-    { enun: '7. Para limpiar 0.25x + 0.5 = 1, ¿por cuánto se multiplica?', ops: ['100', '10', '25', '1000'], correcta: 0 },
-    { enun: '8. La ecuación 2x + 5 = 2x + 9 lleva a 5 = 9. ¿Qué tipo es?', ops: ['Sin solución', 'Una solución', 'Infinitas soluciones', 'x = 0'], correcta: 0 },
-    { enun: '9. La ecuación 3(x + 1) = 3x + 3 lleva a 0 = 0. ¿Qué tipo es?', ops: ['Infinitas soluciones', 'Sin solución', 'Una solución', 'x = 3'], correcta: 0 },
-    { enun: '10. La ecuación 4x + 2 = 10 lleva a x = 2. ¿Qué tipo es?', ops: ['Una solución', 'Sin solución', 'Infinitas soluciones', 'Ninguna de las anteriores'], correcta: 0 }
+    { enun: '1. Resuelve: 2(x + 3) > 10.', ops: ['x > 2', 'x > 8', 'x < 2', 'x > 5'], correcta: 0 },
+    { enun: '2. Resuelve: 3x + 2 ≤ x + 8.', ops: ['x ≤ 3', 'x ≥ 3', 'x ≤ 5', 'x ≤ 10'], correcta: 0 },
+    { enun: '3. Resuelve: 5x − 3 > 2x + 9.', ops: ['x > 4', 'x < 4', 'x > 2', 'x > 12'], correcta: 0 },
+    { enun: '4. Resuelve: −2(x − 1) ≥ 8.', ops: ['x ≤ −3', 'x ≥ −3', 'x ≤ 3', 'x ≥ 3'], correcta: 0 },
+    { enun: '5. Traduce: «un número x es al menos 10».', ops: ['x ≥ 10', 'x ≤ 10', 'x > 10', 'x < 10'], correcta: 0 },
+    { enun: '6. Traduce: «un número x no excede 20».', ops: ['x ≤ 20', 'x ≥ 20', 'x < 20', 'x = 20'], correcta: 0 },
+    { enun: '7. Traduce: «el doble de un número es más que 14».', ops: ['2x > 14', '2x < 14', '2x ≥ 14', 'x + 2 > 14'], correcta: 0 },
+    { enun: '8. Traduce: «un número aumentado en 5 es no más de 12».', ops: ['x + 5 ≤ 12', 'x + 5 ≥ 12', 'x − 5 ≤ 12', '5x ≤ 12'], correcta: 0 },
+    { enun: '9. Se puede gastar como máximo $50 y ya se gastaron $30. ¿Cuánto más (x)?', ops: ['x ≤ 20', 'x ≥ 20', 'x < 30', 'x ≤ 80'], correcta: 0 },
+    { enun: '10. Si x ≤ 7 representa el número de horas, ¿cuál es el máximo de horas?', ops: ['7 horas', '6 horas', '8 horas', 'Infinitas'], correcta: 0 }
   ];
 
   var cuerpo = document.getElementById('quiz-cuerpo');
@@ -538,7 +558,7 @@
     resultado.style.display = 'block';
     if (aciertos >= 7) {
       resultado.className = 'aprob';
-      resultado.textContent = 'Resultado: ' + aciertos + ' de 10 correctas. ¡Aprobado! Has completado el Tema 4 y puedes continuar al Tema 5.';
+      resultado.textContent = 'Resultado: ' + aciertos + ' de 10 correctas. ¡Aprobado! Puedes continuar a la Lección 5.3.';
     } else {
       resultado.className = 'repro';
       resultado.textContent = 'Resultado: ' + aciertos + ' de 10 correctas. Repasa la lección e intenta de nuevo (se requieren 7).';

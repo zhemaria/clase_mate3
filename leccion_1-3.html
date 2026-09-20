@@ -1,10 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
+<!-- Lección 1.3 · Matemáticas Nivel 3 · GEDparaHispanos
+     José M. Fernández · CC BY-NC-SA 4.0 -->
+
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lección 1.3 · Simplificar expresiones exponenciales con múltiples reglas</title>
-    <style>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lección 1.3 · Simplificar expresiones exponenciales con múltiples reglas</title><meta content="CC BY-NC-SA 4.0" name="license"/><link href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license"/>
+<style>
       :root {
         --tema: #880e4f;
         --tema-d: #5d0935;
@@ -325,59 +328,7 @@
       }
       .btn.sec:hover {
         background: #37474f;
-      }
-
-      .modalidad {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-        margin: 12px 0;
-      }
-      .modo {
-        flex: 1;
-        min-width: 230px;
-        border-radius: 9px;
-        padding: 14px 16px;
-        font-size: 14px;
-      }
-      .modo-pres {
-        background: #e3f2fd;
-        border-left: 5px solid #1565c0;
-      }
-      .modo-pres strong {
-        color: #0d47a1;
-      }
-      .modo-virt {
-        background: #f3e5f5;
-        border-left: 5px solid #6a1b9a;
-      }
-      .modo-virt strong {
-        color: #4a148c;
-      }
-      .modo h3 {
-        margin: 0 0 6px;
-        font-size: 15px;
-      }
-      .modo-pres h3 {
-        color: #0d47a1;
-      }
-      .modo-virt h3 {
-        color: #4a148c;
-      }
-
-      .actividad {
-        margin-bottom: 18px;
-      }
-      .actividad > .titulo-act {
-        font-weight: 700;
-        color: var(--tema-d);
-        font-size: 15px;
-        background: var(--tema-bg);
-        padding: 7px 14px;
-        border-radius: 7px;
-      }
-
-      .caja-tarea {
+      }.caja-tarea {
         background: #ede7f6;
         border-left: 6px solid #5e35b1;
         padding: 16px 20px;
@@ -564,28 +515,49 @@
         color: var(--tema);
         flex-shrink: 0;
       }
-    </style>
-  </head>
-  <body>
-    <div class="contenedor">
-      <header class="principal">
-        <div class="ruta">Spanish ASE Math · Nivel 3 · Tema 1 · Reglas de los exponentes</div>
-        <h1>Lección 1.3 · Simplificar expresiones exponenciales con múltiples reglas</h1>
-        <div class="meta">4 horas (2 sincrónicas + 2 asincrónicas) · NRS 3–4 · Brightspace D2L</div>
-      </header>
-      <div class="caja-objetivos">
-        <h2>Objetivos de la lección</h2>
-        <ul>
-          <li>Simplificar expresiones que requieren aplicar dos o más reglas de los exponentes en secuencia.</li>
-          <li>Seguir un orden de trabajo: resolver primero los paréntesis con exponente, luego los productos y cocientes.</li>
-          <li>Expresar siempre el resultado final con exponentes positivos.</li>
-          <li>Identificar y corregir los errores más comunes en una simplificación dada.</li>
-          <li>Mostrar con claridad cada paso intermedio, anotando la regla aplicada.</li>
-        </ul>
-      </div>
-      <div class="bloque">
-        <p>
-          <strong>Conexión con las lecciones anteriores.</strong>
+    
+  /* ── ÍNDICE DE LA LECCIÓN ── */
+  .indice{
+    background:#fff; border:1px solid #d8dde3; border-left:6px solid var(--tema);
+    border-radius:10px; padding:16px 20px; margin:24px 0;
+  }
+  .indice h2{ font-size:1.05rem; margin:0 0 10px; color:var(--tema-d); border:0; padding:0; background:none; }
+  .indice ol{ margin:0; padding-left:1.35em; }
+  .indice li{ margin:4px 0; }
+  .indice a{ color:var(--tema-d); text-decoration:underline; }
+  .indice a:hover{ color:var(--tema); }
+  .indice a:focus-visible,.volver-indice:focus-visible{ outline:3px solid #b05e00; outline-offset:2px; }
+  .volver-indice{
+    position:fixed; right:18px; bottom:18px; z-index:60;
+    background:var(--tema-d); color:#fff; border-radius:999px;
+    padding:10px 16px; font-weight:700; font-size:.92rem; text-decoration:none;
+    box-shadow:0 2px 10px rgba(0,0,0,.28);
+  }
+  .volver-indice:hover{ background:var(--tema); color:#fff; }
+  footer a{ color:inherit; }
+  @media print{ .indice,.volver-indice{ display:none; } }
+</style>
+</head>
+<body>
+<div class="contenedor">
+<header class="principal">
+<div class="ruta">Spanish ASE Math · Nivel 3 · Tema 1 · Reglas de los exponentes</div>
+<h1>Lección 1.3 · Simplificar expresiones exponenciales con múltiples reglas</h1>
+<div class="meta">Unas 4 horas, a su ritmo · NRS 3–4</div>
+</header>
+<div class="caja-objetivos">
+<h2>Objetivos de la lección</h2>
+<ul>
+<li>Simplificar expresiones que requieren aplicar dos o más reglas de los exponentes en secuencia.</li>
+<li>Seguir un orden de trabajo: resolver primero los paréntesis con exponente, luego los productos y cocientes.</li>
+<li>Expresar siempre el resultado final con exponentes positivos.</li>
+<li>Identificar y corregir los errores más comunes en una simplificación dada.</li>
+<li>Mostrar con claridad cada paso intermedio, anotando la regla aplicada.</li>
+</ul>
+</div><nav aria-labelledby="indice-titulo" class="indice" id="indice"><h2 id="indice-titulo">Contenido de la lección</h2><ol><li><a href="#s-1-las-cinco-reglas-a-la-vista">1. Las cinco reglas a la vista</a></li><li><a href="#s-2-un-orden-para-simplificar">2. Un orden para simplificar</a></li><li><a href="#s-3-expresiones-con-fracciones-y-exponentes-negativos">3. Expresiones con fracciones y exponentes negativos</a></li><li><a href="#s-4-el-arbitro-de-exponentes-detectar-errores">4. El árbitro de exponentes: detectar errores</a></li><li><a href="#s-5-una-expresion-completa-paso-a-paso">5. Una expresión completa, paso a paso</a></li><li><a href="#s-tarea">Tarea</a></li><li><a href="#s-quiz-de-la-leccion-1-3">Quiz de la lección 1.3</a></li><li><a href="#s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</a></li><li><a href="#s-cierre-del-tema-1-y-enlace-con-el-tema-2">Cierre del Tema 1 y enlace con el Tema 2</a></li></ol></nav>
+<div class="bloque">
+<p>
+<strong>Conexión con las lecciones anteriores.</strong>
           En la Lección 1.1 se establecieron las reglas de la multiplicación (producto, potencia de potencia y potencia de un producto) y en la Lección 1.2, las de la división, el exponente cero y los
           exponentes negativos. Esas
           <strong>cinco reglas</strong>
@@ -593,466 +565,390 @@
           <strong>combinarlas con orden</strong>
           dentro de una sola expresión y a presentar el resultado en su forma más limpia, con exponentes positivos.
         </p>
-      </div>
-      <h2 class="seccion">1. Las cinco reglas a la vista</h2>
-      <div class="bloque">
-        <p>Antes de combinar, conviene tener el conjunto completo siempre disponible. Toda simplificación de esta lección se apoya en esta tabla.</p>
-        <table class="reglas">
-          <caption class="sr-only">Resumen de las cinco reglas de los exponentes: nombre, patrón y ejemplo.</caption>
-          <thead>
-            <tr>
-              <th scope="col">Regla</th>
-              <th scope="col">Patrón</th>
-              <th scope="col">Ejemplo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Producto</td>
-              <td>aᵐ · aⁿ = aᵐ⁺ⁿ</td>
-              <td>x⁴ · x³ = x⁷</td>
-            </tr>
-            <tr>
-              <td>Potencia de potencia</td>
-              <td>(aᵐ)ⁿ = aᵐⁿ</td>
-              <td>(x⁴)³ = x¹²</td>
-            </tr>
-            <tr>
-              <td>Potencia de un producto</td>
-              <td>(a · b)ⁿ = aⁿ · bⁿ</td>
-              <td>(2x)³ = 8x³</td>
-            </tr>
-            <tr>
-              <td>Cociente</td>
-              <td>aᵐ ÷ aⁿ = aᵐ⁻ⁿ</td>
-              <td>x⁷ ÷ x² = x⁵</td>
-            </tr>
-            <tr>
-              <td>Exponente cero y negativo</td>
-              <td>a⁰ = 1&nbsp;&nbsp;·&nbsp;&nbsp;a⁻ⁿ = 1 ÷ aⁿ</td>
-              <td>5⁰ = 1&nbsp;&nbsp;·&nbsp;&nbsp;3⁻² = 1/9</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <h2 class="seccion">2. Un orden para simplificar</h2>
-      <div class="bloque">
-        <p>Cuando una expresión combina varias operaciones, conviene seguir siempre la misma ruta. Este orden evita errores y produce resultados consistentes.</p>
-        <div class="caja-tip">
-          <strong>Ruta de simplificación:</strong>
-          <ol>
-            <li>
+</div>
+<h2 class="seccion" id="s-1-las-cinco-reglas-a-la-vista">1. Las cinco reglas a la vista</h2>
+<div class="bloque">
+<p>Antes de combinar, conviene tener el conjunto completo siempre disponible. Toda simplificación de esta lección se apoya en esta tabla.</p>
+<table class="reglas">
+<caption class="sr-only">Resumen de las cinco reglas de los exponentes: nombre, patrón y ejemplo.</caption>
+<thead>
+<tr>
+<th scope="col">Regla</th>
+<th scope="col">Patrón</th>
+<th scope="col">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Producto</td>
+<td>aᵐ · aⁿ = aᵐ⁺ⁿ</td>
+<td>x⁴ · x³ = x⁷</td>
+</tr>
+<tr>
+<td>Potencia de potencia</td>
+<td>(aᵐ)ⁿ = aᵐⁿ</td>
+<td>(x⁴)³ = x¹²</td>
+</tr>
+<tr>
+<td>Potencia de un producto</td>
+<td>(a · b)ⁿ = aⁿ · bⁿ</td>
+<td>(2x)³ = 8x³</td>
+</tr>
+<tr>
+<td>Cociente</td>
+<td>aᵐ ÷ aⁿ = aᵐ⁻ⁿ</td>
+<td>x⁷ ÷ x² = x⁵</td>
+</tr>
+<tr>
+<td>Exponente cero y negativo</td>
+<td>a⁰ = 1  ·  a⁻ⁿ = 1 ÷ aⁿ</td>
+<td>5⁰ = 1  ·  3⁻² = 1/9</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 class="seccion" id="s-2-un-orden-para-simplificar">2. Un orden para simplificar</h2>
+<div class="bloque">
+<p>Cuando una expresión combina varias operaciones, conviene seguir siempre la misma ruta. Este orden evita errores y produce resultados consistentes.</p>
+<div class="caja-tip">
+<strong>Ruta de simplificación:</strong>
+<ol>
+<li>
               Resolver los
               <strong>paréntesis con exponente</strong>
               (potencia de potencia y de un producto), recordando elevar también los coeficientes numéricos.
             </li>
-            <li>
+<li>
               Aplicar el
               <strong>producto</strong>
               y el
               <strong>cociente</strong>
               sobre las bases iguales (sumar o restar exponentes).
             </li>
-            <li>
+<li>
               Reescribir cualquier exponente negativo como
               <strong>fracción de exponente positivo</strong>
               .
             </li>
-            <li>Verificar que el resultado quede en su forma más simple.</li>
-          </ol>
-        </div>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 1 · Dos reglas</span>
-          <p>Simplificar (x²)³ · x⁴.</p>
-          <div class="paso">
-            <span class="n">1</span>
+<li>Verificar que el resultado quede en su forma más simple.</li>
+</ol>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 1 · Dos reglas</span>
+<p>Simplificar (x²)³ · x⁴.</p>
+<div class="paso">
+<span class="n">1</span>
             Paréntesis primero (potencia de potencia): (x²)³ = x⁶.
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             Producto de la misma base: x⁶ · x⁴ = x⁶⁺⁴.
           </div>
-          <p>
-            <strong>Respuesta:</strong>
+<p>
+<strong>Respuesta:</strong>
             (x²)³ · x⁴ = x¹⁰.
           </p>
-        </div>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 2 · Con coeficiente</span>
-          <p>Simplificar (2a³)² · a.</p>
-          <div class="paso">
-            <span class="n">1</span>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 2 · Con coeficiente</span>
+<p>Simplificar (2a³)² · a.</p>
+<div class="paso">
+<span class="n">1</span>
             Paréntesis: se reparte el exponente y se eleva el coeficiente. (2a³)² = 2² · a⁶ = 4a⁶.
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             Producto: 4a⁶ · a = 4a⁷ (la a vale a¹).
           </div>
-          <p>
-            <strong>Respuesta:</strong>
+<p>
+<strong>Respuesta:</strong>
             (2a³)² · a = 4a⁷.
           </p>
-        </div>
-      </div>
-      <div class="practica">
-        <h3>Práctica interactiva 1 · Combinar reglas</h3>
-        <p>Selecciona la simplificación correcta de cada expresión.</p>
-        <div class="pregunta" data-correcta="b">
-          <div class="enun">1. (x³)² · x =</div>
-          <div class="opciones">
-            <div class="opcion" data-op="a">x⁶</div>
-            <div class="opcion" data-op="b">x⁷</div>
-            <div class="opcion" data-op="c">x⁵</div>
-          </div>
-          <div class="fb"></div>
-        </div>
-        <div class="pregunta" data-correcta="c">
-          <div class="enun">2. (2y²)³ =</div>
-          <div class="opciones">
-            <div class="opcion" data-op="a">2y⁶</div>
-            <div class="opcion" data-op="b">6y⁶</div>
-            <div class="opcion" data-op="c">8y⁶</div>
-          </div>
-          <div class="fb"></div>
-        </div>
-        <div class="pregunta" data-correcta="a">
-          <div class="enun">3. (a⁸ · a²) ÷ a³ =</div>
-          <div class="opciones">
-            <div class="opcion" data-op="a">a⁷</div>
-            <div class="opcion" data-op="b">a¹³</div>
-            <div class="opcion" data-op="c">a⁵</div>
-          </div>
-          <div class="fb"></div>
-        </div>
-      </div>
-      <h2 class="seccion">3. Expresiones con fracciones y exponentes negativos</h2>
-      <div class="bloque">
-        <p>
+</div>
+</div>
+<div class="practica">
+<h3>Práctica interactiva 1 · Combinar reglas</h3>
+<p>Selecciona la simplificación correcta de cada expresión.</p>
+<div class="pregunta" data-correcta="b">
+<div class="enun">1. (x³)² · x =</div>
+<div class="opciones">
+<div class="opcion" data-op="a">x⁶</div>
+<div class="opcion" data-op="b">x⁷</div>
+<div class="opcion" data-op="c">x⁵</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">2. (2y²)³ =</div>
+<div class="opciones">
+<div class="opcion" data-op="a">2y⁶</div>
+<div class="opcion" data-op="b">6y⁶</div>
+<div class="opcion" data-op="c">8y⁶</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">3. (a⁸ · a²) ÷ a³ =</div>
+<div class="opciones">
+<div class="opcion" data-op="a">a⁷</div>
+<div class="opcion" data-op="b">a¹³</div>
+<div class="opcion" data-op="c">a⁵</div>
+</div>
+<div class="fb"></div>
+</div>
+</div>
+<h2 class="seccion" id="s-3-expresiones-con-fracciones-y-exponentes-negativos">3. Expresiones con fracciones y exponentes negativos</h2>
+<div class="bloque">
+<p>
           Cuando la expresión es una fracción, se aplica la regla del cociente a cada base por separado. Si algún exponente queda negativo, se reescribe como fracción de exponente positivo en el paso
           final.
         </p>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 3 · Cociente con dos bases</span>
-          <p>Simplificar (x⁶y²) ÷ (x²y).</p>
-          <div class="paso">
-            <span class="n">1</span>
+<div class="ejemplo">
+<span class="et">Ejemplo 3 · Cociente con dos bases</span>
+<p>Simplificar (x⁶y²) ÷ (x²y).</p>
+<div class="paso">
+<span class="n">1</span>
             Se resta el exponente de cada base por separado: x⁶⁻² y y²⁻¹.
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             x⁶⁻² = x⁴ y y²⁻¹ = y¹ = y.
           </div>
-          <p>
-            <strong>Respuesta:</strong>
+<p>
+<strong>Respuesta:</strong>
             (x⁶y²) ÷ (x²y) = x⁴y.
           </p>
-        </div>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 4 · Resultado con exponente positivo</span>
-          <p>Simplificar a⁴ ÷ a⁶.</p>
-          <div class="paso">
-            <span class="n">1</span>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 4 · Resultado con exponente positivo</span>
+<p>Simplificar a⁴ ÷ a⁶.</p>
+<div class="paso">
+<span class="n">1</span>
             Regla del cociente: a⁴⁻⁶ = a⁻².
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             El exponente quedó negativo: se reescribe como recíproco. a⁻² = 1/a².
           </div>
-          <p>
-            <strong>Respuesta:</strong>
+<p>
+<strong>Respuesta:</strong>
             a⁴ ÷ a⁶ = 1/a².
           </p>
-        </div>
-        <div class="caja-atencion">
-          <strong>Forma final exigida:</strong>
+</div>
+<div class="caja-atencion">
+<strong>Forma final exigida:</strong>
           un resultado no se considera simplificado mientras contenga exponentes negativos. El último paso siempre consiste en convertir a⁻ⁿ en 1/aⁿ para presentar solo exponentes positivos.
         </div>
-      </div>
-      <h2 class="seccion">4. El árbitro de exponentes: detectar errores</h2>
-      <div class="bloque">
-        <p>
+</div>
+<h2 class="seccion" id="s-4-el-arbitro-de-exponentes-detectar-errores">4. El árbitro de exponentes: detectar errores</h2>
+<div class="bloque">
+<p>
           Saber simplificar incluye reconocer cuándo una solución ajena está mal. Los errores casi siempre repiten los mismos patrones: confundir cuándo sumar y cuándo multiplicar, u olvidar elevar el
           coeficiente.
         </p>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 5 · ¿Dónde está el error?</span>
-          <p>
+<div class="ejemplo">
+<span class="et">Ejemplo 5 · ¿Dónde está el error?</span>
+<p>
             Un estudiante escribió:
             <span class="tachado">a⁵ · a³ = a¹⁵</span>
-          </p>
-          <div class="paso">
-            <span class="n">1</span>
+</p>
+<div class="paso">
+<span class="n">1</span>
             Las potencias están
             <em>multiplicadas</em>
             y tienen la misma base: corresponde la regla del producto.
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             Los exponentes deben
             <strong>sumarse</strong>
             , no multiplicarse: 5 + 3 = 8.
           </div>
-          <p>
-            <span class="mal">Incorrecto:</span>
-            a¹⁵ &nbsp;→&nbsp;
+<p>
+<span class="mal">Incorrecto:</span>
+            a¹⁵  → 
             <span class="bien">Correcto:</span>
             a⁸.
           </p>
-        </div>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 6 · ¿Dónde está el error?</span>
-          <p>
+</div>
+<div class="ejemplo">
+<span class="et">Ejemplo 6 · ¿Dónde está el error?</span>
+<p>
             Un estudiante escribió:
             <span class="tachado">(3x)² = 3x²</span>
-          </p>
-          <div class="paso">
-            <span class="n">1</span>
+</p>
+<div class="paso">
+<span class="n">1</span>
             Es una potencia de un producto: el exponente se reparte a
             <em>cada</em>
             factor.
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             El coeficiente 3 también se eleva: 3² = 9.
           </div>
-          <p>
-            <span class="mal">Incorrecto:</span>
-            3x² &nbsp;→&nbsp;
+<p>
+<span class="mal">Incorrecto:</span>
+            3x²  → 
             <span class="bien">Correcto:</span>
             9x².
           </p>
-        </div>
-      </div>
-      <div class="practica">
-        <h3>Práctica interactiva 2 · El árbitro de exponentes</h3>
-        <p>En cada caso, elige la corrección adecuada.</p>
-        <div class="pregunta" data-correcta="b">
-          <div class="enun">1. Un estudiante escribió «(a⁵)² = a⁷». ¿Qué corresponde?</div>
-          <div class="opciones">
-            <div class="opcion" data-op="a">a⁷ está correcto.</div>
-            <div class="opcion" data-op="b">Los exponentes se multiplican: a¹⁰.</div>
-            <div class="opcion" data-op="c">Los exponentes se restan: a³.</div>
-          </div>
-          <div class="fb"></div>
-        </div>
-        <div class="pregunta" data-correcta="b">
-          <div class="enun">2. Un estudiante escribió «x⁴ · x² = x⁸». ¿Qué corresponde?</div>
-          <div class="opciones">
-            <div class="opcion" data-op="a">x⁸ está correcto.</div>
-            <div class="opcion" data-op="b">Los exponentes se suman: x⁶.</div>
-            <div class="opcion" data-op="c">Los exponentes se restan: x².</div>
-          </div>
-          <div class="fb"></div>
-        </div>
-        <div class="pregunta" data-correcta="c">
-          <div class="enun">3. Un estudiante escribió «(2x)³ = 2x³». ¿Qué corresponde?</div>
-          <div class="opciones">
-            <div class="opcion" data-op="a">2x³ está correcto.</div>
-            <div class="opcion" data-op="b">El resultado es 6x³.</div>
-            <div class="opcion" data-op="c">El 2 también se eleva: 8x³.</div>
-          </div>
-          <div class="fb"></div>
-        </div>
-      </div>
-      <h2 class="seccion">5. Una expresión completa, paso a paso</h2>
-      <div class="bloque">
-        <p>El siguiente ejemplo reúne todo: paréntesis con exponente, coeficientes, producto, cociente y un resultado que se presenta con exponentes positivos.</p>
-        <div class="ejemplo">
-          <span class="et">Ejemplo 7 · Integrador</span>
-          <p>Simplificar (2x³)² · x ÷ x⁹.</p>
-          <div class="paso">
-            <span class="n">1</span>
+</div>
+</div>
+<div class="practica">
+<h3>Práctica interactiva 2 · El árbitro de exponentes</h3>
+<p>En cada caso, elige la corrección adecuada.</p>
+<div class="pregunta" data-correcta="b">
+<div class="enun">1. Un estudiante escribió «(a⁵)² = a⁷». ¿Qué corresponde?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">a⁷ está correcto.</div>
+<div class="opcion" data-op="b">Los exponentes se multiplican: a¹⁰.</div>
+<div class="opcion" data-op="c">Los exponentes se restan: a³.</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">2. Un estudiante escribió «x⁴ · x² = x⁸». ¿Qué corresponde?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">x⁸ está correcto.</div>
+<div class="opcion" data-op="b">Los exponentes se suman: x⁶.</div>
+<div class="opcion" data-op="c">Los exponentes se restan: x².</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">3. Un estudiante escribió «(2x)³ = 2x³». ¿Qué corresponde?</div>
+<div class="opciones">
+<div class="opcion" data-op="a">2x³ está correcto.</div>
+<div class="opcion" data-op="b">El resultado es 6x³.</div>
+<div class="opcion" data-op="c">El 2 también se eleva: 8x³.</div>
+</div>
+<div class="fb"></div>
+</div>
+</div>
+<h2 class="seccion" id="s-5-una-expresion-completa-paso-a-paso">5. Una expresión completa, paso a paso</h2>
+<div class="bloque">
+<p>El siguiente ejemplo reúne todo: paréntesis con exponente, coeficientes, producto, cociente y un resultado que se presenta con exponentes positivos.</p>
+<div class="ejemplo">
+<span class="et">Ejemplo 7 · Integrador</span>
+<p>Simplificar (2x³)² · x ÷ x⁹.</p>
+<div class="paso">
+<span class="n">1</span>
             Paréntesis: (2x³)² = 4x⁶.
           </div>
-          <div class="paso">
-            <span class="n">2</span>
+<div class="paso">
+<span class="n">2</span>
             Producto: 4x⁶ · x = 4x⁷.
           </div>
-          <div class="paso">
-            <span class="n">3</span>
+<div class="paso">
+<span class="n">3</span>
             Cociente: 4x⁷ ÷ x⁹ = 4x⁷⁻⁹ = 4x⁻².
           </div>
-          <div class="paso">
-            <span class="n">4</span>
+<div class="paso">
+<span class="n">4</span>
             Exponente positivo: 4x⁻² = 4/x².
           </div>
-          <p>
-            <strong>Respuesta:</strong>
+<p>
+<strong>Respuesta:</strong>
             (2x³)² · x ÷ x⁹ = 4/x².
           </p>
-        </div>
-        <div class="caja-tip">
-          <strong>Verificación rápida:</strong>
+</div>
+<div class="caja-tip">
+<strong>Verificación rápida:</strong>
           sustituir un valor sencillo, como x = 2, en la expresión original y en el resultado debe dar el mismo número. Es una forma confiable de detectar un error de simplificación.
         </div>
-      </div>
-      <h2 class="seccion">6. Práctica guiada en clase</h2>
-      <div class="bloque">
-        <p>Las siguientes tres actividades se realizan durante las horas sincrónicas. Cada una se presenta en doble modalidad: una versión para el aula presencial y otra para la sesión en línea.</p>
-        <div class="actividad">
-          <div class="titulo-act">Actividad 1 · La ruta de simplificación</div>
-          <div class="modalidad">
-            <div class="modo modo-pres">
-              <h3>
-                <span aria-hidden="true">🏫</span>
-                Presencial
-              </h3>
-              El docente presenta cuatro expresiones combinadas. Cada estudiante las resuelve en su cuaderno anotando, junto a cada paso, el nombre de la regla aplicada. Un voluntario desarrolla una
-              en la pizarra siguiendo la ruta de simplificación.
-            </div>
-            <div class="modo modo-virt">
-              <h3>
-                <span aria-hidden="true">💻</span>
-                En línea
-              </h3>
-              En un documento compartido con tres columnas (paso, operación, regla aplicada), los estudiantes desarrollan dos expresiones combinadas, dejando visible cada regla usada en el orden
-              correcto.
-            </div>
-          </div>
-        </div>
-        <div class="actividad">
-          <div class="titulo-act">Actividad 2 · El árbitro de exponentes</div>
-          <div class="modalidad">
-            <div class="modo modo-pres">
-              <h3>
-                <span aria-hidden="true">🏫</span>
-                Presencial
-              </h3>
-              El docente muestra seis soluciones con errores plantados. En parejas, los estudiantes identifican el paso incorrecto, explican qué regla se aplicó mal y escriben la versión corregida.
-            </div>
-            <div class="modo modo-virt">
-              <h3>
-                <span aria-hidden="true">💻</span>
-                En línea
-              </h3>
-              En salas pequeñas, cada pareja recibe tres soluciones con errores. Marcan el paso equivocado, nombran la regla mal aplicada y publican la corrección en el chat para revisión grupal.
-            </div>
-          </div>
-        </div>
-        <div class="actividad">
-          <div class="titulo-act">Actividad 3 · Solo exponentes positivos</div>
-          <div class="modalidad">
-            <div class="modo modo-pres">
-              <h3>
-                <span aria-hidden="true">🏫</span>
-                Presencial
-              </h3>
-              El docente plantea cinco cocientes cuyo resultado tiene exponente negativo. Los estudiantes simplifican y reescriben cada uno con exponentes positivos, verificando dos casos por
-              sustitución de un valor sencillo.
-            </div>
-            <div class="modo modo-virt">
-              <h3>
-                <span aria-hidden="true">💻</span>
-                En línea
-              </h3>
-              Cada estudiante simplifica cinco expresiones y entrega el resultado en su forma final con exponentes positivos. El grupo compara respuestas y discute cualquier diferencia encontrada.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="caja-tarea">
-        <h2>Tarea asincrónica</h2>
-        <p>
-          Estas actividades se realizan
-          <strong>por su cuenta</strong>
-          , dentro de las 2 horas asincrónicas de la lección.
-        </p>
-        <ul>
-          <li style="font-weight: bold">
-            <a href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=164528&amp;type=content&amp;rcode=53b99fbe2f194af4906d5c1b-32" target="_blank" rel="noopener"><strong>myOpenMath</strong></a>
-          </li>
-          <li style="font-weight: bold">
-            <a href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=164528&amp;type=content&amp;rcode=ccc-8800743" target="_blank" rel="noopener"><strong>Brightspace-Quiz</strong></a>
-          </li>
-          <li>
-            <a href="https://www.thatquiz.org/es-2/?-j1vgp-l5-mpnv600-n18-p0-f0" target="_blank" rel="noopener"><strong>ThatQuiz</strong></a>
-          </li>
-        </ul>
-        <ul></ul>
-      </div>
-      <div class="interactivos">
-        <span class="titulo-grupo">Practica en línea</span>
-        <a class="enlace-int" href="https://zhemaria.github.io/interactivos/exponentes_multiples/" target="_blank" rel="noopener">
-          <span class="ico-int" aria-hidden="true">&#129513;</span>
-          <span class="txt-int">
-            <span class="titulo-int">Simplificar con varias reglas a la vez</span>
-            <span class="desc-int">
+</div>
+
+
+<div class="caja-tarea">
+<h2 id="s-tarea">Tarea</h2><p>Para hacer por su cuenta, con el cuaderno abierto:</p><ul><li>Seis expresiones que combinen tres o más reglas, resueltas siguiendo el orden de la lección y anotando qué regla aplica en cada paso.</li><li>Cuatro expresiones con fracciones y exponentes negativos, dejando el resultado sin exponentes negativos.</li><li>Cuatro ejercicios de árbitro: se le da una simplificación ya hecha y usted decide si está bien o mal. Si está mal, señale <strong>en qué paso</strong> se torció, no solo que el resultado no cuadra.</li><li>Una expresión larga resuelta dos veces, en días distintos, sin mirar la primera versión. Compare los dos caminos: si llegó al mismo sitio por rutas diferentes, ya domina las reglas.</li><li><strong>ThatQuiz:</strong> <a href="https://www.thatquiz.org/es-2/?-j1vgp-l5-mpnv600-n18-p0-f0" rel="noopener noreferrer" target="_blank">simplificar con varias reglas</a>.</li></ul><p>Tiempo estimado: 55 minutos. Evalúe su trabajo con la rúbrica de esta lección.</p>
+
+
+
+</div>
+<div class="interactivos">
+<span class="titulo-grupo">Practica en línea</span>
+<a class="enlace-int" href="https://zhemaria.github.io/interactivos/exponentes_multiples/" rel="noopener" target="_blank">
+<span aria-hidden="true" class="ico-int">🧩</span>
+<span class="txt-int">
+<span class="titulo-int">Simplificar con varias reglas a la vez</span>
+<span class="desc-int">
               Practica el orden de trabajo y el resultado con exponentes positivos
               <span class="sr-only">(se abre en una pestaña nueva)</span>
-            </span>
-          </span>
-          <span class="flecha-int" aria-hidden="true">&#8594;</span>
-        </a>
-        <p></p>
-        <a class="enlace-int" href="https://zhemaria.github.io/interactivos/exponentes_comprobacion/" target="_blank" rel="noopener">
-          <span class="ico-int" aria-hidden="true">&#127919;</span>
-          <span class="txt-int">
-            <span class="titulo-int">Comprobación del tema 1</span>
-            <span class="desc-int">
+</span>
+</span>
+<span aria-hidden="true" class="flecha-int">→</span>
+</a>
+<p></p>
+<a class="enlace-int" href="https://zhemaria.github.io/interactivos/exponentes_comprobacion/" rel="noopener" target="_blank">
+<span aria-hidden="true" class="ico-int">🎯</span>
+<span class="txt-int">
+<span class="titulo-int">Comprobación del tema 1</span>
+<span class="desc-int">
               Doce preguntas de las tres lecciones, con informe por bloque e impresión
               <span class="sr-only">(se abre en una pestaña nueva)</span>
-            </span>
-          </span>
-          <span class="flecha-int" aria-hidden="true">&#8594;</span>
-        </a>
-      </div>
-      <div class="quiz">
-        <h2>Quiz de la lección 1.3</h2>
-        <p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
-        <div id="quiz-cuerpo"></div>
-        <div id="resultado-quiz"></div>
-        <button class="btn" id="btn-corregir">Corregir quiz</button>
-        <button class="btn sec" id="btn-reintentar" style="display: none">Intentar de nuevo</button>
-      </div>
-      <div class="rubrica">
-        <h2>Rúbrica analítica de la lección</h2>
-        <p>Cuatro criterios evaluados en cuatro niveles de desempeño.</p>
-        <table class="tabla-rubrica">
-          <caption class="sr-only">Rúbrica analítica con cuatro criterios y cuatro niveles de desempeño.</caption>
-          <thead>
-            <tr>
-              <th scope="col">Criterio</th>
-              <th scope="col">Inicial (1)</th>
-              <th scope="col">En desarrollo (2)</th>
-              <th scope="col">Competente (3)</th>
-              <th scope="col">Destacado (4)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Elección de la regla en cada paso</td>
-              <td>No identifica qué regla aplicar en cada paso.</td>
-              <td>Aplica las reglas, pero a veces en orden incorrecto.</td>
-              <td>Aplica la regla correcta en cada paso siguiendo la ruta.</td>
-              <td>Aplica las reglas con fluidez y justifica el orden elegido.</td>
-            </tr>
-            <tr>
-              <td>Pasos intermedios</td>
-              <td>Salta al resultado sin mostrar el proceso.</td>
-              <td>Muestra algunos pasos, con omisiones.</td>
-              <td>Muestra todos los pasos de forma ordenada.</td>
-              <td>Muestra cada paso y anota la regla aplicada en cada uno.</td>
-            </tr>
-            <tr>
-              <td>Resultado con exponentes positivos</td>
-              <td>Deja exponentes negativos sin reescribir.</td>
-              <td>Reescribe algunos exponentes negativos, no todos.</td>
-              <td>Presenta el resultado solo con exponentes positivos.</td>
-              <td>Presenta la forma final más simple y la verifica.</td>
-            </tr>
-            <tr>
-              <td>Detección de errores ajenos</td>
-              <td>No reconoce el error en una solución dada.</td>
-              <td>Identifica el error, pero no lo corrige bien.</td>
-              <td>Identifica el paso incorrecto y lo corrige.</td>
-              <td>Identifica el error, lo corrige y nombra la regla mal aplicada.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="cierre">
-        <h2>Cierre del Tema 1 y enlace con el Tema 2</h2>
-        <p>
+</span>
+</span>
+<span aria-hidden="true" class="flecha-int">→</span>
+</a>
+</div>
+<div class="quiz">
+<h2 id="s-quiz-de-la-leccion-1-3">Quiz de la lección 1.3</h2>
+<p>Diez preguntas. Al finalizar se marca cada respuesta y se puede reintentar las veces necesarias. Para aprobar se requieren al menos 7 respuestas correctas.</p>
+<div id="quiz-cuerpo"></div>
+<div id="resultado-quiz"></div>
+<button class="btn" id="btn-corregir">Corregir quiz</button>
+<button class="btn sec" id="btn-reintentar" style="display: none">Intentar de nuevo</button>
+</div>
+<div class="rubrica">
+<h2 id="s-rubrica-analitica-de-la-leccion">Rúbrica analítica de la lección</h2>
+<p>Cuatro criterios evaluados en cuatro niveles de desempeño. Léala <strong>antes</strong> de empezar la tarea y úsela <strong>después</strong> para evaluar su propio trabajo con honestidad.</p>
+<table class="tabla-rubrica">
+<caption class="sr-only">Rúbrica analítica con cuatro criterios y cuatro niveles de desempeño.</caption>
+<thead>
+<tr>
+<th scope="col">Criterio</th>
+<th scope="col">Inicial (1)</th>
+<th scope="col">En desarrollo (2)</th>
+<th scope="col">Competente (3)</th>
+<th scope="col">Destacado (4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Elección de la regla en cada paso</td>
+<td>No identifica qué regla aplicar en cada paso.</td>
+<td>Aplica las reglas, pero a veces en orden incorrecto.</td>
+<td>Aplica la regla correcta en cada paso siguiendo la ruta.</td>
+<td>Aplica las reglas con fluidez y justifica el orden elegido.</td>
+</tr>
+<tr>
+<td>Pasos intermedios</td>
+<td>Salta al resultado sin mostrar el proceso.</td>
+<td>Muestra algunos pasos, con omisiones.</td>
+<td>Muestra todos los pasos de forma ordenada.</td>
+<td>Muestra cada paso y anota la regla aplicada en cada uno.</td>
+</tr>
+<tr>
+<td>Resultado con exponentes positivos</td>
+<td>Deja exponentes negativos sin reescribir.</td>
+<td>Reescribe algunos exponentes negativos, no todos.</td>
+<td>Presenta el resultado solo con exponentes positivos.</td>
+<td>Presenta la forma final más simple y la verifica.</td>
+</tr>
+<tr>
+<td>Detección de errores ajenos</td>
+<td>No reconoce el error en una solución dada.</td>
+<td>Identifica el error, pero no lo corrige bien.</td>
+<td>Identifica el paso incorrecto y lo corrige.</td>
+<td>Identifica el error, lo corrige y nombra la regla mal aplicada.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cierre">
+<h2 id="s-cierre-del-tema-1-y-enlace-con-el-tema-2">Cierre del Tema 1 y enlace con el Tema 2</h2>
+<p>
           Con esta lección se cierra el Tema 1. Ya se dominan las
           <strong>cinco reglas de los exponentes</strong>
           y, sobre todo, la capacidad de
@@ -1061,7 +957,7 @@
           <strong>exponentes positivos</strong>
           . También se aprendió a actuar como «árbitro», detectando y corrigiendo los errores más frecuentes.
         </p>
-        <p>
+<p>
           El Tema 2 abrirá con la
           <strong>Lección 2.1 · Conversión decimal ↔ científica y órdenes de magnitud</strong>
           , donde estas reglas cobran vida: la
@@ -1069,11 +965,11 @@
           usa potencias de 10 —con exponentes positivos y negativos— para escribir números tan grandes como la masa del Sol o tan pequeños como el diámetro de un átomo. Lo aprendido aquí será la
           herramienta directa de ese nuevo tema.
         </p>
-      </div>
-      <footer>Spanish ASE Math · Nivel 3 · Lección 1.3 — Preparado por Prof. José M. Fernández (Truman College, CCC) · Brightspace D2L</footer>
-    </div>
-    <p>
-      <script>
+</div>
+<footer><p>GEDparaHispanos · Matemáticas · Nivel 3 · Tema 1 · Lección 1.3</p><p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p><p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p></footer><a aria-label="Volver al contenido de la lección" class="volver-indice" href="#indice"><span aria-hidden="true">↑</span> Índice</a>
+</div>
+<p>
+<script>
         (function () {
           /* ---- Práctica de opciones (selección múltiple) ---- */
           var preguntasOp = document.querySelectorAll('.practica .pregunta[data-correcta]');
@@ -1219,6 +1115,6 @@
           });
         })();
       </script>
-    </p>
-  </body>
+</p>
+</body>
 </html>

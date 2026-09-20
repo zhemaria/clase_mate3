@@ -1,4 +1,7 @@
-<!doctype html>
+<!DOCTYPE html>
+<!-- Proyecto final integrador · Matemáticas Nivel 3 · GEDparaHispanos
+     José M. Fernández · CC BY-NC-SA 4.0 -->
+
 <!--
   Proyecto final integrador «Mi análisis de datos» — Spanish ASE Math, Nivel 3
   © José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago.
@@ -8,13 +11,13 @@
 -->
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago" />
-  <meta name="license" content="CC BY-NC-SA 4.0" />
-  <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" />
-  <title>Proyecto final integrador — Matemáticas, Nivel 3</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago" name="author"/>
+<meta content="CC BY-NC-SA 4.0" name="license"/>
+<link href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license"/>
+<title>Proyecto final integrador — Matemáticas, Nivel 3</title>
+<style>
     :root{
       --acento:     #4a148c;      /* morado del Tema 8, Nivel 3 */
       --acento-osc: #311b62;
@@ -222,389 +225,335 @@
       .celda input{ border:1px solid #999; }
       a[href]::after{ content:""; }
     }
-  </style>
+  
+  /* ── ÍNDICE DEL PROYECTO ── */
+  .indice{
+    background:#fff; border:1px solid #d8dde3; border-left:6px solid #1a237e;
+    border-radius:10px; padding:16px 20px; margin:22px 0;
+  }
+  .indice h2{ font-size:1.05rem; margin:0 0 10px; color:#1a237e; border:0; padding:0; background:none; }
+  .indice ol{ margin:0; padding-left:1.35em; }
+  .indice li{ margin:4px 0; }
+  .indice a{ color:#1a237e; text-decoration:underline; }
+  .indice a:focus-visible,.volver-indice:focus-visible{ outline:3px solid #b05e00; outline-offset:2px; }
+  .volver-indice{
+    position:fixed; right:18px; bottom:18px; z-index:60;
+    background:#1a237e; color:#fff; border-radius:999px;
+    padding:10px 16px; font-weight:700; font-size:.92rem; text-decoration:none;
+    box-shadow:0 2px 10px rgba(0,0,0,.28);
+  }
+  @media print{ .indice,.volver-indice{ display:none; } }
+</style>
 </head>
 <body>
 <div class="contenedor">
-
-  <header class="principal">
-    <h1>Proyecto final integrador «Mi análisis de datos» — Matemáticas, Nivel 3</h1>
-    <div class="meta">
-      Spanish ASE Math: Level 3 · City Colleges of Chicago · Harry S. Truman College<br>
-      Plantilla de trabajo del estudiante · Tema 8, lección 8.3
-    </div>
-  </header>
-
-  <!-- Barra de acciones (no se imprime) -->
-  <div class="acciones no-imprimir">
-    <button type="button" class="btn-pdf" onclick="exportarPDF()">⬇️ Exportar como PDF</button>
-    <button type="button" class="btn-sec" onclick="agregarDato()">＋ Agregar dato</button>
-    <button type="button" class="btn-borrar" onclick="borrarTodo()">🗑️ Borrar todo</button>
-    <span class="nota">Su trabajo se guarda automáticamente en este navegador. Para entregar, pulse
-      «Exportar como PDF» y elija «Guardar como PDF» en el destino de impresión.</span>
-  </div>
-
-  <!-- Instrucciones -->
-  <section class="intro">
-    <h2>Instrucciones del proyecto</h2>
-    <p>Este proyecto reúne lo aprendido en los ocho temas del Nivel 3 y sustituye la tarea asincrónica de la
-      lección 8.3. La nota del proyecto se combina con la de la evaluación final sumativa para formar la
-      calificación final del nivel.</p>
-    <p>Elija un conjunto de datos <strong>real</strong> de su propio entorno —los gastos de un mes, las edades de
+<header class="principal">
+<h1>Proyecto final integrador «Mi análisis de datos» — Matemáticas, Nivel 3</h1>
+<div class="meta">GEDparaHispanos · Matemáticas · Nivel 3 · Tema 8 · Lección 8.3<br/>Plantilla de trabajo del estudiante</div>
+</header>
+<!-- Barra de acciones (no se imprime) -->
+<div class="acciones no-imprimir">
+<button class="btn-pdf" onclick="exportarPDF()" type="button">⬇️ Exportar como PDF</button>
+<button class="btn-sec" onclick="agregarDato()" type="button">＋ Agregar dato</button>
+<button class="btn-borrar" onclick="borrarTodo()" type="button">🗑️ Borrar todo</button>
+<span class="nota">Su trabajo se guarda solo en este navegador. Para conservarlo, pulse «Exportar como PDF» y elija «Guardar como PDF» en el destino de impresión.</span>
+</div>
+<!-- Instrucciones -->
+<section class="intro">
+<h2>Instrucciones del proyecto</h2>
+<p>Este proyecto reúne lo aprendido en los ocho temas del Nivel 3 y es la última pieza del nivel. Aquí las destrezas sueltas se usan todas sobre unos mismos datos: los suyos. Tómeselo con calma; no es un ejercicio más, es la prueba de que el nivel quedó aprendido.</p>
+<p>Elija un conjunto de datos <strong>real</strong> de su propio entorno —los gastos de un mes, las edades de
       su familia, las temperaturas de la semana, las calificaciones del semestre— y analícelo por completo. El
       proyecto debe incluir cinco componentes:</p>
-    <ul>
-      <li><strong>Conjunto de datos:</strong> entre 10 y 20 valores reales, con su fuente y su contexto descritos.</li>
-      <li><strong>Gráfica:</strong> un diagrama de caja y bigotes o un histograma, con todas sus etiquetas.</li>
-      <li><strong>Estadísticos:</strong> al menos tres cálculos (media, mediana, IQR u otro).</li>
-      <li><strong>Interpretación escrita:</strong> qué dicen los datos sobre su centro, su dispersión y su forma.</li>
-      <li><strong>Probabilidad:</strong> al menos un cálculo de probabilidad vinculado al contexto de los datos.</li>
-    </ul>
-    <p>La plantilla calcula automáticamente los estadísticos, construye la gráfica y ofrece comprobaciones, pero
+<ul>
+<li><strong>Conjunto de datos:</strong> entre 10 y 20 valores reales, con su fuente y su contexto descritos.</li>
+<li><strong>Gráfica:</strong> un diagrama de caja y bigotes o un histograma, con todas sus etiquetas.</li>
+<li><strong>Estadísticos:</strong> al menos tres cálculos (media, mediana, IQR u otro).</li>
+<li><strong>Interpretación escrita:</strong> qué dicen los datos sobre su centro, su dispersión y su forma.</li>
+<li><strong>Probabilidad:</strong> al menos un cálculo de probabilidad vinculado al contexto de los datos.</li>
+</ul>
+<p>La plantilla calcula automáticamente los estadísticos, construye la gráfica y ofrece comprobaciones, pero
       usted debe mostrar su procedimiento por escrito: el cálculo automático solo sirve para verificar el suyo.</p>
-  </section>
-
-  <!-- Identificación -->
-  <section class="seccion">
-    <div class="seccion-cab">
-      <h2><span class="num" aria-hidden="true">0</span> Datos del estudiante y del conjunto</h2>
-    </div>
-    <div class="seccion-cuerpo">
-      <div class="ident">
-        <div class="campo">
-          <label class="etq" for="f_nombre">Nombre del estudiante</label>
-          <input class="linea" type="text" id="f_nombre" />
-        </div>
-        <div class="campo">
-          <label class="etq" for="f_fecha">Fecha de entrega</label>
-          <input class="linea" type="text" id="f_fecha" placeholder="dd/mm/aaaa" />
-        </div>
-        <div class="campo">
-          <label class="etq" for="f_titulo">Título del conjunto de datos</label>
-          <input class="linea" type="text" id="f_titulo" placeholder="Ej.: mis gastos semanales de enero" />
-        </div>
-        <div class="campo">
-          <label class="etq" for="f_unidad">Unidad de medida</label>
-          <input class="linea" type="text" id="f_unidad" placeholder="dólares, años, grados °F, horas…" />
-        </div>
-      </div>
-      <div class="sub-campo" style="margin-top:18px;">
-        <span class="etq" id="etq-fuente">Fuente y contexto de los datos</span>
-        <div class="escribe" id="f_fuente" contenteditable="true" role="textbox" aria-multiline="true"
-             aria-labelledby="etq-fuente"
-             data-placeholder="¿De dónde salieron estos datos? ¿A qué se refieren, de qué período y de qué personas o cosas?"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección 1 -->
-  <section class="seccion">
-    <div class="seccion-cab">
-      <h2><span class="num" aria-hidden="true">1</span> Conjunto de datos</h2>
-      <p class="guia">Escriba entre <strong>10 y 20 valores numéricos</strong> reales. La plantilla los ordena de
+</section><nav aria-labelledby="indice-titulo" class="indice" id="indice"><h2 id="indice-titulo">Secciones del proyecto</h2><ol><li><a href="#s-datos-del-estudiante-y-del-conjunto">Datos del estudiante y del conjunto</a></li><li><a href="#s-conjunto-de-datos">Conjunto de datos</a></li><li><a href="#s-calculo-de-estadisticos">Cálculo de estadísticos</a></li><li><a href="#s-representacion-grafica">Representación gráfica</a></li><li><a href="#s-interpretacion-escrita">Interpretación escrita</a></li><li><a href="#s-calculo-de-probabilidad">Cálculo de probabilidad</a></li><li><a href="#s-como-cerrar-el-proyecto">Cómo cerrar el proyecto</a></li><li><a href="#s-rubrica-analitica-del-proyecto">Rúbrica analítica del proyecto</a></li></ol></nav>
+<!-- Identificación -->
+<section class="seccion">
+<div class="seccion-cab">
+<h2 id="s-datos-del-estudiante-y-del-conjunto"><span aria-hidden="true" class="num">0</span> Datos del estudiante y del conjunto</h2>
+</div>
+<div class="seccion-cuerpo">
+<div class="ident">
+<div class="campo">
+<label class="etq" for="f_nombre">Nombre del estudiante</label>
+<input class="linea" id="f_nombre" type="text"/>
+</div>
+<div class="campo">
+<label class="etq" for="f_fecha">Fecha de entrega</label>
+<input class="linea" id="f_fecha" placeholder="dd/mm/aaaa" type="text"/>
+</div>
+<div class="campo">
+<label class="etq" for="f_titulo">Título del conjunto de datos</label>
+<input class="linea" id="f_titulo" placeholder="Ej.: mis gastos semanales de enero" type="text"/>
+</div>
+<div class="campo">
+<label class="etq" for="f_unidad">Unidad de medida</label>
+<input class="linea" id="f_unidad" placeholder="dólares, años, grados °F, horas…" type="text"/>
+</div>
+</div>
+<div class="sub-campo" style="margin-top:18px;">
+<span class="etq" id="etq-fuente">Fuente y contexto de los datos</span>
+<div aria-labelledby="etq-fuente" aria-multiline="true" class="escribe" contenteditable="true" data-placeholder="¿De dónde salieron estos datos? ¿A qué se refieren, de qué período y de qué personas o cosas?" id="f_fuente" role="textbox"></div>
+</div>
+</div>
+</section>
+<!-- Sección 1 -->
+<section class="seccion">
+<div class="seccion-cab">
+<h2 id="s-conjunto-de-datos"><span aria-hidden="true" class="num">1</span> Conjunto de datos</h2>
+<p class="guia">Escriba entre <strong>10 y 20 valores numéricos</strong> reales. La plantilla los ordena de
         menor a mayor y calcula todo lo demás a partir de ellos.</p>
-    </div>
-    <div class="seccion-cuerpo">
-      <div class="rejilla" id="rejilla-datos"><!-- celdas generadas por JS --></div>
-
-      <div class="fila-btns no-imprimir">
-        <button type="button" class="btn-sec" onclick="agregarDato()">＋ Agregar dato</button>
-        <button type="button" class="btn-sec" onclick="quitarDato()">− Quitar el último</button>
-      </div>
-
-      <div class="pegar-caja no-imprimir">
-        <label class="etq" for="f_pegar">Atajo opcional: pegue aquí sus datos separados por comas o espacios</label>
-        <textarea id="f_pegar" placeholder="Ej.: 42, 55, 38, 61, 47, 50, 44, 59, 52, 46"></textarea>
-        <div class="fila-btns">
-          <button type="button" class="btn-sec" onclick="cargarPegados()">Cargar los datos pegados</button>
-        </div>
-      </div>
-
-      <p class="contador" id="contador-datos">Datos válidos: 0</p>
-
-      <div class="ordenados">
-        <strong>Datos ordenados de menor a mayor:</strong>
-        <span id="lista-ordenada">—</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección 2 -->
-  <section class="seccion">
-    <div class="seccion-cab">
-      <h2><span class="num" aria-hidden="true">2</span> Cálculo de estadísticos</h2>
-      <p class="guia">Calcule <strong>al menos tres</strong> estadísticos a mano y muestre el procedimiento
+</div>
+<div class="seccion-cuerpo">
+<div class="rejilla" id="rejilla-datos"><!-- celdas generadas por JS --></div>
+<div class="fila-btns no-imprimir">
+<button class="btn-sec" onclick="agregarDato()" type="button">＋ Agregar dato</button>
+<button class="btn-sec" onclick="quitarDato()" type="button">− Quitar el último</button>
+</div>
+<div class="pegar-caja no-imprimir">
+<label class="etq" for="f_pegar">Atajo opcional: pegue aquí sus datos separados por comas o espacios</label>
+<textarea id="f_pegar" placeholder="Ej.: 42, 55, 38, 61, 47, 50, 44, 59, 52, 46"></textarea>
+<div class="fila-btns">
+<button class="btn-sec" onclick="cargarPegados()" type="button">Cargar los datos pegados</button>
+</div>
+</div>
+<p class="contador" id="contador-datos">Datos válidos: 0</p>
+<div class="ordenados">
+<strong>Datos ordenados de menor a mayor:</strong>
+<span id="lista-ordenada">—</span>
+</div>
+</div>
+</section>
+<!-- Sección 2 -->
+<section class="seccion">
+<div class="seccion-cab">
+<h2 id="s-calculo-de-estadisticos"><span aria-hidden="true" class="num">2</span> Cálculo de estadísticos</h2>
+<p class="guia">Calcule <strong>al menos tres</strong> estadísticos a mano y muestre el procedimiento
         completo, no solo el resultado. El panel de comprobación sirve únicamente para verificar su trabajo.</p>
-    </div>
-    <div class="seccion-cuerpo">
-      <div class="sub-campo">
-        <span class="etq" id="etq-estad">Procedimiento y resultados (escriba aquí)</span>
-        <div class="escribe" id="f_estadisticos" contenteditable="true" role="textbox" aria-multiline="true"
-             aria-labelledby="etq-estad" style="min-height:130px;"
-             data-placeholder="Ejemplo: Para la media sumo los 12 valores (total = 604) y divido entre 12: 604 ÷ 12 = 50.33. Para la mediana ordeno los datos y…"></div>
-      </div>
-
-      <div class="ayuda no-imprimir">
-        <h3>Comprobación automática (a partir de los datos de la sección 1)</h3>
-        <table class="stats">
-          <caption>Estadísticos calculados automáticamente a partir del conjunto de datos del estudiante.</caption>
-          <thead>
-            <tr>
-              <th scope="col">Estadístico</th>
-              <th scope="col">Valor</th>
-              <th scope="col">Estadístico</th>
-              <th scope="col">Valor</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Cantidad de datos (n)</td><td id="s-n">—</td><td>Media (x̄)</td><td id="s-media">—</td></tr>
-            <tr><td>Mínimo</td><td id="s-min">—</td><td>Máximo</td><td id="s-max">—</td></tr>
-            <tr><td>Primer cuartil (Q1)</td><td id="s-q1">—</td><td>Tercer cuartil (Q3)</td><td id="s-q3">—</td></tr>
-            <tr><td>Mediana (Q2)</td><td id="s-mediana">—</td><td>Rango intercuartílico (IQR)</td><td id="s-iqr">—</td></tr>
-            <tr><td>Rango (máx − mín)</td><td id="s-rango">—</td><td>Moda</td><td id="s-moda">—</td></tr>
-          </tbody>
-        </table>
-        <p class="aclara">Los cuartiles se calculan con el método del curso: se ordena el conjunto, la mediana lo
+</div>
+<div class="seccion-cuerpo">
+<div class="sub-campo">
+<span class="etq" id="etq-estad">Procedimiento y resultados (escriba aquí)</span>
+<div aria-labelledby="etq-estad" aria-multiline="true" class="escribe" contenteditable="true" data-placeholder="Ejemplo: Para la media sumo los 12 valores (total = 604) y divido entre 12: 604 ÷ 12 = 50.33. Para la mediana ordeno los datos y…" id="f_estadisticos" role="textbox" style="min-height:130px;"></div>
+</div>
+<div class="ayuda no-imprimir">
+<h3>Comprobación automática (a partir de los datos de la sección 1)</h3>
+<table class="stats">
+<caption>Estadísticos calculados automáticamente a partir del conjunto de datos del estudiante.</caption>
+<thead>
+<tr>
+<th scope="col">Estadístico</th>
+<th scope="col">Valor</th>
+<th scope="col">Estadístico</th>
+<th scope="col">Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Cantidad de datos (n)</td><td id="s-n">—</td><td>Media (x̄)</td><td id="s-media">—</td></tr>
+<tr><td>Mínimo</td><td id="s-min">—</td><td>Máximo</td><td id="s-max">—</td></tr>
+<tr><td>Primer cuartil (Q1)</td><td id="s-q1">—</td><td>Tercer cuartil (Q3)</td><td id="s-q3">—</td></tr>
+<tr><td>Mediana (Q2)</td><td id="s-mediana">—</td><td>Rango intercuartílico (IQR)</td><td id="s-iqr">—</td></tr>
+<tr><td>Rango (máx − mín)</td><td id="s-rango">—</td><td>Moda</td><td id="s-moda">—</td></tr>
+</tbody>
+</table>
+<p class="aclara">Los cuartiles se calculan con el método del curso: se ordena el conjunto, la mediana lo
           divide en dos mitades y Q1 y Q3 son las medianas de la mitad inferior y de la mitad superior
           (si n es impar, la mediana no se incluye en ninguna mitad).</p>
-        <p class="aclara">Límites para identificar valores atípicos (opcional):
-          Q1 − 1.5 × IQR = <span class="res" id="s-lim-inf">—</span> &nbsp;·&nbsp;
+<p class="aclara">Límites para identificar valores atípicos (opcional):
+          Q1 − 1.5 × IQR = <span class="res" id="s-lim-inf">—</span>  · 
           Q3 + 1.5 × IQR = <span class="res" id="s-lim-sup">—</span></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección 3 -->
-  <section class="seccion">
-    <div class="seccion-cab">
-      <h2><span class="num" aria-hidden="true">3</span> Representación gráfica</h2>
-      <p class="guia">Elija <strong>un diagrama de caja y bigotes</strong> o <strong>un histograma</strong>. La
-        gráfica se construye con los datos de la sección 1 e incluye todas sus etiquetas.</p>
-    </div>
-    <div class="seccion-cuerpo">
-      <div class="mini-grid">
-        <div class="mc">
-          <label class="etq" for="tipo-grafica">Tipo de gráfica</label>
-          <select id="tipo-grafica" onchange="cambiarTipoGrafica()">
-            <option value="caja">Diagrama de caja y bigotes</option>
-            <option value="histograma">Histograma</option>
-          </select>
-        </div>
-        <div class="mc" id="mc-inicio" style="display:none;">
-          <label class="etq" for="hist-inicio">Inicio del primer intervalo</label>
-          <input type="number" step="any" id="hist-inicio" oninput="dibujarGrafica(); guardar();" />
-        </div>
-        <div class="mc" id="mc-ancho" style="display:none;">
-          <label class="etq" for="hist-ancho">Ancho del intervalo</label>
-          <input type="number" step="any" min="0" id="hist-ancho" oninput="dibujarGrafica(); guardar();" />
-        </div>
-        <div class="mc" id="mc-auto" style="display:none;">
-          <span class="etq" aria-hidden="true">&nbsp;</span>
-          <button type="button" class="btn-sec no-imprimir" onclick="sugerirIntervalos()">Sugerir intervalos</button>
-        </div>
-      </div>
-
-      <div class="grafica-wrap">
-        <figure class="grafica">
-          <div class="svg-host" id="svg-host" role="img" aria-label="Gráfica del conjunto de datos del proyecto"></div>
-          <figcaption id="pie-grafica">Gráfica generada a partir de los datos de la sección 1.</figcaption>
-        </figure>
-      </div>
-
-      <div id="zona-tabla-grafica"></div>
-
-      <div class="sub-campo" style="margin-top:16px;">
-        <span class="etq" id="etq-grafica">Título de la gráfica y explicación de su elección</span>
-        <div class="escribe" id="f_grafica" contenteditable="true" role="textbox" aria-multiline="true"
-             aria-labelledby="etq-grafica"
-             data-placeholder="Ejemplo: elegí el diagrama de caja porque quiero mostrar cómo se reparten mis gastos entre el mínimo y el máximo, y dónde está la mitad central."></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección 4 -->
-  <section class="seccion">
-    <div class="seccion-cab">
-      <h2><span class="num" aria-hidden="true">4</span> Interpretación escrita</h2>
-      <p class="guia">Redacte al menos <strong>cinco oraciones completas</strong>. Una gráfica sin interpretación
-        queda incompleta: explique qué dicen sus datos.</p>
-    </div>
-    <div class="seccion-cuerpo">
-      <div class="ayuda">
-        <h3>Guía de redacción: los tres aspectos que debe cubrir</h3>
-        <p><strong>Centro:</strong> ¿alrededor de qué valor se agrupan los datos? (media, mediana)<br>
-           <strong>Dispersión:</strong> ¿qué tan separados están? (rango, IQR, longitud de los bigotes)<br>
-           <strong>Forma:</strong> ¿se reparten de manera simétrica, se cargan hacia un lado, hay valores
-           llamativamente altos o bajos?</p>
-        <p class="aclara">Cierre con una conclusión propia: ¿qué aprendió sobre la situación que midió?</p>
-      </div>
-      <div class="escribe" id="f_interpretacion" contenteditable="true" role="textbox" aria-multiline="true"
-           aria-label="Interpretación escrita del conjunto de datos"
-           data-placeholder="Escriba aquí su interpretación en oraciones completas…"
-           style="min-height:150px; margin-top:14px;"></div>
-      <p class="contador no-imprimir" id="contador-oraciones">Oraciones detectadas: 0</p>
-    </div>
-  </section>
-
-  <!-- Sección 5 -->
-  <section class="seccion">
-    <div class="seccion-cab">
-      <h2><span class="num" aria-hidden="true">5</span> Cálculo de probabilidad</h2>
-      <p class="guia">Plantee al menos <strong>una pregunta de probabilidad</strong> sobre su propio conjunto de
-        datos y resuélvala. Exprese el resultado en fracción, decimal y porcentaje.</p>
-    </div>
-    <div class="seccion-cuerpo">
-      <div class="sub-campo">
-        <span class="etq" id="etq-pregunta">Pregunta de probabilidad que va a resolver</span>
-        <div class="escribe" id="f_pregunta" contenteditable="true" role="textbox" aria-multiline="true"
-             aria-labelledby="etq-pregunta" style="min-height:70px;"
-             data-placeholder="Ejemplo: si elijo un día al azar de mi conjunto, ¿cuál es la probabilidad de que haya gastado más de $50?"></div>
-      </div>
-
-      <div class="ayuda no-imprimir">
-        <h3>Comprobación automática de la probabilidad</h3>
-        <div class="mini-grid">
-          <div class="mc">
-            <label class="etq" for="prob-cond">Condición del evento favorable</label>
-            <select id="prob-cond" onchange="actualizarProbabilidad()">
-              <option value="mayor">Mayor que (&gt;)</option>
-              <option value="mayorig">Mayor o igual que (≥)</option>
-              <option value="menor">Menor que (&lt;)</option>
-              <option value="menorig">Menor o igual que (≤)</option>
-              <option value="igual">Igual a (=)</option>
-              <option value="entre">Entre dos valores (inclusive)</option>
-            </select>
-          </div>
-          <div class="mc">
-            <label class="etq" for="prob-v1">Valor de referencia</label>
-            <input type="number" step="any" id="prob-v1" oninput="actualizarProbabilidad()" />
-          </div>
-          <div class="mc" id="mc-v2" style="display:none;">
-            <label class="etq" for="prob-v2">Segundo valor</label>
-            <input type="number" step="any" id="prob-v2" oninput="actualizarProbabilidad()" />
-          </div>
-        </div>
-        <p style="margin:12px 0 0;">Casos favorables: <span class="res" id="p-k">—</span> de
-          <span class="res" id="p-n">—</span> &nbsp;→&nbsp; P = <span class="res" id="p-resultado">—</span></p>
-        <p class="aclara">Probabilidad compuesta con dos selecciones (Tema 8):
-          con reemplazo = <span class="res" id="p-con">—</span> &nbsp;·&nbsp;
-          sin reemplazo = <span class="res" id="p-sin">—</span></p>
-      </div>
-
-      <div class="sub-campo" style="margin-top:16px;">
-        <span class="etq" id="etq-prob">Planteamiento y resolución (escriba aquí)</span>
-        <div class="escribe" id="f_probabilidad" contenteditable="true" role="textbox" aria-multiline="true"
-             aria-labelledby="etq-prob" style="min-height:120px;"
-             data-placeholder="Ejemplo: de mis 12 días, en 5 gasté más de $50. P = 5/12 = 0.4167 = 41.67 %. Si eligiera dos días distintos (sin reemplazo): (5/12) × (4/11) = 20/132 = 0.1515 = 15.15 %."></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Opciones de entrega -->
-  <section class="seccion">
-    <div class="seccion-cab">
-      <h2><span class="num" aria-hidden="true">✓</span> Entrega y presentación</h2>
-      <p class="guia">Marque lo que ya completó antes de entregar el proyecto.</p>
-    </div>
-    <div class="seccion-cuerpo">
-      <div class="entrega">
-        <label class="opcion">
-          <input type="checkbox" id="e1" />
-          <span class="txt"><strong>Proyecto completo subido a Brightspace</strong> con los cinco componentes
-            (datos, gráfica, estadísticos, interpretación y probabilidad).</span>
-        </label>
-        <label class="opcion">
-          <input type="checkbox" id="e2" />
-          <span class="txt"><strong>Presentación de 3 a 4 minutos</strong> en la sesión sincrónica final, o
-            presentación grabada si el curso es en línea.</span>
-        </label>
-        <label class="opcion">
-          <input type="checkbox" id="e3" />
-          <span class="txt"><strong>Comentario constructivo al proyecto de dos compañeros</strong>, con una
-            observación o una pregunta en cada uno.</span>
-        </label>
-        <label class="opcion">
-          <input type="checkbox" id="e4" />
-          <span class="txt"><strong>Repaso de la hoja de fórmulas del GED</strong> antes de la evaluación final
-            sumativa del nivel.</span>
-        </label>
-      </div>
-    </div>
-  </section>
-
-  <!-- Rúbrica -->
-  <section class="seccion">
-    <div class="seccion-cab">
-      <h2><span class="num" aria-hidden="true">📊</span> Rúbrica analítica del proyecto</h2>
-      <p class="guia">Cinco criterios evaluados en cuatro niveles de desempeño (20 puntos en total). Consérvela
-        como referencia mientras completa el proyecto.</p>
-    </div>
-    <div class="seccion-cuerpo">
-      <div class="tabla-scroll">
-        <table class="rubrica">
-          <caption>Rúbrica analítica del proyecto final integrador del Nivel 3, con cinco criterios y cuatro niveles de desempeño.</caption>
-          <thead>
-            <tr>
-              <th scope="col">Criterio</th>
-              <th scope="col">Inicial (1)</th>
-              <th scope="col">En desarrollo (2)</th>
-              <th scope="col">Competente (3)</th>
-              <th scope="col">Destacado (4)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1. Conjunto de datos</td>
-              <td>Datos inventados o sin describir.</td>
-              <td>Datos reales, pero sin fuente clara.</td>
-              <td>Conjunto de datos real y bien descrito.</td>
-              <td>Datos reales, relevantes y con su fuente y contexto explicados.</td>
-            </tr>
-            <tr>
-              <td>2. Representación gráfica</td>
-              <td>No incluye una gráfica válida.</td>
-              <td>Gráfica con errores o sin etiquetas.</td>
-              <td>Caja o histograma correcto con todas las etiquetas.</td>
-              <td>Gráfica clara, correcta y bien rotulada, adecuada a los datos.</td>
-            </tr>
-            <tr>
-              <td>3. Cálculo de estadísticos</td>
-              <td>No calcula estadísticos.</td>
-              <td>Calcula menos de tres o con errores.</td>
-              <td>Calcula correctamente al menos tres estadísticos.</td>
-              <td>Calcula varios estadísticos sin errores y los relaciona entre sí.</td>
-            </tr>
-            <tr>
-              <td>4. Interpretación escrita</td>
-              <td>No interpreta los datos.</td>
-              <td>Interpretación vaga o incoherente con los datos.</td>
-              <td>Interpretación escrita coherente con los datos.</td>
-              <td>Interpretación clara y profunda (centro, dispersión y forma).</td>
-            </tr>
-            <tr>
-              <td>5. Cálculo de probabilidad</td>
-              <td>No incluye probabilidad.</td>
-              <td>Cálculo de probabilidad con errores.</td>
-              <td>Cálculo de probabilidad correcto vinculado al contexto.</td>
-              <td>Probabilidad correcta, bien explicada y ligada al análisis.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="guia" style="margin-top:12px;">La nota del proyecto se combina con la de la evaluación final
-        sumativa del Nivel 3 (25 preguntas, 60 minutos).</p>
-    </div>
-  </section>
-
-  <footer>
-    Proyecto final integrador «Mi análisis de datos» — Spanish ASE Math, Nivel 3 · Harry S. Truman College,
-    City Colleges of Chicago.<br>
-    © José M. Fernández, ABE/ASE Math Master Teacher. Licencia
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a>.
-  </footer>
-
 </div>
-
+</div>
+</section>
+<!-- Sección 3 -->
+<section class="seccion">
+<div class="seccion-cab">
+<h2 id="s-representacion-grafica"><span aria-hidden="true" class="num">3</span> Representación gráfica</h2>
+<p class="guia">Elija <strong>un diagrama de caja y bigotes</strong> o <strong>un histograma</strong>. La
+        gráfica se construye con los datos de la sección 1 e incluye todas sus etiquetas.</p>
+</div>
+<div class="seccion-cuerpo">
+<div class="mini-grid">
+<div class="mc">
+<label class="etq" for="tipo-grafica">Tipo de gráfica</label>
+<select id="tipo-grafica" onchange="cambiarTipoGrafica()">
+<option value="caja">Diagrama de caja y bigotes</option>
+<option value="histograma">Histograma</option>
+</select>
+</div>
+<div class="mc" id="mc-inicio" style="display:none;">
+<label class="etq" for="hist-inicio">Inicio del primer intervalo</label>
+<input id="hist-inicio" oninput="dibujarGrafica(); guardar();" step="any" type="number"/>
+</div>
+<div class="mc" id="mc-ancho" style="display:none;">
+<label class="etq" for="hist-ancho">Ancho del intervalo</label>
+<input id="hist-ancho" min="0" oninput="dibujarGrafica(); guardar();" step="any" type="number"/>
+</div>
+<div class="mc" id="mc-auto" style="display:none;">
+<span aria-hidden="true" class="etq"> </span>
+<button class="btn-sec no-imprimir" onclick="sugerirIntervalos()" type="button">Sugerir intervalos</button>
+</div>
+</div>
+<div class="grafica-wrap">
+<figure class="grafica">
+<div aria-label="Gráfica del conjunto de datos del proyecto" class="svg-host" id="svg-host" role="img"></div>
+<figcaption id="pie-grafica">Gráfica generada a partir de los datos de la sección 1.</figcaption>
+</figure>
+</div>
+<div id="zona-tabla-grafica"></div>
+<div class="sub-campo" style="margin-top:16px;">
+<span class="etq" id="etq-grafica">Título de la gráfica y explicación de su elección</span>
+<div aria-labelledby="etq-grafica" aria-multiline="true" class="escribe" contenteditable="true" data-placeholder="Ejemplo: elegí el diagrama de caja porque quiero mostrar cómo se reparten mis gastos entre el mínimo y el máximo, y dónde está la mitad central." id="f_grafica" role="textbox"></div>
+</div>
+</div>
+</section>
+<!-- Sección 4 -->
+<section class="seccion">
+<div class="seccion-cab">
+<h2 id="s-interpretacion-escrita"><span aria-hidden="true" class="num">4</span> Interpretación escrita</h2>
+<p class="guia">Redacte al menos <strong>cinco oraciones completas</strong>. Una gráfica sin interpretación
+        queda incompleta: explique qué dicen sus datos.</p>
+</div>
+<div class="seccion-cuerpo">
+<div class="ayuda">
+<h3>Guía de redacción: los tres aspectos que debe cubrir</h3>
+<p><strong>Centro:</strong> ¿alrededor de qué valor se agrupan los datos? (media, mediana)<br/>
+<strong>Dispersión:</strong> ¿qué tan separados están? (rango, IQR, longitud de los bigotes)<br/>
+<strong>Forma:</strong> ¿se reparten de manera simétrica, se cargan hacia un lado, hay valores
+           llamativamente altos o bajos?</p>
+<p class="aclara">Cierre con una conclusión propia: ¿qué aprendió sobre la situación que midió?</p>
+</div>
+<div aria-label="Interpretación escrita del conjunto de datos" aria-multiline="true" class="escribe" contenteditable="true" data-placeholder="Escriba aquí su interpretación en oraciones completas…" id="f_interpretacion" role="textbox" style="min-height:150px; margin-top:14px;"></div>
+<p class="contador no-imprimir" id="contador-oraciones">Oraciones detectadas: 0</p>
+</div>
+</section>
+<!-- Sección 5 -->
+<section class="seccion">
+<div class="seccion-cab">
+<h2 id="s-calculo-de-probabilidad"><span aria-hidden="true" class="num">5</span> Cálculo de probabilidad</h2>
+<p class="guia">Plantee al menos <strong>una pregunta de probabilidad</strong> sobre su propio conjunto de
+        datos y resuélvala. Exprese el resultado en fracción, decimal y porcentaje.</p>
+</div>
+<div class="seccion-cuerpo">
+<div class="sub-campo">
+<span class="etq" id="etq-pregunta">Pregunta de probabilidad que va a resolver</span>
+<div aria-labelledby="etq-pregunta" aria-multiline="true" class="escribe" contenteditable="true" data-placeholder="Ejemplo: si elijo un día al azar de mi conjunto, ¿cuál es la probabilidad de que haya gastado más de $50?" id="f_pregunta" role="textbox" style="min-height:70px;"></div>
+</div>
+<div class="ayuda no-imprimir">
+<h3>Comprobación automática de la probabilidad</h3>
+<div class="mini-grid">
+<div class="mc">
+<label class="etq" for="prob-cond">Condición del evento favorable</label>
+<select id="prob-cond" onchange="actualizarProbabilidad()">
+<option value="mayor">Mayor que (&gt;)</option>
+<option value="mayorig">Mayor o igual que (≥)</option>
+<option value="menor">Menor que (&lt;)</option>
+<option value="menorig">Menor o igual que (≤)</option>
+<option value="igual">Igual a (=)</option>
+<option value="entre">Entre dos valores (inclusive)</option>
+</select>
+</div>
+<div class="mc">
+<label class="etq" for="prob-v1">Valor de referencia</label>
+<input id="prob-v1" oninput="actualizarProbabilidad()" step="any" type="number"/>
+</div>
+<div class="mc" id="mc-v2" style="display:none;">
+<label class="etq" for="prob-v2">Segundo valor</label>
+<input id="prob-v2" oninput="actualizarProbabilidad()" step="any" type="number"/>
+</div>
+</div>
+<p style="margin:12px 0 0;">Casos favorables: <span class="res" id="p-k">—</span> de
+          <span class="res" id="p-n">—</span>  →  P = <span class="res" id="p-resultado">—</span></p>
+<p class="aclara">Probabilidad compuesta con dos selecciones (Tema 8):
+          con reemplazo = <span class="res" id="p-con">—</span>  · 
+          sin reemplazo = <span class="res" id="p-sin">—</span></p>
+</div>
+<div class="sub-campo" style="margin-top:16px;">
+<span class="etq" id="etq-prob">Planteamiento y resolución (escriba aquí)</span>
+<div aria-labelledby="etq-prob" aria-multiline="true" class="escribe" contenteditable="true" data-placeholder="Ejemplo: de mis 12 días, en 5 gasté más de $50. P = 5/12 = 0.4167 = 41.67 %. Si eligiera dos días distintos (sin reemplazo): (5/12) × (4/11) = 20/132 = 0.1515 = 15.15 %." id="f_probabilidad" role="textbox" style="min-height:120px;"></div>
+</div>
+</div>
+</section>
+<!-- Opciones de entrega -->
+<section class="seccion">
+<div class="seccion-cab">
+<h2 id="s-como-cerrar-el-proyecto"><span aria-hidden="true" class="num">✓</span> Cómo cerrar el proyecto</h2>
+<p class="guia">Marque lo que vaya completando. Los cuatro pasos importan; el segundo es el que de verdad revela si entendió.</p>
+</div>
+<div class="seccion-cuerpo"><div class="entrega"><label class="opcion"><input id="e1" type="checkbox"/><span class="txt"><strong>Proyecto completo y guardado en PDF,</strong> con los cinco componentes: datos, gráfica, estadísticos, interpretación y probabilidad. Es su constancia de haber terminado el Nivel 3.</span></label><label class="opcion"><input id="e2" type="checkbox"/><span class="txt"><strong>Explicado en voz alta,</strong> de tres a cuatro minutos, a un familiar o grabándose con el teléfono. Diga de dónde salieron los datos, qué muestra la gráfica y qué concluye. Lo que no logre explicar en voz alta todavía no lo entendió del todo.</span></label><label class="opcion"><input id="e3" type="checkbox"/><span class="txt"><strong>Revisado al día siguiente</strong> con la rúbrica de abajo en la mano, criterio por criterio, como si el trabajo fuera de otra persona.</span></label><label class="opcion"><input id="e4" type="checkbox"/><span class="txt"><strong>Hoja de fórmulas del GED repasada</strong> antes de la evaluación final del nivel. En el examen la tendrá disponible, pero buscar una fórmula cuesta tiempo: conviene saber dónde está cada una.</span></label></div></div>
+</section>
+<!-- Rúbrica -->
+<section class="seccion">
+<div class="seccion-cab">
+<h2 id="s-rubrica-analitica-del-proyecto"><span aria-hidden="true" class="num">📊</span> Rúbrica analítica del proyecto</h2>
+<p class="guia">Cinco criterios en cuatro niveles de desempeño (20 puntos en total). Léalos antes de empezar y vuelva a ellos al terminar, para evaluar su propio trabajo con honestidad.</p>
+</div>
+<div class="seccion-cuerpo">
+<div class="tabla-scroll">
+<table class="rubrica">
+<caption>Rúbrica analítica del proyecto final integrador del Nivel 3, con cinco criterios y cuatro niveles de desempeño.</caption>
+<thead>
+<tr>
+<th scope="col">Criterio</th>
+<th scope="col">Inicial (1)</th>
+<th scope="col">En desarrollo (2)</th>
+<th scope="col">Competente (3)</th>
+<th scope="col">Destacado (4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Conjunto de datos</td>
+<td>Datos inventados o sin describir.</td>
+<td>Datos reales, pero sin fuente clara.</td>
+<td>Conjunto de datos real y bien descrito.</td>
+<td>Datos reales, relevantes y con su fuente y contexto explicados.</td>
+</tr>
+<tr>
+<td>2. Representación gráfica</td>
+<td>No incluye una gráfica válida.</td>
+<td>Gráfica con errores o sin etiquetas.</td>
+<td>Caja o histograma correcto con todas las etiquetas.</td>
+<td>Gráfica clara, correcta y bien rotulada, adecuada a los datos.</td>
+</tr>
+<tr>
+<td>3. Cálculo de estadísticos</td>
+<td>No calcula estadísticos.</td>
+<td>Calcula menos de tres o con errores.</td>
+<td>Calcula correctamente al menos tres estadísticos.</td>
+<td>Calcula varios estadísticos sin errores y los relaciona entre sí.</td>
+</tr>
+<tr>
+<td>4. Interpretación escrita</td>
+<td>No interpreta los datos.</td>
+<td>Interpretación vaga o incoherente con los datos.</td>
+<td>Interpretación escrita coherente con los datos.</td>
+<td>Interpretación clara y profunda (centro, dispersión y forma).</td>
+</tr>
+<tr>
+<td>5. Cálculo de probabilidad</td>
+<td>No incluye probabilidad.</td>
+<td>Cálculo de probabilidad con errores.</td>
+<td>Cálculo de probabilidad correcto vinculado al contexto.</td>
+<td>Probabilidad correcta, bien explicada y ligada al análisis.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="guia" style="margin-top:12px;">La nota del proyecto se combina con la de la evaluación final
+        sumativa del Nivel 3 (25 preguntas, 60 minutos).</p>
+</div>
+</section>
+<footer><p>GEDparaHispanos · Matemáticas · Nivel 3 · Proyecto final integrador</p><p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p><p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p></footer><a aria-label="Volver a las secciones del proyecto" class="volver-indice no-imprimir" href="#indice"><span aria-hidden="true">↑</span> Secciones</a>
+</div>
 <script>
 /* ════════════════════════════════════════════════════════════════
    PROYECTO FINAL INTEGRADOR «MI ANÁLISIS DE DATOS» — NIVEL 3
