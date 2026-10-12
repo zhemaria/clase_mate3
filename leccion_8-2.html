@@ -196,6 +196,18 @@
   .volver-indice:hover{ background:var(--tema); color:#fff; }
   footer a{ color:inherit; }
   @media print{ .indice,.volver-indice{ display:none; } }
+
+  /* Tarjeta de enlace al interactivo de la lección (una por subtema) */
+  a.enlace-interactivo{display:flex;align-items:flex-start;gap:14px;background:var(--tema-bg);
+    border:2px solid var(--tema);border-left:6px solid var(--tema);border-radius:10px;
+    padding:16px 20px;margin:4px 0 22px;text-decoration:none;color:var(--tema-d);}
+  a.enlace-interactivo:hover{filter:brightness(.96);}
+  a.enlace-interactivo:focus-visible{outline:3px solid var(--tema-d);outline-offset:3px;}
+  a.enlace-interactivo .ei-icono{font-size:26px;line-height:1;flex-shrink:0;}
+  a.enlace-interactivo .ei-titulo{display:block;font-weight:700;font-size:16px;color:var(--tema-d);}
+  a.enlace-interactivo .ei-sub{display:block;font-size:15px;color:#333;margin:4px 0 8px;}
+  a.enlace-interactivo .ei-cta{display:inline-block;background:var(--tema);color:#fff;font-size:14px;
+    font-weight:700;padding:6px 14px;border-radius:6px;}
 </style>
 </head>
 <body>
@@ -229,6 +241,17 @@
 <p><strong>Respuesta:</strong> P(rojo) = 4/9.</p>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l8-2.html#simple" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: probabilidad de un evento (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: probabilidad de un evento</span>
+      <span class="ei-sub">Repase la probabilidad como casos favorables entre casos posibles.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-2-dos-eventos-con-reemplazo">2. Dos eventos con reemplazo</h2>
 <div class="bloque">
 <p>Cuando después del primer evento se <strong>devuelve</strong> el objeto (reemplazo), el segundo evento no se ve afectado: los eventos son <strong>independientes</strong>. La probabilidad de que ocurran ambos es el producto de sus probabilidades.</p>
@@ -272,6 +295,17 @@
 <div class="fb"></div>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l8-2.html#con-reemplazo" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: dos eventos con reemplazo (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: dos eventos con reemplazo</span>
+      <span class="ei-sub">Multiplique probabilidades cuando el denominador no cambia.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-3-dos-eventos-sin-reemplazo">3. Dos eventos sin reemplazo</h2>
 <div class="bloque">
 <p>Cuando el objeto <strong>no se devuelve</strong>, el segundo evento <em>sí</em> cambia: hay un objeto menos en total (y uno menos del tipo que salió). Los eventos son <strong>dependientes</strong>.</p>
@@ -352,6 +386,27 @@
 <div class="fb"></div>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l8-2.html#sin-reemplazo" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: dos eventos sin reemplazo (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: dos eventos sin reemplazo</span>
+      <span class="ei-sub">Ajuste el numerador y el denominador después de la primera extracción.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l8-2.html#arbol" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: del árbol a la tabla (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: del árbol a la tabla</span>
+      <span class="ei-sub">Pase del diagrama de árbol a la tabla de resultados.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-4-expresar-el-resultado-de-tres-formas">4. Expresar el resultado de tres formas</h2>
 <div class="bloque">
 <p>Una probabilidad se puede escribir como <strong>fracción</strong>, <strong>decimal</strong> o <strong>porcentaje</strong>. El examen GED suele pedir una de las tres, así que conviene saber convertir entre ellas.</p>
@@ -368,6 +423,17 @@
     </div>
 </div>
 
+
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l8-2.html#tres-formas" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: fracción, decimal y porcentaje (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: fracción, decimal y porcentaje</span>
+      <span class="ei-sub">Exprese el resultado de las tres formas.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
 
 <div class="caja-tarea">
 <h2 id="s-tarea">Tarea</h2>

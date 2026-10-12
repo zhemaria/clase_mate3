@@ -584,6 +584,18 @@
   .volver-indice:hover{ background:var(--tema); color:#fff; }
   footer a{ color:inherit; }
   @media print{ .indice,.volver-indice{ display:none; } }
+
+  /* Tarjeta de enlace al interactivo de la lección (una por subtema) */
+  a.enlace-interactivo{display:flex;align-items:flex-start;gap:14px;background:var(--tema-bg);
+    border:2px solid var(--tema);border-left:6px solid var(--tema);border-radius:10px;
+    padding:16px 20px;margin:4px 0 22px;text-decoration:none;color:var(--tema-d);}
+  a.enlace-interactivo:hover{filter:brightness(.96);}
+  a.enlace-interactivo:focus-visible{outline:3px solid var(--tema-d);outline-offset:3px;}
+  a.enlace-interactivo .ei-icono{font-size:26px;line-height:1;flex-shrink:0;}
+  a.enlace-interactivo .ei-titulo{display:block;font-weight:700;font-size:16px;color:var(--tema-d);}
+  a.enlace-interactivo .ei-sub{display:block;font-size:15px;color:#333;margin:4px 0 8px;}
+  a.enlace-interactivo .ei-cta{display:inline-block;background:var(--tema);color:#fff;font-size:14px;
+    font-weight:700;padding:6px 14px;border-radius:6px;}
 </style>
 </head>
 <body>
@@ -717,6 +729,17 @@
 </div>
 <button class="btn" id="btn-coc">Verificar</button>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l1-2.html#cociente" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: la regla del cociente (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: la regla del cociente</span>
+      <span class="ei-sub">Divida potencias de la misma base restando los exponentes.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-2-el-exponente-cero">2. El exponente cero</h2>
 <div class="bloque">
 <p>
@@ -755,6 +778,17 @@
           8 ÷ 2 = 4, 4 ÷ 2 = 2, y 2 ÷ 2 = 1. Continuar dividiendo entre la base lleva de forma natural a que 2⁰ = 1. Esto vale para cualquier base distinta de cero: 5⁰ = 1, 100⁰ = 1, (3x)⁰ = 1.
         </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l1-2.html#cero" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: el exponente cero (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: el exponente cero</span>
+      <span class="ei-sub">Compruebe con la regla del cociente por qué a⁰ = 1.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-3-los-exponentes-negativos">3. Los exponentes negativos</h2>
 <div class="bloque">
 <p>Si el patrón continúa más allá del exponente cero, cada paso sigue dividiendo entre la base, y aparecen las fracciones:</p>
@@ -864,6 +898,17 @@
 <div class="fb"></div>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l1-2.html#negativos" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: los exponentes negativos (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: los exponentes negativos</span>
+      <span class="ei-sub">Reescriba exponentes negativos como fracciones con exponente positivo.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-4-las-cinco-reglas-de-los-exponentes">4. Las cinco reglas de los exponentes</h2>
 <div class="bloque">
 <p>Con la lección anterior y esta, el conjunto de reglas de los exponentes queda completo. La tabla las reúne para tenerlas siempre a la vista.</p>
@@ -905,6 +950,17 @@
 </tbody>
 </table>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l1-2.html#cinco-reglas" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: las cinco reglas de los exponentes (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: las cinco reglas de los exponentes</span>
+      <span class="ei-sub">Reconozca qué regla se aplica en cada expresión.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-5-aplicacion-y-verificacion-con-la-ti-30xs">5. Aplicación y verificación con la TI-30XS</h2>
 <div class="bloque">
 <p>
@@ -937,6 +993,17 @@
         </div>
 </div>
 
+
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l1-2.html#verificar" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: verificar con valores numéricos (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: verificar con valores numéricos</span>
+      <span class="ei-sub">Sustituya un número y confirme que la simplificación conserva el valor.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
 
 <div class="caja-tarea">
 <h2 id="s-tarea">Tarea</h2><p>Para hacer por su cuenta, con el cuaderno abierto:</p><ul><li>Seis cocientes de potencias de la misma base, dos de ellos con resultado de exponente negativo.</li><li>Cuatro expresiones con exponente cero, una de ellas del tipo (−5)⁰ y otra del tipo −5⁰. Explique por escrito por qué no valen lo mismo.</li><li>Seis expresiones con exponentes negativos, reescritas como fracción de exponente positivo.</li><li>Cuatro verificaciones con la TI-30XS, comparando su resultado de papel con el de la pantalla.</li><li><strong>ThatQuiz:</strong> <a href="https://www.thatquiz.org/es-2/?-jbg1-l5-mpnv600-n18-p0-f0" rel="noopener noreferrer" target="_blank">regla del cociente y exponentes negativos</a>.</li></ul><p>Tiempo estimado: 50 minutos. Evalúe su trabajo con la rúbrica de esta lección.</p>

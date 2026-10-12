@@ -194,6 +194,18 @@
   .volver-indice:hover{ background:var(--tema); color:#fff; }
   footer a{ color:inherit; }
   @media print{ .indice,.volver-indice{ display:none; } }
+
+  /* Tarjeta de enlace al interactivo de la lección (una por subtema) */
+  a.enlace-interactivo{display:flex;align-items:flex-start;gap:14px;background:var(--tema-bg);
+    border:2px solid var(--tema);border-left:6px solid var(--tema);border-radius:10px;
+    padding:16px 20px;margin:4px 0 22px;text-decoration:none;color:var(--tema-d);}
+  a.enlace-interactivo:hover{filter:brightness(.96);}
+  a.enlace-interactivo:focus-visible{outline:3px solid var(--tema-d);outline-offset:3px;}
+  a.enlace-interactivo .ei-icono{font-size:26px;line-height:1;flex-shrink:0;}
+  a.enlace-interactivo .ei-titulo{display:block;font-weight:700;font-size:16px;color:var(--tema-d);}
+  a.enlace-interactivo .ei-sub{display:block;font-size:15px;color:#333;margin:4px 0 8px;}
+  a.enlace-interactivo .ei-cta{display:inline-block;background:var(--tema);color:#fff;font-size:14px;
+    font-weight:700;padding:6px 14px;border-radius:6px;}
 </style>
 </head>
 <body>
@@ -239,6 +251,17 @@
 <strong>Coeficiente invisible:</strong> cuando una variable aparece sola, como x, su coeficiente es 1 (x = 1x). De igual modo, −x significa −1x. Recordarlo evita errores al combinar términos.
     </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l4-1.html#vocabulario" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: variables, términos y coeficientes (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: variables, términos y coeficientes</span>
+      <span class="ei-sub">Identifique las partes de una expresión algebraica.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-2-traducir-entre-palabras-y-algebra">2. Traducir entre palabras y álgebra</h2>
 <div class="bloque">
 <p>Gran parte del álgebra consiste en <strong>traducir</strong> un enunciado verbal al lenguaje de los símbolos. Ciertas palabras señalan siempre la misma operación.</p>
@@ -294,6 +317,17 @@
 <div class="fb"></div>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l4-1.html#traducir" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: traducir entre palabras y álgebra (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: traducir entre palabras y álgebra</span>
+      <span class="ei-sub">Convierta frases en expresiones y expresiones en frases.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-3-combinar-terminos-semejantes">3. Combinar términos semejantes</h2>
 <div class="bloque">
 <p>Dos términos son <strong>semejantes</strong> si tienen la <strong>misma variable elevada al mismo exponente</strong>. Solo los términos semejantes se pueden combinar, sumando o restando sus coeficientes.</p>
@@ -315,6 +349,17 @@
 <strong>No se combinan términos distintos:</strong> 4x + 2y no se puede simplificar, porque x y y son variables diferentes. Tampoco 3x + 5 se reduce a 8x, porque 5 no tiene la variable x.
     </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l4-1.html#semejantes" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: combinar términos semejantes (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: combinar términos semejantes</span>
+      <span class="ei-sub">Clasifique los términos por familias y redúzcalos.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-4-la-propiedad-distributiva">4. La propiedad distributiva</h2>
 <div class="bloque">
 <p>La propiedad distributiva permite multiplicar un número por una suma, repartiéndolo a cada término del paréntesis.</p>
@@ -364,6 +409,17 @@
 <div class="fb"></div>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l4-1.html#distributiva" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: la propiedad distributiva (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: la propiedad distributiva</span>
+      <span class="ei-sub">Distribuya con el modelo de área y con atención a los signos.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-5-evaluar-expresiones">5. Evaluar expresiones</h2>
 <div class="bloque">
 <p>Evaluar una expresión significa <strong>sustituir</strong> la variable por un valor dado y calcular el resultado, respetando el orden de las operaciones (PEMDAS).</p>
@@ -386,6 +442,17 @@
     </div>
 </div>
 
+
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l4-1.html#evaluar" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: evaluar expresiones (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: evaluar expresiones</span>
+      <span class="ei-sub">Sustituya con paréntesis y respete el orden de las operaciones.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
 
 <div class="caja-tarea">
 <h2 id="s-tarea">Tarea</h2>

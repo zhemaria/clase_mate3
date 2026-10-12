@@ -194,6 +194,18 @@
   .volver-indice:hover{ background:var(--tema); color:#fff; }
   footer a{ color:inherit; }
   @media print{ .indice,.volver-indice{ display:none; } }
+
+  /* Tarjeta de enlace al interactivo de la lección (una por subtema) */
+  a.enlace-interactivo{display:flex;align-items:flex-start;gap:14px;background:var(--tema-bg);
+    border:2px solid var(--tema);border-left:6px solid var(--tema);border-radius:10px;
+    padding:16px 20px;margin:4px 0 22px;text-decoration:none;color:var(--tema-d);}
+  a.enlace-interactivo:hover{filter:brightness(.96);}
+  a.enlace-interactivo:focus-visible{outline:3px solid var(--tema-d);outline-offset:3px;}
+  a.enlace-interactivo .ei-icono{font-size:26px;line-height:1;flex-shrink:0;}
+  a.enlace-interactivo .ei-titulo{display:block;font-weight:700;font-size:16px;color:var(--tema-d);}
+  a.enlace-interactivo .ei-sub{display:block;font-size:15px;color:#333;margin:4px 0 8px;}
+  a.enlace-interactivo .ei-cta{display:inline-block;background:var(--tema);color:#fff;font-size:14px;
+    font-weight:700;padding:6px 14px;border-radius:6px;}
 </style>
 </head>
 <body>
@@ -232,6 +244,17 @@
 <strong>La potencia no cambia:</strong> al sumar, los exponentes de 10 <em>no</em> se suman. 3 × 10⁴ + 2 × 10⁴ es 5 × 10⁴, nunca 5 × 10⁸. El exponente solo indica el «tamaño» común de las cantidades que se están sumando.
     </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l2-3.html#sumar" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: sumar con exponentes iguales (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: sumar con exponentes iguales</span>
+      <span class="ei-sub">Sume los coeficientes cuando las potencias de 10 ya coinciden.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-2-cuando-los-exponentes-son-distintos">2. Cuando los exponentes son distintos</h2>
 <div class="bloque">
 <p>Si las potencias de 10 no coinciden, primero se reescribe una de las cantidades para que ambas tengan el <strong>mismo exponente</strong> (conviene igualar al mayor). Después se suman los coeficientes.</p>
@@ -278,6 +301,17 @@
 <div class="fb"></div>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l2-3.html#igualar" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: igualar los exponentes (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: igualar los exponentes</span>
+      <span class="ei-sub">Reescriba un término para que ambos tengan la misma potencia de 10.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-3-restar-en-notacion-cientifica">3. Restar en notación científica</h2>
 <div class="bloque">
 <p>La resta sigue exactamente la misma idea: si los exponentes son iguales, se restan los coeficientes; si difieren, se igualan primero.</p>
@@ -329,6 +363,17 @@
 <div class="fb"></div>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l2-3.html#restar" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: restar en notación científica (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: restar en notación científica</span>
+      <span class="ei-sub">Iguale los exponentes, reste los coeficientes y ajuste el resultado.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-4-aplicaciones-en-ciencia-y-tecnologia">4. Aplicaciones en ciencia y tecnología</h2>
 <div class="bloque">
 <p>La notación científica es el lenguaje natural de la ciencia. Los siguientes ejemplos muestran las cuatro operaciones en contextos reales: el espacio, la biología celular y la tecnología.</p>
@@ -355,6 +400,17 @@
 <p><strong>Respuesta:</strong> 4 × 10⁶ archivos.</p>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l2-3.html#aplicaciones" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: aplicaciones en ciencia y tecnología (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: aplicaciones en ciencia y tecnología</span>
+      <span class="ei-sub">Use la notación científica en problemas de contexto real.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-5-verificacion-con-la-ti-30xs">5. Verificación con la TI-30XS</h2>
 <div class="bloque">
 <p>En problemas que combinan varias operaciones, la calculadora TI-30XS ayuda a verificar y a manejar el tiempo. Se ingresan las cantidades con la tecla <strong>EE</strong> y se respeta el orden de las operaciones.</p>

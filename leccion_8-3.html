@@ -196,6 +196,18 @@
   .volver-indice:hover{ background:var(--tema); color:#fff; }
   footer a{ color:inherit; }
   @media print{ .indice,.volver-indice{ display:none; } }
+
+  /* Tarjeta de enlace al interactivo de la lección (una por subtema) */
+  a.enlace-interactivo{display:flex;align-items:flex-start;gap:14px;background:var(--tema-bg);
+    border:2px solid var(--tema);border-left:6px solid var(--tema);border-radius:10px;
+    padding:16px 20px;margin:4px 0 22px;text-decoration:none;color:var(--tema-d);}
+  a.enlace-interactivo:hover{filter:brightness(.96);}
+  a.enlace-interactivo:focus-visible{outline:3px solid var(--tema-d);outline-offset:3px;}
+  a.enlace-interactivo .ei-icono{font-size:26px;line-height:1;flex-shrink:0;}
+  a.enlace-interactivo .ei-titulo{display:block;font-weight:700;font-size:16px;color:var(--tema-d);}
+  a.enlace-interactivo .ei-sub{display:block;font-size:15px;color:#333;margin:4px 0 8px;}
+  a.enlace-interactivo .ei-cta{display:inline-block;background:var(--tema);color:#fff;font-size:14px;
+    font-weight:700;padding:6px 14px;border-radius:6px;}
 </style>
 </head>
 <body>
@@ -366,6 +378,17 @@
 </div>
 </div>
 
+
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-repaso.html" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: repaso de los ocho temas (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: repaso de los ocho temas</span>
+      <span class="ei-sub">Repase en un solo lugar las prácticas de todo el Nivel 3.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
 
 <div class="caja-tarea">
 <h2 id="s-tarea">Tarea</h2><p>Esta es la última tarea del Nivel 3 y la más larga: dese dos o tres sesiones tranquilas.</p><ul><li><strong>El proyecto.</strong> Complete «Mi análisis de datos» en la plantilla <em>leccion_8-3_proyecto.html</em>, con sus cinco componentes: conjunto de datos real, gráfica, estadísticos, interpretación escrita y cálculo de probabilidad. Guárdelo en PDF.</li><li><strong>Revíselo con ojos nuevos.</strong> Deje el proyecto reposar un día. Al día siguiente léalo como si fuera de otra persona, con la rúbrica en la mano, criterio por criterio. Después explíquelo en voz alta durante tres o cuatro minutos, a un familiar o grabándose: lo que no logre explicar todavía no lo entendió.</li><li><strong>La hoja de fórmulas del GED.</strong> Repásela entera y marque las fórmulas que usó en este nivel. En el examen la tendrá disponible, pero buscar una fórmula cuesta tiempo: conviene saber dónde está cada una.</li><li><strong>La evaluación final.</strong> Hágala de una sentada, sin interrupciones y sin consultar las lecciones. Así sabrá de verdad dónde está parado antes de pasar al Nivel 4.</li></ul><p>Evalúe el proyecto con la rúbrica de cinco criterios que aparece más abajo.</p>

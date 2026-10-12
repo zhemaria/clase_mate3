@@ -196,6 +196,18 @@
   .volver-indice:hover{ background:var(--tema); color:#fff; }
   footer a{ color:inherit; }
   @media print{ .indice,.volver-indice{ display:none; } }
+
+  /* Tarjeta de enlace al interactivo de la lección (una por subtema) */
+  a.enlace-interactivo{display:flex;align-items:flex-start;gap:14px;background:var(--tema-bg);
+    border:2px solid var(--tema);border-left:6px solid var(--tema);border-radius:10px;
+    padding:16px 20px;margin:4px 0 22px;text-decoration:none;color:var(--tema-d);}
+  a.enlace-interactivo:hover{filter:brightness(.96);}
+  a.enlace-interactivo:focus-visible{outline:3px solid var(--tema-d);outline-offset:3px;}
+  a.enlace-interactivo .ei-icono{font-size:26px;line-height:1;flex-shrink:0;}
+  a.enlace-interactivo .ei-titulo{display:block;font-weight:700;font-size:16px;color:var(--tema-d);}
+  a.enlace-interactivo .ei-sub{display:block;font-size:15px;color:#333;margin:4px 0 8px;}
+  a.enlace-interactivo .ei-cta{display:inline-block;background:var(--tema);color:#fff;font-size:14px;
+    font-weight:700;padding:6px 14px;border-radius:6px;}
 </style>
 </head>
 <body>
@@ -250,6 +262,17 @@
 <strong>Cada zona, una cuarta parte:</strong> los cuartiles dividen los datos en cuatro grupos del 25% cada uno. Entre el mínimo y Q1 está el 25% más bajo; la caja (de Q1 a Q3) contiene el 50% central de los datos.
     </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l7-2.html#cinco-valores" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: los cinco valores clave (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: los cinco valores clave</span>
+      <span class="ei-sub">Halle el mínimo, Q1, la mediana, Q3 y el máximo de un conjunto de datos.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-2-construir-el-diagrama">2. Construir el diagrama</h2>
 <div class="bloque">
 <p>El procedimiento sigue cinco pasos ordenados.</p>
@@ -307,6 +330,17 @@
 <div class="fb"></div>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l7-2.html#construir" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: construir el diagrama (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: construir el diagrama</span>
+      <span class="ei-sub">Trace la caja y los bigotes a partir de los cinco valores.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-3-el-rango-intercuartilico-iqr">3. El rango intercuartílico (IQR)</h2>
 <div class="bloque">
 <p>El <strong>rango intercuartílico</strong> mide qué tan dispersa está la mitad central de los datos. Se calcula restando:</p>
@@ -321,6 +355,17 @@
 <strong>El IQR resiste a los extremos:</strong> a diferencia del rango total (máx − mín), el IQR no se ve afectado por uno o dos valores muy grandes o muy pequeños, porque solo mira el 50% central. Por eso es una medida de dispersión confiable.
     </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l7-2.html#iqr" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: el rango intercuartílico (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: el rango intercuartílico</span>
+      <span class="ei-sub">Calcule el IQR y relaciónelo con los porcentajes de datos.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-4-valores-atipicos-outliers">4. Valores atípicos (outliers)</h2>
 <div class="bloque">
 <p>Un <strong>valor atípico</strong> es un dato que queda muy lejos del resto. La regla más usada para detectarlos emplea el IQR: un valor es atípico si está más allá de <strong>1.5 × IQR</strong> por encima de Q3 o por debajo de Q1.</p>
@@ -363,6 +408,17 @@
 <div class="fb"></div>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l7-2.html#atipicos" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: valores atípicos (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: valores atípicos</span>
+      <span class="ei-sub">Aplique la regla de 1.5 × IQR para detectar datos atípicos.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-5-interpretar-y-comparar">5. Interpretar y comparar</h2>
 <div class="bloque">
 <p>El verdadero valor del diagrama está en <strong>interpretarlo</strong>. Una caja ancha indica datos muy dispersos; una caja angosta, datos concentrados. Comparando dos diagramas se ve cuál grupo tiene la mediana más alta o más variabilidad.</p>
@@ -375,6 +431,17 @@
 </div>
 </div>
 
+
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l7-2.html#comparar" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: interpretar y comparar (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: interpretar y comparar</span>
+      <span class="ei-sub">Compare dos diagramas de caja: centro, dispersión y forma.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
 
 <div class="caja-tarea">
 <h2 id="s-tarea">Tarea</h2>

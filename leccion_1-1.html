@@ -552,6 +552,18 @@
   .volver-indice:hover{ background:var(--tema); color:#fff; }
   footer a{ color:inherit; }
   @media print{ .indice,.volver-indice{ display:none; } }
+
+  /* Tarjeta de enlace al interactivo de la lección (una por subtema) */
+  a.enlace-interactivo{display:flex;align-items:flex-start;gap:14px;background:var(--tema-bg);
+    border:2px solid var(--tema);border-left:6px solid var(--tema);border-radius:10px;
+    padding:16px 20px;margin:4px 0 22px;text-decoration:none;color:var(--tema-d);}
+  a.enlace-interactivo:hover{filter:brightness(.96);}
+  a.enlace-interactivo:focus-visible{outline:3px solid var(--tema-d);outline-offset:3px;}
+  a.enlace-interactivo .ei-icono{font-size:26px;line-height:1;flex-shrink:0;}
+  a.enlace-interactivo .ei-titulo{display:block;font-weight:700;font-size:16px;color:var(--tema-d);}
+  a.enlace-interactivo .ei-sub{display:block;font-size:15px;color:#333;margin:4px 0 8px;}
+  a.enlace-interactivo .ei-cta{display:inline-block;background:var(--tema);color:#fff;font-size:14px;
+    font-weight:700;padding:6px 14px;border-radius:6px;}
 </style>
 </head>
 <body>
@@ -603,6 +615,17 @@
           el exponente cuenta factores. Si se logra contar correctamente cuántas veces aparece la base como factor, siempre se obtiene el exponente correcto, aun sin recordar la regla.
         </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l1-1.html#notacion" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: la notación exponencial (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: la notación exponencial</span>
+      <span class="ei-sub">Identifique la base y el exponente, y escriba productos repetidos como potencias.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-2-la-regla-del-producto">2. La regla del producto</h2>
 <div class="bloque">
 <p>
@@ -710,6 +733,17 @@
 </div>
 <button class="btn" id="btn-prod">Verificar</button>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l1-1.html#producto" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: la regla del producto (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: la regla del producto</span>
+      <span class="ei-sub">Multiplique potencias de la misma base sumando los exponentes.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-3-la-potencia-de-una-potencia">3. La potencia de una potencia</h2>
 <div class="bloque">
 <p>Cuando una potencia se eleva a su vez a otro exponente, la base entera se repite. Al expandir se ve por qué los exponentes se multiplican:</p>
@@ -756,6 +790,17 @@
           (resultado a²⁰). La diferencia está en si las potencias están multiplicadas o si una está elevada a la otra.
         </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l1-1.html#potencia-potencia" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: la potencia de una potencia (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: la potencia de una potencia</span>
+      <span class="ei-sub">Eleve una potencia a otra potencia multiplicando los exponentes.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-4-la-potencia-de-un-producto">4. La potencia de un producto</h2>
 <div class="bloque">
 <p>
@@ -852,6 +897,17 @@
 <div class="fb"></div>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l1-1.html#potencia-producto" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: la potencia de un producto (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: la potencia de un producto</span>
+      <span class="ei-sub">Distribuya el exponente a cada factor, también a los coeficientes.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-5-las-tres-reglas-juntas">5. Las tres reglas juntas</h2>
 <div class="bloque">
 <p>Estas tres reglas describen toda la multiplicación con exponentes. La tabla resume cada una con su patrón y un ejemplo.</p>
@@ -905,6 +961,17 @@
         </div>
 </div>
 
+
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l1-1.html#tres-reglas" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: las tres reglas juntas (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: las tres reglas juntas</span>
+      <span class="ei-sub">Decida qué regla corresponde en cada paso y simplifique.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
 
 <div class="caja-tarea">
 <h2 id="s-tarea">Tarea</h2><p>Para hacer por su cuenta, con el cuaderno abierto:</p><ul><li>Ocho productos de potencias de la misma base, cuatro solo con números y cuatro con variables. Escriba el paso intermedio —la suma de los exponentes— antes del resultado.</li><li>Seis potencias de potencia, incluyendo dos con coeficiente distinto de 1, para no olvidar que el coeficiente también se eleva.</li><li>Seis potencias de un producto, repartiendo el exponente entre todos los factores.</li><li>Cuatro expresiones que exijan las tres reglas a la vez, resueltas en el orden que prefiera, pero anotando qué regla usó en cada paso.</li><li><strong>ThatQuiz:</strong> <a href="https://www.thatquiz.org/es-2/?-j1l0p-l5-mpnv600-n18-p0-f0" rel="noopener noreferrer" target="_blank">regla del producto y potencia de potencia</a>. Resuelva cada una en papel antes de escribir la respuesta.</li></ul><p>Tiempo estimado: 50 minutos. Evalúe su trabajo con la rúbrica de esta lección.</p>

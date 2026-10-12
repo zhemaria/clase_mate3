@@ -196,6 +196,18 @@
   .volver-indice:hover{ background:var(--tema); color:#fff; }
   footer a{ color:inherit; }
   @media print{ .indice,.volver-indice{ display:none; } }
+
+  /* Tarjeta de enlace al interactivo de la lección (una por subtema) */
+  a.enlace-interactivo{display:flex;align-items:flex-start;gap:14px;background:var(--tema-bg);
+    border:2px solid var(--tema);border-left:6px solid var(--tema);border-radius:10px;
+    padding:16px 20px;margin:4px 0 22px;text-decoration:none;color:var(--tema-d);}
+  a.enlace-interactivo:hover{filter:brightness(.96);}
+  a.enlace-interactivo:focus-visible{outline:3px solid var(--tema-d);outline-offset:3px;}
+  a.enlace-interactivo .ei-icono{font-size:26px;line-height:1;flex-shrink:0;}
+  a.enlace-interactivo .ei-titulo{display:block;font-weight:700;font-size:16px;color:var(--tema-d);}
+  a.enlace-interactivo .ei-sub{display:block;font-size:15px;color:#333;margin:4px 0 8px;}
+  a.enlace-interactivo .ei-cta{display:inline-block;background:var(--tema);color:#fff;font-size:14px;
+    font-weight:700;padding:6px 14px;border-radius:6px;}
 </style>
 </head>
 <body>
@@ -294,6 +306,17 @@
 <div class="fb"></div>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l7-1.html#prismas" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: volumen de prismas (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: volumen de prismas</span>
+      <span class="ei-sub">Calcule el área de la base y multiplíquela por la altura.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-3-volumen-de-cilindros">3. Volumen de cilindros</h2>
 <div class="bloque">
 <p>En un <strong>cilindro</strong>, la base es un círculo de radio r, cuya área es πr². Por eso el volumen es esa área multiplicada por la altura:</p>
@@ -310,6 +333,17 @@
 <strong>Elevar al cuadrado solo el radio:</strong> en πr²h, el exponente afecta únicamente al radio (r²), no a π ni a la altura. Un error común es elevar al cuadrado todo el producto. Primero r², luego se multiplica por π y por h.
     </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l7-1.html#cilindros" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: volumen de cilindros (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: volumen de cilindros</span>
+      <span class="ei-sub">Aplique V = πr²h a cilindros de distintas medidas.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-4-despejar-la-altura-o-el-radio">4. Despejar la altura o el radio</h2>
 <div class="bloque">
 <p>Cuando se conoce el volumen y faltan una dimensión, se <strong>despeja</strong> como en el Tema 5. Para la altura de un prisma, se divide el volumen entre el área de la base.</p>
@@ -352,6 +386,17 @@
 <div class="fb"></div>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l7-1.html#despejar" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: despejar la altura o el radio (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: despejar la altura o el radio</span>
+      <span class="ei-sub">Halle la medida que falta cuando se conoce el volumen.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-5-aplicaciones-capacidad-y-almacenamiento">5. Aplicaciones: capacidad y almacenamiento</h2>
 <div class="bloque">
 <p>El volumen responde preguntas reales de construcción y almacenamiento: cuántos litros caben en un tanque, cuánto hormigón se necesita para una columna, cuánto material entra en una caja.</p>
@@ -367,6 +412,17 @@
     </div>
 </div>
 
+
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l7-1.html#capacidad" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: capacidad y almacenamiento (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: capacidad y almacenamiento</span>
+      <span class="ei-sub">Resuelva problemas de tanques, envases y conversión a litros.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
 
 <div class="caja-tarea">
 <h2 id="s-tarea">Tarea</h2>

@@ -194,6 +194,18 @@
   .volver-indice:hover{ background:var(--tema); color:#fff; }
   footer a{ color:inherit; }
   @media print{ .indice,.volver-indice{ display:none; } }
+
+  /* Tarjeta de enlace al interactivo de la lección (una por subtema) */
+  a.enlace-interactivo{display:flex;align-items:flex-start;gap:14px;background:var(--tema-bg);
+    border:2px solid var(--tema);border-left:6px solid var(--tema);border-radius:10px;
+    padding:16px 20px;margin:4px 0 22px;text-decoration:none;color:var(--tema-d);}
+  a.enlace-interactivo:hover{filter:brightness(.96);}
+  a.enlace-interactivo:focus-visible{outline:3px solid var(--tema-d);outline-offset:3px;}
+  a.enlace-interactivo .ei-icono{font-size:26px;line-height:1;flex-shrink:0;}
+  a.enlace-interactivo .ei-titulo{display:block;font-weight:700;font-size:16px;color:var(--tema-d);}
+  a.enlace-interactivo .ei-sub{display:block;font-size:15px;color:#333;margin:4px 0 8px;}
+  a.enlace-interactivo .ei-cta{display:inline-block;background:var(--tema);color:#fff;font-size:14px;
+    font-weight:700;padding:6px 14px;border-radius:6px;}
 </style>
 </head>
 <body>
@@ -239,6 +251,17 @@
 <strong>Multiplicar todos los términos:</strong> el MCM debe multiplicar cada término, incluidos los que no tienen fracción (como el 3 del Ejemplo 1 o el 6 del Ejemplo 2). Olvidar un término es el error más frecuente al limpiar fracciones.
     </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l4-3.html#fracciones" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: limpiar fracciones con el MCM (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: limpiar fracciones con el MCM</span>
+      <span class="ei-sub">Multiplique toda la ecuación por el MCM de los denominadores.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-2-limpiar-decimales-multiplicar-por-una-potencia-de-10">2. Limpiar decimales: multiplicar por una potencia de 10</h2>
 <div class="bloque">
 <p>Con coeficientes decimales se aplica la misma idea: se multiplican todos los términos por <strong>10, 100 o 1000</strong>, según la mayor cantidad de cifras decimales, para convertir los decimales en enteros.</p>
@@ -285,6 +308,17 @@
 <div class="fb"></div>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l4-3.html#decimales" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: limpiar decimales con una potencia de 10 (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: limpiar decimales con una potencia de 10</span>
+      <span class="ei-sub">Elija la potencia de 10 que elimina todos los decimales.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-3-caso-especial-ecuacion-sin-solucion">3. Caso especial: ecuación sin solución</h2>
 <div class="bloque">
 <p>A veces, al resolver, las variables desaparecen y queda una afirmación <strong>falsa</strong>, como 5 = 9. Eso significa que <strong>ningún valor</strong> de la variable puede hacer verdadera la ecuación: es una <strong>contradicción</strong> y la ecuación <strong>no tiene solución</strong>.</p>
@@ -354,6 +388,17 @@
 </div>
 </div>
 
+
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l4-3.html#casos-especiales" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: ¿una, ninguna o infinitas soluciones? (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: ¿una, ninguna o infinitas soluciones?</span>
+      <span class="ei-sub">Reconozca cuándo la ecuación es una contradicción o una identidad.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
 
 <div class="caja-tarea">
 <h2 id="s-tarea">Tarea</h2>

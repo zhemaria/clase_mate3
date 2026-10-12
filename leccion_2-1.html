@@ -194,6 +194,18 @@
   .volver-indice:hover{ background:var(--tema); color:#fff; }
   footer a{ color:inherit; }
   @media print{ .indice,.volver-indice{ display:none; } }
+
+  /* Tarjeta de enlace al interactivo de la lección (una por subtema) */
+  a.enlace-interactivo{display:flex;align-items:flex-start;gap:14px;background:var(--tema-bg);
+    border:2px solid var(--tema);border-left:6px solid var(--tema);border-radius:10px;
+    padding:16px 20px;margin:4px 0 22px;text-decoration:none;color:var(--tema-d);}
+  a.enlace-interactivo:hover{filter:brightness(.96);}
+  a.enlace-interactivo:focus-visible{outline:3px solid var(--tema-d);outline-offset:3px;}
+  a.enlace-interactivo .ei-icono{font-size:26px;line-height:1;flex-shrink:0;}
+  a.enlace-interactivo .ei-titulo{display:block;font-weight:700;font-size:16px;color:var(--tema-d);}
+  a.enlace-interactivo .ei-sub{display:block;font-size:15px;color:#333;margin:4px 0 8px;}
+  a.enlace-interactivo .ei-cta{display:inline-block;background:var(--tema);color:#fff;font-size:14px;
+    font-weight:700;padding:6px 14px;border-radius:6px;}
 </style>
 </head>
 <body>
@@ -240,6 +252,17 @@
 <strong>El coeficiente manda:</strong> 45 × 10⁵ usa potencias de 10, pero <em>no</em> es notación científica válida, porque 45 no está entre 1 y 10. La forma correcta es 4.5 × 10⁶.
     </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l2-1.html#grandes" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: números grandes a notación científica (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: números grandes a notación científica</span>
+      <span class="ei-sub">Mueva el punto decimal y cuente las posiciones para hallar el exponente positivo.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-3-de-decimal-a-cientifica-numeros-pequenos">3. De decimal a científica: números pequeños</h2>
 <div class="bloque">
 <p>Para un número pequeño (menor que 1), se mueve el punto decimal hacia la <strong>derecha</strong> hasta pasar el primer dígito distinto de cero. La cantidad de lugares movidos es el exponente <strong>negativo</strong> de 10.</p>
@@ -286,6 +309,17 @@
 <div class="fb"></div>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l2-1.html#pequenos" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: números pequeños a notación científica (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: números pequeños a notación científica</span>
+      <span class="ei-sub">Practique con decimales pequeños, que llevan exponente negativo.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-4-de-cientifica-a-decimal">4. De científica a decimal</h2>
 <div class="bloque">
 <p>El proceso inverso usa el exponente para decidir hacia dónde mover el punto y cuántos lugares: exponente <strong>positivo</strong>, el punto va a la derecha (el número crece); exponente <strong>negativo</strong>, el punto va a la izquierda (el número se achica). Se rellena con ceros según haga falta.</p>
@@ -335,6 +369,17 @@
 <div class="fb"></div>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l2-1.html#a-decimal" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: de científica a decimal (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: de científica a decimal</span>
+      <span class="ei-sub">Regrese de la notación científica a la forma decimal estándar.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-5-orden-de-magnitud-y-comparacion">5. Orden de magnitud y comparación</h2>
 <div class="bloque">
 <p>El exponente de 10 indica el <strong>orden de magnitud</strong>: cuántos «ceros» de tamaño tiene una cantidad. Para comparar dos números en notación científica, se mira primero el <strong>exponente</strong>; solo si los exponentes son iguales se comparan los coeficientes.</p>
@@ -366,6 +411,17 @@
     </div>
 </div>
 
+
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l2-1.html#magnitud" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: orden de magnitud y comparación (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: orden de magnitud y comparación</span>
+      <span class="ei-sub">Compare y ordene cantidades escritas en notación científica.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
 
 <div class="caja-tarea">
 <h2 id="s-tarea">Tarea</h2>

@@ -196,6 +196,18 @@
   .volver-indice:hover{ background:var(--tema); color:#fff; }
   footer a{ color:inherit; }
   @media print{ .indice,.volver-indice{ display:none; } }
+
+  /* Tarjeta de enlace al interactivo de la lección (una por subtema) */
+  a.enlace-interactivo{display:flex;align-items:flex-start;gap:14px;background:var(--tema-bg);
+    border:2px solid var(--tema);border-left:6px solid var(--tema);border-radius:10px;
+    padding:16px 20px;margin:4px 0 22px;text-decoration:none;color:var(--tema-d);}
+  a.enlace-interactivo:hover{filter:brightness(.96);}
+  a.enlace-interactivo:focus-visible{outline:3px solid var(--tema-d);outline-offset:3px;}
+  a.enlace-interactivo .ei-icono{font-size:26px;line-height:1;flex-shrink:0;}
+  a.enlace-interactivo .ei-titulo{display:block;font-weight:700;font-size:16px;color:var(--tema-d);}
+  a.enlace-interactivo .ei-sub{display:block;font-size:15px;color:#333;margin:4px 0 8px;}
+  a.enlace-interactivo .ei-cta{display:inline-block;background:var(--tema);color:#fff;font-size:14px;
+    font-weight:700;padding:6px 14px;border-radius:6px;}
 </style>
 </head>
 <body>
@@ -256,6 +268,17 @@
 <p><strong>Respuesta:</strong> hay 6 combinaciones posibles.</p>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l8-1.html#principio" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: el principio fundamental del conteo (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: el principio fundamental del conteo</span>
+      <span class="ei-sub">Cuente posibilidades con un diagrama de árbol y multiplicando.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-2-el-factorial">2. El factorial</h2>
 <div class="bloque">
 <p>El <strong>factorial</strong> de un número, escrito n!, es el producto de todos los enteros desde 1 hasta n. Aparece en las fórmulas de permutaciones y combinaciones.</p>
@@ -270,6 +293,17 @@
 <strong>El caso especial 0!:</strong> por convención, 0! = 1. Esto hace que las fórmulas funcionen correctamente. La calculadora TI-30XS tiene la tecla de factorial, útil para los valores grandes.
     </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l8-1.html#factorial" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: el factorial (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: el factorial</span>
+      <span class="ei-sub">Calcule factoriales y simplifique cocientes de factoriales.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-3-permutaciones-el-orden-importa">3. Permutaciones: el orden importa</h2>
 <div class="bloque">
 <p>Una <strong>permutación</strong> cuenta de cuántas formas se pueden <strong>ordenar</strong> los elementos. Se usa cuando el orden <em>sí</em> importa (un podio, una clave, un orden de llegada).</p>
@@ -313,6 +347,17 @@
 <div class="fb"></div>
 </div>
 </div>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l8-1.html#permutaciones" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: permutaciones: el orden importa (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: permutaciones: el orden importa</span>
+      <span class="ei-sub">Cuente ordenaciones con P(n, r).</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
 <h2 class="seccion" id="s-4-combinaciones-el-orden-no-importa">4. Combinaciones: el orden no importa</h2>
 <div class="bloque">
 <p>Una <strong>combinación</strong> cuenta de cuántas formas se puede <strong>elegir</strong> un grupo, sin importar el orden (un comité, una mano de cartas, un grupo de amigos). Por eso su fórmula divide además entre r!, que elimina los órdenes repetidos.</p>
@@ -374,6 +419,27 @@
 </div>
 </div>
 
+
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l8-1.html#combinaciones" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: combinaciones: el orden no importa (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: combinaciones: el orden no importa</span>
+      <span class="ei-sub">Cuente selecciones con C(n, r).</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
+
+  <a class="enlace-interactivo" href="https://zhemaria.github.io/algebra/n3-l8-1.html#decidir" target="_blank" rel="noopener noreferrer"
+     aria-label="Abrir el interactivo: ¿importa el orden? (se abre en una pestaña nueva)">
+    <span class="ei-icono" aria-hidden="true">🔗</span>
+    <span class="ei-cuerpo">
+      <span class="ei-titulo">Refuerce con el interactivo: ¿importa el orden?</span>
+      <span class="ei-sub">Decida si cada situación es una permutación o una combinación.</span>
+      <span class="ei-cta">Abrir el interactivo <span aria-hidden="true">›</span></span>
+    </span>
+  </a>
 
 <div class="caja-tarea">
 <h2 id="s-tarea">Tarea</h2>
