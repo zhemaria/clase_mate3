@@ -308,7 +308,7 @@
 <h3>Práctica interactiva 1 · Clasificar números</h3>
 <p>Selecciona la clasificación correcta de cada número.</p>
 <div class="pregunta" data-correcta="a">
-<div class="enun">1. ¿Cómo se clasifica 1/2?</div>
+<div class="enun">A. ¿Cómo se clasifica 1/2?</div>
 <div class="opciones">
 <div class="opcion" data-op="a">Racional</div>
 <div class="opcion" data-op="b">Irracional</div>
@@ -317,7 +317,7 @@
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="b">
-<div class="enun">2. ¿Cómo se clasifica π?</div>
+<div class="enun">B. ¿Cómo se clasifica π?</div>
 <div class="opciones">
 <div class="opcion" data-op="a">Racional</div>
 <div class="opcion" data-op="b">Irracional</div>
@@ -325,12 +325,12 @@
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">3. ¿Cómo se clasifica −4 en su conjunto más específico?</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">C. ¿Cómo se clasifica −4 en su conjunto más específico?</div>
 <div class="opciones">
-<div class="opcion" data-op="a">Entero</div>
-<div class="opcion" data-op="b">Natural</div>
-<div class="opcion" data-op="c">Irracional</div>
+<div class="opcion" data-op="a">Natural</div>
+<div class="opcion" data-op="b">Irracional</div>
+<div class="opcion" data-op="c">Entero</div>
 </div>
 <div class="fb"></div>
 </div>
@@ -405,29 +405,29 @@
 <div class="practica">
 <h3>Práctica interactiva 2 · Ubicar y convertir</h3>
 <p>Selecciona la respuesta correcta de cada caso.</p>
-<div class="pregunta" data-correcta="b">
-<div class="enun">1. ¿Entre qué enteros está √5 (≈ 2.24)?</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">A. ¿Entre qué enteros está √5 (≈ 2.24)?</div>
 <div class="opciones">
-<div class="opcion" data-op="a">Entre 1 y 2</div>
-<div class="opcion" data-op="b">Entre 2 y 3</div>
+<div class="opcion" data-op="a">Entre 2 y 3</div>
+<div class="opcion" data-op="b">Entre 1 y 2</div>
 <div class="opcion" data-op="c">Entre 3 y 4</div>
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">2. ¿Qué fracción equivale a 0.222…?</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">B. ¿Qué fracción equivale a 0.222…?</div>
 <div class="opciones">
-<div class="opcion" data-op="a">2/9</div>
-<div class="opcion" data-op="b">2/10</div>
-<div class="opcion" data-op="c">1/5</div>
+<div class="opcion" data-op="a">2/10</div>
+<div class="opcion" data-op="b">1/5</div>
+<div class="opcion" data-op="c">2/9</div>
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">3. ¿√16 es racional o irracional?</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">C. ¿√16 es racional o irracional?</div>
 <div class="opciones">
-<div class="opcion" data-op="a">Racional (es 4)</div>
-<div class="opcion" data-op="b">Irracional</div>
+<div class="opcion" data-op="a">Irracional</div>
+<div class="opcion" data-op="b">Racional (es 4)</div>
 <div class="opcion" data-op="c">No es un número real</div>
 </div>
 <div class="fb"></div>
@@ -542,16 +542,16 @@
 
   /* ---- Quiz ---- */
   var preguntasQuiz = [
-    { enun: '1. ¿A qué conjunto más específico pertenece el número 7?', ops: ['Natural', 'Irracional', 'Solo real', 'Negativo'], correcta: 0 },
-    { enun: '2. ¿Cómo se clasifica √2?', ops: ['Racional', 'Irracional', 'Entero', 'Natural'], correcta: 1 },
-    { enun: '3. ¿Cómo se clasifica −5?', ops: ['Natural', 'Entero', 'Irracional', 'No es real'], correcta: 1 },
-    { enun: '4. ¿Cómo se clasifica √9?', ops: ['Irracional', 'Racional (es 3)', 'No es real', 'Solo entre 3 y 4'], correcta: 1 },
-    { enun: '5. ¿Entre qué enteros está √2?', ops: ['Entre 0 y 1', 'Entre 1 y 2', 'Entre 2 y 3', 'Entre 3 y 4'], correcta: 1 },
-    { enun: '6. ¿Dónde se ubica π en la recta numérica?', ops: ['Entre 2 y 3', 'Entre 3 y 4', 'Entre 4 y 5', 'En el 3 exacto'], correcta: 1 },
-    { enun: '7. ¿Entre qué enteros está √3 (≈ 1.73)?', ops: ['Entre 1 y 2', 'Entre 2 y 3', 'Entre 0 y 1', 'Entre 3 y 4'], correcta: 0 },
-    { enun: '8. ¿Qué fracción equivale a 0.333…?', ops: ['1/3', '3/10', '1/30', '33/100'], correcta: 0 },
-    { enun: '9. ¿Qué fracción equivale a 0.666…?', ops: ['2/3', '6/10', '3/2', '66/100'], correcta: 0 },
-    { enun: '10. ¿Por qué √2 es irracional?', ops: ['Porque es negativo', 'Porque su decimal no termina ni se repite', 'Porque es mayor que 1', 'Porque es un entero'], correcta: 1 }
+    { enun: 'A. ¿A qué conjunto más específico pertenece el número 7?', ops: ['Irracional', 'Solo real', 'Negativo', 'Natural'], correcta: 3 },
+    { enun: 'B. ¿Cómo se clasifica √2?', ops: ['Irracional', 'Racional', 'Entero', 'Natural'], correcta: 0 },
+    { enun: 'C. ¿Cómo se clasifica −5?', ops: ['Natural', 'Entero', 'Irracional', 'No es real'], correcta: 1 },
+    { enun: 'D. ¿Cómo se clasifica √9?', ops: ['Irracional', 'No es real', 'Racional (es 3)', 'Solo entre 3 y 4'], correcta: 2 },
+    { enun: 'E. ¿Entre qué enteros está √2?', ops: ['Entre 0 y 1', 'Entre 1 y 2', 'Entre 2 y 3', 'Entre 3 y 4'], correcta: 1 },
+    { enun: 'F. ¿Dónde se ubica π en la recta numérica?', ops: ['Entre 2 y 3', 'Entre 4 y 5', 'Entre 3 y 4', 'En el 3 exacto'], correcta: 2 },
+    { enun: 'G. ¿Entre qué enteros está √3 (≈ 1.73)?', ops: ['Entre 2 y 3', 'Entre 0 y 1', 'Entre 3 y 4', 'Entre 1 y 2'], correcta: 3 },
+    { enun: 'H. ¿Qué fracción equivale a 0.333…?', ops: ['1/3', '3/10', '1/30', '33/100'], correcta: 0 },
+    { enun: 'I. ¿Qué fracción equivale a 0.666…?', ops: ['6/10', '2/3', '3/2', '66/100'], correcta: 1 },
+    { enun: 'J. ¿Por qué √2 es irracional?', ops: ['Porque es negativo', 'Porque es mayor que 1', 'Porque es un entero', 'Porque su decimal no termina ni se repite'], correcta: 3 }
   ];
 
   var cuerpo = document.getElementById('quiz-cuerpo');

@@ -304,26 +304,26 @@
 <div class="practica">
 <h3>Práctica interactiva 1 · Despejar una variable</h3>
 <p>Selecciona el despeje correcto.</p>
-<div class="pregunta" data-correcta="a">
-<div class="enun">1. En d = rt, despeja r.</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">A. En d = rt, despeja r.</div>
 <div class="opciones">
-<div class="opcion" data-op="a">r = d/t</div>
-<div class="opcion" data-op="b">r = dt</div>
-<div class="opcion" data-op="c">r = t/d</div>
+<div class="opcion" data-op="a">r = dt</div>
+<div class="opcion" data-op="b">r = t/d</div>
+<div class="opcion" data-op="c">r = d/t</div>
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">2. En A = lw, despeja l.</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">B. En A = lw, despeja l.</div>
 <div class="opciones">
-<div class="opcion" data-op="a">l = A/w</div>
-<div class="opcion" data-op="b">l = Aw</div>
+<div class="opcion" data-op="a">l = Aw</div>
+<div class="opcion" data-op="b">l = A/w</div>
 <div class="opcion" data-op="c">l = w/A</div>
 </div>
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="a">
-<div class="enun">3. En P = a + b + c, despeja c.</div>
+<div class="enun">C. En P = a + b + c, despeja c.</div>
 <div class="opciones">
 <div class="opcion" data-op="a">c = P − a − b</div>
 <div class="opcion" data-op="b">c = P + a + b</div>
@@ -495,16 +495,16 @@
 
   /* ---- Quiz ---- */
   var preguntasQuiz = [
-    { enun: '1. En d = rt, despeja t.', ops: ['t = d/r', 't = dr', 't = r/d', 't = d − r'], correcta: 0 },
-    { enun: '2. En A = bh, despeja h.', ops: ['h = A/b', 'h = Ab', 'h = b/A', 'h = A − b'], correcta: 0 },
-    { enun: '3. En I = Prt, despeja P.', ops: ['P = I/(rt)', 'P = Irt', 'P = rt/I', 'P = I − rt'], correcta: 0 },
-    { enun: '4. En P = 2l + 2w, despeja w.', ops: ['w = (P − 2l)/2', 'w = P − 2l', 'w = 2P − 2l', 'w = (P + 2l)/2'], correcta: 0 },
-    { enun: '5. En y = mx + b, despeja b.', ops: ['b = y − mx', 'b = y + mx', 'b = mx − y', 'b = y/(mx)'], correcta: 0 },
-    { enun: '6. En V = lwh, despeja h.', ops: ['h = V/(lw)', 'h = Vlw', 'h = lw/V', 'h = V − lw'], correcta: 0 },
-    { enun: '7. En d = rt, si d = 120 y r = 40, halla t.', ops: ['t = 3', 't = 80', 't = 160', 't = 4800'], correcta: 0 },
-    { enun: '8. En A = bh, si A = 24 y b = 6, halla h.', ops: ['h = 4', 'h = 18', 'h = 144', 'h = 30'], correcta: 0 },
-    { enun: '9. En I = Prt, si I = 100, r = 0.05 y t = 2, halla P.', ops: ['P = 1000', 'P = 10', 'P = 100', 'P = 500'], correcta: 0 },
-    { enun: '10. En C = (F − 32) · 5/9, si F = 212, halla C.', ops: ['C = 100', 'C = 180', 'C = 32', 'C = 212'], correcta: 0 }
+    { enun: 'A. En d = rt, despeja t.', ops: ['t = dr', 't = d/r', 't = r/d', 't = d − r'], correcta: 1 },
+    { enun: 'B. En A = bh, despeja h.', ops: ['h = A/b', 'h = Ab', 'h = b/A', 'h = A − b'], correcta: 0 },
+    { enun: 'C. En I = Prt, despeja P.', ops: ['P = Irt', 'P = rt/I', 'P = I − rt', 'P = I/(rt)'], correcta: 3 },
+    { enun: 'D. En P = 2l + 2w, despeja w.', ops: ['w = P − 2l', 'w = 2P − 2l', 'w = (P − 2l)/2', 'w = (P + 2l)/2'], correcta: 2 },
+    { enun: 'E. En y = mx + b, despeja b.', ops: ['b = y + mx', 'b = y − mx', 'b = mx − y', 'b = y/(mx)'], correcta: 1 },
+    { enun: 'F. En V = lwh, despeja h.', ops: ['h = Vlw', 'h = lw/V', 'h = V − lw', 'h = V/(lw)'], correcta: 3 },
+    { enun: 'G. En d = rt, si d = 120 y r = 40, halla t.', ops: ['t = 80', 't = 160', 't = 3', 't = 4800'], correcta: 2 },
+    { enun: 'H. En A = bh, si A = 24 y b = 6, halla h.', ops: ['h = 4', 'h = 18', 'h = 144', 'h = 30'], correcta: 0 },
+    { enun: 'I. En I = Prt, si I = 100, r = 0.05 y t = 2, halla P.', ops: ['P = 10', 'P = 100', 'P = 500', 'P = 1000'], correcta: 3 },
+    { enun: 'J. En C = (F − 32) · 5/9, si F = 212, halla C.', ops: ['C = 180', 'C = 100', 'C = 32', 'C = 212'], correcta: 1 }
   ];
 
   var cuerpo = document.getElementById('quiz-cuerpo');

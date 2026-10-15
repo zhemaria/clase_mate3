@@ -270,18 +270,18 @@
     <h3>Práctica interactiva 1 · Traducir a inecuación</h3>
     <p>Selecciona el signo o la inecuación correcta.</p>
 
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">1. «Un número x es al menos 8»</div>
+    <div class="pregunta" data-correcta="c">
+      <div class="enun">A. «Un número x es al menos 8»</div>
       <div class="opciones">
-        <div class="opcion" data-op="a">x ≥ 8</div>
-        <div class="opcion" data-op="b">x ≤ 8</div>
-        <div class="opcion" data-op="c">x &gt; 8</div>
+        <div class="opcion" data-op="a">x ≤ 8</div>
+        <div class="opcion" data-op="b">x &gt; 8</div>
+        <div class="opcion" data-op="c">x ≥ 8</div>
       </div>
       <div class="fb"></div>
     </div>
 
     <div class="pregunta" data-correcta="a">
-      <div class="enun">2. «Un número x no más de 15»</div>
+      <div class="enun">B. «Un número x no más de 15»</div>
       <div class="opciones">
         <div class="opcion" data-op="a">x ≤ 15</div>
         <div class="opcion" data-op="b">x ≥ 15</div>
@@ -290,11 +290,11 @@
       <div class="fb"></div>
     </div>
 
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">3. «Un número x es más que 3»</div>
+    <div class="pregunta" data-correcta="b">
+      <div class="enun">C. «Un número x es más que 3»</div>
       <div class="opciones">
-        <div class="opcion" data-op="a">x &gt; 3</div>
-        <div class="opcion" data-op="b">x ≥ 3</div>
+        <div class="opcion" data-op="a">x ≥ 3</div>
+        <div class="opcion" data-op="b">x &gt; 3</div>
         <div class="opcion" data-op="c">x &lt; 3</div>
       </div>
       <div class="fb"></div>
@@ -347,18 +347,18 @@
     <h3>Práctica interactiva 2 · Simplificar y aplicar</h3>
     <p>Selecciona la respuesta correcta de cada caso.</p>
 
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">1. Resuelve 4(x − 1) ≤ 12.</div>
+    <div class="pregunta" data-correcta="b">
+      <div class="enun">A. Resuelve 4(x − 1) ≤ 12.</div>
       <div class="opciones">
-        <div class="opcion" data-op="a">x ≤ 4</div>
-        <div class="opcion" data-op="b">x ≥ 4</div>
+        <div class="opcion" data-op="a">x ≥ 4</div>
+        <div class="opcion" data-op="b">x ≤ 4</div>
         <div class="opcion" data-op="c">x ≤ 3</div>
       </div>
       <div class="fb"></div>
     </div>
 
     <div class="pregunta" data-correcta="a">
-      <div class="enun">2. Resuelve 2x + 5 &gt; x + 9.</div>
+      <div class="enun">B. Resuelve 2x + 5 &gt; x + 9.</div>
       <div class="opciones">
         <div class="opcion" data-op="a">x &gt; 4</div>
         <div class="opcion" data-op="b">x &lt; 4</div>
@@ -367,12 +367,12 @@
       <div class="fb"></div>
     </div>
 
-    <div class="pregunta" data-correcta="a">
-      <div class="enun">3. Se dispone de $40 como máximo y ya se gastaron $25. ¿Cuánto más (x) se puede gastar?</div>
+    <div class="pregunta" data-correcta="c">
+      <div class="enun">C. Se dispone de $40 como máximo y ya se gastaron $25. ¿Cuánto más (x) se puede gastar?</div>
       <div class="opciones">
-        <div class="opcion" data-op="a">x ≤ 15</div>
-        <div class="opcion" data-op="b">x ≥ 15</div>
-        <div class="opcion" data-op="c">x ≤ 40</div>
+        <div class="opcion" data-op="a">x ≥ 15</div>
+        <div class="opcion" data-op="b">x ≤ 40</div>
+        <div class="opcion" data-op="c">x ≤ 15</div>
       </div>
       <div class="fb"></div>
     </div>
@@ -552,16 +552,16 @@
 
   /* ---- Quiz ---- */
   var preguntasQuiz = [
-    { enun: '1. Resuelve: 2(x + 3) > 10.', ops: ['x > 2', 'x > 8', 'x < 2', 'x > 5'], correcta: 0 },
-    { enun: '2. Resuelve: 3x + 2 ≤ x + 8.', ops: ['x ≤ 3', 'x ≥ 3', 'x ≤ 5', 'x ≤ 10'], correcta: 0 },
-    { enun: '3. Resuelve: 5x − 3 > 2x + 9.', ops: ['x > 4', 'x < 4', 'x > 2', 'x > 12'], correcta: 0 },
-    { enun: '4. Resuelve: −2(x − 1) ≥ 8.', ops: ['x ≤ −3', 'x ≥ −3', 'x ≤ 3', 'x ≥ 3'], correcta: 0 },
-    { enun: '5. Traduce: «un número x es al menos 10».', ops: ['x ≥ 10', 'x ≤ 10', 'x > 10', 'x < 10'], correcta: 0 },
-    { enun: '6. Traduce: «un número x no excede 20».', ops: ['x ≤ 20', 'x ≥ 20', 'x < 20', 'x = 20'], correcta: 0 },
-    { enun: '7. Traduce: «el doble de un número es más que 14».', ops: ['2x > 14', '2x < 14', '2x ≥ 14', 'x + 2 > 14'], correcta: 0 },
-    { enun: '8. Traduce: «un número aumentado en 5 es no más de 12».', ops: ['x + 5 ≤ 12', 'x + 5 ≥ 12', 'x − 5 ≤ 12', '5x ≤ 12'], correcta: 0 },
-    { enun: '9. Se puede gastar como máximo $50 y ya se gastaron $30. ¿Cuánto más (x)?', ops: ['x ≤ 20', 'x ≥ 20', 'x < 30', 'x ≤ 80'], correcta: 0 },
-    { enun: '10. Si x ≤ 7 representa el número de horas, ¿cuál es el máximo de horas?', ops: ['7 horas', '6 horas', '8 horas', 'Infinitas'], correcta: 0 }
+    { enun: 'A. Resuelve: 2(x + 3) > 10.', ops: ['x > 8', 'x < 2', 'x > 5', 'x > 2'], correcta: 3 },
+    { enun: 'B. Resuelve: 3x + 2 ≤ x + 8.', ops: ['x ≥ 3', 'x ≤ 5', 'x ≤ 3', 'x ≤ 10'], correcta: 2 },
+    { enun: 'C. Resuelve: 5x − 3 > 2x + 9.', ops: ['x < 4', 'x > 4', 'x > 2', 'x > 12'], correcta: 1 },
+    { enun: 'D. Resuelve: −2(x − 1) ≥ 8.', ops: ['x ≤ −3', 'x ≥ −3', 'x ≤ 3', 'x ≥ 3'], correcta: 0 },
+    { enun: 'E. Traduce: «un número x es al menos 10».', ops: ['x ≤ 10', 'x > 10', 'x < 10', 'x ≥ 10'], correcta: 3 },
+    { enun: 'F. Traduce: «un número x no excede 20».', ops: ['x ≥ 20', 'x < 20', 'x ≤ 20', 'x = 20'], correcta: 2 },
+    { enun: 'G. Traduce: «el doble de un número es más que 14».', ops: ['2x < 14', '2x > 14', '2x ≥ 14', 'x + 2 > 14'], correcta: 1 },
+    { enun: 'H. Traduce: «un número aumentado en 5 es no más de 12».', ops: ['x + 5 ≤ 12', 'x + 5 ≥ 12', 'x − 5 ≤ 12', '5x ≤ 12'], correcta: 0 },
+    { enun: 'I. Se puede gastar como máximo $50 y ya se gastaron $30. ¿Cuánto más (x)?', ops: ['x ≥ 20', 'x < 30', 'x ≤ 80', 'x ≤ 20'], correcta: 3 },
+    { enun: 'J. Si x ≤ 7 representa el número de horas, ¿cuál es el máximo de horas?', ops: ['6 horas', '7 horas', '8 horas', 'Infinitas'], correcta: 1 }
   ];
 
   var cuerpo = document.getElementById('quiz-cuerpo');

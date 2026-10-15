@@ -281,17 +281,17 @@
 <div class="practica">
 <h3>Práctica interactiva 1 · De decimal a científica</h3>
 <p>Selecciona la notación científica correcta de cada número.</p>
-<div class="pregunta" data-correcta="b">
-<div class="enun">1. 6,200 =</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">A. 6,200 =</div>
 <div class="opciones">
-<div class="opcion" data-op="a">6.2 × 10²</div>
-<div class="opcion" data-op="b">6.2 × 10³</div>
+<div class="opcion" data-op="a">6.2 × 10³</div>
+<div class="opcion" data-op="b">6.2 × 10²</div>
 <div class="opcion" data-op="c">62 × 10²</div>
 </div>
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="c">
-<div class="enun">2. 410,000 =</div>
+<div class="enun">B. 410,000 =</div>
 <div class="opciones">
 <div class="opcion" data-op="a">4.1 × 10⁴</div>
 <div class="opcion" data-op="b">41 × 10⁴</div>
@@ -299,11 +299,11 @@
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">3. 0.0072 =</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">C. 0.0072 =</div>
 <div class="opciones">
-<div class="opcion" data-op="a">7.2 × 10⁻³</div>
-<div class="opcion" data-op="b">7.2 × 10⁻²</div>
+<div class="opcion" data-op="a">7.2 × 10⁻²</div>
+<div class="opcion" data-op="b">7.2 × 10⁻³</div>
 <div class="opcion" data-op="c">7.2 × 10³</div>
 </div>
 <div class="fb"></div>
@@ -341,29 +341,29 @@
 <div class="practica">
 <h3>Práctica interactiva 2 · De científica a decimal y comparar</h3>
 <p>Selecciona la respuesta correcta de cada caso.</p>
-<div class="pregunta" data-correcta="c">
-<div class="enun">1. 4.8 × 10⁴ =</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">A. 4.8 × 10⁴ =</div>
 <div class="opciones">
 <div class="opcion" data-op="a">480</div>
-<div class="opcion" data-op="b">4,800</div>
-<div class="opcion" data-op="c">48,000</div>
+<div class="opcion" data-op="b">48,000</div>
+<div class="opcion" data-op="c">4,800</div>
+</div>
+<div class="fb"></div>
+</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">B. 3 × 10⁻³ =</div>
+<div class="opciones">
+<div class="opcion" data-op="a">0.03</div>
+<div class="opcion" data-op="b">300</div>
+<div class="opcion" data-op="c">0.003</div>
 </div>
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="a">
-<div class="enun">2. 3 × 10⁻³ =</div>
+<div class="enun">C. ¿Cuál cantidad es mayor?</div>
 <div class="opciones">
-<div class="opcion" data-op="a">0.003</div>
-<div class="opcion" data-op="b">0.03</div>
-<div class="opcion" data-op="c">300</div>
-</div>
-<div class="fb"></div>
-</div>
-<div class="pregunta" data-correcta="b">
-<div class="enun">3. ¿Cuál cantidad es mayor?</div>
-<div class="opciones">
-<div class="opcion" data-op="a">8 × 10⁵</div>
-<div class="opcion" data-op="b">5 × 10⁶</div>
+<div class="opcion" data-op="a">5 × 10⁶</div>
+<div class="opcion" data-op="b">8 × 10⁵</div>
 <div class="opcion" data-op="c">Son iguales</div>
 </div>
 <div class="fb"></div>
@@ -519,16 +519,16 @@
 
   /* ---- Quiz ---- */
   var preguntasQuiz = [
-    { enun: '1. Escribe 52,000 en notación científica.', ops: ['5.2 × 10³', '5.2 × 10⁴', '52 × 10³', '5.2 × 10⁻⁴'], correcta: 1 },
-    { enun: '2. Escribe 8,300,000 en notación científica.', ops: ['8.3 × 10⁵', '8.3 × 10⁶', '83 × 10⁵', '8.3 × 10⁷'], correcta: 1 },
-    { enun: '3. Escribe 0.0006 en notación científica.', ops: ['6 × 10⁴', '6 × 10⁻³', '6 × 10⁻⁴', '0.6 × 10⁻³'], correcta: 2 },
-    { enun: '4. Escribe 0.00045 en notación científica.', ops: ['4.5 × 10⁻⁴', '4.5 × 10⁻³', '45 × 10⁻⁵', '4.5 × 10⁴'], correcta: 0 },
-    { enun: '5. Escribe 3.7 × 10⁵ en notación decimal.', ops: ['37,000', '370,000', '3,700,000', '0.000037'], correcta: 1 },
-    { enun: '6. Escribe 2.1 × 10³ en notación decimal.', ops: ['210', '2,100', '21,000', '0.0021'], correcta: 1 },
-    { enun: '7. Escribe 9 × 10⁻³ en notación decimal.', ops: ['0.0009', '0.009', '0.09', '9,000'], correcta: 1 },
-    { enun: '8. Escribe 5.6 × 10⁻² en notación decimal.', ops: ['0.56', '0.056', '0.0056', '560'], correcta: 1 },
-    { enun: '9. ¿Cuál cantidad es mayor?', ops: ['3 × 10⁸', '9 × 10⁷', 'Son iguales', 'No se puede saber'], correcta: 0 },
-    { enun: '10. Ordena de menor a mayor: 4 × 10³, 7 × 10², 2 × 10⁴.', ops: ['7 × 10², 4 × 10³, 2 × 10⁴', '4 × 10³, 7 × 10², 2 × 10⁴', '2 × 10⁴, 4 × 10³, 7 × 10²', '7 × 10², 2 × 10⁴, 4 × 10³'], correcta: 0 }
+    { enun: 'A. Escribe 52,000 en notación científica.', ops: ['5.2 × 10³', '52 × 10³', '5.2 × 10⁴', '5.2 × 10⁻⁴'], correcta: 2 },
+    { enun: 'B. Escribe 8,300,000 en notación científica.', ops: ['8.3 × 10⁶', '8.3 × 10⁵', '83 × 10⁵', '8.3 × 10⁷'], correcta: 0 },
+    { enun: 'C. Escribe 0.0006 en notación científica.', ops: ['6 × 10⁴', '6 × 10⁻³', '0.6 × 10⁻³', '6 × 10⁻⁴'], correcta: 3 },
+    { enun: 'D. Escribe 0.00045 en notación científica.', ops: ['4.5 × 10⁻³', '4.5 × 10⁻⁴', '45 × 10⁻⁵', '4.5 × 10⁴'], correcta: 1 },
+    { enun: 'E. Escribe 3.7 × 10⁵ en notación decimal.', ops: ['370,000', '37,000', '3,700,000', '0.000037'], correcta: 0 },
+    { enun: 'F. Escribe 2.1 × 10³ en notación decimal.', ops: ['210', '21,000', '2,100', '0.0021'], correcta: 2 },
+    { enun: 'G. Escribe 9 × 10⁻³ en notación decimal.', ops: ['0.0009', '0.009', '0.09', '9,000'], correcta: 1 },
+    { enun: 'H. Escribe 5.6 × 10⁻² en notación decimal.', ops: ['0.56', '0.0056', '560', '0.056'], correcta: 3 },
+    { enun: 'I. ¿Cuál cantidad es mayor?', ops: ['3 × 10⁸', '9 × 10⁷', 'Son iguales', 'No se puede saber'], correcta: 0 },
+    { enun: 'J. Ordena de menor a mayor: 4 × 10³, 7 × 10², 2 × 10⁴.', ops: ['7 × 10², 4 × 10³, 2 × 10⁴', '4 × 10³, 7 × 10², 2 × 10⁴', '2 × 10⁴, 4 × 10³, 7 × 10²', '7 × 10², 2 × 10⁴, 4 × 10³'], correcta: 0 }
   ];
 
   var cuerpo = document.getElementById('quiz-cuerpo');

@@ -280,26 +280,26 @@
 <div class="practica">
 <h3>Práctica interactiva 1 · Fracciones y decimales</h3>
 <p>Selecciona la solución correcta de cada ecuación.</p>
-<div class="pregunta" data-correcta="a">
-<div class="enun">1. x/2 = 9</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">A. x/2 = 9</div>
 <div class="opciones">
-<div class="opcion" data-op="a">x = 18</div>
-<div class="opcion" data-op="b">x = 11</div>
-<div class="opcion" data-op="c">x = 4.5</div>
+<div class="opcion" data-op="a">x = 11</div>
+<div class="opcion" data-op="b">x = 4.5</div>
+<div class="opcion" data-op="c">x = 18</div>
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">2. x/5 + 2 = 6</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">B. x/5 + 2 = 6</div>
 <div class="opciones">
-<div class="opcion" data-op="a">x = 20</div>
-<div class="opcion" data-op="b">x = 4</div>
+<div class="opcion" data-op="a">x = 4</div>
+<div class="opcion" data-op="b">x = 20</div>
 <div class="opcion" data-op="c">x = 40</div>
 </div>
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="a">
-<div class="enun">3. 0.5x = 7</div>
+<div class="enun">C. 0.5x = 7</div>
 <div class="opciones">
 <div class="opcion" data-op="a">x = 14</div>
 <div class="opcion" data-op="b">x = 3.5</div>
@@ -360,7 +360,7 @@
 <h3>Práctica interactiva 2 · ¿Cuántas soluciones?</h3>
 <p>Clasifica el tipo de solución de cada ecuación.</p>
 <div class="pregunta" data-correcta="a">
-<div class="enun">1. 2x + 3 = 2x + 8</div>
+<div class="enun">A. 2x + 3 = 2x + 8</div>
 <div class="opciones">
 <div class="opcion" data-op="a">Sin solución</div>
 <div class="opcion" data-op="b">Una solución</div>
@@ -368,20 +368,20 @@
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">2. 5(x + 1) = 5x + 5</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">B. 5(x + 1) = 5x + 5</div>
 <div class="opciones">
-<div class="opcion" data-op="a">Infinitas soluciones</div>
-<div class="opcion" data-op="b">Sin solución</div>
-<div class="opcion" data-op="c">Una solución</div>
+<div class="opcion" data-op="a">Sin solución</div>
+<div class="opcion" data-op="b">Una solución</div>
+<div class="opcion" data-op="c">Infinitas soluciones</div>
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">3. 3x + 1 = 7</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">C. 3x + 1 = 7</div>
 <div class="opciones">
-<div class="opcion" data-op="a">Una solución</div>
-<div class="opcion" data-op="b">Sin solución</div>
+<div class="opcion" data-op="a">Sin solución</div>
+<div class="opcion" data-op="b">Una solución</div>
 <div class="opcion" data-op="c">Infinitas soluciones</div>
 </div>
 <div class="fb"></div>
@@ -502,16 +502,16 @@
 
   /* ---- Quiz ---- */
   var preguntasQuiz = [
-    { enun: '1. Resuelve: x/2 + 3 = 7.', ops: ['x = 8', 'x = 5', 'x = 2', 'x = 20'], correcta: 0 },
-    { enun: '2. Resuelve: x/3 = 6.', ops: ['x = 18', 'x = 2', 'x = 3', 'x = 9'], correcta: 0 },
-    { enun: '3. Resuelve: x/2 + x/4 = 6.', ops: ['x = 8', 'x = 6', 'x = 24', 'x = 2'], correcta: 0 },
-    { enun: '4. Para resolver x/3 + x/6 = 2, ¿por cuánto conviene multiplicar?', ops: ['6', '3', '2', '9'], correcta: 0 },
-    { enun: '5. Resuelve: 0.5x = 10.', ops: ['x = 20', 'x = 5', 'x = 0.5', 'x = 2'], correcta: 0 },
-    { enun: '6. Resuelve: 0.2x + 1 = 3.', ops: ['x = 10', 'x = 2', 'x = 20', 'x = 4'], correcta: 0 },
-    { enun: '7. Para limpiar 0.25x + 0.5 = 1, ¿por cuánto se multiplica?', ops: ['100', '10', '25', '1000'], correcta: 0 },
-    { enun: '8. La ecuación 2x + 5 = 2x + 9 lleva a 5 = 9. ¿Qué tipo es?', ops: ['Sin solución', 'Una solución', 'Infinitas soluciones', 'x = 0'], correcta: 0 },
-    { enun: '9. La ecuación 3(x + 1) = 3x + 3 lleva a 0 = 0. ¿Qué tipo es?', ops: ['Infinitas soluciones', 'Sin solución', 'Una solución', 'x = 3'], correcta: 0 },
-    { enun: '10. La ecuación 4x + 2 = 10 lleva a x = 2. ¿Qué tipo es?', ops: ['Una solución', 'Sin solución', 'Infinitas soluciones', 'Ninguna de las anteriores'], correcta: 0 }
+    { enun: 'A. Resuelve: x/2 + 3 = 7.', ops: ['x = 5', 'x = 8', 'x = 2', 'x = 20'], correcta: 1 },
+    { enun: 'B. Resuelve: x/3 = 6.', ops: ['x = 2', 'x = 3', 'x = 9', 'x = 18'], correcta: 3 },
+    { enun: 'C. Resuelve: x/2 + x/4 = 6.', ops: ['x = 6', 'x = 24', 'x = 8', 'x = 2'], correcta: 2 },
+    { enun: 'D. Para resolver x/3 + x/6 = 2, ¿por cuánto conviene multiplicar?', ops: ['6', '3', '2', '9'], correcta: 0 },
+    { enun: 'E. Resuelve: 0.5x = 10.', ops: ['x = 5', 'x = 20', 'x = 0.5', 'x = 2'], correcta: 1 },
+    { enun: 'F. Resuelve: 0.2x + 1 = 3.', ops: ['x = 2', 'x = 20', 'x = 4', 'x = 10'], correcta: 3 },
+    { enun: 'G. Para limpiar 0.25x + 0.5 = 1, ¿por cuánto se multiplica?', ops: ['10', '25', '100', '1000'], correcta: 2 },
+    { enun: 'H. La ecuación 2x + 5 = 2x + 9 lleva a 5 = 9. ¿Qué tipo es?', ops: ['Sin solución', 'Una solución', 'Infinitas soluciones', 'x = 0'], correcta: 0 },
+    { enun: 'I. La ecuación 3(x + 1) = 3x + 3 lleva a 0 = 0. ¿Qué tipo es?', ops: ['Sin solución', 'Una solución', 'x = 3', 'Infinitas soluciones'], correcta: 3 },
+    { enun: 'J. La ecuación 4x + 2 = 10 lleva a x = 2. ¿Qué tipo es?', ops: ['Una solución', 'Sin solución', 'Infinitas soluciones', 'Ninguna de las anteriores'], correcta: 0 }
   ];
 
   var cuerpo = document.getElementById('quiz-cuerpo');

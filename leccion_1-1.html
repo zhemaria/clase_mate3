@@ -700,7 +700,7 @@
         </p>
 <div class="pregunta">
 <div class="enun">
-            1. x⁴ · x⁵ = x
+            A. x⁴ · x⁵ = x
             <sup>?</sup>
 </div>
 <input aria-label="Exponente del resultado de x a la cuatro por x a la cinco" class="campo-num" id="s1" inputmode="numeric" type="text"/>
@@ -708,7 +708,7 @@
 </div>
 <div class="pregunta">
 <div class="enun">
-            2. a⁷ · a = a
+            B. a⁷ · a = a
             <sup>?</sup>
               (recuerda que a = a¹)
           </div>
@@ -717,7 +717,7 @@
 </div>
 <div class="pregunta">
 <div class="enun">
-            3. y² · y³ · y⁴ = y
+            C. y² · y³ · y⁴ = y
             <sup>?</sup>
 </div>
 <input aria-label="Exponente del resultado de y al cuadrado por y al cubo por y a la cuatro" class="campo-num" id="s3" inputmode="numeric" type="text"/>
@@ -725,7 +725,7 @@
 </div>
 <div class="pregunta">
 <div class="enun">
-            4. 3⁵ · 3² = 3
+            D. 3⁵ · 3² = 3
             <sup>?</sup>
 </div>
 <input aria-label="Exponente del resultado de tres a la cinco por tres al cuadrado" class="campo-num" id="s4" inputmode="numeric" type="text"/>
@@ -869,17 +869,17 @@
 <div class="practica">
 <h3>Práctica interactiva 2 · Potencia de potencia y de un producto</h3>
 <p>Selecciona la simplificación correcta de cada expresión.</p>
-<div class="pregunta" data-correcta="b">
-<div class="enun">1. (a³)⁵ =</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">A. (a³)⁵ =</div>
 <div class="opciones">
-<div class="opcion" data-op="a">a⁸</div>
-<div class="opcion" data-op="b">a¹⁵</div>
+<div class="opcion" data-op="a">a¹⁵</div>
+<div class="opcion" data-op="b">a⁸</div>
 <div class="opcion" data-op="c">a³⁵</div>
 </div>
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="c">
-<div class="enun">2. (2x)⁴ =</div>
+<div class="enun">B. (2x)⁴ =</div>
 <div class="opciones">
 <div class="opcion" data-op="a">2x⁴</div>
 <div class="opcion" data-op="b">8x⁴</div>
@@ -888,7 +888,7 @@
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="b">
-<div class="enun">3. (x²y)³ =</div>
+<div class="enun">C. (x²y)³ =</div>
 <div class="opciones">
 <div class="opcion" data-op="a">x⁵y³</div>
 <div class="opcion" data-op="b">x⁶y³</div>
@@ -1122,18 +1122,18 @@
 
           /* ---- Quiz ---- */
           var preguntasQuiz = [
-            {enun: '1. Simplifica: a⁴ · a³.', ops: ['a⁷', 'a¹²', 'a¹', 'a⁴³'], correcta: 0},
-            {enun: '2. Simplifica: x⁵ · x.', ops: ['x⁵', 'x⁶', 'x⁴', 'x²⁵'], correcta: 1},
-            {enun: '3. Simplifica: (a³)⁴.', ops: ['a⁷', 'a¹²', 'a³⁴', 'a⁸¹'], correcta: 1},
-            {enun: '4. Simplifica: (y⁵)².', ops: ['y⁷', 'y³', 'y¹⁰', 'y²⁵'], correcta: 2},
-            {enun: '5. Simplifica: (ab)⁴.', ops: ['ab⁴', 'a⁴b', 'a⁴b⁴', '4ab'], correcta: 2},
-            {enun: '6. Simplifica: (2x)³.', ops: ['2x³', '6x³', '8x³', '8x'], correcta: 2},
-            {enun: '7. Simplifica: (3y²)².', ops: ['3y⁴', '9y⁴', '9y²', '6y⁴'], correcta: 1},
-            {enun: '8. ¿A qué potencia de 2 equivale 2³ · 2²?', ops: ['2⁵', '2⁶', '2¹', '2⁹'], correcta: 0},
-            {enun: '9. ¿Qué regla se usa para simplificar (x⁴)³?', ops: ['Sumar los exponentes', 'Multiplicar los exponentes', 'Restar los exponentes', 'Repartir el exponente'], correcta: 1},
-            {enun: '10. Simplifica: (x²y³)².', ops: ['x⁴y⁶', 'x⁴y⁵', 'x⁴y⁹', 'x²y⁶'], correcta: 0},
-            {enun: '11. ¿Cuál es el error en «a³ · a² = a⁶»?', ops: ['La base es incorrecta', 'Los exponentes deben sumarse: a⁵', 'Los exponentes deben restarse: a¹', 'No hay error'], correcta: 1},
-            {enun: '12. Simplifica: (5a)².', ops: ['5a²', '10a²', '25a²', '25a'], correcta: 2}
+            {enun: 'A. Simplifica: a⁴ · a³.', ops: ['a⁷', 'a¹²', 'a¹', 'a⁴³'], correcta: 0},
+            {enun: 'B. Simplifica: x⁵ · x.', ops: ['x⁵', 'x⁴', 'x⁶', 'x²⁵'], correcta: 2},
+            {enun: 'C. Simplifica: (a³)⁴.', ops: ['a⁷', 'a³⁴', 'a⁸¹', 'a¹²'], correcta: 3},
+            {enun: 'D. Simplifica: (y⁵)².', ops: ['y⁷', 'y¹⁰', 'y³', 'y²⁵'], correcta: 1},
+            {enun: 'E. Simplifica: (ab)⁴.', ops: ['ab⁴', 'a⁴b', '4ab', 'a⁴b⁴'], correcta: 3},
+            {enun: 'F. Simplifica: (2x)³.', ops: ['8x³', '2x³', '6x³', '8x'], correcta: 0},
+            {enun: 'G. Simplifica: (3y²)².', ops: ['3y⁴', '9y²', '9y⁴', '6y⁴'], correcta: 2},
+            {enun: 'H. ¿A qué potencia de 2 equivale 2³ · 2²?', ops: ['2⁶', '2⁵', '2¹', '2⁹'], correcta: 1},
+            {enun: 'I. ¿Qué regla se usa para simplificar (x⁴)³?', ops: ['Multiplicar los exponentes', 'Sumar los exponentes', 'Restar los exponentes', 'Repartir el exponente'], correcta: 0},
+            {enun: 'J. Simplifica: (x²y³)².', ops: ['x⁴y⁵', 'x⁴y⁶', 'x⁴y⁹', 'x²y⁶'], correcta: 1},
+            {enun: 'K. ¿Cuál es el error en «a³ · a² = a⁶»?', ops: ['La base es incorrecta', 'Los exponentes deben restarse: a¹', 'No hay error', 'Los exponentes deben sumarse: a⁵'], correcta: 3},
+            {enun: 'L. Simplifica: (5a)².', ops: ['5a²', '10a²', '25a²', '25a'], correcta: 2}
           ];
 
           var cuerpo = document.getElementById('quiz-cuerpo');

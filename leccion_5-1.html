@@ -300,26 +300,26 @@
 <div class="practica">
 <h3>Práctica interactiva 1 · ¿Qué pasa con el signo?</h3>
 <p>Selecciona la solución correcta de cada inecuación.</p>
-<div class="pregunta" data-correcta="a">
-<div class="enun">1. −3x &lt; 9</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">A. −3x &lt; 9</div>
 <div class="opciones">
-<div class="opcion" data-op="a">x &gt; −3</div>
-<div class="opcion" data-op="b">x &lt; −3</div>
+<div class="opcion" data-op="a">x &lt; −3</div>
+<div class="opcion" data-op="b">x &gt; −3</div>
 <div class="opcion" data-op="c">x &gt; 3</div>
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">2. 2x &gt; 10</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">B. 2x &gt; 10</div>
 <div class="opciones">
-<div class="opcion" data-op="a">x &gt; 5</div>
-<div class="opcion" data-op="b">x &lt; 5</div>
-<div class="opcion" data-op="c">x &gt; 20</div>
+<div class="opcion" data-op="a">x &lt; 5</div>
+<div class="opcion" data-op="b">x &gt; 20</div>
+<div class="opcion" data-op="c">x &gt; 5</div>
 </div>
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="a">
-<div class="enun">3. −x ≤ 4</div>
+<div class="enun">C. −x ≤ 4</div>
 <div class="opciones">
 <div class="opcion" data-op="a">x ≥ −4</div>
 <div class="opcion" data-op="b">x ≤ −4</div>
@@ -396,17 +396,17 @@
 <div class="practica">
 <h3>Práctica interactiva 2 · Graficar la solución</h3>
 <p>Selecciona la respuesta correcta de cada caso.</p>
-<div class="pregunta" data-correcta="a">
-<div class="enun">1. Para graficar x ≤ 7, el punto en 7 es…</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">A. Para graficar x ≤ 7, el punto en 7 es…</div>
 <div class="opciones">
-<div class="opcion" data-op="a">Cerrado ●</div>
-<div class="opcion" data-op="b">Abierto ○</div>
-<div class="opcion" data-op="c">No se marca</div>
+<div class="opcion" data-op="a">Abierto ○</div>
+<div class="opcion" data-op="b">No se marca</div>
+<div class="opcion" data-op="c">Cerrado ●</div>
 </div>
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="a">
-<div class="enun">2. Para graficar x &gt; 1, el punto en 1 es…</div>
+<div class="enun">B. Para graficar x &gt; 1, el punto en 1 es…</div>
 <div class="opciones">
 <div class="opcion" data-op="a">Abierto ○</div>
 <div class="opcion" data-op="b">Cerrado ●</div>
@@ -414,11 +414,11 @@
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">3. En x ≥ 0, ¿hacia dónde va la flecha?</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">C. En x ≥ 0, ¿hacia dónde va la flecha?</div>
 <div class="opciones">
-<div class="opcion" data-op="a">A la derecha</div>
-<div class="opcion" data-op="b">A la izquierda</div>
+<div class="opcion" data-op="a">A la izquierda</div>
+<div class="opcion" data-op="b">A la derecha</div>
 <div class="opcion" data-op="c">No hay flecha</div>
 </div>
 <div class="fb"></div>
@@ -561,16 +561,16 @@
 
   /* ---- Quiz ---- */
   var preguntasQuiz = [
-    { enun: '1. Resuelve: x + 5 < 12.', ops: ['x < 7', 'x > 7', 'x < 17', 'x > 17'], correcta: 0 },
-    { enun: '2. Resuelve: 3x ≤ 15.', ops: ['x ≤ 5', 'x ≥ 5', 'x ≤ 45', 'x ≤ 12'], correcta: 0 },
-    { enun: '3. Resuelve: −2x < 8.', ops: ['x > −4', 'x < −4', 'x > 4', 'x < 4'], correcta: 0 },
-    { enun: '4. Resuelve: −x ≥ 3.', ops: ['x ≤ −3', 'x ≥ −3', 'x ≤ 3', 'x ≥ 3'], correcta: 0 },
-    { enun: '5. Para graficar x ≥ 2, el punto en 2 es…', ops: ['Cerrado ●', 'Abierto ○', 'No se marca', 'Depende del valor'], correcta: 0 },
-    { enun: '6. Para graficar x < 5, ¿punto y dirección?', ops: ['Abierto ○, flecha a la izquierda', 'Cerrado ●, flecha a la derecha', 'Abierto ○, flecha a la derecha', 'Cerrado ●, flecha a la izquierda'], correcta: 0 },
-    { enun: '7. ¿Qué desigualdad muestra «punto cerrado en 3, flecha a la derecha»?', ops: ['x ≥ 3', 'x > 3', 'x ≤ 3', 'x < 3'], correcta: 0 },
-    { enun: '8. ¿x = 5 satisface x > 2?', ops: ['Sí', 'No', 'Solo si x = 2', 'No se puede saber'], correcta: 0 },
-    { enun: '9. ¿x = 4 satisface x < 4?', ops: ['No, porque 4 no es menor que 4', 'Sí', 'Sí, porque 4 = 4', 'Solo a veces'], correcta: 0 },
-    { enun: '10. ¿x = −1 satisface x ≥ −3?', ops: ['Sí', 'No', 'Solo si x = −3', 'No es un número real'], correcta: 0 }
+    { enun: 'A. Resuelve: x + 5 < 12.', ops: ['x > 7', 'x < 7', 'x < 17', 'x > 17'], correcta: 1 },
+    { enun: 'B. Resuelve: 3x ≤ 15.', ops: ['x ≥ 5', 'x ≤ 45', 'x ≤ 12', 'x ≤ 5'], correcta: 3 },
+    { enun: 'C. Resuelve: −2x < 8.', ops: ['x < −4', 'x > 4', 'x > −4', 'x < 4'], correcta: 2 },
+    { enun: 'D. Resuelve: −x ≥ 3.', ops: ['x ≤ −3', 'x ≥ −3', 'x ≤ 3', 'x ≥ 3'], correcta: 0 },
+    { enun: 'E. Para graficar x ≥ 2, el punto en 2 es…', ops: ['Abierto ○', 'No se marca', 'Cerrado ●', 'Depende del valor'], correcta: 2 },
+    { enun: 'F. Para graficar x < 5, ¿punto y dirección?', ops: ['Cerrado ●, flecha a la derecha', 'Abierto ○, flecha a la izquierda', 'Abierto ○, flecha a la derecha', 'Cerrado ●, flecha a la izquierda'], correcta: 1 },
+    { enun: 'G. ¿Qué desigualdad muestra «punto cerrado en 3, flecha a la derecha»?', ops: ['x ≥ 3', 'x > 3', 'x ≤ 3', 'x < 3'], correcta: 0 },
+    { enun: 'H. ¿x = 5 satisface x > 2?', ops: ['Sí', 'No', 'Solo si x = 2', 'No se puede saber'], correcta: 0 },
+    { enun: 'I. ¿x = 4 satisface x < 4?', ops: ['Sí', 'Sí, porque 4 = 4', 'Solo a veces', 'No, porque 4 no es menor que 4'], correcta: 3 },
+    { enun: 'J. ¿x = −1 satisface x ≥ −3?', ops: ['Sí', 'No', 'Solo si x = −3', 'No es un número real'], correcta: 0 }
   ];
 
   var cuerpo = document.getElementById('quiz-cuerpo');

@@ -280,7 +280,7 @@
 <h3>Práctica interactiva 1 · Multiplicar</h3>
 <p>Selecciona el resultado correcto, en notación científica válida.</p>
 <div class="pregunta" data-correcta="a">
-<div class="enun">1. (2 × 10⁴)(4 × 10³) =</div>
+<div class="enun">A. (2 × 10⁴)(4 × 10³) =</div>
 <div class="opciones">
 <div class="opcion" data-op="a">8 × 10⁷</div>
 <div class="opcion" data-op="b">8 × 10¹²</div>
@@ -288,17 +288,17 @@
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">2. (3 × 10²)(3 × 10²) =</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">B. (3 × 10²)(3 × 10²) =</div>
 <div class="opciones">
-<div class="opcion" data-op="a">9 × 10⁴</div>
-<div class="opcion" data-op="b">6 × 10⁴</div>
-<div class="opcion" data-op="c">9 × 10²</div>
+<div class="opcion" data-op="a">6 × 10⁴</div>
+<div class="opcion" data-op="b">9 × 10²</div>
+<div class="opcion" data-op="c">9 × 10⁴</div>
 </div>
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="b">
-<div class="enun">3. (5 × 10³)(4 × 10²) =</div>
+<div class="enun">C. (5 × 10³)(4 × 10²) =</div>
 <div class="opciones">
 <div class="opcion" data-op="a">20 × 10⁵</div>
 <div class="opcion" data-op="b">2 × 10⁶</div>
@@ -368,7 +368,7 @@
 <h3>Práctica interactiva 2 · Dividir</h3>
 <p>Selecciona el resultado correcto, en notación científica válida.</p>
 <div class="pregunta" data-correcta="a">
-<div class="enun">1. (6 × 10⁸) ÷ (3 × 10²) =</div>
+<div class="enun">A. (6 × 10⁸) ÷ (3 × 10²) =</div>
 <div class="opciones">
 <div class="opcion" data-op="a">2 × 10⁶</div>
 <div class="opcion" data-op="b">2 × 10⁴</div>
@@ -377,7 +377,7 @@
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="b">
-<div class="enun">2. (9 × 10⁵) ÷ (3 × 10⁻²) =</div>
+<div class="enun">B. (9 × 10⁵) ÷ (3 × 10⁻²) =</div>
 <div class="opciones">
 <div class="opcion" data-op="a">3 × 10³</div>
 <div class="opcion" data-op="b">3 × 10⁷</div>
@@ -385,12 +385,12 @@
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="b">
-<div class="enun">3. (4 × 10³) ÷ (8 × 10⁵) =</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">C. (4 × 10³) ÷ (8 × 10⁵) =</div>
 <div class="opciones">
 <div class="opcion" data-op="a">0.5 × 10⁻²</div>
-<div class="opcion" data-op="b">5 × 10⁻³</div>
-<div class="opcion" data-op="c">5 × 10⁻²</div>
+<div class="opcion" data-op="b">5 × 10⁻²</div>
+<div class="opcion" data-op="c">5 × 10⁻³</div>
 </div>
 <div class="fb"></div>
 </div>
@@ -518,16 +518,16 @@
 
   /* ---- Quiz ---- */
   var preguntasQuiz = [
-    { enun: '1. (2 × 10³)(3 × 10⁴) =', ops: ['6 × 10⁷', '6 × 10¹²', '5 × 10⁷', '6 × 10¹'], correcta: 0 },
-    { enun: '2. (4 × 10⁵)(2 × 10²) =', ops: ['8 × 10⁷', '8 × 10¹⁰', '6 × 10⁷', '8 × 10³'], correcta: 0 },
-    { enun: '3. (1.5 × 10²)(2 × 10³) =', ops: ['3 × 10⁵', '3 × 10⁶', '3.5 × 10⁵', '30 × 10⁵'], correcta: 0 },
-    { enun: '4. (3 × 10⁻²)(3 × 10⁵) =', ops: ['9 × 10³', '9 × 10⁻¹⁰', '6 × 10³', '9 × 10⁷'], correcta: 0 },
-    { enun: '5. (8 × 10⁶) ÷ (2 × 10²) =', ops: ['4 × 10⁴', '4 × 10³', '6 × 10⁴', '4 × 10⁸'], correcta: 0 },
-    { enun: '6. (9 × 10⁸) ÷ (3 × 10⁵) =', ops: ['3 × 10³', '3 × 10¹³', '6 × 10³', '3 × 10⁴'], correcta: 0 },
-    { enun: '7. (6 × 10⁴) ÷ (2 × 10⁷) =', ops: ['3 × 10³', '3 × 10⁻³', '3 × 10¹¹', '3 × 10⁻¹¹'], correcta: 1 },
-    { enun: '8. (5 × 10⁻³) ÷ (5 × 10²) =', ops: ['1 × 10⁻⁵', '1 × 10⁻¹', '1 × 10⁵', '1 × 10⁻⁶'], correcta: 0 },
-    { enun: '9. Un producto dio 24 × 10⁵. ¿Cuál es la forma estándar?', ops: ['24 × 10⁵', '2.4 × 10⁶', '2.4 × 10⁴', '0.24 × 10⁷'], correcta: 1 },
-    { enun: '10. Un cociente dio 0.5 × 10⁴. ¿Cuál es la forma estándar?', ops: ['0.5 × 10⁴', '5 × 10³', '5 × 10⁵', '50 × 10²'], correcta: 1 }
+    { enun: 'A. (2 × 10³)(3 × 10⁴) =', ops: ['6 × 10¹²', '5 × 10⁷', '6 × 10¹', '6 × 10⁷'], correcta: 3 },
+    { enun: 'B. (4 × 10⁵)(2 × 10²) =', ops: ['8 × 10¹⁰', '8 × 10⁷', '6 × 10⁷', '8 × 10³'], correcta: 1 },
+    { enun: 'C. (1.5 × 10²)(2 × 10³) =', ops: ['3 × 10⁶', '3.5 × 10⁵', '3 × 10⁵', '30 × 10⁵'], correcta: 2 },
+    { enun: 'D. (3 × 10⁻²)(3 × 10⁵) =', ops: ['9 × 10³', '9 × 10⁻¹⁰', '6 × 10³', '9 × 10⁷'], correcta: 0 },
+    { enun: 'E. (8 × 10⁶) ÷ (2 × 10²) =', ops: ['4 × 10³', '6 × 10⁴', '4 × 10⁸', '4 × 10⁴'], correcta: 3 },
+    { enun: 'F. (9 × 10⁸) ÷ (3 × 10⁵) =', ops: ['3 × 10¹³', '3 × 10³', '6 × 10³', '3 × 10⁴'], correcta: 1 },
+    { enun: 'G. (6 × 10⁴) ÷ (2 × 10⁷) =', ops: ['3 × 10⁻³', '3 × 10³', '3 × 10¹¹', '3 × 10⁻¹¹'], correcta: 0 },
+    { enun: 'H. (5 × 10⁻³) ÷ (5 × 10²) =', ops: ['1 × 10⁻¹', '1 × 10⁵', '1 × 10⁻⁵', '1 × 10⁻⁶'], correcta: 2 },
+    { enun: 'I. Un producto dio 24 × 10⁵. ¿Cuál es la forma estándar?', ops: ['24 × 10⁵', '2.4 × 10⁴', '0.24 × 10⁷', '2.4 × 10⁶'], correcta: 3 },
+    { enun: 'J. Un cociente dio 0.5 × 10⁴. ¿Cuál es la forma estándar?', ops: ['0.5 × 10⁴', '5 × 10³', '5 × 10⁵', '50 × 10²'], correcta: 1 }
   ];
 
   var cuerpo = document.getElementById('quiz-cuerpo');

@@ -297,7 +297,7 @@
 <h3>Práctica interactiva 1 · Calcular la hipotenusa</h3>
 <p>Selecciona la longitud correcta de la hipotenusa.</p>
 <div class="pregunta" data-correcta="a">
-<div class="enun">1. Catetos 8 y 15.</div>
+<div class="enun">A. Catetos 8 y 15.</div>
 <div class="opciones">
 <div class="opcion" data-op="a">17</div>
 <div class="opcion" data-op="b">23</div>
@@ -305,21 +305,21 @@
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">2. Catetos 9 y 12.</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">B. Catetos 9 y 12.</div>
 <div class="opciones">
-<div class="opcion" data-op="a">15</div>
-<div class="opcion" data-op="b">21</div>
+<div class="opcion" data-op="a">21</div>
+<div class="opcion" data-op="b">15</div>
 <div class="opcion" data-op="c">225</div>
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">3. Catetos 3 y 4.</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">C. Catetos 3 y 4.</div>
 <div class="opciones">
-<div class="opcion" data-op="a">5</div>
-<div class="opcion" data-op="b">7</div>
-<div class="opcion" data-op="c">12</div>
+<div class="opcion" data-op="a">7</div>
+<div class="opcion" data-op="b">12</div>
+<div class="opcion" data-op="c">5</div>
 </div>
 <div class="fb"></div>
 </div>
@@ -409,17 +409,17 @@
 <div class="practica">
 <h3>Práctica interactiva 2 · Cateto y converso</h3>
 <p>Selecciona la respuesta correcta de cada caso.</p>
-<div class="pregunta" data-correcta="a">
-<div class="enun">1. Hipotenusa 13, un cateto 12. El otro cateto mide…</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">A. Hipotenusa 13, un cateto 12. El otro cateto mide…</div>
 <div class="opciones">
-<div class="opcion" data-op="a">5</div>
-<div class="opcion" data-op="b">7</div>
+<div class="opcion" data-op="a">7</div>
+<div class="opcion" data-op="b">5</div>
 <div class="opcion" data-op="c">25</div>
 </div>
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="a">
-<div class="enun">2. ¿Es rectángulo un triángulo de lados 5, 12 y 13?</div>
+<div class="enun">B. ¿Es rectángulo un triángulo de lados 5, 12 y 13?</div>
 <div class="opciones">
 <div class="opcion" data-op="a">Sí, porque 25 + 144 = 169</div>
 <div class="opcion" data-op="b">No</div>
@@ -427,12 +427,12 @@
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">3. ¿Es rectángulo un triángulo de lados 4, 5 y 6?</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">C. ¿Es rectángulo un triángulo de lados 4, 5 y 6?</div>
 <div class="opciones">
-<div class="opcion" data-op="a">No, porque 16 + 25 ≠ 36</div>
-<div class="opcion" data-op="b">Sí</div>
-<div class="opcion" data-op="c">Siempre lo es</div>
+<div class="opcion" data-op="a">Sí</div>
+<div class="opcion" data-op="b">Siempre lo es</div>
+<div class="opcion" data-op="c">No, porque 16 + 25 ≠ 36</div>
 </div>
 <div class="fb"></div>
 </div>
@@ -552,16 +552,16 @@
 
   /* ---- Quiz ---- */
   var preguntasQuiz = [
-    { enun: '1. Catetos 3 y 4. La hipotenusa mide…', ops: ['5', '7', '25', '12'], correcta: 0 },
-    { enun: '2. Catetos 6 y 8. La hipotenusa mide…', ops: ['10', '14', '100', '48'], correcta: 0 },
-    { enun: '3. Catetos 5 y 12. La hipotenusa mide…', ops: ['13', '17', '169', '60'], correcta: 0 },
-    { enun: '4. Hipotenusa 13, un cateto 5. El otro cateto mide…', ops: ['12', '8', '18', '144'], correcta: 0 },
-    { enun: '5. Hipotenusa 10, un cateto 6. El otro cateto mide…', ops: ['8', '4', '16', '60'], correcta: 0 },
-    { enun: '6. Hipotenusa 25, un cateto 7. El otro cateto mide…', ops: ['24', '18', '32', '625'], correcta: 0 },
-    { enun: '7. ¿Es rectángulo un triángulo de lados 3, 4 y 5?', ops: ['Sí, porque 9 + 16 = 25', 'No', 'Solo si es isósceles', 'Falta información'], correcta: 0 },
-    { enun: '8. ¿Es rectángulo un triángulo de lados 6, 8 y 11?', ops: ['No, porque 36 + 64 ≠ 121', 'Sí', 'Sí, siempre', 'No se puede saber'], correcta: 0 },
-    { enun: '9. Una rampa tiene base 12 m y altura 5 m. ¿Cuánto mide la rampa (hipotenusa)?', ops: ['13 m', '17 m', '7 m', '60 m'], correcta: 0 },
-    { enun: '10. Una escalera de 10 m se apoya a 6 m de la pared. ¿A qué altura llega?', ops: ['8 m', '4 m', '16 m', '60 m'], correcta: 0 }
+    { enun: 'A. Catetos 3 y 4. La hipotenusa mide…', ops: ['7', '5', '25', '12'], correcta: 1 },
+    { enun: 'B. Catetos 6 y 8. La hipotenusa mide…', ops: ['14', '100', '48', '10'], correcta: 3 },
+    { enun: 'C. Catetos 5 y 12. La hipotenusa mide…', ops: ['17', '169', '13', '60'], correcta: 2 },
+    { enun: 'D. Hipotenusa 13, un cateto 5. El otro cateto mide…', ops: ['12', '8', '18', '144'], correcta: 0 },
+    { enun: 'E. Hipotenusa 10, un cateto 6. El otro cateto mide…', ops: ['4', '16', '60', '8'], correcta: 3 },
+    { enun: 'F. Hipotenusa 25, un cateto 7. El otro cateto mide…', ops: ['18', '24', '32', '625'], correcta: 1 },
+    { enun: 'G. ¿Es rectángulo un triángulo de lados 3, 4 y 5?', ops: ['Sí, porque 9 + 16 = 25', 'No', 'Solo si es isósceles', 'Falta información'], correcta: 0 },
+    { enun: 'H. ¿Es rectángulo un triángulo de lados 6, 8 y 11?', ops: ['No, porque 36 + 64 ≠ 121', 'Sí', 'Sí, siempre', 'No se puede saber'], correcta: 0 },
+    { enun: 'I. Una rampa tiene base 12 m y altura 5 m. ¿Cuánto mide la rampa (hipotenusa)?', ops: ['17 m', '7 m', '13 m', '60 m'], correcta: 2 },
+    { enun: 'J. Una escalera de 10 m se apoya a 6 m de la pared. ¿A qué altura llega?', ops: ['4 m', '16 m', '60 m', '8 m'], correcta: 3 }
   ];
 
   var cuerpo = document.getElementById('quiz-cuerpo');

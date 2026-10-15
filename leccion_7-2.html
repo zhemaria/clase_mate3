@@ -302,17 +302,17 @@
 <div class="practica">
 <h3>Práctica interactiva 1 · Cuartiles y construcción</h3>
 <p>Selecciona la respuesta correcta de cada caso.</p>
-<div class="pregunta" data-correcta="a">
-<div class="enun">1. Datos 1, 3, 5, 7, 9. La mediana es…</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">A. Datos 1, 3, 5, 7, 9. La mediana es…</div>
 <div class="opciones">
-<div class="opcion" data-op="a">5</div>
-<div class="opcion" data-op="b">4</div>
+<div class="opcion" data-op="a">4</div>
+<div class="opcion" data-op="b">5</div>
 <div class="opcion" data-op="c">7</div>
 </div>
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="a">
-<div class="enun">2. Si Q1 = 10 y Q3 = 30, el IQR es…</div>
+<div class="enun">B. Si Q1 = 10 y Q3 = 30, el IQR es…</div>
 <div class="opciones">
 <div class="opcion" data-op="a">20</div>
 <div class="opcion" data-op="b">40</div>
@@ -320,12 +320,12 @@
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">3. ¿Cuántos valores clave tiene el diagrama de caja?</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">C. ¿Cuántos valores clave tiene el diagrama de caja?</div>
 <div class="opciones">
-<div class="opcion" data-op="a">5</div>
-<div class="opcion" data-op="b">3</div>
-<div class="opcion" data-op="c">4</div>
+<div class="opcion" data-op="a">3</div>
+<div class="opcion" data-op="b">4</div>
+<div class="opcion" data-op="c">5</div>
 </div>
 <div class="fb"></div>
 </div>
@@ -380,17 +380,17 @@
 <div class="practica">
 <h3>Práctica interactiva 2 · Atípicos e interpretación</h3>
 <p>Selecciona la respuesta correcta de cada caso.</p>
-<div class="pregunta" data-correcta="a">
-<div class="enun">1. La regla para detectar valores atípicos usa el factor…</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">A. La regla para detectar valores atípicos usa el factor…</div>
 <div class="opciones">
-<div class="opcion" data-op="a">1.5 × IQR</div>
-<div class="opcion" data-op="b">2 × la media</div>
-<div class="opcion" data-op="c">Q2</div>
+<div class="opcion" data-op="a">2 × la media</div>
+<div class="opcion" data-op="b">Q2</div>
+<div class="opcion" data-op="c">1.5 × IQR</div>
 </div>
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="a">
-<div class="enun">2. La línea dentro de la caja representa…</div>
+<div class="enun">B. La línea dentro de la caja representa…</div>
 <div class="opciones">
 <div class="opcion" data-op="a">La mediana</div>
 <div class="opcion" data-op="b">La media</div>
@@ -398,11 +398,11 @@
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">3. Una caja más ancha indica…</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">C. Una caja más ancha indica…</div>
 <div class="opciones">
-<div class="opcion" data-op="a">Más variabilidad</div>
-<div class="opcion" data-op="b">Menos variabilidad</div>
+<div class="opcion" data-op="a">Menos variabilidad</div>
+<div class="opcion" data-op="b">Más variabilidad</div>
 <div class="opcion" data-op="c">Mayor mediana</div>
 </div>
 <div class="fb"></div>
@@ -545,16 +545,16 @@
 
   /* ---- Quiz ---- */
   var preguntasQuiz = [
-    { enun: '1. Datos ordenados 2, 4, 6, 8, 10. La mediana (Q2) es…', ops: ['6', '5', '8', '4'], correcta: 0 },
-    { enun: '2. Si Q1 = 20 y Q3 = 50, el IQR es…', ops: ['30', '70', '50', '20'], correcta: 0 },
-    { enun: '3. El IQR se calcula como…', ops: ['Q3 − Q1', 'Q3 + Q1', 'máx − mín', 'la mediana'], correcta: 0 },
-    { enun: '4. La regla para detectar valores atípicos usa el factor…', ops: ['1.5 × IQR', '2 × IQR', 'la mediana', 'el rango'], correcta: 0 },
-    { enun: '5. Si IQR = 30 y Q3 = 55, el límite superior (Q3 + 1.5 × IQR) es…', ops: ['100', '85', '45', '75'], correcta: 0 },
-    { enun: '6. Un valor atípico es uno que…', ops: ['Queda muy por fuera del resto de los datos', 'Es la mediana', 'Es siempre el máximo', 'Es Q2'], correcta: 0 },
-    { enun: '7. En un diagrama de caja, los bigotes llegan hasta…', ops: ['El mínimo y el máximo', 'Q1 y Q3', 'La media', 'Los valores atípicos'], correcta: 0 },
-    { enun: '8. La línea dentro de la caja representa…', ops: ['La mediana', 'La media', 'El máximo', 'El IQR'], correcta: 0 },
-    { enun: '9. Si la mediana del grupo A es mayor que la del grupo B, entonces…', ops: ['El grupo A tiene, en general, valores más altos', 'Los grupos son iguales', 'El grupo B tiene mayor máximo', 'No se puede comparar'], correcta: 0 },
-    { enun: '10. Un grupo con una caja más ancha tiene…', ops: ['Mayor variabilidad', 'Menor variabilidad', 'Más valores atípicos siempre', 'Mayor mediana'], correcta: 0 }
+    { enun: 'A. Datos ordenados 2, 4, 6, 8, 10. La mediana (Q2) es…', ops: ['5', '6', '8', '4'], correcta: 1 },
+    { enun: 'B. Si Q1 = 20 y Q3 = 50, el IQR es…', ops: ['70', '50', '20', '30'], correcta: 3 },
+    { enun: 'C. El IQR se calcula como…', ops: ['Q3 − Q1', 'Q3 + Q1', 'máx − mín', 'la mediana'], correcta: 0 },
+    { enun: 'D. La regla para detectar valores atípicos usa el factor…', ops: ['2 × IQR', 'la mediana', '1.5 × IQR', 'el rango'], correcta: 2 },
+    { enun: 'E. Si IQR = 30 y Q3 = 55, el límite superior (Q3 + 1.5 × IQR) es…', ops: ['100', '85', '45', '75'], correcta: 0 },
+    { enun: 'F. Un valor atípico es uno que…', ops: ['Es la mediana', 'Es siempre el máximo', 'Es Q2', 'Queda muy por fuera del resto de los datos'], correcta: 3 },
+    { enun: 'G. En un diagrama de caja, los bigotes llegan hasta…', ops: ['Q1 y Q3', 'La media', 'El mínimo y el máximo', 'Los valores atípicos'], correcta: 2 },
+    { enun: 'H. La línea dentro de la caja representa…', ops: ['La media', 'La mediana', 'El máximo', 'El IQR'], correcta: 1 },
+    { enun: 'I. Si la mediana del grupo A es mayor que la del grupo B, entonces…', ops: ['El grupo A tiene, en general, valores más altos', 'Los grupos son iguales', 'El grupo B tiene mayor máximo', 'No se puede comparar'], correcta: 0 },
+    { enun: 'J. Un grupo con una caja más ancha tiene…', ops: ['Menor variabilidad', 'Más valores atípicos siempre', 'Mayor mediana', 'Mayor variabilidad'], correcta: 3 }
   ];
 
   var cuerpo = document.getElementById('quiz-cuerpo');

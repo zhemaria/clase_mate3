@@ -273,30 +273,30 @@
 <div class="practica">
 <h3>Práctica interactiva 1 · Sumar</h3>
 <p>Selecciona el resultado correcto, en notación científica válida.</p>
-<div class="pregunta" data-correcta="a">
-<div class="enun">1. 4 × 10² + 5 × 10² =</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">A. 4 × 10² + 5 × 10² =</div>
 <div class="opciones">
-<div class="opcion" data-op="a">9 × 10²</div>
-<div class="opcion" data-op="b">9 × 10⁴</div>
+<div class="opcion" data-op="a">9 × 10⁴</div>
+<div class="opcion" data-op="b">9 × 10²</div>
 <div class="opcion" data-op="c">20 × 10²</div>
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="b">
-<div class="enun">2. 7 × 10⁵ + 7 × 10⁵ =</div>
+<div class="pregunta" data-correcta="a">
+<div class="enun">B. 7 × 10⁵ + 7 × 10⁵ =</div>
 <div class="opciones">
-<div class="opcion" data-op="a">14 × 10⁵</div>
-<div class="opcion" data-op="b">1.4 × 10⁶</div>
+<div class="opcion" data-op="a">1.4 × 10⁶</div>
+<div class="opcion" data-op="b">14 × 10⁵</div>
 <div class="opcion" data-op="c">1.4 × 10⁵</div>
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="b">
-<div class="enun">3. 5 × 10⁴ + 2 × 10³ =</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">C. 5 × 10⁴ + 2 × 10³ =</div>
 <div class="opciones">
 <div class="opcion" data-op="a">7 × 10⁷</div>
-<div class="opcion" data-op="b">5.2 × 10⁴</div>
-<div class="opcion" data-op="c">5.2 × 10³</div>
+<div class="opcion" data-op="b">5.2 × 10³</div>
+<div class="opcion" data-op="c">5.2 × 10⁴</div>
 </div>
 <div class="fb"></div>
 </div>
@@ -335,17 +335,17 @@
 <div class="practica">
 <h3>Práctica interactiva 2 · Restar</h3>
 <p>Selecciona el resultado correcto, en notación científica válida.</p>
-<div class="pregunta" data-correcta="a">
-<div class="enun">1. 8 × 10³ − 3 × 10³ =</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">A. 8 × 10³ − 3 × 10³ =</div>
 <div class="opciones">
-<div class="opcion" data-op="a">5 × 10³</div>
-<div class="opcion" data-op="b">5 × 10⁰</div>
+<div class="opcion" data-op="a">5 × 10⁰</div>
+<div class="opcion" data-op="b">5 × 10³</div>
 <div class="opcion" data-op="c">11 × 10³</div>
 </div>
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="a">
-<div class="enun">2. 9 × 10⁶ − 9 × 10⁶ =</div>
+<div class="enun">B. 9 × 10⁶ − 9 × 10⁶ =</div>
 <div class="opciones">
 <div class="opcion" data-op="a">0</div>
 <div class="opcion" data-op="b">9 × 10⁶</div>
@@ -353,12 +353,12 @@
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="b">
-<div class="enun">3. 6 × 10⁵ − 4 × 10⁴ =</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">C. 6 × 10⁵ − 4 × 10⁴ =</div>
 <div class="opciones">
 <div class="opcion" data-op="a">2 × 10¹</div>
-<div class="opcion" data-op="b">5.6 × 10⁵</div>
-<div class="opcion" data-op="c">5.6 × 10⁴</div>
+<div class="opcion" data-op="b">5.6 × 10⁴</div>
+<div class="opcion" data-op="c">5.6 × 10⁵</div>
 </div>
 <div class="fb"></div>
 </div>
@@ -525,16 +525,16 @@
 
   /* ---- Quiz ---- */
   var preguntasQuiz = [
-    { enun: '1. 5 × 10³ + 3 × 10³ =', ops: ['8 × 10³', '8 × 10⁶', '15 × 10³', '8 × 10⁹'], correcta: 0 },
-    { enun: '2. 2.5 × 10⁵ + 1.5 × 10⁵ =', ops: ['4 × 10⁵', '4 × 10¹⁰', '4 × 10²⁵', '3.75 × 10⁵'], correcta: 0 },
-    { enun: '3. 6 × 10⁴ + 3 × 10³ =', ops: ['9 × 10⁷', '6.3 × 10⁴', '6.3 × 10³', '9 × 10⁴'], correcta: 1 },
-    { enun: '4. 9 × 10⁶ − 4 × 10⁶ =', ops: ['5 × 10⁶', '5 × 10⁰', '13 × 10⁶', '5 × 10¹²'], correcta: 0 },
-    { enun: '5. 8 × 10⁵ − 5 × 10⁵ =', ops: ['3 × 10⁵', '3 × 10⁰', '3 × 10²⁵', '13 × 10⁵'], correcta: 0 },
-    { enun: '6. 7 × 10⁴ − 2 × 10³ =', ops: ['5 × 10¹', '6.8 × 10⁴', '6.8 × 10³', '5 × 10⁴'], correcta: 1 },
-    { enun: '7. Una sonda recorre 3 × 10⁴ km/h durante 5 horas. ¿Distancia total?', ops: ['1.5 × 10⁵ km', '1.5 × 10⁴ km', '3.5 × 10⁵ km', '8 × 10⁴ km'], correcta: 0 },
-    { enun: '8. Una célula mide 2 × 10⁻⁵ m. ¿Cuánto miden 4 células en fila?', ops: ['8 × 10⁻⁵ m', '8 × 10⁻²⁰ m', '6 × 10⁻⁵ m', '8 × 10⁻⁴ m'], correcta: 0 },
-    { enun: '9. Al sumar 4 × 10³ + 4 × 10³ se obtiene 8 × 10³. ¿Es notación científica válida?', ops: ['Sí, porque 1 ≤ 8 < 10', 'No, debe ser 0.8 × 10⁴', 'No, debe ser 8 × 10⁶', 'No, debe ser 16 × 10³'], correcta: 0 },
-    { enun: '10. ¿Qué se debe hacer primero para sumar 3 × 10⁶ + 5 × 10⁴?', ops: ['Igualar los exponentes de 10', 'Sumar los exponentes', 'Multiplicar los coeficientes', 'Restar los coeficientes'], correcta: 0 }
+    { enun: 'A. 5 × 10³ + 3 × 10³ =', ops: ['8 × 10³', '8 × 10⁶', '15 × 10³', '8 × 10⁹'], correcta: 0 },
+    { enun: 'B. 2.5 × 10⁵ + 1.5 × 10⁵ =', ops: ['4 × 10¹⁰', '4 × 10²⁵', '3.75 × 10⁵', '4 × 10⁵'], correcta: 3 },
+    { enun: 'C. 6 × 10⁴ + 3 × 10³ =', ops: ['9 × 10⁷', '6.3 × 10⁴', '6.3 × 10³', '9 × 10⁴'], correcta: 1 },
+    { enun: 'D. 9 × 10⁶ − 4 × 10⁶ =', ops: ['5 × 10⁰', '13 × 10⁶', '5 × 10⁶', '5 × 10¹²'], correcta: 2 },
+    { enun: 'E. 8 × 10⁵ − 5 × 10⁵ =', ops: ['3 × 10⁰', '3 × 10⁵', '3 × 10²⁵', '13 × 10⁵'], correcta: 1 },
+    { enun: 'F. 7 × 10⁴ − 2 × 10³ =', ops: ['5 × 10¹', '6.8 × 10³', '6.8 × 10⁴', '5 × 10⁴'], correcta: 2 },
+    { enun: 'G. Una sonda recorre 3 × 10⁴ km/h durante 5 horas. ¿Distancia total?', ops: ['1.5 × 10⁵ km', '1.5 × 10⁴ km', '3.5 × 10⁵ km', '8 × 10⁴ km'], correcta: 0 },
+    { enun: 'H. Una célula mide 2 × 10⁻⁵ m. ¿Cuánto miden 4 células en fila?', ops: ['8 × 10⁻²⁰ m', '6 × 10⁻⁵ m', '8 × 10⁻⁴ m', '8 × 10⁻⁵ m'], correcta: 3 },
+    { enun: 'I. Al sumar 4 × 10³ + 4 × 10³ se obtiene 8 × 10³. ¿Es notación científica válida?', ops: ['Sí, porque 1 ≤ 8 < 10', 'No, debe ser 0.8 × 10⁴', 'No, debe ser 8 × 10⁶', 'No, debe ser 16 × 10³'], correcta: 0 },
+    { enun: 'J. ¿Qué se debe hacer primero para sumar 3 × 10⁶ + 5 × 10⁴?', ops: ['Sumar los exponentes', 'Multiplicar los coeficientes', 'Restar los coeficientes', 'Igualar los exponentes de 10'], correcta: 3 }
   ];
 
   var cuerpo = document.getElementById('quiz-cuerpo');

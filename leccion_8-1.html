@@ -319,17 +319,17 @@
 <div class="practica">
 <h3>Práctica interactiva 1 · Conteo y permutaciones</h3>
 <p>Selecciona la respuesta correcta de cada caso.</p>
-<div class="pregunta" data-correcta="a">
-<div class="enun">1. Hay 4 camisas y 3 pantalones. ¿Cuántos conjuntos distintos se pueden formar?</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">A. Hay 4 camisas y 3 pantalones. ¿Cuántos conjuntos distintos se pueden formar?</div>
 <div class="opciones">
-<div class="opcion" data-op="a">12</div>
-<div class="opcion" data-op="b">7</div>
+<div class="opcion" data-op="a">7</div>
+<div class="opcion" data-op="b">12</div>
 <div class="opcion" data-op="c">43</div>
 </div>
 <div class="fb"></div>
 </div>
 <div class="pregunta" data-correcta="a">
-<div class="enun">2. ¿Cuánto es 4!?</div>
+<div class="enun">B. ¿Cuánto es 4!?</div>
 <div class="opciones">
 <div class="opcion" data-op="a">24</div>
 <div class="opcion" data-op="b">12</div>
@@ -337,12 +337,12 @@
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">3. ¿De cuántas formas se pueden ordenar 3 personas en una fila?</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">C. ¿De cuántas formas se pueden ordenar 3 personas en una fila?</div>
 <div class="opciones">
-<div class="opcion" data-op="a">6</div>
-<div class="opcion" data-op="b">3</div>
-<div class="opcion" data-op="c">9</div>
+<div class="opcion" data-op="a">3</div>
+<div class="opcion" data-op="b">9</div>
+<div class="opcion" data-op="c">6</div>
 </div>
 <div class="fb"></div>
 </div>
@@ -391,7 +391,7 @@
 <h3>Práctica interactiva 2 · ¿Permutación o combinación?</h3>
 <p>Selecciona la respuesta correcta de cada caso.</p>
 <div class="pregunta" data-correcta="a">
-<div class="enun">1. Elegir un comité de 3 personas de un grupo de 10 es un problema de…</div>
+<div class="enun">A. Elegir un comité de 3 personas de un grupo de 10 es un problema de…</div>
 <div class="opciones">
 <div class="opcion" data-op="a">Combinación (el orden no importa)</div>
 <div class="opcion" data-op="b">Permutación (el orden importa)</div>
@@ -399,20 +399,20 @@
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">2. Asignar 1.º, 2.º y 3.º lugar a 5 corredores es un problema de…</div>
+<div class="pregunta" data-correcta="c">
+<div class="enun">B. Asignar 1.º, 2.º y 3.º lugar a 5 corredores es un problema de…</div>
 <div class="opciones">
-<div class="opcion" data-op="a">Permutación (el orden importa)</div>
-<div class="opcion" data-op="b">Combinación (el orden no importa)</div>
-<div class="opcion" data-op="c">Factorial de 3</div>
+<div class="opcion" data-op="a">Combinación (el orden no importa)</div>
+<div class="opcion" data-op="b">Factorial de 3</div>
+<div class="opcion" data-op="c">Permutación (el orden importa)</div>
 </div>
 <div class="fb"></div>
 </div>
-<div class="pregunta" data-correcta="a">
-<div class="enun">3. ¿Cuánto es C(4, 2)?</div>
+<div class="pregunta" data-correcta="b">
+<div class="enun">C. ¿Cuánto es C(4, 2)?</div>
 <div class="opciones">
-<div class="opcion" data-op="a">6</div>
-<div class="opcion" data-op="b">12</div>
+<div class="opcion" data-op="a">12</div>
+<div class="opcion" data-op="b">6</div>
 <div class="opcion" data-op="c">8</div>
 </div>
 <div class="fb"></div>
@@ -536,16 +536,16 @@
 
   /* ---- Quiz ---- */
   var preguntasQuiz = [
-    { enun: '1. Hay 3 entradas y 4 platos principales. ¿Cuántas comidas distintas se pueden formar?', ops: ['12', '7', '34', '3'], correcta: 0 },
-    { enun: '2. ¿De cuántas formas se puede vestir alguien con 5 camisas y 2 pantalones?', ops: ['10', '7', '52', '25'], correcta: 0 },
-    { enun: '3. ¿Cuánto es 5!?', ops: ['120', '25', '15', '20'], correcta: 0 },
-    { enun: '4. ¿Cuánto es 3!?', ops: ['6', '9', '3', '1'], correcta: 0 },
-    { enun: '5. ¿De cuántas formas se pueden ordenar 4 personas en una fila?', ops: ['24', '12', '16', '4'], correcta: 0 },
-    { enun: '6. ¿Cuánto es P(5, 2)?', ops: ['20', '10', '25', '7'], correcta: 0 },
-    { enun: '7. ¿Cuánto es C(5, 2)?', ops: ['10', '20', '25', '7'], correcta: 0 },
-    { enun: '8. ¿Cuánto es C(6, 2)?', ops: ['15', '30', '12', '36'], correcta: 0 },
-    { enun: '9. Elegir 3 frutas de 7 para una ensalada (sin importar el orden) es…', ops: ['Combinación', 'Permutación', 'Solo factorial', 'Principio del conteo'], correcta: 0 },
-    { enun: '10. Asignar oro, plata y bronce a 8 atletas es…', ops: ['Permutación', 'Combinación', 'Factorial de 8', 'Principio del conteo solamente'], correcta: 0 }
+    { enun: 'A. Hay 3 entradas y 4 platos principales. ¿Cuántas comidas distintas se pueden formar?', ops: ['7', '34', '12', '3'], correcta: 2 },
+    { enun: 'B. ¿De cuántas formas se puede vestir alguien con 5 camisas y 2 pantalones?', ops: ['7', '10', '52', '25'], correcta: 1 },
+    { enun: 'C. ¿Cuánto es 5!?', ops: ['120', '25', '15', '20'], correcta: 0 },
+    { enun: 'D. ¿Cuánto es 3!?', ops: ['9', '3', '1', '6'], correcta: 3 },
+    { enun: 'E. ¿De cuántas formas se pueden ordenar 4 personas en una fila?', ops: ['12', '16', '24', '4'], correcta: 2 },
+    { enun: 'F. ¿Cuánto es P(5, 2)?', ops: ['10', '20', '25', '7'], correcta: 1 },
+    { enun: 'G. ¿Cuánto es C(5, 2)?', ops: ['20', '25', '7', '10'], correcta: 3 },
+    { enun: 'H. ¿Cuánto es C(6, 2)?', ops: ['15', '30', '12', '36'], correcta: 0 },
+    { enun: 'I. Elegir 3 frutas de 7 para una ensalada (sin importar el orden) es…', ops: ['Permutación', 'Solo factorial', 'Combinación', 'Principio del conteo'], correcta: 2 },
+    { enun: 'J. Asignar oro, plata y bronce a 8 atletas es…', ops: ['Combinación', 'Factorial de 8', 'Principio del conteo solamente', 'Permutación'], correcta: 3 }
   ];
 
   var cuerpo = document.getElementById('quiz-cuerpo');
